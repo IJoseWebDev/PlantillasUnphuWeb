@@ -92,6 +92,15 @@ body {
                 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
+.material-symbols-filled {
+    font-variation-settings: 'FILL' 1;
+}
+
+.pattern-grid {
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
 .smooth-transition {
     @apply transition-all duration-300 ease-out;
 }
@@ -147,24 +156,16 @@ body {
     }
 }
 
-..fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 1;
-    transform: translateY(0);
-    will-change: opacity, transform;
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-    opacity: 1;
-    will-change: opacity;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .slide-in-left {
-    animation: slideInLeft 0.6s ease-out forwards;
-    opacity: 1;
-    transform: translateX(0);
-    will-change: opacity, transform;
+    animation: slideInLeft 0.6s ease-out;
 }
 
 /* ========================================
@@ -197,6 +198,30 @@ button {
 
 button:focus {
     @apply outline-2 outline-offset-2 outline-primary;
+}
+
+details {
+    border-radius: 1.5rem;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] {
+    border-color: rgba(191, 202, 185, 0.3);
+}
+
+details[open] summary {
+    background: transparent;
+    border-top: none;
 }
 
 /* ========================================
