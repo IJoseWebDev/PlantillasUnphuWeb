@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="UNPHU Double Degree - Obtén dos títulos universitarios con una sola experiencia académica."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>UNPHU Double Degree - Obtén dos títulos universitarios</title>
+    
+    <!-- Tailwind CSS - Framework -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-fixed-dim": "#83d99c",
+                        "on-primary-fixed-variant": "#00530e",
+                        "on-secondary-fixed-variant": "#22496b",
+                        "primary-fixed": "#a1f797",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#f7fff0",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#86da7e",
+                        "outline": "#707a6c",
+                        "primary": "#156b1d",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#40493d",
+                        "inverse-primary": "#86da7e",
+                        "inverse-surface": "#2e3132",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#b0d5fe",
+                        "secondary-fixed": "#cfe5ff",
+                        "tertiary": "#056a39",
+                        "tertiary-container": "#2d8450",
+                        "tertiary-fixed": "#9ef6b6",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#bfcab9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed": "#00210e",
+                        "on-secondary-container": "#375d80",
+                        "secondary": "#3c6185",
+                        "secondary-fixed-dim": "#a5caf2",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002203",
+                        "on-tertiary-fixed-variant": "#00522a",
+                        "on-background": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#f6fff4",
+                        "surface-tint": "#186d1f",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed": "#001d33",
+                        "primary-container": "#338534",
+                        "unphu-green": "#439441",
+                        "unphu-blue": "#0A3859",
+                        "unphu-dark": "#006837"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-padding": "120px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Lato"],
+                        "body-md": ["Lato"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-xl": ["Montserrat"],
+                        "label-bold": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(10, 56, 89, 0.9) 0%, rgba(67, 148, 65, 0.85) 100%);
+        }
+        
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #0A3859 0%, #439441 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
+    <!-- Global CSS (si existe) -->
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" data-animate="fade">
+    <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover" 
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGr4hMjq9rXYv_AiYWpLyQ31KHAYm--6VBi4PddztWEnLcYu-4sU7ImWISTraqKsUgP8wpUhmoq1E8GB3VuvIfsuvrH01yKRyRw0VTaZ-5QhEOI2fkW8-iwiTK0oGUNHxnQnZX0upvXoN_NjB8weBuAYpegVKZ5FRQEPhkkxgr7o-4rlUl4s5wtOy0FKLIdjDT1pmjc5oMglKnuBO8d5wCGigqKPH7GfLE_R29nkD_SY2CBpglRL_Wc9VOgsZOq_r2uYEcHrOrBOth" 
+             alt="Campus UNPHU - Estudiantes en ambiente académico internacional"/>
+        <div class="absolute inset-0 gradient-overlay backdrop-blur-sm"></div>
+    </div>
+    <div class="relative z-10 max-w-container-max mx-auto px-gutter md:px-stack-lg text-center text-on-primary">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-lowest/20 backdrop-blur-md mb-8 border border-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+            <span class="font-label-bold text-label-bold uppercase tracking-wider text-surface-container-lowest">Programa de Doble Titulación</span>
+        </div>
+        <h1 class="font-display-xl text-headline-lg-mobile md:text-display-xl mb-6 max-w-4xl mx-auto drop-shadow-md">
+            Obtén dos títulos universitarios con una sola experiencia académica.
+        </h1>
+        <p class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto text-surface-container-lowest/90 drop-shadow">
+            Estudia asignaturas 100% virtuales con una universidad estadounidense y obtén un diploma con reconocimiento internacional sin abandonar tu carrera en la UNPHU.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a class="bg-primary text-on-primary font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-tertiary-container transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto" href="#conoce-mas">
+                Conoce el programa
+            </a>
+            <a class="bg-transparent border-2 border-surface-container-lowest text-on-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full hover:bg-surface-container-lowest hover:text-unphu-blue transition-all duration-200 w-full sm:w-auto" href="#contacto">
+                Solicita información
+            </a>
+        </div>
+        <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-90">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined">public</span>
+                <span class="font-body-md text-sm">Reconocimiento Internacional</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined">laptop_mac</span>
+                <span class="font-body-md text-sm">Modalidad Virtual</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined">school</span>
+                <span class="font-body-md text-sm">Respaldo de dos Universidades</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     QUICK STATS SECTION
+     ============================================ -->
+<section class="py-section-padding bg-surface-container-lowest relative z-20 -mt-10 rounded-t-3xl shadow-sm" data-stagger-container>
+    <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Stat 1 -->
+            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 flex items-center gap-4 card-hover transition-all duration-200" data-stagger>
+                <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md text-xl text-on-surface">2 Títulos</h3>
+                    <p class="font-body-md text-on-surface-variant text-sm">Grado Universitario</p>
+                </div>
+            </div>
+            <!-- Stat 2 -->
+            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 flex items-center gap-4 card-hover transition-all duration-200" data-stagger>
+                <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">map</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md text-xl text-on-surface">RD + USA</h3>
+                    <p class="font-body-md text-on-surface-variant text-sm">Alcance Global</p>
+                </div>
+            </div>
+            <!-- Stat 3 -->
+            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 flex items-center gap-4 card-hover transition-all duration-200" data-stagger>
+                <div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">devices</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md text-xl text-on-surface">100% Virtual</h3>
+                    <p class="font-body-md text-on-surface-variant text-sm">Clases Empire State</p>
+                </div>
+            </div>
+            <!-- Stat 4 -->
+            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 flex items-center gap-4 card-hover transition-all duration-200" data-stagger>
+                <div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error shrink-0">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md text-xl text-on-surface">Menor Tiempo</h3>
+                    <p class="font-body-md text-on-surface-variant text-sm">Y costo optimizado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FEATURES SECTION
+     ============================================ -->
+<section class="py-section-padding bg-background" id="conoce-mas" data-animate="fade">
+    <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">
+                    ¿Qué es el programa de <span class="text-gradient">Doble Titulación</span>?
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    Es una alianza estratégica que te permite cursar tu carrera en la UNPHU mientras completas, de manera simultánea y 100% virtual, una selección de asignaturas impartidas por <strong>Empire State University (ESU)</strong>.
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Al finalizar y cumplir con los requisitos de ambas instituciones, no solo obtienes tu título emitido por la UNPHU, sino también un Bachelor's Degree acreditado en los Estados Unidos, multiplicando exponencialmente tus oportunidades en el mercado laboral global.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary shrink-0 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="font-body-md text-on-surface">No requiere visado ni traslados internacionales.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary shrink-0 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="font-body-md text-on-surface">Integración fluida con tu pensum actual de UNPHU.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10"></div>
+                <h3 class="font-headline-md text-2xl text-on-surface mb-8 text-center">El Camino hacia tu Doble Titulación</h3>
+                <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-secondary">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-timeline-item>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-primary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <span class="material-symbols-outlined text-sm">school</span>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                            <h4 class="font-label-bold text-on-surface mb-1">Estudiante UNPHU</h4>
+                            <p class="text-sm font-body-md text-on-surface-variant">Cursas tu carrera regular en campus.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-secondary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <span class="material-symbols-outlined text-sm">laptop_mac</span>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                            <h4 class="font-label-bold text-on-surface mb-1">Asignaturas ESU</h4>
+                            <p class="text-sm font-body-md text-on-surface-variant">Créditos virtuales paralelos (EEUU).</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-tertiary-container text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <span class="material-symbols-outlined text-sm">task_alt</span>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                            <h4 class="font-label-bold text-on-surface mb-1">Requisitos Completados</h4>
+                            <p class="text-sm font-body-md text-on-surface-variant">Cumplimiento de ambos currículos.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-gradient-to-r from-unphu-blue to-unphu-green text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border-2 border-primary/20 bg-primary/5 shadow-sm">
+                            <h4 class="font-label-bold text-primary mb-1">Doble Titulación</h4>
+                            <p class="text-sm font-body-md text-on-surface-variant">2 Diplomas, 1 esfuerzo centralizado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     CTA FINAL SECTION
+     ============================================ -->
+<section class="py-section-padding relative overflow-hidden" id="contacto" data-animate="fade">
+    <div class="absolute inset-0 bg-unphu-blue z-0">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-gutter md:px-stack-lg relative z-10 text-center">
+        <h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-on-primary mb-6">
+            ¿Listo para ampliar tus oportunidades profesionales?
+        </h2>
+        <p class="font-body-lg text-body-lg text-secondary-fixed mb-10 max-w-2xl mx-auto">
+            Da el siguiente paso hacia una carrera internacional. Nuestro equipo está listo para guiarte en el proceso de admisión.
+        </p>
+        <button class="bg-primary-fixed text-on-primary-fixed-variant font-label-bold text-label-bold py-4 px-10 rounded-full hover:bg-surface-container-lowest transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer" data-cta="request-info">
+            Solicitar Información Ahora
+        </button>
+    </div>
+</section>
+
+<!-- ============================================
+     SCRIPTS - Carga orden importante
+     ============================================ -->
+
+<!-- Config global -->
+<script src="../config.js"></script>
+
+<!-- Utilidades -->
+<script src="../assets/js/utils.js"></script>
+
+<!-- Animaciones -->
+<script src="../assets/js/animations.js"></script>
+
+<!-- Formularios -->
+<script src="../assets/js/forms.js"></script>
+
+<!-- Funcionalidades comunes -->
+<script src="../assets/js/common.js"></script>
+
+<!-- Script inline específico de este landing (opcional) -->
+<script>
+    // Aquí pueden ir funcionalidades específicas de este landing
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Landing Doble Titulación cargado correctamente');
+    });
+</script>
+
+</body>
+</html>
