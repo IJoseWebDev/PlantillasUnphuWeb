@@ -23,6 +23,8 @@ function initFadeInAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
+                entry.target.style.opacity = '';
+                entry.target.style.transform = '';
                 observer.unobserve(entry.target);
             }
         });
