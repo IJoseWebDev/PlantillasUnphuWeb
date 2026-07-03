@@ -315,6 +315,69 @@ html {
     background: linear-gradient(180deg, #145a28 0%, #2d8450 45%, #439441 100%);
 }
 
+.requisitos-carousel {
+    position: relative;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.requisitos-carousel__viewport {
+    overflow: hidden;
+}
+
+.requisitos-carousel__track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.requisitos-carousel__slide {
+    flex-shrink: 0;
+}
+
+.requisitos-carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #156b1d;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.requisitos-carousel__btn--prev {
+    left: 0;
+}
+
+.requisitos-carousel__btn--next {
+    right: 0;
+}
+
+.requisitos-carousel__btn:hover {
+    background: #f3f4f5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.requisitos-carousel__btn:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.requisitos-carousel__btn .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
 .glass-card {
     background: #ffffff;
     border: 1px solid rgba(21, 107, 29, 0.12);
