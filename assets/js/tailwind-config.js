@@ -77,13 +77,13 @@ tailwind.config = {
                 "container-max": "1280px"
             },
             fontFamily: {
-                "body-lg": ["Lato"],
-                "body-md": ["Lato"],
-                "headline-lg": ["Montserrat"],
-                "headline-md": ["Montserrat"],
-                "headline-lg-mobile": ["Montserrat"],
-                "display-xl": ["Montserrat"],
-                "label-bold": ["Montserrat"]
+                "body-lg": ["Lato", "sans-serif"],
+                "body-md": ["Lato", "sans-serif"],
+                "headline-lg": ["Lato", "sans-serif"],
+                "headline-md": ["Lato", "sans-serif"],
+                "headline-lg-mobile": ["Lato", "sans-serif"],
+                "display-xl": ["Lato", "sans-serif"],
+                "label-bold": ["Lato", "sans-serif"]
             },
             fontSize: {
                 "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],

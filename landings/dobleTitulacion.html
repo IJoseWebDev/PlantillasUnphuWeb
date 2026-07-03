@@ -6,88 +6,78 @@
     <meta name="description" content="UNPHU Double Degree - Obtén dos títulos universitarios con una sola experiencia académica."/>
     <meta name="theme-color" content="#156b1d"/>
     <title>UNPHU Goble</title>
-    
-    <!-- Tailwind CSS - Framework -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
-    <!-- Google Fonts -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
-    
-    <!-- Tailwind Config -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+
     <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
-    
-    <!-- Global CSS -->
+
     <link rel="stylesheet" href="../assets/css/global.css"/>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- ============================================
-     HERO SECTION
-     ============================================ -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden" data-animate="fade">
     <div class="absolute inset-0 z-0">
-        <img class="w-full h-full object-cover" 
-             src="../assets/images/hero-2titulos.png" 
+        <img class="w-full h-full object-cover"
+             src="../assets/images/hero-2titulos.png"
              alt="Campus UNPHU - Estudiantes en ambiente académico internacional"/>
         <div class="absolute inset-0 gradient-overlay backdrop-blur-[1px]"></div>
     </div>
     <div class="relative z-10 max-w-container-max mx-auto px-gutter md:px-stack-lg text-center text-on-primary">
-        <h1 class="font-display-lg text-4xl md:text-5xl mb-6 max-w-4xl mx-auto drop-shadow-md">
-        Programa de Doble Titulación UNPHU–Empire State University        
+        <h1 class="type-display mb-6 max-w-4xl mx-auto drop-shadow-md">
+            Programa de Doble Titulación UNPHU–Empire State University
         </h1>
-        <p class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto text-surface-container-lowest/90 drop-shadow">
+        <p class="type-lead mb-10 max-w-2xl mx-auto text-surface-container-lowest/90 drop-shadow">
             Estudia asignaturas 100% virtuales con una universidad estadounidense y obtén un diploma con reconocimiento internacional sin abandonar tu carrera en la UNPHU.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a class="bg-primary text-on-primary font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-tertiary-container transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto" href="#conoce-mas">
+            <a class="type-btn bg-primary text-on-primary py-4 px-8 rounded-full hover:bg-tertiary-container transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto" href="#conoce-mas">
                 Conoce el programa
             </a>
-            <a class="bg-transparent border-2 border-surface-container-lowest text-on-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full hover:bg-surface-container-lowest hover:text-unphu-blue transition-all duration-200 w-full sm:w-auto" href="#contacto">
+            <a class="type-btn bg-transparent border-2 border-surface-container-lowest text-on-primary py-3.5 px-8 rounded-full hover:bg-surface-container-lowest hover:text-unphu-blue transition-all duration-200 w-full sm:w-auto" href="#contacto">
                 Solicita información
             </a>
         </div>
         <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-90">
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined">public</span>
-                <span class="font-body-md text-sm">Reconocimiento Internacional</span>
+                <span class="type-meta">Reconocimiento Internacional</span>
             </div>
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined">laptop_mac</span>
-                <span class="font-body-md text-sm">Modalidad Virtual</span>
+                <span class="type-meta">Modalidad Virtual</span>
             </div>
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined">school</span>
-                <span class="font-body-md text-sm">Respaldo de dos Universidades</span>
+                <span class="type-meta">Respaldo de dos Universidades</span>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- ============================================
-     QUÉ ES EL PROGRAMA SECTION
-     ============================================ -->
 <section class="py-section-padding bg-background" id="conoce-mas" data-animate="fade">
     <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
         <div class="max-w-5xl mx-auto mb-10">
-            <p class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-primary mb-4">
-                <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+            <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-4">
                 Descripción del programa
             </p>
-            <h2 class="font-headline-md text-3xl md:text-4xl text-on-surface ">
-                Imaginas obtener <span class="text-primary">dos títulos universitarios</span>, uno dominicano y otro estadounidense sin renunciar a tu rutina ni a tu presupuesto.
+            <h2 class="type-section-title type-section-title--sm type-section-title--primary">
+                Imaginas obtener dos títulos universitarios, uno dominicano y otro estadounidense sin renunciar a tu rutina ni a tu presupuesto.
             </h2>
         </div>
         <div class="max-w-5xl mx-auto space-y-6 text-justify">
-            <p class="font-body-lg text-on-surface-variant leading-8">
+            <p class="type-body-lg type-body--muted">
                 Con el programa de doble titulación UNPHU–Empire State University lo haces realidad: podrás cursar asignaturas 100 % virtuales con una universidad internacional, avanzar más rápido en tu carrera y graduarte con un diploma reconocido en el mundo.
             </p>
-            <p class="font-body-lg text-on-surface-variant leading-8">
+            <p class="type-body-lg type-body--muted">
                 Esta innovadora alianza académica te brinda una formación global a precio competitivo, combinando la calidad docente de UNPHU con la flexibilidad y prestigio de Empire State University. Aprovecha la oportunidad de diferenciarte en el mercado laboral con dos títulos en menos tiempo y descubre todos los beneficios de pertenecer a este exclusivo programa.
             </p>
-            <p class="font-body-lg text-on-surface-variant leading-8">La Facultad de Ciencias Sociales y Jurídicas de la UNPHU, a través de su Escuela de Negocios, ofrece un programa de doble titulación con Empire State University (ESU). Este programa brinda la oportunidad de cursar asignaturas en línea con ESU y obtener dos títulos universitarios –uno dominicano y otro estadounidense– en menos tiempo y a un costo competitivo. Además, los graduados obtienen un título reconocido internacionalmente.</p>
-            <ul class="space-y-4 text-on-surface-variant pt-2">
+            <p class="type-body-lg type-body--muted">
+                La Facultad de Ciencias Sociales y Jurídicas de la UNPHU, a través de su Escuela de Negocios, ofrece un programa de doble titulación con Empire State University (ESU). Este programa brinda la oportunidad de cursar asignaturas en línea con ESU y obtener dos títulos universitarios –uno dominicano y otro estadounidense– en menos tiempo y a un costo competitivo. Además, los graduados obtienen un título reconocido internacionalmente.
+            </p>
+            <ul class="space-y-4 type-body--muted pt-2">
                 <li class="flex items-start gap-3">
                     <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5">
                         <span class="material-symbols-outlined text-base">check</span>
@@ -105,33 +95,29 @@
     </div>
 </section>
 
-<!-- ============================================
-     BENEFICIOS SECTION
-     ============================================ -->
 <section class="py-section-padding bg-surface-container-lowest" id="beneficios" data-animate="fade">
     <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
         <div class="mb-12 text-center lg:text-left">
-            <p class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-primary mb-4">
-                <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+            <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-4">
                 Beneficios
             </p>
-            <h2 class="font-headline-md text-3xl md:text-4xl text-on-surface max-w-4xl mx-auto lg:mx-0">
-                Todo lo que ganas con el programa de <span class="text-primary">Doble Titulación</span>
+            <h2 class="type-section-title type-section-title--on-surface max-w-4xl mx-auto lg:mx-0">
+                Todo lo que ganas con el programa de <span class="type-highlight">Doble Titulación</span>
             </h2>
         </div>
         <div class="max-w-screen-xl mx-auto">
             <div class="rounded-4xl bg-white border border-outline-variant/10 shadow-premium overflow-hidden mx-auto w-full">
                 <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-center">
                     <div class="p-8 md:p-10">
-                        <h3 class="font-headline-sm text-xl text-unphu-blue mb-6">Ventajas claras para tu carrera</h3>
-                        <ul class="space-y-6 text-on-surface-variant">
+                        <h3 class="type-subtitle type-subtitle--blue mb-6">Ventajas claras para tu carrera</h3>
+                        <ul class="space-y-6 type-body--muted">
                             <li class="flex gap-4 items-start">
                                 <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5">
                                     <span class="material-symbols-outlined text-base font-bold">check</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-on-surface text-lg">Clases virtuales</p>
-                                    <p class="text-sm mt-1">Puedes completar las asignaturas de ESU de forma remota.</p>
+                                    <p class="type-item-title">Clases virtuales</p>
+                                    <p class="type-item-desc mt-1">Puedes completar las asignaturas de ESU de forma remota.</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 items-start">
@@ -139,8 +125,8 @@
                                     <span class="material-symbols-outlined text-base font-bold">check</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-on-surface text-lg">Menor costo</p>
-                                    <p class="text-sm mt-1">Obtienes un título internacional a un costo reducido.</p>
+                                    <p class="type-item-title">Menor costo</p>
+                                    <p class="type-item-desc mt-1">Obtienes un título internacional a un costo reducido.</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 items-start">
@@ -148,8 +134,8 @@
                                     <span class="material-symbols-outlined text-base font-bold">check</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-on-surface text-lg">Dos títulos en menos tiempo</p>
-                                    <p class="text-sm mt-1">La articulación entre UNPHU y ESU te permite avanzar simultáneamente.</p>
+                                    <p class="type-item-title">Dos títulos en menos tiempo</p>
+                                    <p class="type-item-desc mt-1">La articulación entre UNPHU y ESU te permite avanzar simultáneamente.</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 items-start">
@@ -157,8 +143,8 @@
                                     <span class="material-symbols-outlined text-base font-bold">check</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-on-surface text-lg">Reconocimiento internacional</p>
-                                    <p class="text-sm mt-1">El diploma de ESU abre oportunidades académicas y profesionales globales.</p>
+                                    <p class="type-item-title">Reconocimiento internacional</p>
+                                    <p class="type-item-desc mt-1">El diploma de ESU abre oportunidades académicas y profesionales globales.</p>
                                 </div>
                             </li>
                         </ul>
@@ -166,14 +152,14 @@
                     <div class="flex justify-center px-8 md:px-10 py-10 lg:py-0">
                         <div class="relative max-w-sm w-full rounded-[2rem] bg-gradient-to-br from-primary/10 to-surface p-8 border border-primary/10 shadow-soft">
                             <div class="text-center mb-6">
-                                <p class="text-xs uppercase tracking-[0.24em] font-semibold text-secondary">Partner académico</p>
+                                <p class="type-label type-label--xs type-label--secondary">Partner académico</p>
                             </div>
                             <div class="mt-2 flex justify-center">
-                                <img src="../assets/images/Empire_State_University_logo.webp" alt="Empire State University" class="h-28 w-auto object-contain" />
+                                <img src="../assets/images/Empire_State_University_logo.webp" alt="Empire State University" class="h-28 w-auto object-contain"/>
                             </div>
                             <div class="mt-8 text-center">
-                                <p class="text-sm uppercase tracking-[0.24em] font-semibold text-secondary mb-2">Universidad aliada</p>
-                                <p class="font-semibold text-on-surface text-xl">Empire State University</p>
+                                <p class="type-label type-label--secondary mb-2">Universidad aliada</p>
+                                <p class="type-subtitle">Empire State University</p>
                             </div>
                         </div>
                     </div>
@@ -183,74 +169,74 @@
     </div>
 </section>
 
-<!-- ============================================
-     REQUISITOS DE ADMISIÓN SECTION
-     ============================================ -->
-<section class="py-section-padding bg-surface-container-low" id="requisitos" data-animate="fade">
+<section class="py-section-padding requisitos-glass-section" id="requisitos" data-animate="fade" data-stagger-container>
     <div class="max-w-screen-xl mx-auto px-gutter md:px-stack-lg">
         <div class="text-center mb-12 mx-auto max-w-4xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.32em] text-secondary mb-3">Admisión</p>
-            <h2 class="font-headline-md text-3xl md:text-4xl text-on-surface">Requisitos de admisión</h2>
+            <p class="type-eyebrow type-eyebrow--light mb-3">Admisión</p>
+            <h2 class="type-section-title type-section-title--light">Requisitos de admisión</h2>
         </div>
-        <div class="max-w-4xl mx-auto space-y-4">
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">1</div>
-                    <p class="font-semibold text-on-surface">Presentar el formulario de aplicación completo y una copia del diploma de educación secundaria.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">assignment</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">Formulario y diploma</h3>
+                <p class="type-card-body type-card-body--light">Presentar el formulario de aplicación completo y una copia del diploma de educación secundaria.</p>
             </div>
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">2</div>
-                    <p class="font-semibold text-on-surface">Entregar el récord de notas oficial de UNPHU con su traducción al inglés.</p>
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">translate</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">Récord de notas</h3>
+                <p class="type-card-body type-card-body--light">Entregar el récord de notas oficial de UNPHU con su traducción al inglés.</p>
             </div>
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">3</div>
-                    <p class="font-semibold text-on-surface">Haber aprobado al menos 40 créditos académicos en UNPHU.</p>
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">school</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">40 créditos aprobados</h3>
+                <p class="type-card-body type-card-body--light">Haber aprobado al menos 40 créditos académicos en UNPHU.</p>
             </div>
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">4</div>
-                    <p class="font-semibold text-on-surface">Contar con un índice académico mínimo de 2,50.</p>
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">grade</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">Índice académico</h3>
+                <p class="type-card-body type-card-body--light">Contar con un índice académico mínimo de 2,50.</p>
             </div>
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">5</div>
-                    <p class="font-semibold text-on-surface">No tener faltas leves, moderadas ni graves en tu expediente.</p>
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">verified_user</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">Buen conducta</h3>
+                <p class="type-card-body type-card-body--light">No tener faltas leves, moderadas ni graves en tu expediente.</p>
             </div>
-            <div class="rounded-3xl bg-surface p-6 border border-outline-variant/10 shadow-soft transition-all duration-300 hover:shadow-premium hover:border-primary/10">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 text-sm">6</div>
-                    <p class="font-semibold text-on-surface">Demostrar competencia en inglés mediante resultados oficiales de TOEFL (mínimo 74 en el IBT), IELTS (mínimo 6.0) o ELASH (mínimo 135), u otra prueba equivalente. ESU puede eximir este requisito si terminaste la secundaria o estudios universitarios en un país de habla inglesa o en una universidad acreditada donde el idioma de enseñanza sea inglés.</p>
+            <div class="glass-card" data-stagger>
+                <div class="glass-card-icon">
+                    <span class="material-symbols-outlined text-3xl">language</span>
                 </div>
+                <h3 class="type-card-title type-card-title--light mb-3">Competencia en inglés</h3>
+                <p class="type-card-body type-card-body--light">Demostrar competencia en inglés mediante resultados oficiales de TOEFL (mínimo 74 en el IBT), IELTS (mínimo 6.0) o ELASH (mínimo 135), u otra prueba equivalente. ESU puede eximir este requisito si terminaste la secundaria o estudios universitarios en un país de habla inglesa o en una universidad acreditada donde el idioma de enseñanza sea inglés.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================
-     INFORMACIÓN Y CONTACTO SECTION
-     ============================================ -->
 <section id="contacto" class="py-section-padding bg-gradient-to-b from-[#0A3859] to-[#2E7D32]" data-animate="fade">
     <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
         <div class="rounded-4xl bg-white border border-outline-variant/10 p-10 md:p-12 shadow-premium max-w-4xl mx-auto">
             <div class="max-w-3xl mx-auto text-center">
-                <p class="text-sm font-semibold uppercase tracking-[0.32em] text-secondary mb-4">Información y contacto</p>
-                <h2 class="font-headline-md text-3xl md:text-4xl text-unphu-blue mb-6">¿Tienes dudas? Escríbenos o llámanos.</h2>
-                <p class="font-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Nuestro equipo de admisiones está listo para ayudarte a resolver tus preguntas sobre el proceso, requisitos y beneficios del programa.</p>
+                <p class="type-label type-label--secondary type-label--wide mb-4">Información y contacto</p>
+                <h2 class="type-section-title type-section-title--blue mb-6">¿Tienes dudas? Escríbenos o llámanos.</h2>
+                <p class="type-body-lg type-body--muted mb-10 max-w-2xl mx-auto">Nuestro equipo de admisiones está listo para ayudarte a resolver tus preguntas sobre el proceso, requisitos y beneficios del programa.</p>
                 <div class="grid gap-6 sm:grid-cols-2 text-center">
                     <div class="rounded-3xl bg-surface-container-low p-6 border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
-                        <p class="text-sm uppercase tracking-[0.24em] text-secondary mb-3">Correo electrónico</p>
-                        <a href="mailto:dobletitulacion@unphu.edu.do" class="font-semibold text-on-surface hover:text-primary transition-colors text-lg break-all">dobletitulacion@unphu.edu.do</a>
+                        <p class="type-label type-label--secondary mb-3">Correo electrónico</p>
+                        <a href="mailto:dobletitulacion@unphu.edu.do" class="type-link transition-colors break-all">dobletitulacion@unphu.edu.do</a>
                     </div>
                     <div class="rounded-3xl bg-surface-container-low p-6 border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
-                        <p class="text-sm uppercase tracking-[0.24em] text-secondary mb-3">Teléfono</p>
-                        <a href="tel:+18095666601" class="font-semibold text-on-surface hover:text-primary transition-colors text-lg">+1 809 566-6601</a>
+                        <p class="type-label type-label--secondary mb-3">Teléfono</p>
+                        <a href="tel:+18095666601" class="type-link transition-colors">+1 809 566-6601</a>
                     </div>
                 </div>
             </div>
@@ -258,26 +244,10 @@
     </div>
 </section>
 
-<!-- ============================================
-     SCRIPTS - Carga orden importante
-     ============================================ -->
-
-<!-- Config global -->
 <script src="../config.js"></script>
-
-<!-- Utilidades -->
 <script src="../assets/js/utils.js"></script>
-
-<!-- Animaciones -->
 <script src="../assets/js/animations.js"></script>
-
-<!-- Formularios -->
-<script src="../assets/js/forms.js"></script>
-
-<!-- Funcionalidades comunes -->
 <script src="../assets/js/common.js"></script>
-
-<!-- Script específico de este landing -->
 <script src="../assets/js/landing-doble-titulacion.js"></script>
 
 </body>
