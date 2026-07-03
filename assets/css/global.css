@@ -51,8 +51,8 @@ html {
     --text-body-relaxed-line-height: 2;
 
     /* Tarjetas */
-    --text-card-title-size: 1.125rem;
-    --text-card-body-size: 0.875rem;
+    --text-card-title-size: 1rem;
+    --text-card-body-size: 0.8125rem;
 
     /* Etiquetas pequeñas (contacto, partner, etc.) */
     --text-label-size: 0.875rem;
@@ -199,6 +199,14 @@ html {
     line-height: 1.625;
 }
 
+.type-card-title--primary {
+    color: #156b1d;
+}
+
+.type-card-body--primary {
+    color: #2d8450;
+}
+
 .type-card-body--light {
     color: rgba(255, 255, 255, 0.85);
 }
@@ -308,33 +316,34 @@ html {
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 1rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    padding: 2rem 1.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(21, 107, 29, 0.12);
+    border-radius: 0.875rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 1.25rem 1rem;
     text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .glass-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
 .glass-card-icon {
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 9999px;
-    background: #ffffff;
+    background: #156b1d;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.25rem;
-    color: #156b1d;
+    margin: 0 auto 0.875rem;
+    color: #ffffff;
+}
+
+.glass-card-icon .material-symbols-outlined {
+    font-size: 1.375rem;
 }
 
 @keyframes fadeInUp {
