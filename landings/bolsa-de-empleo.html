@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Bolsa de Empleo UNPHU — Encuentra oportunidades profesionales para egresados y estudiantes de la Universidad Nacional Pedro Henríquez Ureña."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Bolsa de Empleo — UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/bolsa-de-empleo.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Listado de Vacantes
+  Next.js route sugerida: /bolsa-de-empleo
+  Componentes: JobHero, JobSearchBar, JobFilterPills, JobListingsGrid, JobPagination, JobNewsletter
+-->
+
+<main>
+
+    <!-- Component: JobHero -->
+    <section class="job-hero" id="hero" data-component="JobHero" data-animate="fade">
+        <div class="job-hero__media" aria-hidden="true"></div>
+        <div class="job-hero__overlay" aria-hidden="true"></div>
+        <div class="job-hero__content">
+            <h1 class="job-hero__title">Bolsa de empleo</h1>
+            <p class="job-hero__quote">«¡Acércate al mundo profesional y da un paso importante en tu desarrollo laboral!»</p>
+        </div>
+    </section>
+
+    <!-- Component: JobSearchSection -->
+    <section class="pb-8 -mt-8 relative z-10" id="vacantes" data-component="JobSearchSection">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+
+            <!-- Component: JobSearchBar -->
+            <form class="job-search-bar" role="search" aria-label="Buscar vacantes" onsubmit="return false;" data-component="JobSearchBar">
+                <div class="job-search-bar__field">
+                    <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">search</span>
+                    <input
+                        type="search"
+                        id="job-search-query"
+                        class="job-search-bar__input"
+                        placeholder="Cargo o palabra clave"
+                        aria-label="Buscar por cargo o palabra clave"
+                    />
+                </div>
+                <div class="job-search-bar__field">
+                    <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">home_work</span>
+                    <select id="job-filter-modalidad" class="job-search-bar__select" aria-label="Filtrar por modalidad">
+                        <option value="">Modalidad</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Remoto">Remoto</option>
+                        <option value="Híbrido">Híbrido</option>
+                    </select>
+                </div>
+                <div class="job-search-bar__field">
+                    <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">work</span>
+                    <select id="job-filter-tipo" class="job-search-bar__select" aria-label="Filtrar por tipo de empleo">
+                        <option value="">Tipo de empleo</option>
+                        <option value="Tiempo completo">Tiempo completo</option>
+                        <option value="Medio tiempo">Medio tiempo</option>
+                        <option value="Pasantía">Pasantía</option>
+                        <option value="Temporal">Temporal</option>
+                        <option value="Contrato">Contrato</option>
+                    </select>
+                </div>
+                <div class="job-search-bar__field">
+                    <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">location_on</span>
+                    <input
+                        type="text"
+                        id="job-filter-ubicacion"
+                        class="job-search-bar__input"
+                        placeholder="Ubicación"
+                        aria-label="Filtrar por ubicación"
+                    />
+                </div>
+            </form>
+
+            <!-- Component: JobFilterPills + Sort -->
+            <div class="flex flex-col gap-4 mt-6 md:flex-row md:items-center md:justify-between" data-component="JobFilterPills">
+                <div class="flex flex-wrap gap-2" role="group" aria-label="Filtros rápidos">
+                    <button type="button" class="job-filter-pill job-filter-pill--active" data-filter-pill="todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Presencial" aria-pressed="false">Presencial</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Remoto" aria-pressed="false">Remoto</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Híbrido" aria-pressed="false">Híbrido</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Tiempo completo" aria-pressed="false">Tiempo completo</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Medio tiempo" aria-pressed="false">Medio tiempo</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Pasantía" aria-pressed="false">Pasantía</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Temporal" aria-pressed="false">Temporal</button>
+                    <button type="button" class="job-filter-pill" data-filter-pill="Contrato" aria-pressed="false">Contrato</button>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <label for="job-sort" class="type-body-sm type-body--muted whitespace-nowrap">Ordenar por:</label>
+                    <select id="job-sort" class="job-search-bar__select border border-outline-variant rounded-lg px-3 py-2 text-sm" aria-label="Ordenar resultados">
+                        <option value="titulo">Título (A-Z)</option>
+                        <option value="empresa">Empresa (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Contador de resultados -->
+            <p id="job-results-count" class="type-body-sm type-body--muted mt-4" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- Component: JobListingsGrid -->
+    <section class="py-8 bg-background" data-component="JobListingsSection">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div id="job-listings-grid" class="job-listings-grid" data-component="JobListingsGrid" aria-live="polite">
+                <!-- Renderizado dinámico via landing-bolsa-de-empleo.js -->
+            </div>
+
+            <!-- Component: Pagination -->
+            <div id="job-pagination" class="mt-10" data-component="Pagination">
+                <!-- Renderizado dinámico via landing-bolsa-de-empleo.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: JobNewsletter -->
+    <section class="py-section-padding bg-surface-container-low" data-component="JobNewsletter">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="job-newsletter">
+                <h2 class="type-section-title type-section-title--blue mb-3">¿No encuentras lo que buscas?</h2>
+                <p class="type-body-md type-body--muted max-w-xl mx-auto">Suscríbete para recibir alertas cuando se publiquen vacantes que coincidan con tu perfil académico y profesional.</p>
+                <form class="job-newsletter__form" data-component="NewsletterForm" onsubmit="return false;">
+                    <input
+                        type="email"
+                        class="job-newsletter__input"
+                        placeholder="tu@correo.unphu.edu.do"
+                        aria-label="Correo electrónico para suscripción"
+                    />
+                    <button type="submit" class="job-newsletter__submit">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-bolsa-de-empleo.js"></script>
+</body>
+</html>

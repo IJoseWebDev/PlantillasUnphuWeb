@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="UNPHU Relaciones Internacionales - Campus"/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Relaciones Internacionales UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+
+    <style>
+        .modal-panel {
+            min-width: min(90vw, 420px);
+        }
+        .modal-overlay {
+            background: rgba(15, 23, 42, 0.7);
+        }
+        .staff-tab {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<button data-cta="staff" class="staff-tab fixed right-0 top-[35%] z-40 inline-flex items-center gap-3 rounded-l-full bg-primary px-4 py-5 font-semibold text-white shadow-xl shadow-slate-900/10 transition hover:bg-primary-dark md:block">CONSULTAR STAFF</button>
+
+<main>
+    <section id="campus" class="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary text-on-primary">
+        <div class="absolute inset-0 opacity-30 bg-[url('../assets/images/biblioteca.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-slate-950/40"></div>
+        <div class="relative mx-auto max-w-container-max px-gutter py-24 md:px-stack-lg">
+            <div class="max-w-4xl text-center">
+                <p class="type-eyebrow type-eyebrow--light mb-4"></p>
+                <h1 class="type-display text-white mb-6">Campus UNPHU</h1>
+                <p class="type-lead type-body-lg text-slate-100/90 mb-10">Poseemos un privilegiado campus, localizado en una de las mejores zonas de la ciudad de Santo Domingo, capital de la República Dominicana, con una extensión de 250,000 m2, donde se alojan nuestras 7 facultades con sus diferentes Escuelas, Departamentos, Laboratorios y Unidades académicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background py-section-padding" id="sobre-nosotros">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_0.8fr] items-center">
+                <div>
+                    <h2 class="type-section-title type-section-title--blue mb-6">Un campus diseñado para el estudio, el deporte y la vida universitaria.</h2>
+                    <p class="type-body-lg type-body--muted mb-6">Contamos con amplias zonas verdes que proporcionan un ambiente universitario agradable y propicio para incentivar el estudio y la creatividad.</p>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                                <span class="material-symbols-outlined">groups</span>
+                            </span>
+                            <span>Área académica con siete facultades y laboratorios modernos.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                                <span class="material-symbols-outlined">nature_people</span>
+                            </span>
+                            <span>Amplias zonas verdes y áreas de convivencia estudiantil.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                                <span class="material-symbols-outlined">health_and_safety</span>
+                            </span>
+                            <span>Auditorio moderno y espacios deportivos de primer nivel.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-4xl bg-surface p-8 shadow-xl shadow-slate-900/5 border border-surface-container-lowest">
+                    <h3 class="type-section-title type-section-title--sm type-section-title--primary mb-4">Infraestructura destacada</h3>
+                    <div class="space-y-4 text-slate-700">
+                        <p class="type-body-md">Una sala principal con capacidad para 500 personas, debidamente equipada con todo lo necesario para grandes eventos.</p>
+                        <p class="type-body-md">Dos áreas laterales para diversas actividades cada una con una capacidad de 150 personas.</p>
+                        <p class="type-body-md">Un moderno y espacioso escenario al aire libre, con una capacidad para 1,500 personas.</p>
+                        <p class="type-body-md">Zonas deportivas para fútbol, béisbol, tenis, baloncesto y volleyball, junto a un gimnasio al aire libre.</p>
+                        <div class="mt-6">
+                            <a href="https://unphu.edu.do/campus#mapa-interactivo" class="inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-primary-dark" target="_blank" rel="noreferrer">Ver campus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-surface-container-lowest py-section-padding" id="vision-global">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="type-section-title type-section-title--blue mb-6">Departamento de Relaciones Internacionales</h2>
+                <p class="type-body-lg type-body--muted">El Departamento de Relaciones Internacionales UNPHU tiene a su cargo el proceso de internacionalización de la Universidad, bajo la supervisión directa de la Rectoría y de la Vicerrectoría de Gestión e Internacionalización. De esta manera, la Universidad Nacional Pedro Henríquez Ureña viene ejecutando su plan de internacionalización, estrechamente ligado a la estrategia y al desarrollo de la Universidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-section-padding bg-gradient-to-br from-[#0A3859] via-[#0E5A84] to-[#156b1d] text-white">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="rounded-[2rem] bg-white/10 p-8 backdrop-blur-xl border border-white/10 shadow-xl">
+                <div class="grid gap-6 md:grid-cols-3 text-center">
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white">
+                            <span class="material-symbols-outlined">phone</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Teléfonos</p>
+                        <a href="tel:8095400422" class="font-semibold type-link text-white">809 540 0422</a>
+                        <br>
+                        <a href="tel:8097630422" class="font-semibold type-link text-white">809 763 0422</a>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white">
+                            <span class="material-symbols-outlined">mail</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Correo Electrónico</p>
+                        <a href="mailto:info@unphu.edu.do" class="font-semibold type-link text-white">info@unphu.edu.do</a>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Dirección</p>
+                        <p class="font-semibold">Av. John F. Kennedy Km 7 1/2, Edificio #8</p>
+                        <p class="text-sm text-white/80">3er piso, Santo Domingo, República Dominicana</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="staff-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+    <div class="modal-panel rounded-3xl bg-white p-8 shadow-2xl shadow-slate-900/20">
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <p class="type-eyebrow type-eyebrow--primary mb-2">Staff</p>
+                <h2 class="type-section-title type-section-title--sm mb-4">Hello world</h2>
+            </div>
+            <button data-modal-close class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface text-on-surface hover:bg-surface-variant" type="button">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <p class="type-body-md text-slate-700">Este es un modal de prueba. Aún no tiene contenido adicional.</p>
+    </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-internacionalizacion.js"></script>
+</body>
+</html>

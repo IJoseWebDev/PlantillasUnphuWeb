@@ -77,12 +77,14 @@ tailwind.config = {
                 "container-max": "1280px"
             },
             fontFamily: {
+                sans: ["Lato", "sans-serif"],
                 "body-lg": ["Lato", "sans-serif"],
                 "body-md": ["Lato", "sans-serif"],
                 "headline-lg": ["Lato", "sans-serif"],
                 "headline-md": ["Lato", "sans-serif"],
                 "headline-lg-mobile": ["Lato", "sans-serif"],
                 "display-xl": ["Lato", "sans-serif"],
+                "display-lg": ["Lato", "sans-serif"],
                 "label-bold": ["Lato", "sans-serif"]
             },
             fontSize: {

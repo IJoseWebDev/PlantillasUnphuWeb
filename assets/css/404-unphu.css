@@ -1,0 +1,117 @@
+.not-found-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: var(--font-family-base);
+}
+
+.not-found-page__content {
+    width: 100%;
+    padding-bottom: clamp(5rem, 22vw, 0rem);
+    padding-left: max(1.25rem, 20vw);
+    padding-right: 1.25rem;
+}
+
+.not-found-owl {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.not-found-owl__image {
+    display: block;
+    width: clamp(9.5rem, 38vw, 25rem);
+    height: auto;
+    object-fit: contain;
+}
+
+.not-found-owl__bubble {
+    position: absolute;
+    top: -6%;
+    right: -20%;
+    z-index: 20;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    pointer-events: none;
+}
+
+.not-found-owl__bubble-image {
+    display: block;
+    height: clamp(3.25rem, 9vw, 6rem);
+    width: auto;
+}
+
+.not-found-owl:hover .not-found-owl__bubble {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.not-found-page__title {
+    padding-top: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 5.5vw, 4rem);
+    line-height: 1.1;
+}
+
+.not-found-page__heading {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.not-found-page__description {
+    font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+    line-height: 1.7;
+    max-width: 36rem;
+}
+
+.not-found-page__cta {
+    font-size: clamp(0.6875rem, 2vw, 0.875rem);
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 4vw, 2rem);
+}
+
+@media (min-width: 640px) {
+    .not-found-page__content {
+        padding-left: max(2rem, 10vw);
+        padding-bottom: clamp(4rem, 16vw, 0rem);
+    }
+
+    .not-found-owl__bubble {
+        top: -8%;
+        right: -18%;
+    }
+}
+
+@media (min-width: 768px) {
+    .not-found-page__content {
+        padding-left: 2.25rem;
+        padding-right: 2.75rem;
+        padding-bottom: clamp(2rem, 10vw, 0rem);
+    }
+
+    .not-found-owl__image {
+        width: clamp(14rem, 28vw, 25rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .not-found-page__content {
+        padding-left: 2.25rem;
+        padding-right: 2.75rem;
+        padding-bottom: 0;
+    }
+
+    .not-found-owl__bubble {
+        top: -1.5rem;
+        right: -5rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .not-found-owl {
+        z-index: 10;
+    }
+}
