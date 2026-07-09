@@ -292,13 +292,3 @@ Para añadir nuevas funcionalidades:
 2. Exporta a `window.miModulo`
 3. Documenta en ARCHITECTURE.md
 4. Prueba en landing de ejemplo
-
-## 📞 Soporte
-
-Para reportar problemas o sugerencias, contacta al equipo de desarrollo UNPHU.
-
----
-
-**Versión**: 1.0.0  
-**Última actualización**: 2024  
-**Autor**: UNPHU Development Team
