@@ -5,174 +5,262 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Descripción breve del landing"/>
     <meta name="theme-color" content="#156b1d"/>
-    <title>Nuevo Landing - UNPHU</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Nuevo Landing — UNPHU</title>
+
+    <!-- Tailwind CSS (+ forms / container-queries) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
-    <!-- Google Fonts -->
+
+    <!-- Fuentes e iconos del sistema -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
-    
-    <!-- Tailwind Config -->
+
+    <!-- Tokens Tailwind del proyecto -->
     <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
-    
-    <!-- Global CSS -->
+
+    <!-- CSS global (tipografía type-*, utilidades, animaciones base) -->
     <link rel="stylesheet" href="../assets/css/global.css"/>
+
+    <!--
+      CSS específico del landing (BEM).
+      Al clonar: renombra a assets/css/[nombre].css y actualiza este href.
+      Ejemplos: bolsa-de-empleo.css, documentacion.css, 404-unphu.css
+    -->
+    <link rel="stylesheet" href="../assets/css/template.css"/>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- ============================================
-     SECCIÓN 1: HERO / INTRODUCCIÓN
-     ============================================ -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden" data-animate="fade">
-    <div class="absolute inset-0 z-0">
-        <div class="w-full h-full bg-gradient-to-br from-primary to-secondary"></div>
-    </div>
-    <div class="relative z-10 max-w-container-max mx-auto px-gutter md:px-stack-lg text-center text-on-primary">
-        <h1 class="font-display-xl text-headline-lg-mobile md:text-display-xl mb-6 max-w-4xl mx-auto">
-            Título Principal del Landing
-        </h1>
-        <p class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto opacity-90">
-            Descripción breve del programa, servicio o propuesta de valor. Máximo 2-3 líneas.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#seccion-2" class="bg-primary-fixed text-on-primary-fixed-variant font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-surface-container-lowest transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto">
-                Botón Primario
-            </a>
-            <a href="#contacto" class="bg-transparent border-2 border-surface-container-lowest text-on-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full hover:bg-surface-container-lowest/20 transition-all duration-200 w-full sm:w-auto">
-                Botón Secundario
-            </a>
-        </div>
-    </div>
-</section>
+<!--
+  CÓMO USAR ESTE TEMPLATE
+  1. Copiar: landings/template.html → landings/[nombre].html
+  2. Copiar CSS: assets/css/template.css → assets/css/[nombre].css
+  3. Copiar JS:  assets/js/landing-template.js → assets/js/landing-[nombre].js
+  4. Actualizar title, meta, hrefs CSS/JS y comentarios de componentes
+  5. Reemplazar contenido; reutilizar type-* de global.css y utilidades Tailwind del proyecto
 
-<!-- ============================================
-     SECCIÓN 2: CARACTERÍSTICAS / BENEFICIOS
-     ============================================ -->
-<section class="py-section-padding bg-surface-container-lowest" id="seccion-2" data-stagger-container>
-    <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
-        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-12 text-center">
-            Características Principales
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover transition-all duration-200" data-stagger>
-                <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-4">
-                    <span class="material-symbols-outlined">check_circle</span>
-                </div>
-                <h3 class="font-headline-md text-xl text-on-surface mb-2">Característica 1</h3>
-                <p class="font-body-md text-on-surface-variant">Descripción breve de la característica o beneficio.</p>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover transition-all duration-200" data-stagger>
-                <div class="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary mb-4">
-                    <span class="material-symbols-outlined">star</span>
-                </div>
-                <h3 class="font-headline-md text-xl text-on-surface mb-2">Característica 2</h3>
-                <p class="font-body-md text-on-surface-variant">Descripción breve de la característica o beneficio.</p>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover transition-all duration-200" data-stagger>
-                <div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary mb-4">
-                    <span class="material-symbols-outlined">favorite</span>
-                </div>
-                <h3 class="font-headline-md text-xl text-on-surface mb-2">Característica 3</h3>
-                <p class="font-body-md text-on-surface-variant">Descripción breve de la característica o beneficio.</p>
+  CONVENCIONES
+  - Sin index.html / sin header-footer globales (los pone el sitio principal)
+  - Sin CSS/JS inline; solo archivos externos
+  - data-component="NombreReact" → facilita migración a Next.js
+  - data-animate / data-stagger / data-timeline-item → animations.js
+  - data-cta → common.js
+  - Tipografía preferida: type-display, type-lead, type-section-title, type-body-*, type-eyebrow
+  - Inputs: el plugin forms de Tailwind pinta fondos blancos; resetea en el CSS de página
+    (ver .tpl-search en template.css / .doc-search en documentacion.css)
+
+  Next.js route sugerida: /mi-landing
+  Componentes: LandingHero, FeatureGrid, ProcessTimeline, LandingCta
+-->
+
+<main>
+
+    <!-- Component: LandingHero -->
+    <section
+        class="tpl-hero"
+        id="hero"
+        data-component="LandingHero"
+        data-animate="fade"
+    >
+        <div class="tpl-hero__media" aria-hidden="true"></div>
+        <div class="tpl-hero__overlay" aria-hidden="true"></div>
+        <div class="tpl-hero__content">
+            <p class="type-eyebrow type-eyebrow--dot type-eyebrow--light mb-4">Etiqueta de sección</p>
+            <h1 class="type-display text-white mb-6">
+                Título Principal del Landing
+            </h1>
+            <p class="type-lead type-body--light mb-10 max-w-2xl mx-auto">
+                Descripción breve del programa, servicio o propuesta de valor. Máximo 2–3 líneas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                    href="#seccion-2"
+                    class="inline-flex items-center justify-center rounded-full bg-primary-fixed px-8 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest"
+                >
+                    Botón Primario
+                </a>
+                <a
+                    href="#contacto"
+                    class="inline-flex items-center justify-center rounded-full border-2 border-white px-8 py-3.5 type-btn text-white transition hover:bg-white/15"
+                >
+                    Botón Secundario
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================
-     SECCIÓN 3: DETALLES / TIMELINE / PROCESO
-     ============================================ -->
-<section class="py-section-padding bg-background" data-animate="fade">
-    <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
-        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-12 text-center">
-            El Proceso
-        </h2>
-        <div class="max-w-2xl mx-auto space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-secondary">
-            <!-- Step 1 -->
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
-                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-primary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                    <span class="font-label-bold">1</span>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
-                    <h4 class="font-label-bold text-on-surface mb-1">Paso 1</h4>
-                    <p class="text-sm font-body-md text-on-surface-variant">Descripción del primer paso.</p>
-                </div>
+    <!-- Component: FeatureGrid -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="seccion-2"
+        data-component="FeatureGrid"
+        data-stagger-container
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="text-center mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Beneficios</p>
+                <h2 class="type-section-title type-section-title--blue">
+                    Características Principales
+                </h2>
             </div>
-            
-            <!-- Step 2 -->
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
-                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-secondary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                    <span class="font-label-bold">2</span>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
-                    <h4 class="font-label-bold text-on-surface mb-1">Paso 2</h4>
-                    <p class="text-sm font-body-md text-on-surface-variant">Descripción del segundo paso.</p>
-                </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger data-component="FeatureCard">
+                    <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-4" aria-hidden="true">
+                        <span class="material-symbols-outlined">check_circle</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Característica 1</h3>
+                    <p class="type-body-md type-body--muted">Descripción breve de la característica o beneficio.</p>
+                </article>
+
+                <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger data-component="FeatureCard">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary mb-4" aria-hidden="true">
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Característica 2</h3>
+                    <p class="type-body-md type-body--muted">Descripción breve de la característica o beneficio.</p>
+                </article>
+
+                <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger data-component="FeatureCard">
+                    <div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary mb-4" aria-hidden="true">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Característica 3</h3>
+                    <p class="type-body-md type-body--muted">Descripción breve de la característica o beneficio.</p>
+                </article>
             </div>
-            
-            <!-- Step 3 -->
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
-                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-tertiary-container text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                    <span class="font-label-bold">3</span>
+        </div>
+    </section>
+
+    <!--
+      Ejemplo opcional: buscador + grid dinámico + "Cargar más"
+      (patrón usado en documentacion.html / bolsa-de-empleo.html)
+    -->
+    <section
+        class="py-section-padding bg-background"
+        id="recursos"
+        data-component="ResourceSection"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="text-center mb-10">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Recursos</p>
+                <h2 class="type-section-title type-section-title--on-surface mb-3">Explorar contenido</h2>
+                <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                    Ejemplo de búsqueda + listado renderizado por JS con límite inicial y botón «Cargar más».
+                </p>
+            </div>
+
+            <!-- Component: LandingSearch — type="text" evita estilos agresivos de forms en type="search" -->
+            <form class="tpl-search" role="search" aria-label="Buscar recursos" data-component="LandingSearch" onsubmit="return false;">
+                <label class="sr-only" for="tpl-search-input">Buscar</label>
+                <span class="material-symbols-outlined tpl-search__icon" aria-hidden="true">search</span>
+                <input
+                    type="text"
+                    id="tpl-search-input"
+                    class="tpl-search__input"
+                    placeholder="Buscar por nombre..."
+                    autocomplete="off"
+                    enterkeyhint="search"
+                    aria-describedby="tpl-search-result"
+                />
+            </form>
+            <p id="tpl-search-result" class="type-body-sm type-body--muted text-center mt-3" aria-live="polite" hidden></p>
+
+            <div id="tpl-grid" class="tpl-grid mt-10" data-component="ResourceGrid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-template.js -->
+            </div>
+
+            <div class="tpl-section-footer">
+                <p id="tpl-empty" class="type-body-sm type-body--muted" hidden>No hay resultados para esta búsqueda.</p>
+                <button type="button" id="tpl-load-more" class="tpl-load-more" data-action="load-more" hidden>
+                    Cargar más
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: ProcessTimeline -->
+    <section class="py-section-padding bg-surface-container-low" data-component="ProcessTimeline" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="text-center mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Pasos</p>
+                <h2 class="type-section-title type-section-title--blue">El Proceso</h2>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-secondary">
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-primary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="type-btn">1</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                        <h3 class="type-subtitle mb-1">Paso 1</h3>
+                        <p class="type-body-sm type-body--muted">Descripción del primer paso.</p>
+                    </div>
                 </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
-                    <h4 class="font-label-bold text-on-surface mb-1">Paso 3</h4>
-                    <p class="text-sm font-body-md text-on-surface-variant">Descripción del tercer paso.</p>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-secondary text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="type-btn">2</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                        <h3 class="type-subtitle mb-1">Paso 2</h3>
+                        <p class="type-body-sm type-body--muted">Descripción del segundo paso.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-timeline-item>
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-tertiary-container text-on-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="type-btn">3</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-outline-variant/30 bg-surface shadow-sm">
+                        <h3 class="type-subtitle mb-1">Paso 3</h3>
+                        <p class="type-body-sm type-body--muted">Descripción del tercer paso.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================
-     SECCIÓN 4: CALL TO ACTION FINAL
-     ============================================ -->
-<section class="py-section-padding relative overflow-hidden" id="contacto" data-animate="fade">
-    <div class="absolute inset-0 bg-unphu-blue z-0">
-        <div class="absolute inset-0 opacity-20 pattern-grid"></div>
-    </div>
-    <div class="max-w-4xl mx-auto px-gutter md:px-stack-lg relative z-10 text-center">
-        <h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-on-primary mb-6">
-            ¿Listo para Comenzar?
-        </h2>
-        <p class="font-body-lg text-body-lg text-secondary-fixed mb-10 max-w-2xl mx-auto">
-            Descripción final que motive la acción del usuario. Invita a tomar el siguiente paso.
-        </p>
-        <button class="bg-primary-fixed text-on-primary-fixed-variant font-label-bold text-label-bold py-4 px-10 rounded-full hover:bg-surface-container-lowest transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer" data-cta="contact">
-            Contactar Ahora
-        </button>
-    </div>
-</section>
+    <!-- Component: LandingCta -->
+    <section
+        class="py-section-padding relative overflow-hidden"
+        id="contacto"
+        data-component="LandingCta"
+        data-animate="fade"
+    >
+        <div class="absolute inset-0 bg-unphu-blue z-0" aria-hidden="true">
+            <div class="absolute inset-0 opacity-20 pattern-grid"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-gutter md:px-stack-lg relative z-10 text-center">
+            <h2 class="type-section-title type-section-title--light mb-6">
+                ¿Listo para Comenzar?
+            </h2>
+            <p class="type-body-lg type-body--light mb-10 max-w-2xl mx-auto">
+                Descripción final que motive la acción del usuario. Invita a tomar el siguiente paso.
+            </p>
+            <button
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-fixed px-10 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest hover:-translate-y-1"
+                data-cta="contact"
+                data-action="contact"
+            >
+                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                Contactar Ahora
+            </button>
+        </div>
+    </section>
 
-<!-- ============================================
-     SCRIPTS
-     Orden importante para que funcione todo
-     ============================================ -->
+</main>
 
-<!-- Config global -->
+<!--
+  SCRIPTS — orden fijo
+  config → utils → animations → forms (si hay formularios) → common → landing-[nombre].js
+-->
 <script src="../config.js"></script>
-
-<!-- Utilidades generales -->
 <script src="../assets/js/utils.js"></script>
-
-<!-- Animaciones e Intersection Observers -->
 <script src="../assets/js/animations.js"></script>
-
-<!-- Gestión de formularios -->
 <script src="../assets/js/forms.js"></script>
-
-<!-- Funcionalidades comunes (scroll suave, CTAs) -->
 <script src="../assets/js/common.js"></script>
-
-<!-- Script específico de este landing -->
+<!-- Al clonar: renombra a landing-[nombre].js -->
 <script src="../assets/js/landing-template.js"></script>
-
 </body>
 </html>

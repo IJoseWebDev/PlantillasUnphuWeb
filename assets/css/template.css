@@ -1,0 +1,217 @@
+/* ========================================
+   TEMPLATE — CSS de página (ejemplo)
+   Al clonar: renombra a [nombre].css y usa un prefijo BEM propio
+   (ej. job-*, doc-*, not-found-*). Cada bloque mapea a un componente React.
+   ======================================== */
+
+/* --- Accesibilidad --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --- Hero (media + overlay full-bleed) --- */
+.tpl-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: min(100vh, 720px);
+    overflow: hidden;
+    text-align: center;
+}
+
+.tpl-hero__media {
+    position: absolute;
+    inset: 0;
+    /* Al clonar: cambia la imagen o usa gradient-overlay de global.css */
+    background: linear-gradient(135deg, #0a3859 0%, #156b1d 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.tpl-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 56, 89, 0.45) 0%,
+        rgba(0, 104, 55, 0.78) 100%
+    );
+}
+
+.tpl-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 56rem;
+    padding: 4rem 1.5rem;
+}
+
+/* --- Buscador
+   Alta especificidad + type="text" para ganar al plugin forms de Tailwind CDN.
+   Ver también documentacion.css (.doc-search). --- */
+.tpl-search {
+    position: relative;
+    display: block;
+    max-width: 36rem;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.tpl-search:focus-within {
+    border-color: #156b1d;
+    box-shadow: 0 0 0 3px rgba(21, 107, 29, 0.12);
+}
+
+.tpl-search__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.25rem;
+    z-index: 1;
+    display: block;
+    width: 1.35rem;
+    height: 1.35rem;
+    color: #707a6c;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+form.tpl-search input.tpl-search__input[type="text"],
+form.tpl-search input.tpl-search__input[type="text"]:hover,
+form.tpl-search input.tpl-search__input[type="text"]:focus,
+form.tpl-search input.tpl-search__input[type="text"]:focus-visible,
+form.tpl-search input.tpl-search__input[type="text"]:active {
+    display: block;
+    width: 100%;
+    height: 3.25rem;
+    margin: 0 !important;
+    padding: 0 1.25rem 0 3.25rem !important;
+    border: 0 !important;
+    border-radius: 9999px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    font-family: var(--font-family-base);
+    font-size: var(--text-body-md-size);
+    line-height: 3.25rem;
+    color: #191c1d !important;
+    outline: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+form.tpl-search input.tpl-search__input[type="text"]::placeholder {
+    color: #707a6c;
+    opacity: 1;
+}
+
+/* --- Grid de recursos (ejemplo dinámico) --- */
+.tpl-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .tpl-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .tpl-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.tpl-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.tpl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+.tpl-card__title {
+    font-family: var(--font-family-base);
+    font-size: var(--text-card-title-size);
+    font-weight: 600;
+    color: #191c1d;
+    margin-bottom: 0.5rem;
+}
+
+.tpl-card__meta {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background: #f3f4f5;
+    font-size: var(--text-label-xs-size);
+    font-weight: 600;
+    color: #707a6c;
+}
+
+.tpl-section-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.tpl-load-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border: 2px solid #156b1d;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #156b1d;
+    font-family: var(--font-family-base);
+    font-size: var(--text-btn-size);
+    font-weight: var(--text-btn-weight);
+    letter-spacing: var(--text-btn-tracking);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tpl-load-more:hover {
+    background: #156b1d;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(21, 107, 29, 0.2);
+}
+
+.tpl-load-more:focus-visible {
+    outline: 2px solid #156b1d;
+    outline-offset: 3px;
+}
+
+.tpl-load-more[hidden],
+#tpl-empty[hidden],
+#tpl-search-result[hidden] {
+    display: none;
+}

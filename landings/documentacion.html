@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Centro de Documentos y Reglamentos UNPHU — Consulta y descarga la documentación oficial de la universidad."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Documentos y Reglamentos — UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/documentacion.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Documentos y Reglamentos
+  Next.js route sugerida: /documentacion
+  Componentes: DocHero, DocSearch, DocQuickNav, DocCategorySection, DocCard, DocLoadMore, DocCta
+-->
+
+<main>
+
+    <!-- Component: DocHero -->
+    <section class="doc-hero" id="hero" data-component="DocHero" data-animate="fade">
+        <div class="doc-hero__media" aria-hidden="true"></div>
+        <div class="doc-hero__overlay" aria-hidden="true"></div>
+        <div class="doc-hero__content">
+            <h1 class="doc-hero__title">
+                Documentos y <span class="doc-hero__title-accent">Reglamentos</span>
+            </h1>
+            <p class="doc-hero__lead">
+                Encuentra y descarga rápidamente la documentación oficial.
+            </p>
+
+            <!-- Component: DocSearch -->
+            <form class="doc-search" role="search" aria-label="Buscar documentos" data-component="DocSearch" onsubmit="return false;">
+                <label class="sr-only" for="doc-search-input">Buscar por nombre</label>
+                <span class="material-symbols-outlined doc-search__icon" aria-hidden="true">search</span>
+                <input
+                    type="text"
+                    id="doc-search-input"
+                    class="doc-search__input"
+                    placeholder="Buscar por nombre..."
+                    autocomplete="off"
+                    enterkeyhint="search"
+                    aria-describedby="doc-search-result"
+                />
+            </form>
+            <p id="doc-search-result" class="doc-search__result" aria-live="polite" hidden></p>
+        </div>
+    </section>
+
+    <!-- Component: DocQuickNav -->
+    <nav class="doc-quick-nav" aria-label="Accesos rápidos por categoría" data-component="DocQuickNav">
+        <div class="doc-quick-nav__inner">
+            <a href="#bienestar" class="doc-quick-nav__link">Bienestar Estudiantil</a>
+            <a href="#externos" class="doc-quick-nav__link">Documentos Externos</a>
+            <a href="#institucionales" class="doc-quick-nav__link">Documentos Institucionales</a>
+        </div>
+    </nav>
+
+    <div class="doc-main">
+
+        <!-- Component: DocCategorySection — Bienestar Estudiantil -->
+        <section
+            id="bienestar"
+            class="doc-category category-section"
+            data-component="DocCategorySection"
+            data-category="bienestar"
+            data-animate="fade"
+        >
+            <h2 class="doc-category__title">Bienestar Estudiantil</h2>
+            <div class="doc-grid document-grid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-documentacion.js -->
+            </div>
+            <div class="doc-category__footer">
+                <p class="doc-category__empty no-results-msg" hidden>No hay documentos en esta categoría que coincidan con la búsqueda.</p>
+                <button type="button" class="doc-load-more" data-action="load-more" data-category="bienestar" hidden>
+                    Cargar más
+                </button>
+            </div>
+        </section>
+
+        <!-- Component: DocCategorySection — Documentos Externos -->
+        <section
+            id="externos"
+            class="doc-category category-section"
+            data-component="DocCategorySection"
+            data-category="externos"
+            data-animate="fade"
+        >
+            <h2 class="doc-category__title">Documentos Externos</h2>
+            <div class="doc-grid document-grid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-documentacion.js -->
+            </div>
+            <div class="doc-category__footer">
+                <p class="doc-category__empty no-results-msg" hidden>No hay documentos en esta categoría que coincidan con la búsqueda.</p>
+                <button type="button" class="doc-load-more" data-action="load-more" data-category="externos" hidden>
+                    Cargar más
+                </button>
+            </div>
+        </section>
+
+        <!-- Component: DocCategorySection — Documentos Institucionales -->
+        <section
+            id="institucionales"
+            class="doc-category category-section"
+            data-component="DocCategorySection"
+            data-category="institucionales"
+            data-animate="fade"
+        >
+            <h2 class="doc-category__title">Documentos Institucionales</h2>
+            <div class="doc-grid document-grid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-documentacion.js -->
+            </div>
+            <div class="doc-category__footer">
+                <p class="doc-category__empty no-results-msg" hidden>No hay documentos en esta categoría que coincidan con la búsqueda.</p>
+                <button type="button" class="doc-load-more" data-action="load-more" data-category="institucionales" hidden>
+                    Cargar más
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Component: DocCta -->
+    <section class="doc-cta" data-component="DocCta" data-animate="fade">
+        <div class="doc-cta__inner">
+            <h2 class="doc-cta__title">¿No encuentras el documento que buscas?</h2>
+            <button type="button" class="doc-cta__btn" data-action="contact">
+                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                Contactar a la universidad
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-documentacion.js"></script>
+</body>
+</html>
