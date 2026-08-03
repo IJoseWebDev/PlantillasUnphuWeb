@@ -29,28 +29,28 @@
        =================== */
     var MOCK_DOCUMENTS = {
         bienestar: [
-            { id: 'bie-01', title: 'Formulario Beca Socioeconómica', size: '1.2 MB', keywords: 'formulario beca socioeconomica' },
-            { id: 'bie-02', title: 'Guía Servicios Salud Mental', size: '3.5 MB', keywords: 'guia servicios salud mental' },
-            { id: 'bie-03', title: 'Reglamento Instalaciones Deportivas', size: '0.8 MB', keywords: 'reglamento instalaciones deportivas' },
-            { id: 'bie-04', title: 'Solicitud Seguro Estudiantil', size: '1.1 MB', keywords: 'solicitud seguro estudiantil' },
-            { id: 'bie-05', title: 'Protocolo Atención Psicológica', size: '2.4 MB', keywords: 'protocolo atencion psicologica' },
-            { id: 'bie-06', title: 'Manual de Bienestar Campus', size: '1.8 MB', keywords: 'manual bienestar campus' }
+            { id: 'bie-01', title: 'Formulario Beca Socioeconómica', size: '1.2 MB', updatedAt: '12/03/2024', keywords: 'formulario beca socioeconomica' },
+            { id: 'bie-02', title: 'Guía Servicios Salud Mental', size: '3.5 MB', updatedAt: '28/01/2024', keywords: 'guia servicios salud mental' },
+            { id: 'bie-03', title: 'Reglamento Instalaciones Deportivas', size: '0.8 MB', updatedAt: '05/11/2023', keywords: 'reglamento instalaciones deportivas' },
+            { id: 'bie-04', title: 'Solicitud Seguro Estudiantil', size: '1.1 MB', updatedAt: '18/06/2024', keywords: 'solicitud seguro estudiantil' },
+            { id: 'bie-05', title: 'Protocolo Atención Psicológica', size: '2.4 MB', updatedAt: '02/09/2024', keywords: 'protocolo atencion psicologica' },
+            { id: 'bie-06', title: 'Manual de Bienestar Campus', size: '1.8 MB', updatedAt: '15/05/2024', keywords: 'manual bienestar campus' }
         ],
         externos: [
-            { id: 'ext-01', title: 'Convenio Prácticas Empresariales', size: '2.1 MB', keywords: 'convenio practicas empresariales' },
-            { id: 'ext-02', title: 'Solicitud Movilidad Internacional', size: '1.5 MB', keywords: 'solicitud movilidad internacional' },
-            { id: 'ext-03', title: 'Acuerdo Interinstitucional MESCyT', size: '2.8 MB', keywords: 'acuerdo interinstitucional mescyt' },
-            { id: 'ext-04', title: 'Formato Carta de Presentación', size: '0.6 MB', keywords: 'formato carta presentacion' },
-            { id: 'ext-05', title: 'Convenio Doble Titulación', size: '3.2 MB', keywords: 'convenio doble titulacion' },
-            { id: 'ext-06', title: 'Guía Pasantías Externas', size: '1.4 MB', keywords: 'guia pasantias externas' }
+            { id: 'ext-01', title: 'Convenio Prácticas Empresariales', size: '2.1 MB', updatedAt: '22/04/2024', keywords: 'convenio practicas empresariales' },
+            { id: 'ext-02', title: 'Solicitud Movilidad Internacional', size: '1.5 MB', updatedAt: '10/02/2024', keywords: 'solicitud movilidad internacional' },
+            { id: 'ext-03', title: 'Acuerdo Interinstitucional MESCyT', size: '2.8 MB', updatedAt: '30/07/2023', keywords: 'acuerdo interinstitucional mescyt' },
+            { id: 'ext-04', title: 'Formato Carta de Presentación', size: '0.6 MB', updatedAt: '14/08/2024', keywords: 'formato carta presentacion' },
+            { id: 'ext-05', title: 'Convenio Doble Titulación', size: '3.2 MB', updatedAt: '09/12/2023', keywords: 'convenio doble titulacion' },
+            { id: 'ext-06', title: 'Guía Pasantías Externas', size: '1.4 MB', updatedAt: '21/05/2024', keywords: 'guia pasantias externas' }
         ],
         institucionales: [
-            { id: 'ins-01', title: 'Estatuto Orgánico', size: '5.2 MB', keywords: 'estatuto organico' },
-            { id: 'ins-02', title: 'Reglamento Disciplinario', size: '1.9 MB', keywords: 'reglamento disciplinario estudiantil' },
-            { id: 'ins-03', title: 'Calendario Académico', size: '0.4 MB', keywords: 'calendario academico' },
-            { id: 'ins-04', title: 'Política de Calidad Institucional', size: '2.6 MB', keywords: 'politica calidad institucional' },
-            { id: 'ins-05', title: 'Reglamento Académico General', size: '4.1 MB', keywords: 'reglamento academico general' },
-            { id: 'ins-06', title: 'Código de Ética UNPHU', size: '1.3 MB', keywords: 'codigo etica unphu' }
+            { id: 'ins-01', title: 'Estatuto Orgánico', size: '5.2 MB', updatedAt: '03/01/2023', keywords: 'estatuto organico' },
+            { id: 'ins-02', title: 'Reglamento Disciplinario', size: '1.9 MB', updatedAt: '17/10/2023', keywords: 'reglamento disciplinario estudiantil' },
+            { id: 'ins-03', title: 'Calendario Académico', size: '0.4 MB', updatedAt: '01/08/2024', keywords: 'calendario academico' },
+            { id: 'ins-04', title: 'Política de Calidad Institucional', size: '2.6 MB', updatedAt: '25/03/2024', keywords: 'politica calidad institucional' },
+            { id: 'ins-05', title: 'Reglamento Académico General', size: '4.1 MB', updatedAt: '11/06/2024', keywords: 'reglamento academico general' },
+            { id: 'ins-06', title: 'Código de Ética UNPHU', size: '1.3 MB', updatedAt: '15/05/2024', keywords: 'codigo etica unphu' }
         ]
     };
 
@@ -129,6 +129,7 @@
     function renderDocCard(doc) {
         var title = escapeHtml(doc.title);
         var size = escapeHtml(doc.size);
+        var updatedAt = escapeHtml(doc.updatedAt || '—');
         var keywords = escapeHtml(doc.keywords);
 
         return (
@@ -138,7 +139,10 @@
                         '<span class="doc-card__badge">PDF</span>' +
                     '</div>' +
                     '<h3 class="doc-card__title">' + title + '</h3>' +
-                    '<p class="doc-card__meta">' + size + '</p>' +
+                    '<p class="doc-card__meta">' +
+                        '<span class="material-symbols-outlined doc-card__meta-icon" aria-hidden="true">description</span>' +
+                        '<span>PDF · ' + size + ' · Actualizado: ' + updatedAt + '</span>' +
+                    '</p>' +
                 '</div>' +
                 '<div class="doc-card__actions">' +
                     '<button type="button" class="doc-card__btn doc-card__btn--ghost" data-action="view" data-doc="' + title + '">' +

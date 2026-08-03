@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Acreditaciones institucionales y de programas de la UNPHU — calidad académica certificada nacional e internacionalmente."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Acreditaciones — UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/acreditacion.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Acreditaciones
+  Next.js route sugerida: /acreditacion
+  Componentes: AcrHero, AcrGrid, AcrCommitment, AcrContact, AcrModal
+-->
+
+<main>
+
+    <!-- Component: AcrHero -->
+    <section class="acr-hero" id="hero" data-component="AcrHero" data-animate="fade">
+        <div class="acr-hero__media" aria-hidden="true"></div>
+        <div class="acr-hero__overlay" aria-hidden="true"></div>
+        <div class="acr-hero__inner">
+            <p class="acr-hero__badge">
+                <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                Calidad certificada internacionalmente
+            </p>
+            <h1 class="acr-hero__title">
+                <strong>Acreditaciones</strong> de la UNPHU
+            </h1>
+            <p class="acr-hero__lead">
+                La Universidad Nacional Pedro Henríquez Ureña sostiene un compromiso permanente con la excelencia académica, respaldado por organismos acreditadores nacionales e internacionales.
+            </p>
+            <div class="acr-hero__actions">
+                <a
+                    href="#acreditaciones"
+                    class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-fixed px-8 py-3.5 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest"
+                >
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">workspace_premium</span>
+                    Ver acreditaciones
+                </a>
+                <a
+                    href="dobleTitulacion.html"
+                    class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-8 py-3 type-btn text-white transition hover:bg-white/15"
+                >
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">layers</span>
+                    Doble Titulación
+                </a>
+            </div>
+            <div class="acr-hero__stats" data-stagger-container>
+                <div class="acr-stat" data-stagger>
+                    <span class="acr-stat__value">58+</span>
+                    <span class="acr-stat__label">Años de excelencia</span>
+                </div>
+                <div class="acr-stat" data-stagger>
+                    <span class="acr-stat__value">5</span>
+                    <span class="acr-stat__label">Organismos acreditadores</span>
+                </div>
+                <div class="acr-stat" data-stagger>
+                    <span class="acr-stat__value">10+</span>
+                    <span class="acr-stat__label">Programas certificados</span>
+                </div>
+                <div class="acr-stat" data-stagger>
+                    <span class="acr-stat__value">Global</span>
+                    <span class="acr-stat__label">Alcance internacional</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: AcrGrid -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="acreditaciones"
+        data-component="AcrGrid"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-10">
+                <div>
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Organismos acreditadores</p>
+                    <h2 class="type-section-title type-section-title--blue">Nuestras acreditaciones</h2>
+                </div>
+                <div class="acr-filters" role="group" aria-label="Filtrar por categoría" data-component="AcrFilters">
+                    <button type="button" class="acr-filter acr-filter--active" data-filter="todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="acr-filter" data-filter="institucional" aria-pressed="false">Institucional</button>
+                    <button type="button" class="acr-filter" data-filter="negocios" aria-pressed="false">Negocios</button>
+                    <button type="button" class="acr-filter" data-filter="arquitectura" aria-pressed="false">Arquitectura</button>
+                    <button type="button" class="acr-filter" data-filter="medicina" aria-pressed="false">Medicina</button>
+                    <button type="button" class="acr-filter" data-filter="ingenieria" aria-pressed="false">Ingeniería</button>
+                </div>
+            </div>
+
+            <div id="acr-grid" class="acr-grid" data-component="AcrCardGrid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-acreditacion.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: AcrCommitment -->
+    <section
+        class="py-section-padding bg-background"
+        id="compromiso"
+        data-component="AcrCommitment"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Compromiso institucional</p>
+                    <h2 class="type-section-title type-section-title--primary mb-6">
+                        Calidad académica con pasaporte global.
+                    </h2>
+                    <p class="type-body-lg type-body--muted mb-4">
+                        En la UNPHU, la excelencia no es una meta estática: es un proceso continuo de mejora, evaluación externa y rendición de cuentas ante la comunidad académica y la sociedad.
+                    </p>
+                    <p class="type-body-md type-body--muted">
+                        Contar con sellos nacionales e internacionales es el resultado de rigurosas auditorías que validan nuestros programas, infraestructura, cuerpo docente y resultados de aprendizaje.
+                    </p>
+                </div>
+                <div class="space-y-4" data-stagger-container>
+                    <article class="acr-benefit" data-stagger>
+                        <div class="acr-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div>
+                            <h3 class="acr-benefit__title">Para estudiantes y egresados</h3>
+                            <p class="acr-benefit__desc">
+                                Garantiza que el título UNPHU posee equivalencia sustancial y reconocimiento ante empleadores, universidades y organismos reguladores.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="acr-benefit" data-stagger>
+                        <div class="acr-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">public</span>
+                        </div>
+                        <div>
+                            <h3 class="acr-benefit__title">Para la institución</h3>
+                            <p class="acr-benefit__desc">
+                                Fortalece alianzas estratégicas, redes de investigación y la proyección internacional de la universidad.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="acr-benefit" data-stagger>
+                        <div class="acr-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div>
+                            <h3 class="acr-benefit__title">Auditorías externas independientes</h3>
+                            <p class="acr-benefit__desc">
+                                Cada acreditación responde a evaluaciones rigurosas de pares académicos y organismos especializados.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: AcrContact -->
+    <section
+        class="acr-contact py-section-padding"
+        id="contacto"
+        data-component="AcrContact"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="acr-contact__panel">
+                <div class="acr-contact__intro">
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Contacto</p>
+                    <h2 class="type-section-title type-section-title--primary mb-4">
+                        ¿Preguntas sobre nuestras acreditaciones?
+                    </h2>
+                    <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                        El equipo de Aseguramiento de la Calidad está disponible para orientarte sobre procesos, vigencia y evidencia pública de nuestras acreditaciones.
+                    </p>
+                </div>
+                <div class="acr-contact__grid" data-stagger-container>
+                    <a class="acr-contact-card" href="tel:8095400422" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">call</span>
+                        </div>
+                        <span class="acr-contact-card__label">Teléfono</span>
+                        <span class="acr-contact-card__value">809 540 0422</span>
+                    </a>
+                    <a class="acr-contact-card" href="mailto:calidad@unphu.edu.do" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <span class="acr-contact-card__label">Correo</span>
+                        <span class="acr-contact-card__value">calidad@unphu.edu.do</span>
+                    </a>
+                    <div class="acr-contact-card" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <span class="acr-contact-card__label">Dirección</span>
+                        <span class="acr-contact-card__value">Av. John F. Kennedy Km 7 1/2, Santo Domingo, R.D.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Component: AcrModal -->
+<div
+    id="acr-modal"
+    class="acr-modal-overlay"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="acr-modal-title"
+    data-component="AcrModal"
+>
+    <div class="acr-modal acr-cat--institucional" id="acr-modal-panel">
+        <button type="button" class="acr-modal__close" data-modal-close aria-label="Cerrar">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span>
+        </button>
+        <span class="acr-modal__badge" id="acr-modal-badge">Institucional</span>
+        <h2 class="acr-modal__title" id="acr-modal-title">MESCyT</h2>
+        <p class="acr-modal__org" id="acr-modal-org"></p>
+        <p class="acr-modal__desc" id="acr-modal-desc"></p>
+        <div class="acr-modal__meta">
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                <span class="acr-modal__meta-label">Área acreditada</span>
+                <span class="acr-modal__meta-value" id="acr-modal-area"></span>
+            </div>
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                <span class="acr-modal__meta-label">Periodo</span>
+                <span class="acr-modal__meta-value" id="acr-modal-period"></span>
+            </div>
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                <span class="acr-modal__meta-label">Alcance</span>
+                <span class="acr-modal__meta-value" id="acr-modal-scope"></span>
+            </div>
+        </div>
+        <p class="acr-modal__docs-label">Documentos y evidencia pública</p>
+        <div class="acr-modal__docs" id="acr-modal-docs"></div>
+    </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-acreditacion.js"></script>
+</body>
+</html>
