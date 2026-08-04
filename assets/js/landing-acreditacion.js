@@ -22,6 +22,8 @@
             scope: 'Nacional',
             area: 'UNPHU — Doctor en Medicina',
             period: '2019–2025 / 2017–2022',
+            image: '../assets/images/acreditadoras/Logo_MESCyT_(RD).png',
+            imageAlt: 'Logo MESCyT',
             description:
                 'Acreditación institucional y de programas otorgada por el MESCyT, que reconoce el cumplimiento de los estándares nacionales de calidad en educación superior, gestión académica e infraestructura.',
             documents: [
@@ -39,6 +41,8 @@
             scope: 'Global / Internacional',
             area: 'Programas de Negocios',
             period: '2020–2030',
+            image: '../assets/images/acreditadoras/ACBSP Logo - Full Color.svg',
+            imageAlt: 'Logo ACBSP',
             description:
                 'Acreditación internacional que valida la calidad de los programas de negocios de la UNPHU, alineados con estándares globales de enseñanza, investigación y vinculación con el sector productivo.',
             documents: [
@@ -55,6 +59,8 @@
             scope: 'Global',
             area: 'Arquitectura',
             period: '2021–2026',
+            image: '../assets/images/acreditadoras/anpadeh.png',
+            imageAlt: 'Logo ANPADEH',
             description:
                 'Reconocimiento de la calidad académica del programa de Arquitectura, con énfasis en formación profesional, diseño, contexto urbano y competencias del espacio habitable.',
             documents: [
@@ -71,6 +77,8 @@
             scope: 'Global / Internacional',
             area: 'Doctor en Medicina',
             period: '2019–2024',
+            image: '../assets/images/acreditadoras/caamhp.png',
+            imageAlt: 'Logo CAAM-HP',
             description:
                 'Acreditación regional del Caribe que certifica la calidad de la formación médica de la UNPHU, facilitando el reconocimiento internacional de egresados y la movilidad profesional.',
             documents: [
@@ -87,6 +95,8 @@
             scope: 'Global',
             area: 'Programas de Ingeniería',
             period: '2022–2027',
+            image: '../assets/images/acreditadoras/gcreas.png',
+            imageAlt: 'Logo GCREAS',
             description:
                 'Acreditación que asegura la calidad de los programas de ingeniería bajo criterios regionales e internacionales de formación, laboratorios, resultados de aprendizaje y empleabilidad.',
             documents: [
@@ -129,6 +139,7 @@
                         escapeHtml(item.duration) +
                     '</span>' +
                 '</div>' +
+                (item.image ? '<div class="acr-card__image"><img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.imageAlt || item.shortName + ' logo') + '" loading="lazy"/></div>' : '') +
                 '<h3 class="acr-card__title">' + escapeHtml(item.shortName) + '</h3>' +
                 '<p class="acr-card__org">' + escapeHtml(item.org) + '</p>' +
                 '<p class="acr-card__desc">' + escapeHtml(item.description) + '</p>' +
@@ -188,6 +199,17 @@
         document.getElementById('acr-modal-area').textContent = item.area;
         document.getElementById('acr-modal-period').textContent = item.period;
         document.getElementById('acr-modal-scope').textContent = item.scope;
+
+        var modalImage = document.getElementById('acr-modal-image');
+        if (modalImage) {
+            if (item.image) {
+                modalImage.innerHTML = '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.imageAlt || item.shortName + ' logo') + '" loading="lazy" />';
+                modalImage.removeAttribute('hidden');
+            } else {
+                modalImage.innerHTML = '';
+                modalImage.setAttribute('hidden', '');
+            }
+        }
 
         var docs = document.getElementById('acr-modal-docs');
         docs.innerHTML = (item.documents || []).map(function (doc) {

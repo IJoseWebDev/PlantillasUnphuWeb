@@ -48,16 +48,16 @@
                     Ver acreditaciones
                 </a>
                 <a
-                    href="dobleTitulacion.html"
+                    href="#contacto"
                     class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-8 py-3 type-btn text-white transition hover:bg-white/15"
                 >
-                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">layers</span>
-                    Doble Titulación
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">contact_support</span>
+                    Contáctanos
                 </a>
             </div>
             <div class="acr-hero__stats" data-stagger-container>
                 <div class="acr-stat" data-stagger>
-                    <span class="acr-stat__value">58+</span>
+                    <span class="acr-stat__value">60+</span>
                     <span class="acr-stat__label">Años de excelencia</span>
                 </div>
                 <div class="acr-stat" data-stagger>
@@ -76,34 +76,7 @@
         </div>
     </section>
 
-    <!-- Component: AcrGrid -->
-    <section
-        class="py-section-padding bg-surface-container-lowest"
-        id="acreditaciones"
-        data-component="AcrGrid"
-        data-animate="fade"
-    >
-        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-10">
-                <div>
-                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Organismos acreditadores</p>
-                    <h2 class="type-section-title type-section-title--blue">Nuestras acreditaciones</h2>
-                </div>
-                <div class="acr-filters" role="group" aria-label="Filtrar por categoría" data-component="AcrFilters">
-                    <button type="button" class="acr-filter acr-filter--active" data-filter="todos" aria-pressed="true">Todos</button>
-                    <button type="button" class="acr-filter" data-filter="institucional" aria-pressed="false">Institucional</button>
-                    <button type="button" class="acr-filter" data-filter="negocios" aria-pressed="false">Negocios</button>
-                    <button type="button" class="acr-filter" data-filter="arquitectura" aria-pressed="false">Arquitectura</button>
-                    <button type="button" class="acr-filter" data-filter="medicina" aria-pressed="false">Medicina</button>
-                    <button type="button" class="acr-filter" data-filter="ingenieria" aria-pressed="false">Ingeniería</button>
-                </div>
-            </div>
 
-            <div id="acr-grid" class="acr-grid" data-component="AcrCardGrid" data-stagger-container aria-live="polite">
-                <!-- Renderizado dinámico via landing-acreditacion.js -->
-            </div>
-        </div>
-    </section>
 
     <!-- Component: AcrCommitment -->
     <section
@@ -161,6 +134,35 @@
                         </div>
                     </article>
                 </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Component: AcrGrid -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="acreditaciones"
+        data-component="AcrGrid"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-10">
+                <div>
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Organismos acreditadores</p>
+                    <h2 class="type-section-title type-section-title--blue">Nuestras acreditaciones</h2>
+                </div>
+                <div class="acr-filters" role="group" aria-label="Filtrar por categoría" data-component="AcrFilters">
+                    <button type="button" class="acr-filter acr-filter--active" data-filter="todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="acr-filter" data-filter="institucional" aria-pressed="false">Institucional</button>
+                    <button type="button" class="acr-filter" data-filter="negocios" aria-pressed="false">Negocios</button>
+                    <button type="button" class="acr-filter" data-filter="arquitectura" aria-pressed="false">Arquitectura</button>
+                    <button type="button" class="acr-filter" data-filter="medicina" aria-pressed="false">Medicina</button>
+                    <button type="button" class="acr-filter" data-filter="ingenieria" aria-pressed="false">Ingeniería</button>
+                </div>
+            </div>
+
+            <div id="acr-grid" class="acr-grid" data-component="AcrCardGrid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-acreditacion.js -->
             </div>
         </div>
     </section>
@@ -227,6 +229,7 @@
             <span class="material-symbols-outlined" aria-hidden="true">close</span>
         </button>
         <span class="acr-modal__badge" id="acr-modal-badge">Institucional</span>
+        <div class="acr-modal__image" id="acr-modal-image" hidden></div>
         <h2 class="acr-modal__title" id="acr-modal-title">MESCyT</h2>
         <p class="acr-modal__org" id="acr-modal-org"></p>
         <p class="acr-modal__desc" id="acr-modal-desc"></p>
