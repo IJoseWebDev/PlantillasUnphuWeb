@@ -20,16 +20,16 @@
             category: 'institucional',
             duration: '5 años',
             scope: 'Nacional',
-            area: 'UNPHU — Doctor en Medicina',
+            area: 'Institución y programa de Medicina',
             period: '2019–2025 / 2017–2022',
             image: '../assets/images/acreditadoras/Logo_MESCyT_(RD).png',
             imageAlt: 'Logo MESCyT',
             description:
-                'Acreditación institucional y de programas otorgada por el MESCyT, que reconoce el cumplimiento de los estándares nacionales de calidad en educación superior, gestión académica e infraestructura.',
+                'Sello nacional que reconoce la calidad institucional de la UNPHU y el cumplimiento de estándares de gestión académica, infraestructura, formación docente y resultados de aprendizaje.',
             documents: [
                 { label: 'Portal MESCyT', href: 'https://mescyt.gob.do/' },
-                { label: 'Resolución MESCyT – UNPHU', href: '#' },
-                { label: 'Resolución MESCyT – Doctor en Medicina', href: '#' }
+                { label: 'Portal institucional UNPHU', href: 'https://www.unphu.edu.do/' },
+                { label: 'Aseguramiento de la Calidad UNPHU', href: 'https://www.unphu.edu.do/' }
             ]
         },
         {
@@ -44,10 +44,10 @@
             image: '../assets/images/acreditadoras/ACBSP Logo - Full Color.svg',
             imageAlt: 'Logo ACBSP',
             description:
-                'Acreditación internacional que valida la calidad de los programas de negocios de la UNPHU, alineados con estándares globales de enseñanza, investigación y vinculación con el sector productivo.',
+                'Acreditación internacional que valida la calidad de los programas de negocios de la UNPHU frente a estándares globales de enseñanza, investigación, innovación y vinculación con el sector productivo.',
             documents: [
                 { label: 'Portal ACBSP', href: 'https://acbsp.org/' },
-                { label: 'Certificado ACBSP – UNPHU', href: '#' }
+                { label: 'Portal institucional UNPHU', href: 'https://www.unphu.edu.do/' }
             ]
         },
         {
@@ -56,16 +56,16 @@
             org: 'Acreditadora Nacional de Programas de Arquitectura y Disciplinas del Espacio Habitable',
             category: 'arquitectura',
             duration: '5 años',
-            scope: 'Global',
+            scope: 'Nacional e internacional',
             area: 'Arquitectura',
             period: '2021–2026',
             image: '../assets/images/acreditadoras/anpadeh.png',
             imageAlt: 'Logo ANPADEH',
             description:
-                'Reconocimiento de la calidad académica del programa de Arquitectura, con énfasis en formación profesional, diseño, contexto urbano y competencias del espacio habitable.',
+                'Reconocimiento de la calidad académica del programa de Arquitectura, con énfasis en formación profesional, diseño, contexto urbano, innovación y competencias del espacio habitable.',
             documents: [
-                { label: 'Portal ANPADEH', href: '#' },
-                { label: 'Dictamen ANPADEH – Arquitectura', href: '#' }
+                { label: 'Portal ANPADEH', href: 'https://www.anpadeh.org/' },
+                { label: 'Portal institucional UNPHU', href: 'https://www.unphu.edu.do/' }
             ]
         },
         {
@@ -74,7 +74,7 @@
             org: 'Caribbean Accreditation Authority for Education in Medicine and other Health Professions',
             category: 'medicina',
             duration: '5 años',
-            scope: 'Global / Internacional',
+            scope: 'Regional / Internacional',
             area: 'Doctor en Medicina',
             period: '2019–2024',
             image: '../assets/images/acreditadoras/caamhp.png',
@@ -83,7 +83,7 @@
                 'Acreditación regional del Caribe que certifica la calidad de la formación médica de la UNPHU, facilitando el reconocimiento internacional de egresados y la movilidad profesional.',
             documents: [
                 { label: 'Portal CAAM-HP', href: 'https://www.caam-hp.org/' },
-                { label: 'Acreditación CAAM-HP – Medicina', href: '#' }
+                { label: 'Portal institucional UNPHU', href: 'https://www.unphu.edu.do/' }
             ]
         },
         {
@@ -92,7 +92,7 @@
             org: 'Gran Caribe para la Acreditación de Programas de Ingeniería',
             category: 'ingenieria',
             duration: '5 años',
-            scope: 'Global',
+            scope: 'Regional / Internacional',
             area: 'Programas de Ingeniería',
             period: '2022–2027',
             image: '../assets/images/acreditadoras/gcreas.png',
@@ -100,8 +100,8 @@
             description:
                 'Acreditación que asegura la calidad de los programas de ingeniería bajo criterios regionales e internacionales de formación, laboratorios, resultados de aprendizaje y empleabilidad.',
             documents: [
-                { label: 'Portal GCREAS', href: '#' },
-                { label: 'Dictamen GCREAS – Ingeniería', href: '#' }
+                { label: 'Portal GCREAS', href: 'https://www.gcreas.org/' },
+                { label: 'Portal institucional UNPHU', href: 'https://www.unphu.edu.do/' }
             ]
         }
     ];
