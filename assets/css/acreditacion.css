@@ -138,6 +138,18 @@
     margin-bottom: 3.5rem;
 }
 
+.py-section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .py-section-padding {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
 /* --- Stats (gradiente horizontal + cards verdes) --- */
 .acr-stats {
     position: relative;
