@@ -138,26 +138,90 @@
     margin-bottom: 3.5rem;
 }
 
-.acr-hero__stats {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+/* --- Stats (gradiente horizontal + cards verdes) --- */
+.acr-stats {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+    background: linear-gradient(105deg, #0a3859 0%, #145a28 42%, #2e7d32 72%, #439441 100%);
 }
 
-@media (min-width: 768px) {
-    .acr-hero__stats {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.5rem;
+.acr-stats__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.acr-stats__header {
+    max-width: 40rem;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+}
+
+.acr-stats__title {
+    font-family: var(--font-family-base);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+}
+
+.acr-stats__spark {
+    position: absolute;
+    right: 8%;
+    bottom: 1.75rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    background: #ffffff;
+    opacity: 0.85;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+}
+
+.acr-stats-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .acr-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.15rem;
     }
+}
+
+@media (min-width: 1024px) {
+    .acr-stats-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.acr-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 8.75rem;
+    padding: 1.5rem 1.15rem;
+    border-radius: 1rem;
+    background: #145a28;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    text-align: center;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.acr-stat-card:hover {
+    transform: translateY(-3px);
+    background: #0f4a20;
 }
 
 .acr-stat__value {
     display: block;
-    margin-bottom: 0.35rem;
     font-family: var(--font-family-base);
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(1.875rem, 3vw, 2.5rem);
     font-weight: 700;
     line-height: 1.1;
     color: #ffffff;
@@ -166,8 +230,8 @@
 .acr-stat__label {
     font-family: var(--font-family-base);
     font-size: var(--text-body-sm-size);
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 /* --- Filtros --- */
