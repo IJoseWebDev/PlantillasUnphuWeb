@@ -22,8 +22,15 @@
 
 @media (min-width: 768px) {
     .inc-wrap {
-        padding-left: 3rem;
-        padding-right: 3rem;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1599px) {
+    .inc-wrap {
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 }
 
@@ -78,7 +85,14 @@
 
 @media (min-width: 768px) {
     .inc-hero__inner {
-        padding: 7rem 3rem 4rem;
+        padding: 7rem 3.5rem 4rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1599px) {
+    .inc-hero__inner {
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 }
 
