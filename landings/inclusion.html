@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Inclusión y Atención a la Diversidad en la UNPHU. Dirección de Inclusión Universitaria: accesibilidad, equidad y acompañamiento a la comunidad universitaria."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Inclusión y Atención a la Diversidad — UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/inclusion.css"/>
+</head>
+<body class="inc-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Inclusión y Atención a la Diversidad
+  Next.js route sugerida: /inclusion
+  Componentes: IncHero, IncQuickNav, IncAbout, IncSpectrum, IncFormation,
+               IncJornadas, IncPei, IncSupport, IncAllies, IncContact
+-->
+
+<main>
+
+    <!-- Component: IncHero -->
+    <section class="inc-hero" id="inicio" data-component="IncHero" data-animate="fade">
+        <div class="inc-hero__media" aria-hidden="true"></div>
+        <div class="inc-hero__overlay" aria-hidden="true"></div>
+        <div class="inc-hero__inner">
+            <p class="inc-hero__badge">
+                <span class="material-symbols-outlined" aria-hidden="true">diversity_3</span>
+                Dirección de Inclusión Universitaria
+            </p>
+            <h1 class="inc-hero__title">
+                <strong>Inclusión y Atención</strong> a la Diversidad
+            </h1>
+            <p class="inc-hero__lead">
+                Dirigimos, articulamos y garantizamos la gestión integral de la Política de Inclusión y Atención a la Diversidad, mediante estrategias, programas y acciones orientadas a la accesibilidad, la equidad y la atención a la diversidad en la Universidad.
+            </p>
+            <div class="inc-hero__actions">
+                <a href="#apoyo" class="inc-hero__btn type-btn">
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">handshake</span>
+                    Conoce nuestros servicios
+                </a>
+                <a href="#contacto" class="inc-hero__btn-ghost type-btn">
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">mail</span>
+                    Contáctanos
+                </a>
+            </div>
+            <div class="inc-hero__meta">
+                <span class="inc-hero__meta-item">
+                    <span class="material-symbols-outlined" aria-hidden="true">accessible</span>
+                    Accesibilidad
+                </span>
+                <span class="inc-hero__meta-item">
+                    <span class="material-symbols-outlined" aria-hidden="true">balance</span>
+                    Equidad
+                </span>
+                <span class="inc-hero__meta-item">
+                    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+                    Atención a la diversidad
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncAbout -->
+    <section
+        class="py-section-padding bg-background"
+        id="sobre-inclusion"
+        data-component="IncAbout"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="max-w-3xl mb-10">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Quiénes somos</p>
+                <h2 class="type-section-title type-section-title--primary mb-6">
+                    La unidad responsable de la política institucional de inclusión.
+                </h2>
+                <p class="type-body-lg type-body--muted mb-4">
+                    La Dirección de Inclusión Universitaria tiene como fin dirigir, articular y garantizar la gestión integral de la Política de Inclusión y Atención a la Diversidad (VCAC-201-POL-002), mediante el diseño, implementación, coordinación y evaluación de estrategias, programas y acciones orientadas a la accesibilidad, la equidad y la atención a la diversidad en la Universidad.
+                </p>
+                <p class="type-body-md type-body--muted">
+                    Con un enfoque de derechos, calidad académica y responsabilidad social, impulsamos la eliminación de barreras, así como la creación de entornos educativos inclusivos que aseguren el acceso, la permanencia, el aprendizaje significativo y el egreso exitoso de toda la comunidad universitaria, con especial atención a personas en situación de discapacidad.
+                </p>
+            </div>
+            <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <figure class="inc-figure">
+                    <img src="../assets/images/biblioteca.jpg" alt="Campus de la Universidad Nacional Pedro Henríquez Ureña" width="800" height="520"/>
+                </figure>
+                <div class="space-y-4" data-stagger-container>
+                    <article class="inc-benefit" data-stagger>
+                        <div class="inc-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">gavel</span>
+                        </div>
+                        <div>
+                            <h3 class="inc-benefit__title">Enfoque de derechos</h3>
+                            <p class="inc-benefit__desc">La gestión se articula desde un enfoque de derechos, calidad académica y responsabilidad social.</p>
+                        </div>
+                    </article>
+                    <article class="inc-benefit" data-stagger>
+                        <div class="inc-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">block</span>
+                        </div>
+                        <div>
+                            <h3 class="inc-benefit__title">Eliminación de barreras</h3>
+                            <p class="inc-benefit__desc">Impulsamos la eliminación de barreras y la creación de entornos educativos inclusivos.</p>
+                        </div>
+                    </article>
+                    <article class="inc-benefit" data-stagger>
+                        <div class="inc-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div>
+                            <h3 class="inc-benefit__title">Trayectoria universitaria</h3>
+                            <p class="inc-benefit__desc">Aseguramos el acceso, la permanencia, el aprendizaje significativo y el egreso exitoso, con especial atención a personas en situación de discapacidad.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncSpectrum -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="espectro"
+        data-component="IncSpectrum"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Comunidad universitaria</p>
+                <h2 class="type-section-title type-section-title--blue mb-4">Espectro de Inclusión</h2>
+                <p class="type-body-lg type-body--muted">
+                    La UNPHU realiza esfuerzos para dar atención a la diversidad en la comunidad universitaria. Desde el Decanato de Bienestar Estudiantil, Orientación Universitaria y la Dirección de Inclusión Universitaria se brinda apoyo y servicio a:
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto" data-stagger-container>
+                <article class="bg-surface p-8 rounded-2xl border border-outline-variant/30 card-hover" data-stagger data-component="FeatureCard">
+                    <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-4" aria-hidden="true">
+                        <span class="material-symbols-outlined">accessible</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Personas en situación de discapacidad</h3>
+                    <p class="type-body-md type-body--muted">Apoyo y servicio desde Bienestar Estudiantil, Orientación Universitaria y la Dirección de Inclusión Universitaria.</p>
+                </article>
+                <article class="bg-surface p-8 rounded-2xl border border-outline-variant/30 card-hover" data-stagger data-component="FeatureCard">
+                    <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-4" aria-hidden="true">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Necesidades educativas específicas de apoyo</h3>
+                    <p class="type-body-md type-body--muted">Apoyo y servicio a personas con necesidades educativas específicas de apoyo en la comunidad universitaria.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncFormation -->
+    <section
+        class="py-section-padding bg-background"
+        id="formacion"
+        data-component="IncFormation"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="max-w-3xl mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Oferta académica</p>
+                <h2 class="type-section-title type-section-title--blue">Formación</h2>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-2 mb-10" data-stagger-container>
+                <article class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/30 shadow-soft card-hover" data-stagger>
+                    <p class="type-label type-label--secondary mb-3">Grado</p>
+                    <h3 class="type-subtitle type-subtitle--blue mb-4">Licenciatura en Educación, mención Educación Especial</h3>
+                    <p class="type-body-md type-body--muted mb-4">
+                        La Universidad Nacional Pedro Henríquez Ureña, encargada de formar a los futuros docentes que darán los apoyos necesarios para asegurar los procesos de inclusión que se dan en las aulas dominicanas.
+                    </p>
+                    <p class="type-body-md type-body--muted">
+                        Con un enfoque centrado en el desarrollo de competencias y con una visión inclusiva de la práctica, ofrece programas actualizados e innovadores que permiten la transformación del docente, asegurando la especialización de su quehacer y respondiendo a las necesidades específicas de apoyo educativo presentes en la diversidad del contexto educativo.
+                    </p>
+                </article>
+                <article class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/30 shadow-soft card-hover" data-stagger>
+                    <p class="type-label type-label--secondary mb-3">Postgrado</p>
+                    <h3 class="type-subtitle type-subtitle--blue mb-4">Maestría en Educación Inclusiva y Atención a la Diversidad</h3>
+                    <p class="type-body-md type-body--muted mb-4">
+                        Al incluir este máster en su oferta académica, la universidad enuncia la obligación, conjuntamente con la del Estado, de adoptar una política nacional encaminada a promover la igualdad de oportunidades y de trato en la esfera de la enseñanza.
+                    </p>
+                    <p class="type-body-md type-body--muted mb-4">
+                        La finalidad del programa es formar especialistas con conocimientos, habilidades y actitudes que les permitan establecer un marco regulatorio para la atención a la educación inclusiva y de las poblaciones vulnerables. De igual forma, busca implementar propuestas evaluativas flexibles y ajustadas a la diversidad de los escenarios escolares, laborales y sociales.
+                    </p>
+                    <p class="type-body-sm type-body--muted">
+                        Dirigido a profesionales del área de la educación, responsables de la gestión educativa, orientación, personal directivo y técnico del MINERD, maestros de educación inicial, básica y media, y directores de centros educativos públicos y privados.
+                    </p>
+                </article>
+            </div>
+
+            <div>
+                <h3 class="type-section-title type-section-title--sm type-section-title--primary mb-6">Educación continuada</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger-container>
+                    <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger>
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white mb-4" aria-hidden="true">
+                            <span class="material-symbols-outlined">sign_language</span>
+                        </div>
+                        <h4 class="type-card-title type-card-title--primary">Diplomado de Lengua de Señas Dominicana</h4>
+                    </article>
+                    <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger>
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white mb-4" aria-hidden="true">
+                            <span class="material-symbols-outlined">child_care</span>
+                        </div>
+                        <h4 class="type-card-title type-card-title--primary">Diplomado en Neurodesarrollo, Hitos y Signos de Alarma en el Desarrollo Infantil</h4>
+                    </article>
+                    <article class="bg-surface p-6 rounded-2xl border border-outline-variant/30 card-hover" data-stagger>
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white mb-4" aria-hidden="true">
+                            <span class="material-symbols-outlined">dashboard_customize</span>
+                        </div>
+                        <h4 class="type-card-title type-card-title--primary">Educación inclusiva con enfoque DUA</h4>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncJornadas -->
+    <section
+        class="inc-stats"
+        id="jornadas"
+        aria-labelledby="inc-jornadas-title"
+        data-component="IncJornadas"
+        data-animate="fade"
+    >
+        <div class="inc-stats__inner inc-wrap">
+            <div class="inc-stats__header">
+                <p class="type-eyebrow type-eyebrow--light mb-3">Iniciativa</p>
+                <h2 class="inc-stats__title" id="inc-jornadas-title">Jornadas de Inclusión Educativa</h2>
+                <p class="inc-stats__lead">
+                    Espacios de intercambio de conocimientos en los que se ofrecen talleres de formación en temas de inclusión. Surgen como una iniciativa de Pro-UNPHU, conjuntamente con la Facultad de Humanidades y Educación. Se celebran cada año y buscan dar herramientas educativas, a través de talleres y ponencias, enfocadas en desarrollar competencias que permitan mejores prácticas inclusivas.
+                </p>
+            </div>
+            <div class="inc-stats-grid" data-stagger-container>
+                <article class="inc-stat-card" data-stagger>
+                    <span class="inc-stat__value" data-animate-number data-target="8">0</span>
+                    <span class="inc-stat__label">Ediciones realizadas</span>
+                </article>
+                <article class="inc-stat-card" data-stagger>
+                    <span class="inc-stat__value">+700</span>
+                    <span class="inc-stat__label">Maestros, estudiantes y familias</span>
+                </article>
+                <article class="inc-stat-card" data-stagger>
+                    <span class="inc-stat__value">9na</span>
+                    <span class="inc-stat__label">Entrega en 2026</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncPei -->
+    <section
+        class="inc-pei py-section-padding"
+        id="pei"
+        data-component="IncPei"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="inc-pei__panel p-8 md:p-12">
+                <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+                    <div>
+                        <p class="type-eyebrow type-eyebrow--light mb-3">Programa destacado</p>
+                        <h2 class="type-section-title type-section-title--light mb-4">Programa de Empleo Inclusivo (PEI)</h2>
+                        <p class="type-body-lg type-body--light mb-6">
+                            Iniciativa de Abraza en alianza con la Universidad Nacional Pedro Henríquez Ureña (UNPHU) que capacita, forma y abre espacios de prácticas y empleo para jóvenes adultos con neurodiversidad y discapacidad.
+                        </p>
+                        <div class="rounded-2xl bg-white/10 border border-white/10 p-5 mb-8">
+                            <p class="type-label type-label--wide text-white/70 mb-2">Propósito</p>
+                            <p class="type-body-md text-white">Ofrecer formación universitaria inclusiva, autonomía e integración al mercado laboral.</p>
+                        </div>
+                        <h3 class="type-subtitle text-white mb-4">Actividades</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-white">
+                                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                    <span class="material-symbols-outlined text-base">check</span>
+                                </span>
+                                <span>Clases en campus</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-white">
+                                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                    <span class="material-symbols-outlined text-base">check</span>
+                                </span>
+                                <span>Prácticas de campo</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-white">
+                                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                    <span class="material-symbols-outlined text-base">check</span>
+                                </span>
+                                <span>Pasantías remuneradas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="type-label type-label--wide text-white/70 mb-4 text-center lg:text-left">Aliados</p>
+                        <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1" data-stagger-container>
+                            <article class="inc-pei__ally" data-stagger>
+                                <img class="inc-pei__ally-logo" src="../assets/images/alianzas/abraza.png" alt="Logo de Abraza" width="180" height="68"/>
+                                <p class="inc-pei__ally-desc">Consultores en responsabilidad social</p>
+                            </article>
+                            <article class="inc-pei__ally" data-stagger>
+                                <img class="inc-pei__ally-logo" src="https://unphu.edu.do/logo-unphu-60-aniversario.png" alt="Logo UNPHU 60 aniversario" width="180" height="68"/>
+
+                                <p class="inc-pei__ally-desc">Universidad Nacional Pedro Henríquez Ureña</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncSupport -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="apoyo"
+        data-component="IncSupport"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="max-w-3xl mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Servicios</p>
+                <h2 class="type-section-title type-section-title--blue mb-4">Apoyo a la comunidad</h2>
+                <p class="type-body-lg type-body--muted">
+                    Proveer a los estudiantes universitarios el acceso a través de ajustes razonables y acompañamiento a los docentes y estudiantes para su éxito.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14" data-stagger-container>
+                <article class="inc-service-card" data-stagger>
+                    <div class="inc-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">record_voice_over</span>
+                    </div>
+                    <h3 class="inc-service-card__title">Entrevista para ingreso</h3>
+                    <p class="inc-service-card__desc">Entrevista para ingreso con Admisiones.</p>
+                </article>
+                <article class="inc-service-card" data-stagger>
+                    <div class="inc-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">tune</span>
+                    </div>
+                    <h3 class="inc-service-card__title">Ajustes razonables</h3>
+                    <p class="inc-service-card__desc">Elaboración de ajustes razonables.</p>
+                </article>
+                <article class="inc-service-card" data-stagger>
+                    <div class="inc-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">apartment</span>
+                    </div>
+                    <h3 class="inc-service-card__title">Seguimiento con las escuelas</h3>
+                    <p class="inc-service-card__desc">Seguimiento y acompañamiento con las escuelas.</p>
+                </article>
+                <article class="inc-service-card" data-stagger>
+                    <div class="inc-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">person_celebrate</span>
+                    </div>
+                    <h3 class="inc-service-card__title">Acompañamiento estudiantil</h3>
+                    <p class="inc-service-card__desc">Acompañamiento estudiantil.</p>
+                </article>
+                <article class="inc-service-card" data-stagger>
+                    <div class="inc-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">clinical_notes</span>
+                    </div>
+                    <h3 class="inc-service-card__title">Derivación a especialistas</h3>
+                    <p class="inc-service-card__desc">Derivación a especialistas.</p>
+                </article>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-2 mb-14">
+                <div class="rounded-3xl bg-white border border-outline-variant/30 p-8 shadow-soft">
+                    <h3 class="type-section-title type-section-title--sm type-section-title--primary mb-4">¿Quiénes pueden acceder?</h3>
+                    <p class="type-body-md type-body--muted mb-5">Todo estudiante que requiera ajustes razonables. Puede acceder por:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">how_to_reg</span>
+                            </span>
+                            <span>Admisiones</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">school</span>
+                            </span>
+                            <span>Escuela</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">favorite</span>
+                            </span>
+                            <span>Bienestar Estudiantil</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">person</span>
+                            </span>
+                            <span>Solicitud propia del estudiante</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-3xl bg-white border border-outline-variant/30 p-8 shadow-soft">
+                    <h3 class="type-section-title type-section-title--sm type-section-title--primary mb-4">Requisitos</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0 mt-0.5" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">check</span>
+                            </span>
+                            <span>Protocolo de admisiones</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0 mt-0.5" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">check</span>
+                            </span>
+                            <span>Llenar el formulario</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shrink-0 mt-0.5" aria-hidden="true">
+                                <span class="material-symbols-outlined text-base">check</span>
+                            </span>
+                            <span>Referimiento</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="text-center mb-8">
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Cómo solicitarlo</p>
+                    <h3 class="type-section-title type-section-title--blue">Procedimiento</h3>
+                </div>
+                <div class="inc-process" data-stagger-container>
+                    <article class="inc-process__step" data-stagger data-timeline-item>
+                        <span class="inc-process__num">1</span>
+                        <h4 class="inc-process__title">Solicitud</h4>
+                        <p class="inc-process__desc">Solicitud a través de formulario.</p>
+                    </article>
+                    <span class="inc-process__arrow" aria-hidden="true">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                    <article class="inc-process__step" data-stagger data-timeline-item>
+                        <span class="inc-process__num">2</span>
+                        <h4 class="inc-process__title">Entrevista / Referimiento</h4>
+                        <p class="inc-process__desc">Entrevista inicial con Admisiones, o referimiento de la escuela o de Bienestar Estudiantil.</p>
+                    </article>
+                    <span class="inc-process__arrow" aria-hidden="true">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                    <article class="inc-process__step" data-stagger data-timeline-item>
+                        <span class="inc-process__num">3</span>
+                        <h4 class="inc-process__title">Ajustes razonables</h4>
+                        <p class="inc-process__desc">Elaboración de ajustes razonables.</p>
+                    </article>
+                    <span class="inc-process__arrow" aria-hidden="true">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                    <article class="inc-process__step" data-stagger data-timeline-item>
+                        <span class="inc-process__num">4</span>
+                        <h4 class="inc-process__title">Acompañamiento</h4>
+                        <p class="inc-process__desc">Seguimiento y acompañamiento con las escuelas y al estudiante.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncAllies -->
+    <section
+        class="py-section-padding bg-background"
+        id="alianzas"
+        data-component="IncAllies"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="type-section-title type-section-title--primary">Alianzas</h2>
+            </div>
+            <div class="inc-allies-carousel" data-allies-carousel data-carousel-interval="4500">
+                <button type="button" class="inc-allies-carousel__btn inc-allies-carousel__btn--prev" data-carousel-prev aria-label="Alianza anterior">
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                </button>
+                <div class="inc-allies-carousel__viewport" data-carousel-viewport>
+                    <div class="inc-allies-carousel__track" data-carousel-track>
+                        <div class="inc-allies-carousel__slide">
+                            <article class="inc-ally-card">
+                                <img src="../assets/images/alianzas/CAID-LOGOS-EN-PNG_Mesa-de-trabajo-1.png" alt="Logo de CAID" width="220" height="88"/>
+                                <h3 class="inc-ally-card__name">CAID</h3>
+                            </article>
+                        </div>
+                        <div class="inc-allies-carousel__slide">
+                            <article class="inc-ally-card">
+                                <img src="../assets/images/alianzas/conadis.png" alt="Logo de CONADIS" width="220" height="88"/>
+                                <h3 class="inc-ally-card__name">CONADIS</h3>
+                            </article>
+                        </div>
+                        <div class="inc-allies-carousel__slide">
+                            <article class="inc-ally-card">
+                                <img src="../assets/images/alianzas/abraza.png" alt="Logo de Abraza" width="220" height="88"/>
+                                <h3 class="inc-ally-card__name">Abraza</h3>
+                            </article>
+                        </div>
+                        <div class="inc-allies-carousel__slide">
+                            <article class="inc-ally-card">
+                                <img src="../assets/images/alianzas/adosid.png" alt="Logo de ADOSID" width="220" height="88"/>
+                                <h3 class="inc-ally-card__name">ADOSID</h3>
+                            </article>
+                        </div>
+                        <div class="inc-allies-carousel__slide">
+                            <article class="inc-ally-card">
+                                <img src="../assets/images/alianzas/aspire-logo.svg" alt="Logo de ASPIRE" width="220" height="88"/>
+                                <h3 class="inc-ally-card__name">ASPIRE</h3>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="inc-allies-carousel__btn inc-allies-carousel__btn--next" data-carousel-next aria-label="Siguiente alianza">
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: IncContact -->
+    <section
+        class="inc-contact py-section-padding"
+        id="contacto"
+        data-component="IncContact"
+        data-animate="fade"
+    >
+        <div class="inc-wrap">
+            <div class="inc-contact__panel">
+                <div class="inc-contact__intro">
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Contacto</p>
+                    <h2 class="type-section-title type-section-title--primary mb-4">
+                        Dirección de Inclusión Universitaria
+                    </h2>
+                    <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                        Atención previa cita por correo electrónico.
+                    </p>
+                </div>
+                <div class="inc-contact__grid" data-stagger-container>
+                    <a class="inc-contact-card" href="mailto:inclusion@unphu.edu.do" data-stagger>
+                        <div class="inc-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <span class="inc-contact-card__label">Correo</span>
+                        <span class="inc-contact-card__value">inclusion@unphu.edu.do</span>
+                    </a>
+                    <div class="inc-contact-card" data-stagger>
+                        <div class="inc-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">schedule</span>
+                        </div>
+                        <span class="inc-contact-card__label">Horario</span>
+                        <span class="inc-contact-card__value">Lunes a viernes</span>
+                        <span class="type-body-sm type-body--muted">8:00 a. m. – 11:30 a. m.</span>
+                        <span class="type-body-sm type-body--muted">2:30 p. m. – 4:30 p. m.</span>
+                    </div>
+                    <div class="inc-contact-card" data-stagger>
+                        <div class="inc-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">badge</span>
+                        </div>
+                        <span class="inc-contact-card__label">Responsable</span>
+                        <span class="inc-contact-card__value">Yolimar Mejías</span>
+                        <span class="type-body-sm type-body--muted">Dirección de Inclusión Universitaria</span>
+                    </div>
+                </div>
+                <p class="inc-contact__note">La atención se realiza previa cita por correo electrónico.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-inclusion.js"></script>
+</body>
+</html>

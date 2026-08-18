@@ -7,18 +7,28 @@ Sistema modular y escalable para crear landings individuales que serán integrad
 ```
 PlantillasUnphuWeb/
 ├── 📂 landings/                          # Todos los HTML de landings
-│   ├── dobleTitulacion.html             # ✅ Landing completado
-│   └── template.html                     # 🔖 Plantilla para nuevos landings
+│   ├── template.html                     # 🔖 Catálogo de componentes (punto de partida)
+│   ├── acreditacion.html                # ✅ Acreditaciones
+│   ├── bolsa-de-empleo.html             # ✅ Listado de vacantes
+│   ├── bolsa-de-empleo-detalle.html     # ✅ Detalle de vacante
+│   ├── documentacion.html               # ✅ Documentos y reglamentos
+│   ├── dobleTitulacion.html             # ✅ Doble titulación
+│   ├── internacionalizacion.html        # ✅ Campus / relaciones internacionales
+│   └── 404Unphu.html                    # ✅ Página de error
 │
 ├── 📂 assets/
 │   ├── css/
-│   │   └── global.css                   # Estilos, variables, animaciones
+│   │   ├── global.css                   # Estilos, variables, animaciones
+│   │   ├── template.css                 # Componentes base tpl-* + chrome del catálogo
+│   │   └── [nombre].css                 # Un archivo por landing (prefijo BEM propio)
 │   ├── js/
 │   │   ├── common.js                    # Scroll suave, CTAs globales
 │   │   ├── animations.js                # Fade-in, stagger, parallax, etc
 │   │   ├── utils.js                     # Validaciones, localStorage, helpers
 │   │   ├── forms.js                     # Gestión completa de formularios
-│   │   └── [modulos-especificos].js     # Módulos personalizados
+│   │   ├── tailwind-config.js           # Tokens de color, spacing y tipografía
+│   │   ├── landing-template.js          # Scaffold + demos del catálogo
+│   │   └── landing-[nombre].js          # Lógica de cada landing
 │   ├── images/                          # Imágenes (iconos, backgrounds, etc)
 │   └── fonts/                           # Fuentes locales (si aplica)
 │
@@ -56,16 +66,40 @@ python -m http.server 8000
 
 ### 2. Crear un Nuevo Landing
 
-Copia `landings/template.html` y personaliza:
+`landings/template.html` es el **catálogo de componentes**: contiene todos los bloques
+usados en los landings publicados (48 componentes agrupados de la A a la I), cada uno
+con una etiqueta que indica su archivo CSS y su clase de origen.
 
 ```bash
 cp landings/template.html landings/mi-nuevo-landing.html
+cp assets/css/template.css assets/css/mi-nuevo-landing.css
+cp assets/js/landing-template.js assets/js/landing-mi-nuevo-landing.js
 ```
 
-Edita:
-- Cambiar `<title>`
-- Reemplazar contenido de secciones
-- Ajustar colores si es necesario
+Luego:
+1. Abre el catálogo en el navegador y elige los componentes que necesitas
+   (el botón «Ocultar etiquetas» permite previsualizar sin la documentación)
+2. Borra del HTML la portada `.tpl-catalog-header`, el índice `.tpl-index`,
+   todos los elementos `[data-doc]` y los componentes que no uses
+3. Por cada componente conservado, copia su bloque CSS al CSS de tu página
+   (la etiqueta indica el archivo y la clase, ej. `bolsa-de-empleo.css · .job-card`)
+4. Renombra el prefijo BEM (`tpl-` / `doc-` / `job-` / `acr-`) por el de tu página
+5. Actualiza `<title>`, meta tags y los `href`/`src` de CSS y JS
+6. Reemplaza textos e imágenes
+
+### Grupos del catálogo
+
+| Grupo | Contenido |
+|-------|-----------|
+| A | Heroes (centrado, inferior, compacto, con buscador, con imagen, degradado) |
+| B | Navegación (quick nav sticky, breadcrumb, pestaña lateral, back link) |
+| C | Contenido (feature grid, glass cards, beneficios, checklist, split panel, cifras, timeline, panel informativo, banner, carrusel) |
+| D | Búsqueda y filtros (buscador simple, multicampo, pills, chips) |
+| E | Listados y tarjetas (resource, documento, vacante, paginación, estado vacío, acreditación) |
+| F | Página de detalle (header, quick info, secciones, sidebar, compensación, aplicación) |
+| G | Contacto y CTA (tarjetas, panel glass, panel blanco, banner, franja, newsletter) |
+| H | Overlays y feedback (modal completo, modal simple, toast, estado 404) |
+| I | Tokens (escala tipográfica y variantes de botón) |
 
 ## 📊 Estructura de un Landing
 
@@ -274,7 +308,10 @@ Ver [ARCHITECTURE.md](./ARCHITECTURE.md) para:
 
 ## 📊 Checklist para Nuevo Landing
 
-- [ ] Copiar `template.html`
+- [ ] Copiar `template.html`, `template.css` y `landing-template.js`
+- [ ] Elegir componentes en el catálogo y borrar el resto
+- [ ] Borrar portada, índice y elementos `[data-doc]` del catálogo
+- [ ] Copiar el CSS de cada componente y renombrar el prefijo BEM
 - [ ] Actualizar `<title>` y meta tags
 - [ ] Crear contenido en secciones
 - [ ] Añadir `data-animate`, `data-stagger`, etc.

@@ -48,9 +48,32 @@ PlantillasUnphuWeb/
 
 ## 🚀 Cómo Usar
 
+### 0. El catálogo de componentes
+
+`landings/template.html` funciona como catálogo: reúne los 48 componentes usados en los
+landings publicados, agrupados de la A a la I. Cada componente lleva:
+
+- un comentario HTML con **origen, archivo CSS, clase y JS necesario**
+- una etiqueta visible `.tpl-doc` (se ocultan todas con el botón «Ocultar etiquetas»)
+
+El catálogo carga el CSS de los landings reales (`documentacion.css`, `bolsa-de-empleo.css`,
+`acreditacion.css`) para mostrar cada bloque con su estilo definitivo. Al clonar, deja solo
+el CSS de los componentes que te lleves y renombra su prefijo BEM.
+
+Mapa de prefijos:
+
+| Prefijo | Archivo CSS | Origen |
+|---------|-------------|--------|
+| `tpl-*` | `template.css` | versiones neutras, listas para renombrar |
+| `doc-*` | `documentacion.css` | documentacion.html |
+| `job-*` | `bolsa-de-empleo.css` | bolsa-de-empleo.html y su detalle |
+| `acr-*` | `acreditacion.css` | acreditacion.html |
+| `glass-card`, `requisitos-*`, `gradient-overlay`, `pattern-grid`, `card-hover` | `global.css` | compartidos |
+
 ### 1. Crear un nuevo Landing
 
-Copia [template.html](#template-base) a `landings/tu-landing.html`
+Copia [template.html](#template-base) a `landings/tu-landing.html`, borra la portada, el
+índice, los `[data-doc]` y los componentes que no uses. La estructura mínima que queda es:
 
 ```html
 <!DOCTYPE html>

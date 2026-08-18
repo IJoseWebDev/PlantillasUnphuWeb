@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Descripción breve del landing"/>
+    <meta name="description" content="Catálogo de componentes reutilizables de los landings UNPHU."/>
     <meta name="theme-color" content="#156b1d"/>
-    <title>Nuevo Landing — UNPHU</title>
+    <title>Catálogo de Componentes — UNPHU</title>
 
     <!-- Tailwind CSS (+ forms / container-queries) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -21,85 +21,481 @@
     <link rel="stylesheet" href="../assets/css/global.css"/>
 
     <!--
-      CSS específico del landing (BEM).
-      Al clonar: renombra a assets/css/[nombre].css y actualiza este href.
-      Ejemplos: bolsa-de-empleo.css, documentacion.css, 404-unphu.css
+      CSS de los landings publicados.
+      El catálogo los carga para mostrar cada componente con su estilo real.
+      AL CLONAR: deja solo el CSS de los componentes que te llevaste.
+    -->
+    <link rel="stylesheet" href="../assets/css/documentacion.css"/>
+    <link rel="stylesheet" href="../assets/css/bolsa-de-empleo.css"/>
+    <link rel="stylesheet" href="../assets/css/acreditacion.css"/>
+
+    <!--
+      CSS base + chrome del catálogo (siempre al final para ganar en cascada).
+      AL CLONAR: renombra a assets/css/[nombre].css y actualiza este href.
     -->
     <link rel="stylesheet" href="../assets/css/template.css"/>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<body class="tpl-catalog bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
 
 <!--
-  CÓMO USAR ESTE TEMPLATE
+  ══════════════════════════════════════════════════════════════════════════
+  CATÁLOGO DE COMPONENTES — UNPHU LANDINGS
+  Inventario de todos los bloques usados en los landings publicados.
+  ══════════════════════════════════════════════════════════════════════════
+
+  CÓMO CREAR UN LANDING NUEVO
   1. Copiar: landings/template.html → landings/[nombre].html
   2. Copiar CSS: assets/css/template.css → assets/css/[nombre].css
   3. Copiar JS:  assets/js/landing-template.js → assets/js/landing-[nombre].js
-  4. Actualizar title, meta, hrefs CSS/JS y comentarios de componentes
-  5. Reemplazar contenido; reutilizar type-* de global.css y utilidades Tailwind del proyecto
+  4. Borrar del HTML: <header class="tpl-catalog-header">, <nav class="tpl-index">,
+     todos los elementos [data-doc] y los componentes que no uses
+  5. Por cada componente que conserves, copiar su bloque CSS al CSS de tu página
+     (la etiqueta de cada componente indica archivo y clase de origen)
+  6. Renombrar el prefijo BEM: tpl-* / doc-* / job-* / acr-* → [tu-prefijo]-*
+  7. Actualizar title, meta, hrefs de CSS/JS y los data-component
 
   CONVENCIONES
-  - Sin index.html / sin header-footer globales (los pone el sitio principal)
+  - Sin header/footer globales (los pone el sitio principal)
   - Sin CSS/JS inline; solo archivos externos
   - data-component="NombreReact" → facilita migración a Next.js
   - data-animate / data-stagger / data-timeline-item → animations.js
   - data-cta → common.js
-  - Tipografía preferida: type-display, type-lead, type-section-title, type-body-*, type-eyebrow
-  - Inputs: el plugin forms de Tailwind pinta fondos blancos; resetea en el CSS de página
-    (ver .tpl-search en template.css / .doc-search en documentacion.css)
+  - Tipografía: type-display, type-lead, type-section-title, type-body-*, type-eyebrow
+  - Inputs: el plugin forms de Tailwind pinta fondos blancos; resetea en el CSS
+    de página con alta especificidad (ver .tpl-search / .doc-search)
 
-  Next.js route sugerida: /mi-landing
-  Componentes: LandingHero, FeatureGrid, ProcessTimeline, LandingCta
+  ORIGEN DE LOS COMPONENTES
+  - template.css      → tpl-*  (versiones neutras, listas para renombrar)
+  - documentacion.css → doc-*  (documentacion.html)
+  - bolsa-de-empleo.css → job-* (bolsa-de-empleo.html, bolsa-de-empleo-detalle.html)
+  - acreditacion.css  → acr-*  (acreditacion.html)
+  - global.css        → glass-card, requisitos-*, gradient-overlay, pattern-grid, card-hover
 -->
+
+<!-- ══ CATÁLOGO: portada (borrar al clonar) ══ -->
+<header class="tpl-catalog-header" data-doc>
+    <div class="tpl-catalog-header__inner">
+        <p class="type-eyebrow type-eyebrow--dot type-eyebrow--light mb-4">Design system · UNPHU</p>
+        <h1 class="type-display text-white mb-5">Catálogo de componentes</h1>
+        <p class="type-lead type-body--light mb-8 max-w-3xl">
+            Todos los bloques usados en los landings publicados, en un solo lugar. Elige el que
+            necesites, copia su HTML, copia su bloque CSS y personaliza el contenido.
+        </p>
+        <ol class="tpl-steps">
+            <li class="tpl-steps__item"><span class="tpl-steps__num">1</span> Copia este archivo como <code>landings/[nombre].html</code></li>
+            <li class="tpl-steps__item"><span class="tpl-steps__num">2</span> Borra la portada, el índice, los <code>[data-doc]</code> y lo que no uses</li>
+            <li class="tpl-steps__item"><span class="tpl-steps__num">3</span> Copia el CSS de cada componente a <code>assets/css/[nombre].css</code></li>
+            <li class="tpl-steps__item"><span class="tpl-steps__num">4</span> Renombra el prefijo BEM y reemplaza el contenido</li>
+        </ol>
+        <button type="button" class="tpl-toggle-docs" data-action="toggle-docs">
+            <span class="material-symbols-outlined" aria-hidden="true">label_off</span>
+            <span data-toggle-label>Ocultar etiquetas</span>
+        </button>
+    </div>
+</header>
+
+<!-- ══ CATÁLOGO: índice (borrar al clonar) ══ -->
+<nav class="tpl-index" aria-label="Índice de componentes" data-doc>
+    <div class="tpl-index__inner">
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">A · Heroes</p>
+            <a class="tpl-index__link" href="#c01">01 HeroCentered</a>
+            <a class="tpl-index__link" href="#c02">02 HeroBottomAligned</a>
+            <a class="tpl-index__link" href="#c03">03 HeroCompact</a>
+            <a class="tpl-index__link" href="#c04">04 HeroWithSearch</a>
+            <a class="tpl-index__link" href="#c05">05 HeroImageOverlay</a>
+            <a class="tpl-index__link" href="#c06">06 HeroGradient</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">B · Navegación</p>
+            <a class="tpl-index__link" href="#c07">07 QuickNav</a>
+            <a class="tpl-index__link" href="#c08">08 Breadcrumb</a>
+            <a class="tpl-index__link" href="#c09">09 SideTab</a>
+            <a class="tpl-index__link" href="#c10">10 BackLink</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">C · Contenido</p>
+            <a class="tpl-index__link" href="#c11">11 FeatureGrid</a>
+            <a class="tpl-index__link" href="#c12">12 GlassCardGrid</a>
+            <a class="tpl-index__link" href="#c13">13 IntroBenefits</a>
+            <a class="tpl-index__link" href="#c14">14 TextChecklist</a>
+            <a class="tpl-index__link" href="#c15">15 SplitPanel</a>
+            <a class="tpl-index__link" href="#c16">16 StatsBand</a>
+            <a class="tpl-index__link" href="#c17">17 ProcessTimeline</a>
+            <a class="tpl-index__link" href="#c18">18 InfoPanelList</a>
+            <a class="tpl-index__link" href="#c19">19 HighlightBanner</a>
+            <a class="tpl-index__link" href="#c20">20 Carousel</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">D · Búsqueda y filtros</p>
+            <a class="tpl-index__link" href="#c21">21 SearchLight</a>
+            <a class="tpl-index__link" href="#c22">22 MultiFieldSearchBar</a>
+            <a class="tpl-index__link" href="#c23">23 FilterPills + Sort</a>
+            <a class="tpl-index__link" href="#c24">24 FilterChips</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">E · Listados y tarjetas</p>
+            <a class="tpl-index__link" href="#c25">25 ResourceGrid</a>
+            <a class="tpl-index__link" href="#c26">26 CategorySection + DocCard</a>
+            <a class="tpl-index__link" href="#c27">27 JobCard</a>
+            <a class="tpl-index__link" href="#c28">28 Pagination</a>
+            <a class="tpl-index__link" href="#c29">29 EmptyState</a>
+            <a class="tpl-index__link" href="#c30">30 AccreditationCard</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">F · Página de detalle</p>
+            <a class="tpl-index__link" href="#c31">31 DetailHeader</a>
+            <a class="tpl-index__link" href="#c32">32 QuickInfoGrid</a>
+            <a class="tpl-index__link" href="#c33">33 DetailSection</a>
+            <a class="tpl-index__link" href="#c34">34 SidebarCard</a>
+            <a class="tpl-index__link" href="#c35">35 CompensationCard</a>
+            <a class="tpl-index__link" href="#c36">36 ApplyCard</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">G · Contacto y CTA</p>
+            <a class="tpl-index__link" href="#c37">37 ContactCards</a>
+            <a class="tpl-index__link" href="#c38">38 ContactGlassPanel</a>
+            <a class="tpl-index__link" href="#c39">39 ContactPanelWhite</a>
+            <a class="tpl-index__link" href="#c40">40 CtaBanner</a>
+            <a class="tpl-index__link" href="#c41">41 CtaStrip</a>
+            <a class="tpl-index__link" href="#c42">42 Newsletter</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">H · Overlays y feedback</p>
+            <a class="tpl-index__link" href="#c43">43 ModalDetail</a>
+            <a class="tpl-index__link" href="#c44">44 ModalSimple</a>
+            <a class="tpl-index__link" href="#c45">45 Toast</a>
+            <a class="tpl-index__link" href="#c46">46 ErrorState</a>
+        </div>
+        <div class="tpl-index__group">
+            <p class="tpl-index__title">I · Tokens</p>
+            <a class="tpl-index__link" href="#c47">47 Tipografía</a>
+            <a class="tpl-index__link" href="#c48">48 Botones</a>
+        </div>
+    </div>
+</nav>
 
 <main>
 
-    <!-- Component: LandingHero -->
-    <section
-        class="tpl-hero"
-        id="hero"
-        data-component="LandingHero"
-        data-animate="fade"
-    >
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO A · HEROES
+      Un landing usa un solo hero. Elige el que encaje con el contenido.
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-heroes" data-doc>A · Heroes</p>
+
+    <!--
+      COMPONENT · LandingHero (hero centrado)
+      Origen : template.html
+      CSS    : template.css → .tpl-hero
+      JS     : —
+      Uso    : landing de programa o servicio; eyebrow + título + lead + 2 botones
+    -->
+    <div class="tpl-doc" id="c01" data-doc>
+        <span class="tpl-doc__id">01</span>
+        <span class="tpl-doc__name">HeroCentered</span>
+        <code class="tpl-doc__src">template.css · .tpl-hero</code>
+    </div>
+    <section class="tpl-hero" data-component="LandingHero" data-animate="fade">
         <div class="tpl-hero__media" aria-hidden="true"></div>
         <div class="tpl-hero__overlay" aria-hidden="true"></div>
         <div class="tpl-hero__content">
             <p class="type-eyebrow type-eyebrow--dot type-eyebrow--light mb-4">Etiqueta de sección</p>
-            <h1 class="type-display text-white mb-6">
-                Título Principal del Landing
-            </h1>
+            <h2 class="type-display text-white mb-6">Título Principal del Landing</h2>
             <p class="type-lead type-body--light mb-10 max-w-2xl mx-auto">
                 Descripción breve del programa, servicio o propuesta de valor. Máximo 2–3 líneas.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                    href="#seccion-2"
-                    class="inline-flex items-center justify-center rounded-full bg-primary-fixed px-8 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest"
-                >
+                <a href="#g-content" class="inline-flex items-center justify-center rounded-full bg-primary-fixed px-8 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest">
                     Botón Primario
                 </a>
-                <a
-                    href="#contacto"
-                    class="inline-flex items-center justify-center rounded-full border-2 border-white px-8 py-3.5 type-btn text-white transition hover:bg-white/15"
-                >
+                <a href="#g-cta" class="inline-flex items-center justify-center rounded-full border-2 border-white px-8 py-3.5 type-btn text-white transition hover:bg-white/15">
                     Botón Secundario
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Component: FeatureGrid -->
-    <section
-        class="py-section-padding bg-surface-container-lowest"
-        id="seccion-2"
-        data-component="FeatureGrid"
-        data-stagger-container
-    >
+    <!--
+      COMPONENT · AcrHero (hero con contenido abajo)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-hero (imagen de fondo en .acr-hero__media)
+      JS     : —
+      Uso    : páginas institucionales; badge + título mixto (light + strong)
+    -->
+    <div class="tpl-doc" id="c02" data-doc>
+        <span class="tpl-doc__id">02</span>
+        <span class="tpl-doc__name">HeroBottomAligned</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-hero</code>
+    </div>
+    <section class="acr-hero" data-component="AcrHero" data-animate="fade">
+        <div class="acr-hero__media" aria-hidden="true"></div>
+        <div class="acr-hero__overlay" aria-hidden="true"></div>
+        <div class="acr-hero__inner">
+            <p class="acr-hero__badge">
+                <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                Texto del badge superior
+            </p>
+            <h2 class="acr-hero__title"><strong>Título</strong> en dos pesos</h2>
+            <p class="acr-hero__lead">
+                Párrafo introductorio de 2 a 4 líneas que explica el alcance de la página y su valor
+                para el visitante.
+            </p>
+            <div class="acr-hero__actions">
+                <a href="#g-lists" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-fixed px-8 py-3.5 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest">
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">workspace_premium</span>
+                    Acción principal
+                </a>
+                <a href="#g-cta" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-8 py-3 type-btn text-white transition hover:bg-white/15">
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">contact_support</span>
+                    Acción secundaria
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · JobHero (hero compacto)
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-hero
+      JS     : —
+      Uso    : listados donde el contenido importa más que el hero (280–340px de alto)
+    -->
+    <div class="tpl-doc" id="c03" data-doc>
+        <span class="tpl-doc__id">03</span>
+        <span class="tpl-doc__name">HeroCompact</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-hero</code>
+    </div>
+    <section class="job-hero" data-component="JobHero" data-animate="fade">
+        <div class="job-hero__media" aria-hidden="true"></div>
+        <div class="job-hero__overlay" aria-hidden="true"></div>
+        <div class="job-hero__content">
+            <h2 class="job-hero__title">Título en mayúsculas</h2>
+            <p class="job-hero__quote">«Frase corta o cita que acompaña al título del listado.»</p>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · DocHero + DocSearch (hero con buscador integrado)
+      Origen : documentacion.html
+      CSS    : documentacion.css → .doc-hero, .doc-search (input glass sobre imagen)
+      JS     : landing-documentacion.js (filtrado en vivo)
+      Uso    : centros de recursos donde buscar es la acción principal
+    -->
+    <div class="tpl-doc" id="c04" data-doc>
+        <span class="tpl-doc__id">04</span>
+        <span class="tpl-doc__name">HeroWithSearch</span>
+        <code class="tpl-doc__src">documentacion.css · .doc-hero + .doc-search</code>
+    </div>
+    <section class="doc-hero" data-component="DocHero" data-animate="fade">
+        <div class="doc-hero__media" aria-hidden="true"></div>
+        <div class="doc-hero__overlay" aria-hidden="true"></div>
+        <div class="doc-hero__content">
+            <h2 class="doc-hero__title">
+                Primera línea del
+                <span class="doc-hero__title-accent">título destacado</span>
+            </h2>
+            <p class="doc-hero__lead">Una línea que resume qué se puede encontrar y descargar.</p>
+
+            <form class="doc-search" role="search" aria-label="Buscar recursos (demo)" data-component="DocSearch" onsubmit="return false;">
+                <label class="sr-only" for="tpl-hero-search">Buscar por nombre</label>
+                <span class="material-symbols-outlined doc-search__icon" aria-hidden="true">search</span>
+                <input
+                    type="text"
+                    id="tpl-hero-search"
+                    class="doc-search__input"
+                    placeholder="Buscar por nombre..."
+                    autocomplete="off"
+                    enterkeyhint="search"
+                />
+            </form>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · HeroImageOverlay (imagen <img> + degradado + badges)
+      Origen : dobleTitulacion.html
+      CSS    : global.css → .gradient-overlay (resto con utilidades Tailwind)
+      JS     : animations.js (data-parallax opcional en la imagen)
+      Uso    : hero a pantalla completa con foto real y beneficios rápidos
+    -->
+    <div class="tpl-doc" id="c05" data-doc>
+        <span class="tpl-doc__id">05</span>
+        <span class="tpl-doc__name">HeroImageOverlay</span>
+        <code class="tpl-doc__src">global.css · .gradient-overlay + Tailwind</code>
+    </div>
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" data-component="HeroImageOverlay" data-animate="fade">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" src="../assets/images/hero-2titulos.png" alt="Descripción de la imagen de fondo"/>
+            <div class="absolute inset-0 gradient-overlay backdrop-blur-[1px]"></div>
+        </div>
+        <div class="relative z-10 max-w-container-max mx-auto px-gutter md:px-stack-lg text-center text-on-primary">
+            <h2 class="font-headline-md text-4xl md:text-5xl mb-6 max-w-4xl mx-auto drop-shadow-md">
+                Título largo del programa a dos líneas
+            </h2>
+            <p class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto text-surface-container-lowest/90 drop-shadow">
+                Subtítulo que explica la propuesta en una o dos frases claras.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a class="bg-primary text-on-primary font-label-bold text-label-bold py-4 px-8 rounded-full hover:bg-tertiary-container transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto" href="#g-content">
+                    Acción principal
+                </a>
+                <a class="bg-transparent border-2 border-surface-container-lowest text-on-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full hover:bg-surface-container-lowest hover:text-unphu-blue transition-all duration-200 w-full sm:w-auto" href="#g-cta">
+                    Acción secundaria
+                </a>
+            </div>
+            <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-90">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                    <span class="text-sm">Beneficio uno</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined" aria-hidden="true">laptop_mac</span>
+                    <span class="text-sm">Beneficio dos</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined" aria-hidden="true">school</span>
+                    <span class="text-sm">Beneficio tres</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · HeroGradient (degradado + imagen tenue de fondo)
+      Origen : internacionalizacion.html
+      CSS    : solo utilidades Tailwind + tipografía type-*
+      JS     : —
+      Uso    : hero sin foto protagonista; el degradado de marca lleva el peso
+    -->
+    <div class="tpl-doc" id="c06" data-doc>
+        <span class="tpl-doc__id">06</span>
+        <span class="tpl-doc__name">HeroGradient</span>
+        <code class="tpl-doc__src">Tailwind + global.css (type-*)</code>
+    </div>
+    <section class="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary text-on-primary" data-component="HeroGradient">
+        <div class="absolute inset-0 opacity-30 bg-[url('../assets/images/biblioteca.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-slate-950/40"></div>
+        <div class="relative mx-auto max-w-container-max px-gutter py-24 md:px-stack-lg">
+            <div class="max-w-4xl text-center">
+                <p class="type-eyebrow type-eyebrow--light mb-4">Etiqueta opcional</p>
+                <h2 class="type-display text-white mb-6">Título del hero</h2>
+                <p class="type-lead type-body-lg text-slate-100/90 mb-10">
+                    Párrafo descriptivo de longitud media que introduce la sección y su contexto
+                    dentro del sitio institucional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO B · NAVEGACIÓN
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-nav" data-doc>B · Navegación</p>
+
+    <!--
+      COMPONENT · DocQuickNav (accesos rápidos sticky)
+      Origen : documentacion.html
+      CSS    : documentacion.css → .doc-quick-nav (position: sticky; top: 0)
+      JS     : common.js (scroll suave) · landing-documentacion.js marca .is-active
+      Uso    : saltar entre secciones largas de la misma página
+      Nota   : en el catálogo el sticky está desactivado por .tpl-demo-static
+    -->
+    <div class="tpl-doc" id="c07" data-doc>
+        <span class="tpl-doc__id">07</span>
+        <span class="tpl-doc__name">QuickNav</span>
+        <code class="tpl-doc__src">documentacion.css · .doc-quick-nav</code>
+    </div>
+    <div class="tpl-demo-static">
+        <nav class="doc-quick-nav" aria-label="Accesos rápidos por categoría (demo)" data-component="DocQuickNav">
+            <div class="doc-quick-nav__inner">
+                <a href="#g-lists" class="doc-quick-nav__link is-active">Categoría uno</a>
+                <a href="#g-lists" class="doc-quick-nav__link">Categoría dos</a>
+                <a href="#g-lists" class="doc-quick-nav__link">Categoría tres</a>
+            </div>
+        </nav>
+    </div>
+
+    <!--
+      COMPONENT · JobBreadcrumb
+      Origen : bolsa-de-empleo-detalle.html
+      CSS    : bolsa-de-empleo.css → .job-breadcrumb
+      JS     : landing-bolsa-de-empleo.js rellena el elemento actual
+      Uso    : páginas de detalle (segundo nivel de navegación)
+    -->
+    <div class="tpl-doc" id="c08" data-doc>
+        <span class="tpl-doc__id">08</span>
+        <span class="tpl-doc__name">Breadcrumb</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-breadcrumb</code>
+    </div>
+    <div class="tpl-demo">
+        <nav class="job-breadcrumb" aria-label="Ruta de navegación" data-component="JobBreadcrumb">
+            <a href="../index.html">Inicio</a>
+            <span class="job-breadcrumb__separator" aria-hidden="true">›</span>
+            <a href="#g-lists">Listado</a>
+            <span class="job-breadcrumb__separator" aria-hidden="true">›</span>
+            <span class="job-breadcrumb__current">Elemento actual</span>
+        </nav>
+    </div>
+
+    <!--
+      COMPONENT · SideTab (pestaña lateral fija)
+      Origen : internacionalizacion.html (allí con CSS inline; aquí ya normalizado)
+      CSS    : template.css → .tpl-side-tab (position: fixed en uso real)
+      JS     : common.js → data-cta
+      Uso    : acceso permanente a una acción secundaria (staff, ayuda, contacto)
+    -->
+    <div class="tpl-doc" id="c09" data-doc>
+        <span class="tpl-doc__id">09</span>
+        <span class="tpl-doc__name">SideTab</span>
+        <code class="tpl-doc__src">template.css · .tpl-side-tab</code>
+    </div>
+    <div class="tpl-demo tpl-demo-static">
+        <button type="button" class="tpl-side-tab" data-cta="staff" data-component="SideTab">Consultar staff</button>
+    </div>
+
+    <!--
+      COMPONENT · BackLink
+      Origen : bolsa-de-empleo-detalle.html
+      CSS    : bolsa-de-empleo.css → .job-back-link
+      JS     : —
+      Uso    : cierre de páginas de detalle
+    -->
+    <div class="tpl-doc" id="c10" data-doc>
+        <span class="tpl-doc__id">10</span>
+        <span class="tpl-doc__name">BackLink</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-back-link</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="pt-6 border-t border-outline-variant">
+            <a href="#g-lists" class="job-back-link inline-flex items-center gap-2 type-body-md font-semibold">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                Volver al listado
+            </a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO C · CONTENIDO
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-content" data-doc>C · Contenido</p>
+
+    <!--
+      COMPONENT · FeatureGrid + FeatureCard
+      Origen : template.html
+      CSS    : global.css → .card-hover (resto con utilidades Tailwind)
+      JS     : animations.js → data-stagger-container / data-stagger
+      Uso    : 3 a 6 beneficios con icono
+    -->
+    <div class="tpl-doc" id="c11" data-doc>
+        <span class="tpl-doc__id">11</span>
+        <span class="tpl-doc__name">FeatureGrid</span>
+        <code class="tpl-doc__src">Tailwind + global.css · .card-hover</code>
+    </div>
+    <section class="py-section-padding bg-surface-container-lowest" data-component="FeatureGrid" data-stagger-container>
         <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
             <div class="text-center mb-12">
                 <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Beneficios</p>
-                <h2 class="type-section-title type-section-title--blue">
-                    Características Principales
-                </h2>
+                <h2 class="type-section-title type-section-title--blue">Características Principales</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -131,54 +527,271 @@
     </section>
 
     <!--
-      Ejemplo opcional: buscador + grid dinámico + "Cargar más"
-      (patrón usado en documentacion.html / bolsa-de-empleo.html)
+      COMPONENT · GlassCardGrid (requisitos sobre degradado verde)
+      Origen : dobleTitulacion.html
+      CSS    : global.css → .requisitos-glass-section, .glass-card, .glass-card-icon
+      JS     : animations.js → data-stagger
+      Uso    : requisitos, condiciones o pasos breves (6 tarjetas cortas)
     -->
-    <section
-        class="py-section-padding bg-background"
-        id="recursos"
-        data-component="ResourceSection"
-        data-animate="fade"
-    >
-        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
-            <div class="text-center mb-10">
-                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Recursos</p>
-                <h2 class="type-section-title type-section-title--on-surface mb-3">Explorar contenido</h2>
-                <p class="type-body-md type-body--muted max-w-xl mx-auto">
-                    Ejemplo de búsqueda + listado renderizado por JS con límite inicial y botón «Cargar más».
-                </p>
+    <div class="tpl-doc" id="c12" data-doc>
+        <span class="tpl-doc__id">12</span>
+        <span class="tpl-doc__name">GlassCardGrid</span>
+        <code class="tpl-doc__src">global.css · .requisitos-glass-section + .glass-card</code>
+    </div>
+    <section class="py-section-padding requisitos-glass-section" data-component="RequirementsGrid" data-animate="fade" data-stagger-container>
+        <div class="max-w-screen-xl mx-auto px-gutter md:px-stack-lg">
+            <div class="text-center mb-8 mx-auto max-w-4xl">
+                <p class="type-eyebrow type-eyebrow--light mb-3">Admisión</p>
+                <h2 class="type-section-title type-section-title--light">Requisitos de admisión</h2>
             </div>
-
-            <!-- Component: LandingSearch — type="text" evita estilos agresivos de forms en type="search" -->
-            <form class="tpl-search" role="search" aria-label="Buscar recursos" data-component="LandingSearch" onsubmit="return false;">
-                <label class="sr-only" for="tpl-search-input">Buscar</label>
-                <span class="material-symbols-outlined tpl-search__icon" aria-hidden="true">search</span>
-                <input
-                    type="text"
-                    id="tpl-search-input"
-                    class="tpl-search__input"
-                    placeholder="Buscar por nombre..."
-                    autocomplete="off"
-                    enterkeyhint="search"
-                    aria-describedby="tpl-search-result"
-                />
-            </form>
-            <p id="tpl-search-result" class="type-body-sm type-body--muted text-center mt-3" aria-live="polite" hidden></p>
-
-            <div id="tpl-grid" class="tpl-grid mt-10" data-component="ResourceGrid" data-stagger-container aria-live="polite">
-                <!-- Renderizado dinámico via landing-template.js -->
-            </div>
-
-            <div class="tpl-section-footer">
-                <p id="tpl-empty" class="type-body-sm type-body--muted" hidden>No hay resultados para esta búsqueda.</p>
-                <button type="button" id="tpl-load-more" class="tpl-load-more" data-action="load-more" hidden>
-                    Cargar más
-                </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+                <div class="glass-card" data-stagger>
+                    <div class="glass-card-icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">assignment</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Requisito uno</h3>
+                    <p class="type-card-body type-card-body--primary">Descripción corta del requisito, en una o dos líneas.</p>
+                </div>
+                <div class="glass-card" data-stagger>
+                    <div class="glass-card-icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">translate</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Requisito dos</h3>
+                    <p class="type-card-body type-card-body--primary">Descripción corta del requisito, en una o dos líneas.</p>
+                </div>
+                <div class="glass-card" data-stagger>
+                    <div class="glass-card-icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                    <h3 class="type-card-title type-card-title--primary mb-2">Requisito tres</h3>
+                    <p class="type-card-body type-card-body--primary">Descripción corta del requisito, en una o dos líneas.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Component: ProcessTimeline -->
+    <!--
+      COMPONENT · AcrCommitment (texto a dos columnas + tarjetas de beneficio)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-benefit
+      JS     : animations.js → data-stagger
+      Uso    : explicar un compromiso o enfoque y su impacto por público
+    -->
+    <div class="tpl-doc" id="c13" data-doc>
+        <span class="tpl-doc__id">13</span>
+        <span class="tpl-doc__name">IntroBenefits</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-benefit</code>
+    </div>
+    <section class="py-section-padding bg-background" data-component="IntroBenefits" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Etiqueta</p>
+                    <h2 class="type-section-title type-section-title--primary mb-6">Titular de la sección en una frase.</h2>
+                    <p class="type-body-lg type-body--muted mb-4">
+                        Primer párrafo con el contexto general. Explica el qué y el por qué antes de
+                        entrar en los beneficios concretos.
+                    </p>
+                    <p class="type-body-md type-body--muted">
+                        Segundo párrafo con detalles de apoyo, cifras o nombres propios relevantes.
+                    </p>
+                </div>
+                <div class="space-y-4" data-stagger-container>
+                    <article class="acr-benefit" data-stagger>
+                        <div class="acr-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div>
+                            <h3 class="acr-benefit__title">Para un público</h3>
+                            <p class="acr-benefit__desc">Beneficio concreto para ese público, en dos o tres líneas.</p>
+                        </div>
+                    </article>
+                    <article class="acr-benefit" data-stagger>
+                        <div class="acr-benefit__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">public</span>
+                        </div>
+                        <div>
+                            <h3 class="acr-benefit__title">Para otro público</h3>
+                            <p class="acr-benefit__desc">Beneficio concreto para ese público, en dos o tres líneas.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · TextChecklist (bloque de texto largo + lista con checks)
+      Origen : dobleTitulacion.html
+      CSS    : solo utilidades Tailwind + tipografía
+      JS     : —
+      Uso    : descripción extensa de un programa
+    -->
+    <div class="tpl-doc" id="c14" data-doc>
+        <span class="tpl-doc__id">14</span>
+        <span class="tpl-doc__name">TextChecklist</span>
+        <code class="tpl-doc__src">Tailwind + global.css (type-*)</code>
+    </div>
+    <section class="py-section-padding bg-surface-container-lowest" data-component="TextChecklist" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="max-w-5xl mx-auto mb-10">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-4">Descripción del programa</p>
+                <h2 class="type-section-title type-section-title--primary">
+                    Titular largo que plantea el beneficio principal en forma de promesa.
+                </h2>
+            </div>
+            <div class="max-w-5xl mx-auto space-y-6 text-justify">
+                <p class="type-body-lg type-body--muted">
+                    Párrafo de desarrollo. Explica el funcionamiento del programa, su modalidad y sus
+                    condiciones sin entrar en detalles operativos.
+                </p>
+                <p class="type-body-lg type-body--muted">
+                    Segundo párrafo con el valor diferencial: alianzas, reconocimiento, duración o costo.
+                </p>
+                <ul class="space-y-4 text-on-surface-variant pt-2">
+                    <li class="flex items-start gap-3">
+                        <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5" aria-hidden="true">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span>Punto clave uno, redactado en una línea.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5" aria-hidden="true">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span>Punto clave dos, redactado en una línea.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · SplitPanel (lista de ventajas + tarjeta de aliado)
+      Origen : dobleTitulacion.html
+      CSS    : tailwind-config.js → shadow-premium, shadow-soft, rounded-4xl
+      JS     : —
+      Uso    : destacar ventajas junto a un logo, imagen o dato de aliado
+    -->
+    <div class="tpl-doc" id="c15" data-doc>
+        <span class="tpl-doc__id">15</span>
+        <span class="tpl-doc__name">SplitPanel</span>
+        <code class="tpl-doc__src">Tailwind (shadow-premium, rounded-4xl)</code>
+    </div>
+    <section class="py-section-padding bg-background" data-component="SplitPanel" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="mb-12 text-center lg:text-left">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-4">Beneficios</p>
+                <h2 class="type-section-title text-on-surface max-w-4xl mx-auto lg:mx-0">
+                    Todo lo que gana el estudiante con <span class="type-highlight">el programa</span>
+                </h2>
+            </div>
+            <div class="max-w-screen-xl mx-auto">
+                <div class="rounded-4xl bg-white border border-outline-variant/10 shadow-premium overflow-hidden mx-auto w-full">
+                    <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-center">
+                        <div class="p-8 md:p-10">
+                            <h3 class="type-section-title type-section-title--sm type-subtitle--blue mb-6">Ventajas claras</h3>
+                            <ul class="space-y-6 text-on-surface-variant">
+                                <li class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5" aria-hidden="true">
+                                        <span class="material-symbols-outlined text-base">check</span>
+                                    </div>
+                                    <div>
+                                        <p class="type-item-title">Ventaja uno</p>
+                                        <p class="type-item-desc type-body--muted mt-1">Detalle de la ventaja en una línea.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5" aria-hidden="true">
+                                        <span class="material-symbols-outlined text-base">check</span>
+                                    </div>
+                                    <div>
+                                        <p class="type-item-title">Ventaja dos</p>
+                                        <p class="type-item-desc type-body--muted mt-1">Detalle de la ventaja en una línea.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-0.5" aria-hidden="true">
+                                        <span class="material-symbols-outlined text-base">check</span>
+                                    </div>
+                                    <div>
+                                        <p class="type-item-title">Ventaja tres</p>
+                                        <p class="type-item-desc type-body--muted mt-1">Detalle de la ventaja en una línea.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-center px-8 md:px-10 py-10 lg:py-0">
+                            <div class="relative max-w-sm w-full rounded-[2rem] bg-gradient-to-br from-primary/10 to-surface p-8 border border-primary/10 shadow-soft">
+                                <div class="text-center mb-6">
+                                    <p class="type-label type-label--xs type-label--secondary">Partner académico</p>
+                                </div>
+                                <div class="mt-2 flex justify-center">
+                                    <img src="../assets/images/Empire_State_University_logo.webp" alt="Logo de la institución aliada" class="h-28 w-auto object-contain" loading="lazy"/>
+                                </div>
+                                <div class="mt-8 text-center">
+                                    <p class="type-label type-label--secondary mb-2">Universidad aliada</p>
+                                    <p class="type-subtitle text-on-surface">Nombre de la institución</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · AcrStats (banda de cifras)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-stats, .acr-stats-grid, .acr-stat-card
+      JS     : animations.js → data-animate-number + data-target (contador)
+      Uso    : trayectoria, cifras institucionales, resultados
+    -->
+    <div class="tpl-doc" id="c16" data-doc>
+        <span class="tpl-doc__id">16</span>
+        <span class="tpl-doc__name">StatsBand</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-stats</code>
+    </div>
+    <section class="acr-stats" aria-labelledby="tpl-stats-title" data-component="StatsBand" data-animate="fade">
+        <div class="acr-stats__inner max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="acr-stats__header">
+                <p class="type-eyebrow type-eyebrow--light mb-3">Nuestra trayectoria</p>
+                <h2 class="acr-stats__title" id="tpl-stats-title">Datos clave</h2>
+            </div>
+            <div class="acr-stats-grid" data-stagger-container>
+                <article class="acr-stat-card" data-stagger>
+                    <span class="acr-stat__value" data-animate-number data-target="60">0</span>
+                    <span class="acr-stat__label">Años de excelencia</span>
+                </article>
+                <article class="acr-stat-card" data-stagger>
+                    <span class="acr-stat__value" data-animate-number data-target="5">0</span>
+                    <span class="acr-stat__label">Organismos</span>
+                </article>
+                <article class="acr-stat-card" data-stagger>
+                    <span class="acr-stat__value">10+</span>
+                    <span class="acr-stat__label">Programas certificados</span>
+                </article>
+                <article class="acr-stat-card" data-stagger>
+                    <span class="acr-stat__value">Global</span>
+                    <span class="acr-stat__label">Alcance internacional</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · ProcessTimeline
+      Origen : template.html
+      CSS    : solo utilidades Tailwind
+      JS     : animations.js → data-timeline-item (añade .is-active al entrar en viewport)
+      Uso    : procesos de 3 a 5 pasos ordenados
+    -->
+    <div class="tpl-doc" id="c17" data-doc>
+        <span class="tpl-doc__id">17</span>
+        <span class="tpl-doc__name">ProcessTimeline</span>
+        <code class="tpl-doc__src">Tailwind · data-timeline-item</code>
+    </div>
     <section class="py-section-padding bg-surface-container-low" data-component="ProcessTimeline" data-animate="fade">
         <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
             <div class="text-center mb-12">
@@ -220,20 +833,942 @@
         </div>
     </section>
 
-    <!-- Component: LandingCta -->
-    <section
-        class="py-section-padding relative overflow-hidden"
-        id="contacto"
-        data-component="LandingCta"
-        data-animate="fade"
-    >
+    <!--
+      COMPONENT · InfoPanelList (lista con iconos + panel lateral)
+      Origen : internacionalizacion.html
+      CSS    : solo utilidades Tailwind
+      JS     : —
+      Uso    : describir instalaciones, servicios o áreas con un panel de apoyo
+    -->
+    <div class="tpl-doc" id="c18" data-doc>
+        <span class="tpl-doc__id">18</span>
+        <span class="tpl-doc__name">InfoPanelList</span>
+        <code class="tpl-doc__src">Tailwind + global.css (type-*)</code>
+    </div>
+    <section class="bg-surface-container-lowest py-section-padding" data-component="InfoPanelList" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_0.8fr] items-center">
+                <div>
+                    <h2 class="type-section-title type-section-title--blue mb-6">Titular descriptivo de la sección.</h2>
+                    <p class="type-body-lg type-body--muted mb-6">
+                        Párrafo introductorio que sitúa al lector antes de la lista de puntos destacados.
+                    </p>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined">groups</span>
+                            </span>
+                            <span>Punto destacado uno con su detalle.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined">nature_people</span>
+                            </span>
+                            <span>Punto destacado dos con su detalle.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shrink-0" aria-hidden="true">
+                                <span class="material-symbols-outlined">health_and_safety</span>
+                            </span>
+                            <span>Punto destacado tres con su detalle.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-4xl bg-surface p-8 shadow-xl shadow-slate-900/5 border border-surface-container-lowest">
+                    <h3 class="type-section-title type-section-title--sm type-section-title--primary mb-4">Panel de apoyo</h3>
+                    <div class="space-y-4 text-slate-700">
+                        <p class="type-body-md">Dato o característica destacada número uno.</p>
+                        <p class="type-body-md">Dato o característica destacada número dos.</p>
+                        <p class="type-body-md">Dato o característica destacada número tres.</p>
+                        <div class="mt-6">
+                            <a href="#g-cta" class="inline-flex rounded-full bg-primary px-6 py-3 type-btn text-white shadow-lg shadow-slate-900/10 transition hover:bg-tertiary">
+                                Acción del panel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · HighlightBanner (cierre de sección con frase destacada)
+      Origen : acreditacion.html
+      CSS    : solo utilidades Tailwind
+      JS     : —
+      Uso    : remate de una sección con una idea fuerza
+    -->
+    <div class="tpl-doc" id="c19" data-doc>
+        <span class="tpl-doc__id">19</span>
+        <span class="tpl-doc__name">HighlightBanner</span>
+        <code class="tpl-doc__src">Tailwind + global.css (type-*)</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="rounded-3xl border border-outline-variant/40 bg-surface-container p-6 shadow-sm" data-component="HighlightBanner">
+            <p class="type-body-lg type-body--muted text-center inline-flex items-center justify-center gap-3">
+                <span class="material-symbols-outlined text-emerald-700" aria-hidden="true">verified</span>
+                <strong>Frase destacada que resume la promesa de la sección en una línea.</strong>
+            </p>
+        </div>
+    </div>
+
+    <!--
+      COMPONENT · Carousel (carrusel horizontal)
+      Origen : global.css (patrón usado en versiones previas de dobleTitulacion)
+      CSS    : global.css → .requisitos-carousel*
+      JS     : landing-template.js → initCarousel()
+      Uso    : mostrar muchas tarjetas cortas sin alargar la página
+    -->
+    <div class="tpl-doc" id="c20" data-doc>
+        <span class="tpl-doc__id">20</span>
+        <span class="tpl-doc__name">Carousel</span>
+        <code class="tpl-doc__src">global.css · .requisitos-carousel</code>
+    </div>
+    <section class="py-section-padding requisitos-glass-section" data-component="Carousel" data-animate="fade">
+        <div class="text-center mb-8 mx-auto max-w-4xl px-gutter">
+            <p class="type-eyebrow type-eyebrow--light mb-3">Carrusel</p>
+            <h2 class="type-section-title type-section-title--light">Tarjetas desplazables</h2>
+        </div>
+        <div class="requisitos-carousel" data-carousel>
+            <button type="button" class="requisitos-carousel__btn requisitos-carousel__btn--prev" data-carousel-prev aria-label="Anterior">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+            </button>
+            <div class="requisitos-carousel__viewport">
+                <div class="requisitos-carousel__track" data-carousel-track>
+                    <div class="requisitos-carousel__slide">
+                        <div class="glass-card">
+                            <div class="glass-card-icon" aria-hidden="true"><span class="material-symbols-outlined">bolt</span></div>
+                            <h3 class="type-card-title type-card-title--primary mb-2">Tarjeta 1</h3>
+                            <p class="type-card-body type-card-body--primary">Contenido breve de la tarjeta.</p>
+                        </div>
+                    </div>
+                    <div class="requisitos-carousel__slide">
+                        <div class="glass-card">
+                            <div class="glass-card-icon" aria-hidden="true"><span class="material-symbols-outlined">workspace_premium</span></div>
+                            <h3 class="type-card-title type-card-title--primary mb-2">Tarjeta 2</h3>
+                            <p class="type-card-body type-card-body--primary">Contenido breve de la tarjeta.</p>
+                        </div>
+                    </div>
+                    <div class="requisitos-carousel__slide">
+                        <div class="glass-card">
+                            <div class="glass-card-icon" aria-hidden="true"><span class="material-symbols-outlined">public</span></div>
+                            <h3 class="type-card-title type-card-title--primary mb-2">Tarjeta 3</h3>
+                            <p class="type-card-body type-card-body--primary">Contenido breve de la tarjeta.</p>
+                        </div>
+                    </div>
+                    <div class="requisitos-carousel__slide">
+                        <div class="glass-card">
+                            <div class="glass-card-icon" aria-hidden="true"><span class="material-symbols-outlined">school</span></div>
+                            <h3 class="type-card-title type-card-title--primary mb-2">Tarjeta 4</h3>
+                            <p class="type-card-body type-card-body--primary">Contenido breve de la tarjeta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="requisitos-carousel__btn requisitos-carousel__btn--next" data-carousel-next aria-label="Siguiente">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO D · BÚSQUEDA Y FILTROS
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-search" data-doc>D · Búsqueda y filtros</p>
+
+    <!--
+      COMPONENT · LandingSearch (buscador claro sobre fondo blanco)
+      Origen : template.html (variante glass del hero: .doc-search, ver 04)
+      CSS    : template.css → .tpl-search
+      JS     : landing-template.js → initSearch() con utils.debounce
+      Nota   : usa type="text" (no "search") para evitar los estilos agresivos
+               del plugin forms de Tailwind CDN
+    -->
+    <div class="tpl-doc" id="c21" data-doc>
+        <span class="tpl-doc__id">21</span>
+        <span class="tpl-doc__name">SearchLight</span>
+        <code class="tpl-doc__src">template.css · .tpl-search</code>
+    </div>
+    <div class="tpl-demo">
+        <form class="tpl-search" role="search" aria-label="Buscar recursos" data-component="LandingSearch" onsubmit="return false;">
+            <label class="sr-only" for="tpl-search-input">Buscar</label>
+            <span class="material-symbols-outlined tpl-search__icon" aria-hidden="true">search</span>
+            <input
+                type="text"
+                id="tpl-search-input"
+                class="tpl-search__input"
+                placeholder="Buscar por nombre..."
+                autocomplete="off"
+                enterkeyhint="search"
+                aria-describedby="tpl-search-result"
+            />
+        </form>
+        <p id="tpl-search-result" class="type-body-sm type-body--muted text-center mt-3" aria-live="polite" hidden></p>
+        <p class="tpl-demo__hint">Escribe aquí para filtrar el listado del componente 25.</p>
+    </div>
+
+    <!--
+      COMPONENT · JobSearchBar (búsqueda multicampo)
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-search-bar
+      JS     : landing-bolsa-de-empleo.js (filtrado + orden)
+      Uso    : listados con varios criterios simultáneos
+    -->
+    <div class="tpl-doc" id="c22" data-doc>
+        <span class="tpl-doc__id">22</span>
+        <span class="tpl-doc__name">MultiFieldSearchBar</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-search-bar</code>
+    </div>
+    <div class="tpl-demo">
+        <form class="job-search-bar" role="search" aria-label="Buscar vacantes (demo)" onsubmit="return false;" data-component="JobSearchBar">
+            <div class="job-search-bar__field">
+                <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">search</span>
+                <input type="search" class="job-search-bar__input" placeholder="Cargo o palabra clave" aria-label="Buscar por palabra clave"/>
+            </div>
+            <div class="job-search-bar__field">
+                <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">home_work</span>
+                <select class="job-search-bar__select" aria-label="Filtrar por modalidad">
+                    <option value="">Modalidad</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Remoto">Remoto</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+            </div>
+            <div class="job-search-bar__field">
+                <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">work</span>
+                <select class="job-search-bar__select" aria-label="Filtrar por tipo">
+                    <option value="">Tipo de empleo</option>
+                    <option value="Tiempo completo">Tiempo completo</option>
+                    <option value="Pasantía">Pasantía</option>
+                </select>
+            </div>
+            <div class="job-search-bar__field">
+                <span class="material-symbols-outlined job-search-bar__icon" aria-hidden="true">location_on</span>
+                <input type="text" class="job-search-bar__input" placeholder="Ubicación" aria-label="Filtrar por ubicación"/>
+            </div>
+        </form>
+    </div>
+
+    <!--
+      COMPONENT · JobFilterPills + Sort + contador de resultados
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-filter-pill
+      JS     : landing-template.js → initFilters() (demo) / landing-bolsa-de-empleo.js (real)
+      Uso    : filtros rápidos de una sola dimensión + orden
+    -->
+    <div class="tpl-doc" id="c23" data-doc>
+        <span class="tpl-doc__id">23</span>
+        <span class="tpl-doc__name">FilterPills + Sort</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-filter-pill</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between" data-component="JobFilterPills">
+            <div class="flex flex-wrap gap-2" role="group" aria-label="Filtros rápidos" data-filter-group>
+                <button type="button" class="job-filter-pill job-filter-pill--active" data-filter-pill="todos" aria-pressed="true">Todos</button>
+                <button type="button" class="job-filter-pill" data-filter-pill="uno" aria-pressed="false">Opción uno</button>
+                <button type="button" class="job-filter-pill" data-filter-pill="dos" aria-pressed="false">Opción dos</button>
+                <button type="button" class="job-filter-pill" data-filter-pill="tres" aria-pressed="false">Opción tres</button>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+                <label for="tpl-sort" class="type-body-sm type-body--muted whitespace-nowrap">Ordenar por:</label>
+                <select id="tpl-sort" class="job-search-bar__select border border-outline-variant rounded-lg px-3 py-2 text-sm" aria-label="Ordenar resultados">
+                    <option value="titulo">Título (A-Z)</option>
+                    <option value="fecha">Más recientes</option>
+                </select>
+            </div>
+        </div>
+        <p class="type-body-sm type-body--muted mt-4" aria-live="polite">24 resultados encontrados</p>
+    </div>
+
+    <!--
+      COMPONENT · AcrFilters (chips de categoría)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-filters, .acr-filter
+      JS     : landing-template.js → initFilters() (demo) / landing-acreditacion.js (real)
+      Uso    : filtrar un grid por categoría; el chip activo lleva degradado
+    -->
+    <div class="tpl-doc" id="c24" data-doc>
+        <span class="tpl-doc__id">24</span>
+        <span class="tpl-doc__name">FilterChips</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-filter</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="acr-filters" role="group" aria-label="Filtrar por categoría" data-component="AcrFilters" data-filter-group>
+            <button type="button" class="acr-filter acr-filter--active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="acr-filter" data-filter="institucional" aria-pressed="false">Institucional</button>
+            <button type="button" class="acr-filter" data-filter="negocios" aria-pressed="false">Negocios</button>
+            <button type="button" class="acr-filter" data-filter="medicina" aria-pressed="false">Medicina</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO E · LISTADOS Y TARJETAS
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-lists" data-doc>E · Listados y tarjetas</p>
+
+    <!--
+      COMPONENT · ResourceGrid + ResourceCard + LoadMore (render dinámico)
+      Origen : template.html
+      CSS    : template.css → .tpl-grid, .tpl-card, .tpl-load-more, .tpl-section-footer
+      JS     : landing-template.js → renderGrid() + INITIAL_VISIBLE + data-action="load-more"
+      Uso    : listado alimentado por datos (MOCK_ITEMS → fetch/CMS/API)
+    -->
+    <div class="tpl-doc" id="c25" data-doc>
+        <span class="tpl-doc__id">25</span>
+        <span class="tpl-doc__name">ResourceGrid</span>
+        <code class="tpl-doc__src">template.css · .tpl-grid + .tpl-card</code>
+    </div>
+    <section class="py-section-padding bg-background" data-component="ResourceSection" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="text-center mb-10">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Recursos</p>
+                <h2 class="type-section-title type-section-title--on-surface mb-3">Explorar contenido</h2>
+                <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                    Listado renderizado por JS con límite inicial y botón «Cargar más».
+                </p>
+            </div>
+
+            <div id="tpl-grid" class="tpl-grid mt-10" data-component="ResourceGrid" data-stagger-container aria-live="polite">
+                <!-- Renderizado dinámico via landing-template.js -->
+            </div>
+
+            <div class="tpl-section-footer">
+                <p id="tpl-empty" class="type-body-sm type-body--muted" hidden>No hay resultados para esta búsqueda.</p>
+                <button type="button" id="tpl-load-more" class="tpl-load-more" data-action="load-more" hidden>
+                    Cargar más
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · DocCategorySection + DocCard + DocLoadMore
+      Origen : documentacion.html
+      CSS    : documentacion.css → .doc-category, .doc-grid, .doc-card, .doc-load-more
+      JS     : landing-documentacion.js (render, búsqueda, ver/descargar, toast)
+      Uso    : documentos agrupados por categoría, 4 por fila en desktop
+    -->
+    <div class="tpl-doc" id="c26" data-doc>
+        <span class="tpl-doc__id">26</span>
+        <span class="tpl-doc__name">CategorySection + DocCard</span>
+        <code class="tpl-doc__src">documentacion.css · .doc-category + .doc-card</code>
+    </div>
+    <div class="tpl-demo">
+        <section class="doc-category" data-component="DocCategorySection" data-category="ejemplo">
+            <h2 class="doc-category__title">Nombre de la categoría</h2>
+            <div class="doc-grid" data-stagger-container>
+                <article class="doc-card" data-component="DocCard" data-stagger>
+                    <div class="doc-card__body">
+                        <div class="doc-card__icon" aria-hidden="true">
+                            <span class="doc-card__badge">PDF</span>
+                        </div>
+                        <h3 class="doc-card__title">Nombre del documento oficial</h3>
+                        <p class="doc-card__meta">
+                            <span class="material-symbols-outlined doc-card__meta-icon" aria-hidden="true">description</span>
+                            <span>PDF · 1.2 MB · Actualizado: 2026</span>
+                        </p>
+                    </div>
+                    <div class="doc-card__actions">
+                        <button type="button" class="doc-card__btn doc-card__btn--ghost" data-action="view">
+                            <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+                            Ver
+                        </button>
+                        <button type="button" class="doc-card__btn doc-card__btn--primary" data-action="download">
+                            <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                            Descargar
+                        </button>
+                    </div>
+                </article>
+
+                <article class="doc-card" data-component="DocCard" data-stagger>
+                    <div class="doc-card__body">
+                        <div class="doc-card__icon" aria-hidden="true">
+                            <span class="doc-card__badge">PDF</span>
+                        </div>
+                        <h3 class="doc-card__title">Reglamento con título más largo que ocupa dos líneas</h3>
+                        <p class="doc-card__meta">
+                            <span class="material-symbols-outlined doc-card__meta-icon" aria-hidden="true">description</span>
+                            <span>PDF · 780 KB · Actualizado: 2025</span>
+                        </p>
+                    </div>
+                    <div class="doc-card__actions">
+                        <button type="button" class="doc-card__btn doc-card__btn--ghost" data-action="view">
+                            <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+                            Ver
+                        </button>
+                        <button type="button" class="doc-card__btn doc-card__btn--primary" data-action="download">
+                            <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                            Descargar
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="doc-category__footer">
+                <p class="doc-category__empty" hidden>No hay documentos en esta categoría.</p>
+                <button type="button" class="doc-load-more" data-action="demo-load-more">Cargar más</button>
+            </div>
+        </section>
+    </div>
+
+    <!--
+      COMPONENT · JobListingsGrid + JobCard
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-listings-grid, .job-card
+      JS     : landing-bolsa-de-empleo.js (render + paginación)
+      Uso    : listado de vacantes u oportunidades, 3 por fila en desktop
+    -->
+    <div class="tpl-doc" id="c27" data-doc>
+        <span class="tpl-doc__id">27</span>
+        <span class="tpl-doc__name">JobCard</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-card</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="job-listings-grid" data-component="JobListingsGrid">
+            <article class="job-card" data-component="JobCard">
+                <div class="job-card__header">
+                    <div class="job-card__logo" aria-hidden="true"><span class="material-symbols-outlined">business</span></div>
+                    <span class="job-card__estado">Abierta</span>
+                </div>
+                <h3 class="job-card__title">Título del puesto</h3>
+                <p class="job-card__empresa">Nombre de la empresa</p>
+                <div class="job-card__tags">
+                    <span class="job-card__tag">Presencial</span>
+                    <span class="job-card__tag">Tiempo completo</span>
+                    <span class="job-card__tag">Santo Domingo</span>
+                </div>
+                <div class="job-card__footer">
+                    <a href="#c31" class="job-card__cta">Ver detalles</a>
+                </div>
+            </article>
+
+            <article class="job-card" data-component="JobCard">
+                <div class="job-card__header">
+                    <div class="job-card__logo" aria-hidden="true"><span class="material-symbols-outlined">business</span></div>
+                    <span class="job-card__estado">Abierta</span>
+                </div>
+                <h3 class="job-card__title">Título de puesto más extenso a dos líneas</h3>
+                <p class="job-card__empresa">Otra empresa</p>
+                <div class="job-card__tags">
+                    <span class="job-card__tag">Remoto</span>
+                    <span class="job-card__tag">Pasantía</span>
+                </div>
+                <div class="job-card__footer">
+                    <a href="#c31" class="job-card__cta">Ver detalles</a>
+                </div>
+            </article>
+
+            <article class="job-card" data-component="JobCard">
+                <div class="job-card__header">
+                    <div class="job-card__logo" aria-hidden="true"><span class="material-symbols-outlined">business</span></div>
+                    <span class="job-card__estado">Cerrada</span>
+                </div>
+                <h3 class="job-card__title">Tercer puesto de ejemplo</h3>
+                <p class="job-card__empresa">Empresa aliada</p>
+                <div class="job-card__tags">
+                    <span class="job-card__tag">Híbrido</span>
+                    <span class="job-card__tag">Medio tiempo</span>
+                </div>
+                <div class="job-card__footer">
+                    <a href="#c31" class="job-card__cta">Ver detalles</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!--
+      COMPONENT · Pagination
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-pagination
+      JS     : landing-template.js → initPaginationDemo() / landing-bolsa-de-empleo.js (real)
+      Uso    : listados largos con páginas (alternativa a «Cargar más»)
+    -->
+    <div class="tpl-doc" id="c28" data-doc>
+        <span class="tpl-doc__id">28</span>
+        <span class="tpl-doc__name">Pagination</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-pagination</code>
+    </div>
+    <div class="tpl-demo">
+        <nav class="job-pagination" aria-label="Paginación de resultados" data-component="Pagination">
+            <button type="button" class="job-pagination__btn" data-page="prev" disabled aria-label="Página anterior">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+            </button>
+            <button type="button" class="job-pagination__btn job-pagination__btn--active" data-page="1">1</button>
+            <button type="button" class="job-pagination__btn" data-page="2">2</button>
+            <button type="button" class="job-pagination__btn" data-page="3">3</button>
+            <span class="job-pagination__ellipsis">…</span>
+            <button type="button" class="job-pagination__btn" data-page="8">8</button>
+            <button type="button" class="job-pagination__btn" data-page="next" aria-label="Página siguiente">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+            </button>
+        </nav>
+    </div>
+
+    <!--
+      COMPONENT · EmptyState
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-empty-state
+      JS     : lo inserta el render cuando no hay resultados
+      Uso    : listado vacío o búsqueda sin coincidencias
+    -->
+    <div class="tpl-doc" id="c29" data-doc>
+        <span class="tpl-doc__id">29</span>
+        <span class="tpl-doc__name">EmptyState</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-empty-state</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="job-empty-state" data-component="EmptyState">
+            <span class="material-symbols-outlined" aria-hidden="true">work_off</span>
+            <p class="type-body-lg">No se encontraron resultados con los filtros seleccionados.</p>
+        </div>
+    </div>
+
+    <!--
+      COMPONENT · AcrCardGrid + AcrCard (tarjeta con color de categoría)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-grid, .acr-card, .acr-cat--*
+      JS     : landing-acreditacion.js (filtros + apertura de modal)
+      Nota   : la clase .acr-cat--[categoria] define --acr-cat y pinta borde y badge
+    -->
+    <div class="tpl-doc" id="c30" data-doc>
+        <span class="tpl-doc__id">30</span>
+        <span class="tpl-doc__name">AccreditationCard</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-card + .acr-cat--*</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="acr-grid" data-component="AcrCardGrid" data-stagger-container>
+            <article class="acr-card acr-cat--institucional" data-component="AcrCard" data-stagger tabindex="0" role="button" data-modal-open="tpl-modal-detail" aria-label="Ver detalle del ejemplo institucional">
+                <div class="acr-card__top">
+                    <span class="acr-card__badge">Institucional</span>
+                    <span class="acr-card__duration">
+                        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                        2023 – 2029
+                    </span>
+                </div>
+                <div class="acr-card__image">
+                    <img src="../assets/images/acreditadoras/Logo_MESCyT_(RD).png" alt="Logo del organismo" loading="lazy"/>
+                </div>
+                <h3 class="acr-card__title">Sigla</h3>
+                <p class="acr-card__org">Nombre completo del organismo acreditador</p>
+                <p class="acr-card__desc">
+                    Descripción de tres líneas máximo; el CSS recorta el excedente con line-clamp.
+                </p>
+                <span class="acr-card__scope">
+                    <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                    Alcance nacional
+                </span>
+            </article>
+
+            <article class="acr-card acr-cat--negocios" data-component="AcrCard" data-stagger tabindex="0" role="button" data-modal-open="tpl-modal-detail" aria-label="Ver detalle del ejemplo de negocios">
+                <div class="acr-card__top">
+                    <span class="acr-card__badge">Negocios</span>
+                    <span class="acr-card__duration">
+                        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                        2024 – 2030
+                    </span>
+                </div>
+                <h3 class="acr-card__title">Sigla</h3>
+                <p class="acr-card__org">Organismo internacional del área</p>
+                <p class="acr-card__desc">Variante sin imagen: la tarjeta mantiene la misma altura mínima.</p>
+                <span class="acr-card__scope">
+                    <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                    Alcance internacional
+                </span>
+            </article>
+
+            <article class="acr-card acr-cat--medicina" data-component="AcrCard" data-stagger tabindex="0" role="button" data-modal-open="tpl-modal-detail" aria-label="Ver detalle del ejemplo de medicina">
+                <div class="acr-card__top">
+                    <span class="acr-card__badge">Medicina</span>
+                    <span class="acr-card__duration">
+                        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                        2022 – 2028
+                    </span>
+                </div>
+                <h3 class="acr-card__title">Sigla</h3>
+                <p class="acr-card__org">Organismo del área de salud</p>
+                <p class="acr-card__desc">Cada categoría tiene su propio color mediante variables CSS.</p>
+                <span class="acr-card__scope">
+                    <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                    Alcance regional
+                </span>
+            </article>
+        </div>
+        <p class="tpl-demo__hint">Haz clic en una tarjeta para abrir el modal del componente 43.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO F · PÁGINA DE DETALLE
+      Composición real (bolsa-de-empleo-detalle.html):
+      Breadcrumb (08) → DetailHeader (31) → QuickInfoGrid (32) →
+      .job-detail-layout [ DetailSection (33) | SidebarCard (34) +
+      CompensationCard (35) + ApplyCard (36) ] → BackLink (10)
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-detail" data-doc>F · Página de detalle</p>
+
+    <section class="py-section-padding bg-background" data-component="JobDetailPage">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+
+            <!--
+              COMPONENT · JobDetailHeader
+              CSS : bolsa-de-empleo.css → .job-detail-header
+            -->
+            <div class="tpl-doc" id="c31" data-doc>
+                <span class="tpl-doc__id">31</span>
+                <span class="tpl-doc__name">DetailHeader</span>
+                <code class="tpl-doc__src">bolsa-de-empleo.css · .job-detail-header</code>
+            </div>
+            <header class="job-detail-header" data-component="JobDetailHeader">
+                <div class="job-detail-header__info">
+                    <span class="job-detail-header__badge">Categoría</span>
+                    <h2 class="job-detail-header__title">Título del elemento en detalle</h2>
+                    <div class="job-detail-header__meta">
+                        <span class="job-detail-header__meta-item">
+                            <span class="material-symbols-outlined" aria-hidden="true">business</span>
+                            Organización
+                        </span>
+                        <span class="job-detail-header__meta-item">
+                            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+                            Santo Domingo · Presencial
+                        </span>
+                    </div>
+                </div>
+                <a href="#g-cta" class="job-detail-header__apply">
+                    <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                    Acción principal
+                </a>
+            </header>
+
+            <!--
+              COMPONENT · JobQuickInfo
+              CSS : bolsa-de-empleo.css → .job-quick-info (hasta 6 columnas en desktop)
+            -->
+            <div class="tpl-doc" id="c32" data-doc>
+                <span class="tpl-doc__id">32</span>
+                <span class="tpl-doc__name">QuickInfoGrid</span>
+                <code class="tpl-doc__src">bolsa-de-empleo.css · .job-quick-info</code>
+            </div>
+            <div class="job-quick-info" data-component="JobQuickInfo">
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">work</span>
+                    <span class="job-quick-info__label">Tipo</span>
+                    <span class="job-quick-info__value">Tiempo completo</span>
+                </div>
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">schedule</span>
+                    <span class="job-quick-info__label">Horario</span>
+                    <span class="job-quick-info__value">8:00 – 17:00</span>
+                </div>
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">groups</span>
+                    <span class="job-quick-info__label">Vacantes</span>
+                    <span class="job-quick-info__value">2</span>
+                </div>
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">event</span>
+                    <span class="job-quick-info__label">Publicada</span>
+                    <span class="job-quick-info__value">01/08/2026</span>
+                </div>
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">timer</span>
+                    <span class="job-quick-info__label">Cierre</span>
+                    <span class="job-quick-info__value job-quick-info__value--urgent">15/08/2026</span>
+                </div>
+                <div class="job-quick-info__item">
+                    <span class="material-symbols-outlined job-quick-info__icon" aria-hidden="true">badge</span>
+                    <span class="job-quick-info__label">Experiencia</span>
+                    <span class="job-quick-info__value">2 años</span>
+                </div>
+            </div>
+
+            <div class="job-detail-layout">
+                <div>
+                    <!--
+                      COMPONENT · JobDetailSection (+ listas, tags e idiomas)
+                      CSS : bolsa-de-empleo.css → .job-detail-section, .job-responsibilities,
+                            .job-skill-tags, .job-languages
+                    -->
+                    <div class="tpl-doc" id="c33" data-doc>
+                        <span class="tpl-doc__id">33</span>
+                        <span class="tpl-doc__name">DetailSection</span>
+                        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-detail-section</code>
+                    </div>
+                    <section class="job-detail-section" data-component="JobDescription">
+                        <h3 class="job-detail-section__heading">
+                            <span class="material-symbols-outlined" aria-hidden="true">description</span>
+                            Descripción
+                        </h3>
+                        <h4 class="job-detail-section__subheading">Objetivo</h4>
+                        <p class="job-detail-section__text">
+                            Párrafo con el objetivo del puesto, programa o servicio.
+                        </p>
+                        <h4 class="job-detail-section__subheading">Responsabilidades</h4>
+                        <ul class="job-responsibilities" data-component="ResponsibilitiesList">
+                            <li class="job-responsibilities__item">
+                                <span class="job-responsibilities__check" aria-hidden="true"><span class="material-symbols-outlined">check</span></span>
+                                <span>Responsabilidad uno descrita en una línea.</span>
+                            </li>
+                            <li class="job-responsibilities__item">
+                                <span class="job-responsibilities__check" aria-hidden="true"><span class="material-symbols-outlined">check</span></span>
+                                <span>Responsabilidad dos descrita en una línea.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="job-detail-section" data-component="JobRequirements">
+                        <h3 class="job-detail-section__heading">
+                            <span class="material-symbols-outlined" aria-hidden="true">target</span>
+                            Requisitos
+                        </h3>
+                        <h4 class="job-detail-section__subheading">Habilidades técnicas</h4>
+                        <div class="job-skill-tags" data-component="SkillTags">
+                            <span class="job-skill-tag">Habilidad uno</span>
+                            <span class="job-skill-tag">Habilidad dos</span>
+                            <span class="job-skill-tag">Habilidad tres</span>
+                        </div>
+                        <h4 class="job-detail-section__subheading">Idiomas</h4>
+                        <div class="job-languages" data-component="LanguagesList">
+                            <div class="job-languages__item">
+                                <span>Español</span>
+                                <span class="job-languages__level">Nativo</span>
+                            </div>
+                            <div class="job-languages__item">
+                                <span>Inglés</span>
+                                <span class="job-languages__level">Intermedio</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside>
+                    <!--
+                      COMPONENT · JobSidebarCard
+                      CSS : bolsa-de-empleo.css → .job-sidebar-card
+                    -->
+                    <div class="tpl-doc" id="c34" data-doc>
+                        <span class="tpl-doc__id">34</span>
+                        <span class="tpl-doc__name">SidebarCard</span>
+                        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-sidebar-card</code>
+                    </div>
+                    <div class="job-sidebar-card" data-component="AcademicProfileCard">
+                        <h3 class="job-sidebar-card__heading">
+                            <span class="material-symbols-outlined" aria-hidden="true">school</span>
+                            Perfil académico
+                        </h3>
+                        <div class="job-sidebar-card__field">
+                            <span class="job-sidebar-card__label">Estado académico</span>
+                            <span class="job-sidebar-card__value">Estudiante de término</span>
+                        </div>
+                        <div class="job-sidebar-card__field">
+                            <span class="job-sidebar-card__label">Carreras elegibles</span>
+                            <div class="job-sidebar-card__tags" data-component="CareerTags">
+                                <span class="job-sidebar-card__tag">Carrera uno</span>
+                                <span class="job-sidebar-card__tag">Carrera dos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--
+                      COMPONENT · JobCompensationCard
+                      CSS : bolsa-de-empleo.css → .job-compensation-card (degradado verde)
+                    -->
+                    <div class="tpl-doc" id="c35" data-doc>
+                        <span class="tpl-doc__id">35</span>
+                        <span class="tpl-doc__name">CompensationCard</span>
+                        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-compensation-card</code>
+                    </div>
+                    <div class="job-compensation-card" data-component="CompensationCard">
+                        <h3 class="job-compensation-card__heading">Compensación</h3>
+                        <p class="job-compensation-card__salary">RD$ 45,000 – 60,000</p>
+                        <div class="job-compensation-card__row">
+                            <span class="job-compensation-card__row-label">Moneda</span>
+                            <span class="job-compensation-card__row-value">DOP</span>
+                        </div>
+                        <div class="job-compensation-card__row">
+                            <span class="job-compensation-card__row-label">Período</span>
+                            <span class="job-compensation-card__row-value">Mensual</span>
+                        </div>
+                    </div>
+
+                    <!--
+                      COMPONENT · JobApplyCard (con botón copiar)
+                      CSS : bolsa-de-empleo.css → .job-apply-card
+                      JS  : landing-template.js → initCopy() (utils.copyToClipboard)
+                    -->
+                    <div class="tpl-doc" id="c36" data-doc>
+                        <span class="tpl-doc__id">36</span>
+                        <span class="tpl-doc__name">ApplyCard</span>
+                        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-apply-card</code>
+                    </div>
+                    <div class="job-apply-card" data-component="ApplicationCard">
+                        <p class="job-apply-card__prompt">¿Te interesa esta posición?</p>
+                        <p class="job-apply-card__instructions">
+                            Envía tu currículo indicando el código de la vacante en el asunto.
+                        </p>
+                        <div class="job-apply-card__email-box">
+                            <span class="job-apply-card__email" data-copy-value="empleos@unphu.edu.do">empleos@unphu.edu.do</span>
+                            <button type="button" class="job-apply-card__copy" data-action="copy" data-copy-target="empleos@unphu.edu.do" aria-label="Copiar correo">
+                                <span class="material-symbols-outlined" aria-hidden="true">content_copy</span>
+                            </button>
+                        </div>
+                        <a href="mailto:empleos@unphu.edu.do" class="job-apply-card__submit">Enviar aplicación</a>
+                        <span class="job-apply-card__reference">Referencia: VAC-2026-000</span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO G · CONTACTO Y CTA
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-cta" data-doc>G · Contacto y CTA</p>
+
+    <!--
+      COMPONENT · AcrContact (panel claro con tarjetas de contacto)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-contact, .acr-contact__panel, .acr-contact-card
+      JS     : animations.js → data-stagger
+      Uso    : cierre de página con teléfono, correo y dirección
+    -->
+    <div class="tpl-doc" id="c37" data-doc>
+        <span class="tpl-doc__id">37</span>
+        <span class="tpl-doc__name">ContactCards</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-contact</code>
+    </div>
+    <section class="acr-contact py-section-padding relative" data-component="AcrContact" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="acr-contact__panel">
+                <div class="acr-contact__intro">
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Contacto</p>
+                    <h2 class="type-section-title type-section-title--primary mb-4">¿Tienes preguntas?</h2>
+                    <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                        Una o dos líneas indicando qué equipo responde y sobre qué temas.
+                    </p>
+                </div>
+                <div class="acr-contact__grid" data-stagger-container>
+                    <a class="acr-contact-card" href="tel:8095400422" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">call</span>
+                        </div>
+                        <span class="acr-contact-card__label">Teléfono</span>
+                        <span class="acr-contact-card__value">809 540 0422</span>
+                    </a>
+                    <a class="acr-contact-card" href="mailto:info@unphu.edu.do" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <span class="acr-contact-card__label">Correo</span>
+                        <span class="acr-contact-card__value">info@unphu.edu.do</span>
+                    </a>
+                    <div class="acr-contact-card" data-stagger>
+                        <div class="acr-contact-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <span class="acr-contact-card__label">Dirección</span>
+                        <span class="acr-contact-card__value">Av. John F. Kennedy Km 7 1/2, Santo Domingo, R.D.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · ContactGlassPanel
+      Origen : internacionalizacion.html
+      CSS    : solo utilidades Tailwind (bg-white/10 + backdrop-blur)
+      JS     : —
+      Uso    : contacto sobre fondo degradado oscuro
+    -->
+    <div class="tpl-doc" id="c38" data-doc>
+        <span class="tpl-doc__id">38</span>
+        <span class="tpl-doc__name">ContactGlassPanel</span>
+        <code class="tpl-doc__src">Tailwind (backdrop-blur)</code>
+    </div>
+    <section class="py-section-padding bg-gradient-to-br from-[#0A3859] via-[#0E5A84] to-[#156b1d] text-white" data-component="ContactGlassPanel">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="rounded-[2rem] bg-white/10 p-8 backdrop-blur-xl border border-white/10 shadow-xl">
+                <div class="grid gap-6 md:grid-cols-3 text-center">
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <span class="material-symbols-outlined">phone</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Teléfonos</p>
+                        <a href="tel:8095400422" class="type-link text-white block">809 540 0422</a>
+                        <a href="tel:8097630422" class="type-link text-white block">809 763 0422</a>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <span class="material-symbols-outlined">mail</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Correo electrónico</p>
+                        <a href="mailto:info@unphu.edu.do" class="type-link text-white block">info@unphu.edu.do</a>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </span>
+                        <p class="type-label type-label--wide text-white/80">Dirección</p>
+                        <p class="font-semibold">Av. John F. Kennedy Km 7 1/2, Edificio #8</p>
+                        <p class="type-body-sm text-white/80">3er piso, Santo Domingo, República Dominicana</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · ContactPanelWhite (tarjeta blanca sobre degradado)
+      Origen : dobleTitulacion.html
+      CSS    : Tailwind + shadow-premium
+      JS     : —
+      Uso    : contacto de programa con correo y teléfono
+    -->
+    <div class="tpl-doc" id="c39" data-doc>
+        <span class="tpl-doc__id">39</span>
+        <span class="tpl-doc__name">ContactPanelWhite</span>
+        <code class="tpl-doc__src">Tailwind (shadow-premium)</code>
+    </div>
+    <section class="py-section-padding bg-gradient-to-b from-[#0A3859] to-[#2E7D32]" data-component="ContactPanelWhite" data-animate="fade">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="rounded-4xl bg-white border border-outline-variant/10 p-10 md:p-12 shadow-premium max-w-4xl mx-auto">
+                <div class="max-w-3xl mx-auto text-center">
+                    <p class="type-label type-label--wide type-label--secondary mb-4">Información y contacto</p>
+                    <h2 class="type-section-title type-subtitle--blue mb-6">¿Tienes dudas? Escríbenos o llámanos.</h2>
+                    <p class="type-body-lg type-body--muted mb-10 max-w-2xl mx-auto">
+                        Una línea indicando quién atiende y en qué horario.
+                    </p>
+                    <div class="grid gap-6 sm:grid-cols-2 text-center">
+                        <div class="rounded-3xl bg-surface-container-low p-6 border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
+                            <p class="type-label type-label--secondary mb-3">Correo electrónico</p>
+                            <a href="mailto:info@unphu.edu.do" class="type-link break-all">info@unphu.edu.do</a>
+                        </div>
+                        <div class="rounded-3xl bg-surface-container-low p-6 border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
+                            <p class="type-label type-label--secondary mb-3">Teléfono</p>
+                            <a href="tel:+18095666601" class="type-link">+1 809 566-6601</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · LandingCta (banner final con patrón de puntos)
+      Origen : template.html
+      CSS    : global.css → .pattern-grid
+      JS     : common.js → data-cta
+      Uso    : llamada a la acción de cierre
+    -->
+    <div class="tpl-doc" id="c40" data-doc>
+        <span class="tpl-doc__id">40</span>
+        <span class="tpl-doc__name">CtaBanner</span>
+        <code class="tpl-doc__src">global.css · .pattern-grid</code>
+    </div>
+    <section class="py-section-padding relative overflow-hidden" data-component="LandingCta" data-animate="fade">
         <div class="absolute inset-0 bg-unphu-blue z-0" aria-hidden="true">
             <div class="absolute inset-0 opacity-20 pattern-grid"></div>
         </div>
         <div class="max-w-4xl mx-auto px-gutter md:px-stack-lg relative z-10 text-center">
-            <h2 class="type-section-title type-section-title--light mb-6">
-                ¿Listo para Comenzar?
-            </h2>
+            <h2 class="type-section-title type-section-title--light mb-6">¿Listo para Comenzar?</h2>
             <p class="type-body-lg type-body--light mb-10 max-w-2xl mx-auto">
                 Descripción final que motive la acción del usuario. Invita a tomar el siguiente paso.
             </p>
@@ -241,7 +1776,6 @@
                 type="button"
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-fixed px-10 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest hover:-translate-y-1"
                 data-cta="contact"
-                data-action="contact"
             >
                 <span class="material-symbols-outlined" aria-hidden="true">chat</span>
                 Contactar Ahora
@@ -249,7 +1783,362 @@
         </div>
     </section>
 
+    <!--
+      COMPONENT · DocCta (franja gris de cierre)
+      Origen : documentacion.html
+      CSS    : documentacion.css → .doc-cta
+      JS     : landing-documentacion.js → data-action="contact"
+      Uso    : cierre discreto para páginas utilitarias
+    -->
+    <div class="tpl-doc" id="c41" data-doc>
+        <span class="tpl-doc__id">41</span>
+        <span class="tpl-doc__name">CtaStrip</span>
+        <code class="tpl-doc__src">documentacion.css · .doc-cta</code>
+    </div>
+    <section class="doc-cta" data-component="DocCta" data-animate="fade">
+        <div class="doc-cta__inner">
+            <h2 class="doc-cta__title">¿No encuentras lo que buscas?</h2>
+            <button type="button" class="doc-cta__btn" data-action="contact">
+                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                Contactar a la universidad
+            </button>
+        </div>
+    </section>
+
+    <!--
+      COMPONENT · JobNewsletter (suscripción)
+      Origen : bolsa-de-empleo.html
+      CSS    : bolsa-de-empleo.css → .job-newsletter
+      JS     : forms.js (validación) o landing-[nombre].js
+      Uso    : captura de correo para alertas
+    -->
+    <div class="tpl-doc" id="c42" data-doc>
+        <span class="tpl-doc__id">42</span>
+        <span class="tpl-doc__name">Newsletter</span>
+        <code class="tpl-doc__src">bolsa-de-empleo.css · .job-newsletter</code>
+    </div>
+    <section class="py-section-padding bg-surface-container-low" data-component="JobNewsletter">
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="job-newsletter">
+                <h2 class="type-section-title type-section-title--blue mb-3">¿No encuentras lo que buscas?</h2>
+                <p class="type-body-md type-body--muted max-w-xl mx-auto">
+                    Suscríbete para recibir alertas cuando se publique contenido que coincida con tu perfil.
+                </p>
+                <form class="job-newsletter__form" data-component="NewsletterForm" onsubmit="return false;">
+                    <label class="sr-only" for="tpl-newsletter-email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="tpl-newsletter-email"
+                        name="email"
+                        class="job-newsletter__input"
+                        placeholder="tu@correo.unphu.edu.do"
+                        required
+                    />
+                    <button type="submit" class="job-newsletter__submit">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO H · OVERLAYS Y FEEDBACK
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-overlays" data-doc>H · Overlays y feedback</p>
+
+    <!--
+      COMPONENT · AcrModal (modal de detalle completo)
+      Origen : acreditacion.html
+      CSS    : acreditacion.css → .acr-modal-overlay, .acr-modal
+      JS     : landing-template.js → initModals() (demo) / landing-acreditacion.js (real)
+      Nota   : el markup del modal vive al final del <body>, fuera de <main>
+    -->
+    <div class="tpl-doc" id="c43" data-doc>
+        <span class="tpl-doc__id">43</span>
+        <span class="tpl-doc__name">ModalDetail</span>
+        <code class="tpl-doc__src">acreditacion.css · .acr-modal</code>
+    </div>
+    <div class="tpl-demo">
+        <button type="button" class="doc-cta__btn" data-modal-open="tpl-modal-detail">
+            <span class="material-symbols-outlined" aria-hidden="true">open_in_full</span>
+            Abrir modal de detalle
+        </button>
+    </div>
+
+    <!--
+      COMPONENT · ModalSimple (aviso corto)
+      Origen : internacionalizacion.html (allí con CSS inline; aquí ya normalizado)
+      CSS    : template.css → .tpl-modal, .tpl-modal__panel
+      JS     : landing-template.js → initModals()
+    -->
+    <div class="tpl-doc" id="c44" data-doc>
+        <span class="tpl-doc__id">44</span>
+        <span class="tpl-doc__name">ModalSimple</span>
+        <code class="tpl-doc__src">template.css · .tpl-modal</code>
+    </div>
+    <div class="tpl-demo">
+        <button type="button" class="doc-cta__btn" data-modal-open="tpl-modal-simple">
+            <span class="material-symbols-outlined" aria-hidden="true">chat_bubble</span>
+            Abrir modal simple
+        </button>
+    </div>
+
+    <!--
+      COMPONENT · DocToast (aviso temporal)
+      Origen : documentacion.html
+      CSS    : documentacion.css → .doc-toast, .doc-toast--bottom, .doc-toast--top
+      JS     : landing-template.js → showToast() (crea y retira el nodo)
+      Uso    : confirmar descargas, copiados o envíos
+    -->
+    <div class="tpl-doc" id="c45" data-doc>
+        <span class="tpl-doc__id">45</span>
+        <span class="tpl-doc__name">Toast</span>
+        <code class="tpl-doc__src">documentacion.css · .doc-toast</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="flex flex-wrap gap-3">
+            <button type="button" class="doc-card__btn doc-card__btn--ghost" data-action="toast" data-toast-variant="bottom">
+                <span class="material-symbols-outlined" aria-hidden="true">notifications</span>
+                Toast inferior
+            </button>
+            <button type="button" class="doc-card__btn doc-card__btn--primary" data-action="toast" data-toast-variant="top">
+                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                Toast superior
+            </button>
+        </div>
+        <p class="tpl-demo__hint">Vista estática de las dos variantes:</p>
+        <div class="tpl-demo-static flex flex-wrap gap-4">
+            <div class="doc-toast doc-toast--bottom" role="status">
+                <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                Descarga iniciada
+            </div>
+            <div class="doc-toast doc-toast--top" role="status">
+                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                Correo copiado
+            </div>
+        </div>
+    </div>
+
+    <!--
+      COMPONENT · ErrorState (404)
+      Origen : 404Unphu.html
+      CSS    : 404-unphu.css → .not-found-page*, .not-found-owl (búho fijo, opcional)
+      JS     : —
+      Uso    : URL inválida o contenido no disponible
+      Nota   : aquí se muestra el contenido central sin el búho fijo; para la página
+               completa enlaza también assets/css/404-unphu.css
+    -->
+    <div class="tpl-doc" id="c46" data-doc>
+        <span class="tpl-doc__id">46</span>
+        <span class="tpl-doc__name">ErrorState</span>
+        <code class="tpl-doc__src">404-unphu.css · .not-found-page</code>
+    </div>
+    <section class="relative overflow-hidden py-16 bg-background" data-component="ErrorState" data-animate="fade">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(22,100,57,0.20),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(3,68,29,0.18),_transparent_30%)]" aria-hidden="true"></div>
+        <div class="relative z-10 max-w-container-max mx-auto px-gutter md:px-stack-lg text-center">
+            <div class="mx-auto mb-8 w-[8rem]">
+                <img src="https://unphu.edu.do/logo-unphu-60-aniversario.png" alt="Logo UNPHU" class="mx-auto w-full object-contain" loading="lazy"/>
+            </div>
+            <p class="type-display type-highlight mb-2">Url no válida</p>
+            <h2 class="type-section-title type-section-title--on-surface mb-4">Error 404</h2>
+            <p class="type-body-md type-body--muted mx-auto mb-10 max-w-xl">
+                La página que buscas no existe o ha sido movida dentro de nuestro sitio institucional.
+            </p>
+            <a href="https://www.unphu.edu.do/" class="inline-flex items-center gap-3 rounded-full bg-[#074013] px-8 py-4 type-btn uppercase text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition-all duration-200 hover:bg-[#062b0f] hover:scale-105">
+                <span class="material-symbols-outlined" aria-hidden="true">home</span>
+                Volver a página principal
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+      GRUPO I · TOKENS
+      Referencia rápida de tipografía y botones. No es un componente:
+      sirve para elegir clases al construir uno nuevo.
+    ═══════════════════════════════════════════════════════════════════ -->
+    <p class="tpl-group" id="g-tokens" data-doc>I · Tokens</p>
+
+    <div class="tpl-doc" id="c47" data-doc>
+        <span class="tpl-doc__id">47</span>
+        <span class="tpl-doc__name">Tipografía</span>
+        <code class="tpl-doc__src">global.css · .type-*</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="tpl-tokens">
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-display</code>
+                <p class="type-display">Título de hero</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-lead</code>
+                <p class="type-lead">Bajada del hero, 2 o 3 líneas.</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-eyebrow type-eyebrow--dot type-eyebrow--primary</code>
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary">Etiqueta de sección</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-section-title type-section-title--blue</code>
+                <p class="type-section-title type-section-title--blue">Título de sección</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-section-title--sm</code>
+                <p class="type-section-title type-section-title--sm">Título de sección pequeño</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-subtitle</code>
+                <p class="type-subtitle">Subtítulo (H3)</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-body-lg / md / sm</code>
+                <div>
+                    <p class="type-body-lg type-body--muted">Cuerpo grande</p>
+                    <p class="type-body-md type-body--muted">Cuerpo normal</p>
+                    <p class="type-body-sm type-body--muted">Cuerpo pequeño</p>
+                </div>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-card-title / type-card-body</code>
+                <div>
+                    <p class="type-card-title type-card-title--primary">Título de tarjeta</p>
+                    <p class="type-card-body type-body--muted">Texto de tarjeta.</p>
+                </div>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-label type-label--secondary</code>
+                <p class="type-label type-label--secondary">Etiqueta pequeña</p>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-item-title / type-item-desc</code>
+                <div>
+                    <p class="type-item-title">Título de ítem</p>
+                    <p class="type-item-desc type-body--muted">Descripción del ítem.</p>
+                </div>
+            </div>
+            <div class="tpl-tokens__row">
+                <code class="tpl-tokens__code">type-link · type-btn · type-meta</code>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#g-tokens" class="type-link">Enlace</a>
+                    <span class="type-btn">TEXTO DE BOTÓN</span>
+                    <span class="type-meta type-body--muted">Meta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tpl-doc" id="c48" data-doc>
+        <span class="tpl-doc__id">48</span>
+        <span class="tpl-doc__name">Botones</span>
+        <code class="tpl-doc__src">Tailwind + doc-*/job-*/tpl-*</code>
+    </div>
+    <div class="tpl-demo">
+        <div class="flex flex-wrap items-center gap-4">
+            <a href="#g-tokens" class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 type-btn text-on-primary shadow-lg transition hover:bg-tertiary-container">
+                Primario oscuro
+            </a>
+            <a href="#g-tokens" class="inline-flex items-center justify-center rounded-full bg-primary-fixed px-8 py-4 type-btn text-on-primary-fixed-variant shadow-lg transition hover:bg-surface-container-lowest">
+                Primario claro
+            </a>
+            <a href="#g-tokens" class="inline-flex items-center justify-center rounded-full border-2 border-primary px-8 py-3.5 type-btn text-primary transition hover:bg-primary hover:text-white">
+                Contorno
+            </a>
+            <button type="button" class="doc-cta__btn">
+                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                Botón con icono
+            </button>
+            <button type="button" class="tpl-load-more">Cargar más</button>
+            <button type="button" class="job-btn-primary">
+                <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                Rectangular
+            </button>
+        </div>
+    </div>
+
 </main>
+
+<!--
+  OVERLAYS — siempre al final del <body>, fuera de <main>
+-->
+
+<!-- Component: AcrModal (ver 43) -->
+<div
+    id="tpl-modal-detail"
+    class="acr-modal-overlay"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tpl-modal-detail-title"
+    data-component="AcrModal"
+>
+    <div class="acr-modal acr-cat--institucional">
+        <button type="button" class="acr-modal__close" data-modal-close aria-label="Cerrar">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span>
+        </button>
+        <span class="acr-modal__badge">Institucional</span>
+        <div class="acr-modal__image">
+            <img src="../assets/images/acreditadoras/Logo_MESCyT_(RD).png" alt="Logo del organismo" loading="lazy"/>
+        </div>
+        <h2 class="acr-modal__title" id="tpl-modal-detail-title">Sigla del organismo</h2>
+        <p class="acr-modal__org">Nombre completo del organismo acreditador</p>
+        <p class="acr-modal__desc">
+            Descripción larga del elemento: qué evalúa, qué implica y por qué importa. Este bloque
+            admite varios párrafos sin recorte.
+        </p>
+        <div class="acr-modal__meta">
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                <span class="acr-modal__meta-label">Área</span>
+                <span class="acr-modal__meta-value">Institucional</span>
+            </div>
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                <span class="acr-modal__meta-label">Periodo</span>
+                <span class="acr-modal__meta-value">2023 – 2029</span>
+            </div>
+            <div class="acr-modal__meta-item">
+                <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                <span class="acr-modal__meta-label">Alcance</span>
+                <span class="acr-modal__meta-value">Nacional</span>
+            </div>
+        </div>
+        <p class="acr-modal__docs-label">Documentos y evidencia pública</p>
+        <div class="acr-modal__docs">
+            <a class="acr-modal__doc" href="#c43">
+                <span class="material-symbols-outlined" aria-hidden="true">picture_as_pdf</span>
+                Certificado
+            </a>
+            <a class="acr-modal__doc" href="#c43">
+                <span class="material-symbols-outlined" aria-hidden="true">link</span>
+                Sitio oficial
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Component: ModalSimple (ver 44) -->
+<div
+    id="tpl-modal-simple"
+    class="tpl-modal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tpl-modal-simple-title"
+    data-component="ModalSimple"
+>
+    <div class="tpl-modal__panel">
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <p class="type-eyebrow type-eyebrow--primary mb-2">Etiqueta</p>
+                <h2 class="type-section-title type-section-title--sm mb-4" id="tpl-modal-simple-title">Título del modal</h2>
+            </div>
+            <button type="button" class="tpl-modal__close" data-modal-close aria-label="Cerrar">
+                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+            </button>
+        </div>
+        <p class="type-body-md type-body--muted">
+            Contenido breve del modal: un aviso, una confirmación o un dato de contacto.
+        </p>
+    </div>
+</div>
 
 <!--
   SCRIPTS — orden fijo
