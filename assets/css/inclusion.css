@@ -27,10 +27,10 @@
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1599px) {
+@media (min-width: 1024px) and (max-width: 1679px) {
     .inc-wrap {
-        padding-left: 4rem;
-        padding-right: 4rem;
+        padding-left: 6rem;
+        padding-right: 6rem;
     }
 }
 
@@ -89,10 +89,10 @@
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1599px) {
+@media (min-width: 1024px) and (max-width: 1679px) {
     .inc-hero__inner {
-        padding-left: 4rem;
-        padding-right: 4rem;
+        padding-left: 6rem;
+        padding-right: 6rem;
     }
 }
 
