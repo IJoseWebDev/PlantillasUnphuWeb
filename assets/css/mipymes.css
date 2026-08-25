@@ -1,0 +1,798 @@
+/* ========================================
+   MIPYMES + UNPHU EMPRENDE
+   Prefijo BEM: mpy-*
+   Reutiliza tokens de global.css y tailwind-config.js
+   ======================================== */
+
+.mpy-page {
+    --mpy-green: #156b1d;
+    --mpy-green-deep: #0f4f16;
+    --mpy-green-soft: rgba(21, 107, 29, 0.1);
+    --mpy-green-on: #a1f797;
+    --mpy-blue: #0a3859;
+    --mpy-blue-mid: #3c6185;
+    --mpy-blue-soft: rgba(10, 56, 89, 0.1);
+    --mpy-blue-on: #cfe5ff;
+    --mpy-grad: linear-gradient(120deg, #0a3858 0%, #2d7934 100%);
+}
+
+.mpy-wrap {
+    width: 100%;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .mpy-wrap {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1679px) {
+    .mpy-wrap {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .mpy-page .py-section-padding {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+}
+
+.mpy-page [id] {
+    scroll-margin-top: 1.5rem;
+}
+
+.mpy-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    background: var(--mpy-green-soft);
+    color: var(--mpy-green);
+    font-family: var(--font-family-base);
+    font-size: var(--text-label-xs-size);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.mpy-badge--blue {
+    background: var(--mpy-blue-soft);
+    color: var(--mpy-blue);
+}
+
+.mpy-badge--light {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.mpy-section-head {
+    max-width: 44rem;
+    margin: 0 auto 2.75rem;
+    text-align: center;
+}
+
+.mpy-section-head .mpy-badge {
+    margin-bottom: 1rem;
+}
+
+.mpy-section-head p.type-body-lg {
+    margin-top: 1rem;
+}
+
+.mpy-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+}
+
+.mpy-icon .material-symbols-outlined {
+    font-size: 1.35rem;
+}
+
+.mpy-icon--green {
+    background: var(--mpy-green-soft);
+    color: var(--mpy-green);
+}
+
+.mpy-icon--blue {
+    background: var(--mpy-blue-soft);
+    color: var(--mpy-blue);
+}
+
+.mpy-icon--on-dark {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+/* --- Hero --- */
+.mpy-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: min(100vh, 780px);
+    overflow: hidden;
+    text-align: center;
+}
+
+.mpy-hero__media {
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/biblioteca.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.mpy-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        115deg,
+        rgba(10, 56, 89, 0.94) 0%,
+        rgba(10, 56, 89, 0.82) 42%,
+        rgba(21, 107, 29, 0.72) 100%
+    );
+}
+
+.mpy-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-top: 5.5rem;
+    padding-bottom: 4rem;
+}
+
+.mpy-hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mpy-hero__title {
+    max-width: 42rem;
+    margin: 0 auto 1.25rem;
+    font-family: var(--font-family-base);
+    font-size: clamp(2.15rem, 5vw, 3.35rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+.mpy-hero__sep {
+    display: inline-block;
+    margin: 0 0.35em;
+    font-weight: 300;
+    color: #a1f797;
+}
+
+.mpy-hero__lead {
+    max-width: 36rem;
+    margin: 0 auto 2rem;
+    font-family: var(--font-family-base);
+    font-size: var(--text-lead-size);
+    line-height: var(--text-lead-line-height);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.mpy-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.875rem;
+}
+
+.mpy-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: #156b1d;
+    padding: 0.875rem 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.mpy-hero__btn:hover,
+.mpy-hero__btn:focus-visible {
+    background: #0f4f16;
+}
+
+.mpy-hero__btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 2px solid #ffffff;
+    background: transparent;
+    padding: 0.75rem 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.mpy-hero__btn-ghost:hover,
+.mpy-hero__btn-ghost:focus-visible {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Unidades --- */
+.mpy-units {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+    .mpy-units {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.mpy-unit {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100%;
+    padding: 2rem 1.75rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(10, 56, 89, 0.05);
+}
+
+.mpy-unit::before {
+    content: "";
+    position: absolute;
+    top: -3.5rem;
+    right: -3.5rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.mpy-unit--emprende::before {
+    background: radial-gradient(circle, rgba(60, 97, 133, 0.12) 0%, transparent 70%);
+}
+
+.mpy-unit--mipymes::before {
+    background: radial-gradient(circle, rgba(21, 107, 29, 0.12) 0%, transparent 70%);
+}
+
+.mpy-unit--emprende {
+    border-top: 4px solid #3c6185;
+}
+
+.mpy-unit--mipymes {
+    border-top: 4px solid #156b1d;
+}
+
+.mpy-unit__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mpy-unit__title {
+    font-family: var(--font-family-base);
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.mpy-unit__desc {
+    color: #40493d;
+    font-size: var(--text-body-md-size);
+    line-height: 1.65;
+}
+
+.mpy-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 0.35rem;
+    padding: 0;
+    list-style: none;
+}
+
+.mpy-check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: #191c1d;
+    font-size: var(--text-body-sm-size);
+    line-height: 1.45;
+}
+
+.mpy-check {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    margin-top: 0.05rem;
+    border-radius: 9999px;
+    color: #ffffff;
+}
+
+.mpy-check .material-symbols-outlined {
+    font-size: 0.95rem;
+}
+
+.mpy-check--blue {
+    background: #3c6185;
+}
+
+.mpy-check--green {
+    background: #156b1d;
+}
+
+.mpy-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 38rem;
+    margin: 1.25rem auto 0;
+    padding: 0.85rem 1.15rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(10, 56, 89, 0.12);
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(10, 56, 89, 0.05);
+}
+
+.mpy-route__text {
+    color: #0a3859;
+    font-size: var(--text-body-sm-size);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+/* --- Servicios --- */
+.mpy-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.35rem;
+    margin: 0 auto 2.25rem;
+    border-radius: 9999px;
+    background: #edeeef;
+}
+
+.mpy-tabs__btn {
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    padding: 0.7rem 1.35rem;
+    color: #40493d;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mpy-tabs__btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.mpy-tabs__btn.is-active[data-service-tab="mipymes"] {
+    background: #156b1d;
+    color: #ffffff;
+}
+
+.mpy-tabs__btn.is-active[data-service-tab="emprende"] {
+    background: #0a3859;
+    color: #ffffff;
+}
+
+.mpy-tabs__btn:focus-visible {
+    outline: 2px solid #156b1d;
+    outline-offset: 2px;
+}
+
+.mpy-service-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .mpy-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .mpy-service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.mpy-service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-height: 100%;
+    padding: 1.5rem 1.35rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mpy-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(10, 56, 89, 0.08);
+}
+
+.mpy-service-card__title {
+    font-family: var(--font-family-base);
+    font-size: var(--text-card-title-size);
+    font-weight: 700;
+    color: #191c1d;
+}
+
+.mpy-service-card__desc {
+    font-size: var(--text-body-sm-size);
+    line-height: 1.55;
+    color: #40493d;
+}
+
+.mpy-services--emprende .mpy-service-card__icon {
+    background: var(--mpy-blue-soft);
+    color: var(--mpy-blue);
+}
+
+.mpy-services--mipymes .mpy-service-card__icon {
+    background: var(--mpy-green-soft);
+    color: var(--mpy-green);
+}
+
+/* --- Programas --- */
+.mpy-program-grid {
+    display: grid;
+    gap: 1.15rem;
+}
+
+@media (min-width: 768px) {
+    .mpy-program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1100px) {
+    .mpy-program-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.mpy-program {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    min-height: 100%;
+    padding: 1.6rem 1.4rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mpy-program:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(10, 56, 89, 0.08);
+}
+
+.mpy-program--emprende {
+    border-top: 4px solid #3c6185;
+}
+
+.mpy-program--mipymes {
+    border-top: 4px solid #156b1d;
+}
+
+.mpy-program__title {
+    font-family: var(--font-family-base);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.mpy-program__desc {
+    font-size: var(--text-body-sm-size);
+    line-height: 1.6;
+    color: #40493d;
+}
+
+/* --- Audiencia --- */
+.mpy-audience-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .mpy-audience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1100px) {
+    .mpy-audience-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.mpy-audience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 100%;
+    padding: 1.6rem 1.1rem 1.4rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mpy-audience:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(10, 56, 89, 0.08);
+}
+
+.mpy-audience__title {
+    font-family: var(--font-family-base);
+    font-size: var(--text-card-title-size);
+    font-weight: 700;
+    color: #191c1d;
+}
+
+/* --- Impacto --- */
+.mpy-impact {
+    position: relative;
+    overflow: hidden;
+    background: var(--mpy-grad);
+}
+
+.mpy-impact__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .mpy-impact__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .mpy-impact__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.mpy-impact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 9rem;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    background: #145a28;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    text-align: center;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.mpy-impact-card:hover {
+    transform: translateY(-3px);
+    background: #0f4a20;
+}
+
+.mpy-impact-card .material-symbols-outlined {
+    color: #a1f797;
+    font-size: 1.5rem;
+}
+
+.mpy-impact-card__value {
+    font-family: var(--font-family-base);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+.mpy-impact-card__label {
+    font-size: var(--text-body-sm-size);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.mpy-impact-lists {
+    display: grid;
+    gap: 1.15rem;
+    margin-top: 1.75rem;
+}
+
+@media (min-width: 900px) {
+    .mpy-impact-lists {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.mpy-impact-panel {
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.mpy-impact-panel__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.15rem;
+}
+
+.mpy-impact-panel__title {
+    font-family: var(--font-family-base);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.mpy-impact-panel .mpy-check-list li {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.mpy-allies {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.mpy-allies__label {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: var(--text-label-xs-size);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.mpy-allies__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+}
+
+.mpy-ally {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.05rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-size: var(--text-body-sm-size);
+    font-weight: 600;
+}
+
+/* --- Contacto --- */
+.mpy-contact {
+    position: relative;
+    background: var(--mpy-grad);
+}
+
+.mpy-contact__panel {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem 1.35rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(238, 251, 244, 0.98) 100%);
+    border: 1px solid rgba(21, 107, 29, 0.16);
+    border-radius: 2rem;
+    box-shadow: 0 28px 64px rgba(21, 107, 29, 0.1);
+}
+
+@media (min-width: 768px) {
+    .mpy-contact__panel {
+        padding: 2.75rem 2.25rem;
+    }
+}
+
+.mpy-contact__channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.mpy-channel {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.mpy-channel__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.mpy-channel__label {
+    font-size: var(--text-label-xs-size);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #439441;
+}
+
+.mpy-channel__value {
+    color: #0a3859;
+    font-size: var(--text-body-md-size);
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+a.mpy-channel__value:hover {
+    color: #156b1d;
+}
+
+.mpy-hours {
+    margin-top: 1.5rem;
+    padding: 1.15rem 1.2rem;
+    border-radius: 1.15rem;
+    border: 1px solid rgba(21, 107, 29, 0.14);
+    background: #ffffff;
+}
+
+.mpy-hours__head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.65rem;
+    color: #0a3859;
+    font-weight: 700;
+}
+
+.mpy-hours__head .material-symbols-outlined {
+    color: #156b1d;
+    font-size: 1.25rem;
+}
+
+.mpy-hours p {
+    color: #40493d;
+    font-size: var(--text-body-sm-size);
+    line-height: 1.7;
+}

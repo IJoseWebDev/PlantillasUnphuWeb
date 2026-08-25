@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Centro MIPYMES UNPHU y UNPHU Emprende: asesoría, capacitación y acompañamiento para emprendedores y MIPYMES de la República Dominicana."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Centro MIPYMES y UNPHU Emprende — UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/mipymes.css"/>
+</head>
+<body class="mpy-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Centro MIPYMES UNPHU + UNPHU Emprende
+  Next.js route sugerida: /mipymes
+  Componentes: MpyHero, MpyAbout, MpyServices, MpyPrograms, MpyAudience, MpyImpact, MpyContact
+-->
+
+<main>
+
+    <!-- Component: MpyHero -->
+    <section class="mpy-hero" id="inicio" data-component="MpyHero" data-animate="fade">
+        <div class="mpy-hero__media" aria-hidden="true"></div>
+        <div class="mpy-hero__overlay" aria-hidden="true"></div>
+        <div class="mpy-hero__inner mpy-wrap">
+            <div class="mpy-hero__copy">
+                <h1 class="mpy-hero__title">
+                    UNPHU Emprende <span class="mpy-hero__sep" aria-hidden="true">|</span> Centro MIPYMES UNPHU
+                </h1>
+                <p class="mpy-hero__lead">
+                    Plataforma oficial de asesoría, capacitación y acompañamiento para emprendedores y MIPYMES de la República Dominicana, respaldada por la Universidad Nacional Pedro Henríquez Ureña.
+                </p>
+                <div class="mpy-hero__actions">
+                    <a href="#contacto" class="mpy-hero__btn type-btn">
+                        Solicitar asesoría
+                        <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">arrow_forward</span>
+                    </a>
+                    <a href="#servicios" class="mpy-hero__btn-ghost type-btn">
+                        Ver servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyAbout -->
+    <section
+        class="py-section-padding bg-background"
+        id="quienes-somos"
+        data-component="MpyAbout"
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge">Quiénes somos</p>
+                <h2 class="type-section-title type-section-title--blue">Dos unidades, un ecosistema integrado</h2>
+                <p class="type-body-lg type-body--muted">
+                    Juntos, creamos una ruta integral donde una idea nace en UNPHU Emprende y se fortalece con los servicios especializados del Centro MIPYMES UNPHU.
+                </p>
+            </div>
+
+            <div class="mpy-units" data-stagger-container>
+                <article class="mpy-unit mpy-unit--emprende" data-stagger>
+                    <div class="mpy-unit__top">
+                        <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                        </span>
+                        <span class="mpy-badge mpy-badge--blue">Para Estudiantes &amp; Emprendedores</span>
+                    </div>
+                    <h3 class="mpy-unit__title">UNPHU Emprende</h3>
+                    <p class="mpy-unit__desc">
+                        Concentra sus esfuerzos en la promoción de la cultura emprendedora, la generación de ideas innovadoras, la incubación de proyectos y el acompañamiento de estudiantes y emprendedores en etapas tempranas.
+                    </p>
+                    <ul class="mpy-check-list">
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Estudiantes de grado y postgrado
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Emprendedores en etapa de idea
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Egresados UNPHU
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Docentes e investigadores
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="mpy-unit mpy-unit--mipymes" data-stagger>
+                    <div class="mpy-unit__top">
+                        <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                            <span class="material-symbols-outlined">apartment</span>
+                        </span>
+                        <span class="mpy-badge">Para Empresas &amp; MIPYMES</span>
+                    </div>
+                    <h3 class="mpy-unit__title">Centro MIPYMES UNPHU</h3>
+                    <p class="mpy-unit__desc">
+                        Unidad de servicio y apoyo a emprendedores y MIPYMES, operando mediante alianza MICM—UNPHU, ofreciendo servicios técnicos, financieros, comerciales y estratégicos para fortalecer productividad e innovación.
+                    </p>
+                    <ul class="mpy-check-list">
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Micro, pequeñas y medianas empresas
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Mujeres emprendedoras
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Empresas familiares
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Cooperativas y asociaciones
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="mpy-route">
+                <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                </span>
+                <p class="mpy-route__text">Tu idea nace en UNPHU Emprende y crece con el Centro MIPYMES UNPHU</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyServices -->
+    <section
+        class="mpy-services mpy-services--mipymes py-section-padding bg-surface-container-lowest"
+        id="servicios"
+        data-component="MpyServices"
+        data-services
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge">Nuestros servicios</p>
+                <h2 class="type-section-title type-section-title--blue">Asesorías especializadas a tu medida</h2>
+                <p class="type-body-lg type-body--muted">
+                    Servicios diseñados para cada etapa del ciclo empresarial, desde la idea hasta la consolidación.
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="mpy-tabs" role="tablist" aria-label="Unidad de servicios">
+                    <button
+                        type="button"
+                        class="mpy-tabs__btn type-btn is-active"
+                        id="tab-mipymes"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="panel-mipymes"
+                        data-service-tab="mipymes"
+                    >
+                        Centro MIPYMES
+                    </button>
+                    <button
+                        type="button"
+                        class="mpy-tabs__btn type-btn"
+                        id="tab-emprende"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="panel-emprende"
+                        tabindex="-1"
+                        data-service-tab="emprende"
+                    >
+                        UNPHU Emprende
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="mpy-service-grid"
+                id="panel-mipymes"
+                role="tabpanel"
+                aria-labelledby="tab-mipymes"
+                data-service-panel="mipymes"
+                data-stagger-container
+            >
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">work</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Gestión Empresarial</h3>
+                    <p class="mpy-service-card__desc">Optimiza la operación y dirección estratégica de tu empresa.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">trending_up</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Marketing Digital</h3>
+                    <p class="mpy-service-card__desc">Posiciona tu negocio en el entorno digital con estrategias efectivas.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">language</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Transformación Digital</h3>
+                    <p class="mpy-service-card__desc">Integra tecnología e inteligencia artificial en tus procesos.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">track_changes</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Finanzas Empresariales</h3>
+                    <p class="mpy-service-card__desc">Controla costos, presupuestos y optimiza la salud financiera.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">verified</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Formalización</h3>
+                    <p class="mpy-service-card__desc">Acompañamiento en procesos legales y estructurales del negocio.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Innovación y Productividad</h3>
+                    <p class="mpy-service-card__desc">Herramientas para mejorar procesos y competitividad.</p>
+                </article>
+            </div>
+
+            <div
+                class="mpy-service-grid"
+                id="panel-emprende"
+                role="tabpanel"
+                aria-labelledby="tab-emprende"
+                data-service-panel="emprende"
+                hidden
+                data-stagger-container
+            >
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Pre-Incubación Empresarial</h3>
+                    <p class="mpy-service-card__desc">Acompañamiento desde la idea hasta el modelo de negocio validado.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">star</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Mentorías Especializadas</h3>
+                    <p class="mpy-service-card__desc">Conexión con mentores del ecosistema emprendedor nacional e internacional.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">groups</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Cultura Emprendedora</h3>
+                    <p class="mpy-service-card__desc">Actividades y espacios para fomentar el espíritu emprendedor universitario.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Concursos y Convocatorias</h3>
+                    <p class="mpy-service-card__desc">Orientación para participar en competencias y fondos de innovación.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">language</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Vinculación al Ecosistema</h3>
+                    <p class="mpy-service-card__desc">Conexión con incubadoras, aceleradoras y redes de emprendimiento.</p>
+                </article>
+                <article class="mpy-service-card" data-stagger>
+                    <span class="mpy-icon mpy-service-card__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </span>
+                    <h3 class="mpy-service-card__title">Propiedad Intelectual</h3>
+                    <p class="mpy-service-card__desc">Gestión y protección de tus ideas, marcas e innovaciones.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyPrograms -->
+    <section
+        class="py-section-padding bg-background"
+        id="programas"
+        data-component="MpyPrograms"
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge">Programas</p>
+                <h2 class="type-section-title type-section-title--blue">Iniciativas que transforman vidas</h2>
+                <p class="type-body-lg type-body--muted">
+                    Programas de alto impacto diseñados para conectar talento, ideas y oportunidades en la República Dominicana.
+                </p>
+            </div>
+
+            <div class="mpy-program-grid" data-stagger-container>
+                <article class="mpy-program mpy-program--emprende" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </span>
+                    <span class="mpy-badge mpy-badge--blue">UNPHU Emprende</span>
+                    <h3 class="mpy-program__title">Bootcamp Emprendedor UNPHU</h3>
+                    <p class="mpy-program__desc">Programa intensivo de formación en competencias emprendedoras para convertir ideas en negocios viables.</p>
+                </article>
+                <article class="mpy-program mpy-program--emprende" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">language</span>
+                    </span>
+                    <span class="mpy-badge mpy-badge--blue">UNPHU Emprende</span>
+                    <h3 class="mpy-program__title">Dominican Tech Week UNPHU</h3>
+                    <p class="mpy-program__desc">Semana de actividades tecnológicas, conferencias y networking para impulsar la innovación digital.</p>
+                </article>
+                <article class="mpy-program mpy-program--emprende" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </span>
+                    <span class="mpy-badge mpy-badge--blue">UNPHU Emprende</span>
+                    <h3 class="mpy-program__title">Dominicana Innova</h3>
+                    <p class="mpy-program__desc">Feria de innovación universitaria que exhibe los mejores proyectos de estudiantes y egresados.</p>
+                </article>
+                <article class="mpy-program mpy-program--emprende" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">star</span>
+                    </span>
+                    <span class="mpy-badge mpy-badge--blue">UNPHU Emprende</span>
+                    <h3 class="mpy-program__title">Semana Global de Emprendimiento</h3>
+                    <p class="mpy-program__desc">Participación en el movimiento global que celebra y empodera a emprendedores de todo el mundo.</p>
+                </article>
+                <article class="mpy-program mpy-program--mipymes" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </span>
+                    <span class="mpy-badge">Centro MIPYMES</span>
+                    <h3 class="mpy-program__title">Talleres de Desarrollo Empresarial</h3>
+                    <p class="mpy-program__desc">Capacitaciones prácticas sobre herramientas digitales, inteligencia artificial y gestión empresarial.</p>
+                </article>
+                <article class="mpy-program mpy-program--mipymes" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">trending_up</span>
+                    </span>
+                    <span class="mpy-badge">Centro MIPYMES</span>
+                    <h3 class="mpy-program__title">Educación Financiera para MIPYMES</h3>
+                    <p class="mpy-program__desc">Formación en manejo de finanzas, costos, créditos y planificación financiera para empresarios.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyAudience -->
+    <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="audiencia"
+        data-component="MpyAudience"
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge">¿Para quién?</p>
+                <h2 class="type-section-title type-section-title--blue">Servimos a toda la comunidad emprendedora</h2>
+            </div>
+
+            <div class="mpy-audience-grid" data-stagger-container>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">apartment</span>
+                    </span>
+                    <h3 class="mpy-audience__title">MIPYMES</h3>
+                    <span class="mpy-badge">MIPYMES</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">person</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Mujeres Emprendedoras</h3>
+                    <span class="mpy-badge">MIPYMES</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">work</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Empresas Familiares</h3>
+                    <span class="mpy-badge">MIPYMES</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                        <span class="material-symbols-outlined">handshake</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Cooperativas</h3>
+                    <span class="mpy-badge">MIPYMES</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">school</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Estudiantes de Grado</h3>
+                    <span class="mpy-badge mpy-badge--blue">Emprende</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Postgrado y Docentes</h3>
+                    <span class="mpy-badge mpy-badge--blue">Emprende</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Emprendedores en Idea</h3>
+                    <span class="mpy-badge mpy-badge--blue">Emprende</span>
+                </article>
+                <article class="mpy-audience" data-stagger>
+                    <span class="mpy-icon mpy-icon--blue" aria-hidden="true">
+                        <span class="material-symbols-outlined">star</span>
+                    </span>
+                    <h3 class="mpy-audience__title">Egresados UNPHU</h3>
+                    <span class="mpy-badge mpy-badge--blue">Emprende</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyImpact -->
+    <section
+        class="mpy-impact py-section-padding"
+        id="impacto"
+        data-component="MpyImpact"
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge mpy-badge--light">Impacto real</p>
+                <h2 class="type-section-title type-section-title--light">Resultados que hablan por sí solos</h2>
+                <p class="type-body-lg type-body--light">
+                    Años de trabajo comprometido se reflejan en los números y las historias de quienes hemos acompañado.
+                </p>
+            </div>
+
+            <div class="mpy-impact__grid" data-stagger-container>
+                <article class="mpy-impact-card" data-stagger>
+                    <span class="material-symbols-outlined" aria-hidden="true">apartment</span>
+                    <p class="mpy-impact-card__value"><span data-animate-number data-target="500">0</span>+</p>
+                    <p class="mpy-impact-card__label">MIPYMES acompañadas</p>
+                </article>
+                <article class="mpy-impact-card" data-stagger>
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                    <p class="mpy-impact-card__value"><span data-animate-number data-target="10">0</span>K+</p>
+                    <p class="mpy-impact-card__label">Horas de asesoría</p>
+                </article>
+                <article class="mpy-impact-card" data-stagger>
+                    <span class="material-symbols-outlined" aria-hidden="true">school</span>
+                    <p class="mpy-impact-card__value"><span data-animate-number data-target="1200">0</span>+</p>
+                    <p class="mpy-impact-card__label">Emprendedores capacitados</p>
+                </article>
+                <article class="mpy-impact-card" data-stagger>
+                    <span class="material-symbols-outlined" aria-hidden="true">handshake</span>
+                    <p class="mpy-impact-card__value"><span data-animate-number data-target="30">0</span>+</p>
+                    <p class="mpy-impact-card__label">Alianzas estratégicas</p>
+                </article>
+            </div>
+
+            <div class="mpy-impact-lists" data-stagger-container>
+                <article class="mpy-impact-panel" data-stagger>
+                    <div class="mpy-impact-panel__head">
+                        <span class="mpy-icon mpy-icon--on-dark" aria-hidden="true">
+                            <span class="material-symbols-outlined">apartment</span>
+                        </span>
+                        <h3 class="mpy-impact-panel__title">Centro MIPYMES UNPHU</h3>
+                    </div>
+                    <ul class="mpy-check-list">
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Miles de horas de asesoría empresarial ofrecidas
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Cientos de MIPYMES acompañadas anualmente
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Programas de fortalecimiento empresarial ejecutados
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Alianzas con MICM, Banco BHD y entidades nacionales
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--green" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Casos de éxito de empresas fortalecidas
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="mpy-impact-panel" data-stagger>
+                    <div class="mpy-impact-panel__head">
+                        <span class="mpy-icon mpy-icon--on-dark" aria-hidden="true">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                        </span>
+                        <h3 class="mpy-impact-panel__title">UNPHU Emprende</h3>
+                    </div>
+                    <ul class="mpy-check-list">
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Emprendimientos incubados y acompañados
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Alta participación estudiantil en innovación
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Eventos de emprendimiento realizados anualmente
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Vinculación entre academia y ecosistema emprendedor
+                        </li>
+                        <li>
+                            <span class="mpy-check mpy-check--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">check</span>
+                            </span>
+                            Proyectos desarrollados por estudiantes y egresados
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="mpy-allies">
+                <p class="mpy-allies__label">Aliados estratégicos</p>
+                <div class="mpy-allies__row">
+                    <span class="mpy-ally">MICM</span>
+                    <span class="mpy-ally">Banco BHD</span>
+                    <span class="mpy-ally">MESCYT</span>
+                    <span class="mpy-ally">ProDominicana</span>
+                    <span class="mpy-ally">INFOTEP</span>
+                    <span class="mpy-ally">CONANI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MpyContact -->
+    <section
+        class="mpy-contact py-section-padding"
+        id="contacto"
+        data-component="MpyContact"
+        data-animate="fade"
+    >
+        <div class="mpy-wrap">
+            <div class="mpy-section-head">
+                <p class="mpy-badge mpy-badge--light">Contacto</p>
+                <h2 class="type-section-title type-section-title--light">Empieza hoy mismo</h2>
+            </div>
+
+            <div class="mpy-contact__panel">
+                <h3 class="type-section-title type-section-title--sm type-section-title--blue mb-6">Canales de contacto</h3>
+                <div class="mpy-contact__channels">
+                    <div class="mpy-channel">
+                        <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                            <span class="material-symbols-outlined">mail</span>
+                        </span>
+                        <div class="mpy-channel__text">
+                            <span class="mpy-channel__label">Email</span>
+                            <a class="mpy-channel__value" href="mailto:centromipymes@unphu.edu.do">centromipymes@unphu.edu.do</a>
+                        </div>
+                    </div>
+                    <div class="mpy-channel">
+                        <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                            <span class="material-symbols-outlined">call</span>
+                        </span>
+                        <div class="mpy-channel__text">
+                            <span class="mpy-channel__label">Teléfono</span>
+                            <a class="mpy-channel__value" href="tel:+18095626601">+1 (809) 562-6601</a>
+                        </div>
+                    </div>
+                    <div class="mpy-channel">
+                        <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </span>
+                        <div class="mpy-channel__text">
+                            <span class="mpy-channel__label">Dirección</span>
+                            <span class="mpy-channel__value">Av. John F. Kennedy, Santo Domingo, R.D.</span>
+                        </div>
+                    </div>
+                    <div class="mpy-channel">
+                        <span class="mpy-icon mpy-icon--green" aria-hidden="true">
+                            <span class="material-symbols-outlined">language</span>
+                        </span>
+                        <div class="mpy-channel__text">
+                            <span class="mpy-channel__label">Web</span>
+                            <a class="mpy-channel__value" href="https://www.unphu.edu.do" target="_blank" rel="noreferrer">www.unphu.edu.do</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpy-hours">
+                    <div class="mpy-hours__head">
+                        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+                        Horario de Atención
+                    </div>
+                    <p>Lunes – Viernes: 8:00 AM – 5:00 PM</p>
+                    <p>Sábados: 8:00 AM – 12:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/landing-mipymes.js"></script>
+</body>
+</html>
