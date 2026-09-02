@@ -1,0 +1,177 @@
+/* Directorio de landings — index.html */
+
+.dir-search {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #dfe5dd;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dir-search:focus-within {
+    border-color: #156b1d;
+    box-shadow: 0 0 0 3px rgba(21, 107, 29, 0.12);
+}
+
+.dir-search__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.1rem;
+    z-index: 1;
+    transform: translateY(-50%);
+    color: #156b1d;
+    pointer-events: none;
+}
+
+form.dir-search input.dir-search__input[type="search"],
+form.dir-search input.dir-search__input[type="search"]:hover,
+form.dir-search input.dir-search__input[type="search"]:focus,
+form.dir-search input.dir-search__input[type="search"]:focus-visible {
+    width: 100%;
+    height: 3.25rem;
+    padding: 0.75rem 1.25rem 0.75rem 3.15rem;
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: #191c1d;
+    box-shadow: none;
+    outline: none;
+}
+
+form.dir-search input.dir-search__input[type="search"]::placeholder {
+    color: #707a6c;
+}
+
+.dir-sort {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 16rem;
+}
+
+.dir-sort label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #156b1d;
+}
+
+.dir-sort select {
+    height: 3.25rem;
+    padding: 0 1rem;
+    border: 1px solid #dfe5dd;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #0a3859;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dir-sort select:focus,
+.dir-sort select:focus-visible {
+    outline: none;
+    border-color: #156b1d;
+    box-shadow: 0 0 0 3px rgba(21, 107, 29, 0.12);
+}
+
+.dir-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .dir-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .dir-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.dir-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #dfe5dd;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 45px rgba(10, 56, 89, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dir-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 24px 55px rgba(10, 56, 89, 0.12);
+}
+
+.dir-card__badge {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.dir-card__badge--green {
+    background: #e9f7eb;
+    color: #156b1d;
+}
+
+.dir-card__badge--blue {
+    background: #eef5ff;
+    color: #3c6185;
+}
+
+.dir-card__badge--purple {
+    background: #f6f0ff;
+    color: #6b4ba8;
+}
+
+.dir-card__badge--amber {
+    background: #fff4de;
+    color: #a86b00;
+}
+
+.dir-card__badge--gray {
+    background: #f2f2f2;
+    color: #5a5f5b;
+}
+
+.dir-card__title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0a3859;
+}
+
+.dir-card__desc {
+    flex: 1 1 auto;
+    margin-bottom: 1.25rem;
+    color: #40493d;
+}
+
+.dir-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #156b1d;
+}
+
+.dir-empty {
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    color: #40493d;
+    background: #ffffff;
+    border: 1px dashed #dfe5dd;
+    border-radius: 1.5rem;
+}

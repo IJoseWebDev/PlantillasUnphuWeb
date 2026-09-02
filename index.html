@@ -11,28 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/directorio.css" />
 </head>
 <body class="min-h-screen bg-[#f5f7f4] text-[#191c1d] antialiased">
     <main>
         <section class="relative overflow-hidden bg-gradient-to-br from-[#0a3859] via-[#156b1d] to-[#338534] text-white">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_40%)]"></div>
             <div class="relative mx-auto flex max-w-7xl flex-col gap-8 px-6 py-20 lg:px-8 lg:py-24">
-                <div class="max-w-3xl space-y-5">
-                    <p class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] backdrop-blur-sm">
-                        <span class="material-symbols-outlined" aria-hidden="true">apps</span>
-                        Directorio de landings
-                    </p>
-                    <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
-                        Explora todos los landings institucionales desde un solo lugar.
-                    </h1>
-                    <p class="max-w-2xl text-lg text-white/85">
-                        Aquí encontrarás los diferentes módulos visuales de la UNPHU, organizados para revisar, compartir y navegar con facilidad.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                    <a href="landings/acreditacion.html" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-[#156b1d] transition hover:bg-[#f3f8f1]">
-                        Ver landings
-                    </a>
+                <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Directorio de landings</h1>
+                <div>
                     <a href="README.md" class="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition hover:bg-white/10">
                         Leer documentación
                     </a>
@@ -41,108 +28,35 @@
         </section>
 
         <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-            <div class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <p class="mb-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#156b1d]">Catálogo</p>
-                    <h2 class="text-3xl font-semibold text-[#0a3859]">Landings disponibles</h2>
+            <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end">
+                <form class="dir-search flex-1" role="search" aria-label="Buscar landing" onsubmit="return false;">
+                    <span class="material-symbols-outlined dir-search__icon" aria-hidden="true">search</span>
+                    <input
+                        type="search"
+                        id="dir-search"
+                        class="dir-search__input"
+                        placeholder="Escribe el nombre del landing"
+                        autocomplete="off"
+                        aria-label="Buscar landing por nombre"
+                    />
+                </form>
+                <div class="dir-sort">
+                    <label for="dir-sort">Organizar</label>
+                    <select id="dir-sort" aria-label="Organizar landings">
+                        <option value="recent">Más recientes</option>
+                        <option value="oldest">Más antiguos</option>
+                        <option value="alpha-asc">Alfabético A–Z</option>
+                        <option value="alpha-desc">Alfabético Z–A</option>
+                    </select>
                 </div>
-                <p class="max-w-2xl text-[#40493d]">
-                    Cada tarjeta abre una versión distinta del contenido, lista para revisar en el navegador.
-                </p>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#e9f7eb] px-3 py-1 text-sm font-semibold text-[#156b1d]">Acreditaciones</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Acreditación institucional</h3>
-                    <p class="mb-5 text-[#40493d]">Contenido de calidad académica, organismos acreditadores y beneficios institucionales.</p>
-                    <a href="landings/acreditacion.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#eef5ff] px-3 py-1 text-sm font-semibold text-[#3c6185]">Talento UNPHU</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Talento UNPHU 2026</h3>
-                    <p class="mb-5 text-[#40493d]">Feria de empleo y vinculación para empresas, estudiantes y egresados de la Facultad de Ciencias y Tecnología.</p>
-                    <a href="landings/talentoUNPHU.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#eef5ff] px-3 py-1 text-sm font-semibold text-[#3c6185]">Bolsa de empleo</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Bolsa de empleo</h3>
-                    <p class="mb-5 text-[#40493d]">Portal para oportunidades laborales, vacantes y perfiles destacados de la comunidad.</p>
-                    <a href="landings/bolsa-de-empleo.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#f6f0ff] px-3 py-1 text-sm font-semibold text-[#6b4ba8]">Doble titulación</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Doble titulación</h3>
-                    <p class="mb-5 text-[#40493d]">Presentación de programas y beneficios para estudios binacionales o dobles titulaciones.</p>
-                    <a href="landings/dobleTitulacion.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#fff4de] px-3 py-1 text-sm font-semibold text-[#a86b00]">Documentación</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Documentación</h3>
-                    <p class="mb-5 text-[#40493d]">Sección para guías, formularios y recursos documentales institucionales.</p>
-                    <a href="landings/documentacion.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#f0f8ff] px-3 py-1 text-sm font-semibold text-[#3c6185]">Internacionalización</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Internacionalización</h3>
-                    <p class="mb-5 text-[#40493d]">Experiencia global, movilidad y alianzas internacionales para la comunidad universitaria.</p>
-                    <a href="landings/internacionalizacion.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#e9f7eb] px-3 py-1 text-sm font-semibold text-[#156b1d]">Inclusión</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Inclusión y Atención a la Diversidad</h3>
-                    <p class="mb-5 text-[#40493d]">Dirección de Inclusión Universitaria: accesibilidad, equidad, formación y apoyo a la comunidad universitaria.</p>
-                    <a href="landings/inclusion.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#e9f7eb] px-3 py-1 text-sm font-semibold text-[#156b1d]">MIPYMES</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Centro MIPYMES y UNPHU Emprende</h3>
-                    <p class="mb-5 text-[#40493d]">Asesoría, capacitación y acompañamiento para emprendedores y MIPYMES de la República Dominicana.</p>
-                    <a href="landings/MiPYMES.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir landing
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="rounded-[1.5rem] border border-[#dfe5dd] bg-white p-6 shadow-[0_20px_45px_rgba(10,56,89,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(10,56,89,0.12)]">
-                    <div class="mb-4 inline-flex items-center rounded-full bg-[#f2f2f2] px-3 py-1 text-sm font-semibold text-[#5a5f5b]">Plantilla</div>
-                    <h3 class="mb-3 text-xl font-semibold text-[#0a3859]">Catálogo de componentes</h3>
-                    <p class="mb-5 text-[#40493d]">Todos los bloques usados en los landings, listos para copiar y personalizar en una página nueva.</p>
-                    <a href="landings/template.html" class="inline-flex items-center gap-2 font-semibold text-[#156b1d]">
-                        Abrir catálogo
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-            </div>
+            <p id="dir-count" class="mb-6 text-sm text-[#40493d]" aria-live="polite"></p>
+            <div id="dir-grid" class="dir-grid"></div>
+            <p id="dir-empty" class="dir-empty" hidden>No hay landings con ese nombre.</p>
         </section>
     </main>
+
+    <script src="assets/js/directorio.js"></script>
 </body>
 </html>
