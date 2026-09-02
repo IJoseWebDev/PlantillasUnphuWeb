@@ -1,0 +1,438 @@
+/* ========================================
+   TALENTO UNPHU 2026
+   Prefijo BEM: tal-*
+   Reutiliza tokens de global.css y tailwind-config.js
+   ======================================== */
+
+.tal-page {
+    --tal-green: #156b1d;
+    --tal-blue: #0a3859;
+    --tal-grad: linear-gradient(120deg, #0a3858 0%, #2d7934 100%);
+}
+
+.tal-wrap {
+    width: 100%;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .tal-wrap {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1679px) {
+    .tal-wrap {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .tal-page .py-section-padding {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+}
+
+/* --- Hero --- */
+.tal-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: min(100vh, 780px);
+    overflow: hidden;
+    text-align: center;
+}
+
+.tal-hero__media {
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/heroBolsa.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.tal-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(10, 56, 88, 0.88) 0%,
+        rgba(45, 121, 52, 0.78) 100%
+    );
+}
+
+.tal-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 6rem 0 3.5rem;
+}
+
+.tal-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: var(--text-eyebrow-size);
+    font-weight: var(--text-eyebrow-weight);
+    letter-spacing: var(--text-eyebrow-tracking);
+    text-transform: uppercase;
+}
+
+.tal-hero__kicker {
+    max-width: 36rem;
+    margin: 0 auto 0.85rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: var(--text-lead-size);
+    font-weight: 600;
+}
+
+.tal-hero__title {
+    max-width: 18ch;
+    margin: 0 auto 1.25rem;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+.tal-hero__title strong {
+    font-weight: 700;
+}
+
+.tal-hero__lead,
+.tal-hero__highlight {
+    max-width: 40rem;
+    margin: 0 auto 1rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: var(--text-lead-size);
+    line-height: var(--text-lead-line-height);
+}
+
+.tal-hero__highlight {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.tal-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+}
+
+.tal-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: #156b1d;
+    padding: 0.875rem 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.tal-hero__btn:hover,
+.tal-hero__btn:focus-visible {
+    background: #0f4f16;
+}
+
+/* --- About / info --- */
+.tal-feature-list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tal-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #40493d;
+}
+
+.tal-feature-list .material-symbols-outlined {
+    color: #156b1d;
+    font-size: 1.25rem;
+}
+
+.tal-info-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 1.25rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+a.tal-info-card:hover,
+a.tal-info-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(10, 56, 89, 0.08);
+}
+
+.tal-info-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: rgba(21, 107, 29, 0.1);
+    color: #156b1d;
+}
+
+.tal-info-card h3 {
+    font-size: var(--text-card-title-size);
+    font-weight: 700;
+    color: var(--tal-blue);
+}
+
+.tal-info-card p {
+    font-size: var(--text-body-sm-size);
+    color: #40493d;
+}
+
+/* --- Stats --- */
+.tal-stats {
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem 0;
+    background: var(--tal-grad);
+}
+
+.tal-stats__header {
+    max-width: 44rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.tal-stats__title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+}
+
+.tal-stats__lead {
+    margin-top: 0.85rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: var(--text-body-md-size);
+    line-height: 1.65;
+}
+
+.tal-stats-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .tal-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .tal-stats-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.tal-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 10.5rem;
+    padding: 1.5rem 1.15rem;
+    border-radius: 1rem;
+    background: #145a28;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    text-align: center;
+}
+
+.tal-stat-card:hover {
+    background: #0f4a20;
+}
+
+.tal-stat__icon {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.tal-stat__value {
+    font-size: clamp(1.875rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+.tal-stat__label {
+    font-size: var(--text-body-sm-size);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* --- Benefits --- */
+.tal-benefit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    height: 100%;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tal-benefit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(10, 56, 89, 0.08);
+}
+
+.tal-benefit__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: rgba(21, 107, 29, 0.1);
+    color: #156b1d;
+}
+
+.tal-benefit p {
+    color: #40493d;
+    font-size: var(--text-body-md-size);
+    line-height: 1.55;
+}
+
+/* --- Process --- */
+.tal-process {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .tal-process {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0.35rem;
+    }
+}
+
+.tal-process__step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.35rem 1.15rem;
+    background: #ffffff;
+    border: 1px solid #e1e3e4;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+}
+
+@media (min-width: 768px) {
+    .tal-process__step {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+.tal-process__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #156b1d;
+    flex-shrink: 0;
+}
+
+.tal-process__arrow .material-symbols-outlined {
+    transform: rotate(90deg);
+}
+
+@media (min-width: 768px) {
+    .tal-process__arrow .material-symbols-outlined {
+        transform: none;
+    }
+}
+
+.tal-process__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background: #156b1d;
+    color: #ffffff;
+    font-size: var(--text-btn-size);
+    font-weight: 700;
+}
+
+.tal-process__title {
+    font-size: var(--text-card-title-size);
+    font-weight: 700;
+    color: #156b1d;
+}
+
+.tal-alert {
+    display: flex;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.15rem;
+    border-radius: 1rem;
+    background: #fff8e6;
+    border: 1px solid rgba(168, 107, 0, 0.22);
+    color: #5c4300;
+}
+
+.tal-alert .material-symbols-outlined {
+    color: #a86b00;
+}
+
+/* --- Cierre --- */
+.tal-close {
+    background: var(--tal-grad);
+    color: #ffffff;
+    text-align: center;
+}
+
+.tal-close h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+}
+
+.tal-close p {
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.88);
+}

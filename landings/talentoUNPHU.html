@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Talento UNPHU 2026 — Feria de empleo y vinculación de la Facultad de Ciencias y Tecnología. Conectamos talento, oportunidades y futuro."/>
+    <meta name="theme-color" content="#156b1d"/>
+    <title>Talento UNPHU 2026 — Conectamos talento, oportunidades y futuro</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config" src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css"/>
+    <link rel="stylesheet" href="../assets/css/talento-unphu.css"/>
+</head>
+<body class="tal-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  PÁGINA: Talento UNPHU 2026
+  Next.js route sugerida: /talento-unphu
+  Componentes: TalHero, TalAbout, TalResults, TalValue, TalRegister, TalClose
+-->
+
+<main>
+
+    <!-- Component: TalHero -->
+    <section class="tal-hero" id="inicio" data-component="TalHero" data-animate="fade">
+        <div class="tal-hero__media" aria-hidden="true"></div>
+        <div class="tal-hero__overlay" aria-hidden="true"></div>
+        <div class="tal-hero__inner tal-wrap">
+            <p class="tal-hero__badge">
+                <span class="material-symbols-outlined" aria-hidden="true">event</span>
+                Edición 2026
+            </p>
+            <p class="tal-hero__kicker">Conectamos talento, oportunidades y futuro.</p>
+            <h1 class="tal-hero__title">
+                Transforma el <strong>Mercado Laboral</strong>
+            </h1>
+            <p class="tal-hero__lead">
+                La Facultad de Ciencias y Tecnología de la Universidad Nacional Pedro Henríquez Ureña (UNPHU) presenta una nueva edición de Talento UNPHU, la feria que integra a empresas líderes con estudiantes y egresados listos para transformar el mercado laboral.
+            </p>
+            <p class="tal-hero__highlight">
+                Este 24 de julio, el Auditorio UNPHU se convierte en el punto de encuentro donde el talento se descubre, se conecta y se activa.
+            </p>
+            <div class="tal-hero__actions">
+                <a href="#registro" class="tal-hero__btn type-btn">
+                    Confirmar participación
+                    <span class="material-symbols-outlined text-[1.15rem]" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: TalAbout -->
+    <section class="py-section-padding bg-background" id="sobre-el-evento" data-component="TalAbout" data-animate="fade">
+        <div class="tal-wrap">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Sobre el evento</p>
+                <h2 class="type-section-title type-section-title--blue mb-4">
+                    Un espacio donde el talento se convierte en oportunidad
+                </h2>
+                <p class="type-body-lg type-body--muted">
+                    Talento UNPHU 2026 es una feria de empleo y vinculación organizada por la Facultad de Ciencias y Tecnología, diseñada para fortalecer la conexión entre la academia y el sector productivo.
+                </p>
+            </div>
+
+            <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+                <div class="rounded-3xl bg-surface p-8 border border-outline-variant/30 shadow-soft">
+                    <h3 class="type-subtitle type-subtitle--blue mb-6">
+                        Más que una feria, es una plataforma estratégica donde las empresas pueden:
+                    </h3>
+                    <ul class="tal-feature-list" data-stagger-container>
+                        <li data-stagger>
+                            <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                            Identificar talento de alto potencial
+                        </li>
+                        <li data-stagger>
+                            <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                            Posicionar su marca empleadora
+                        </li>
+                        <li data-stagger>
+                            <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                            Promover oportunidades laborales y pasantías
+                        </li>
+                        <li data-stagger>
+                            <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                            Conectar con una comunidad académica dinámica e innovadora
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4" data-stagger-container>
+                    <a
+                        class="tal-info-card"
+                        href="https://maps.app.goo.gl/GansL2qtVpDR19zt6"
+                        target="_blank"
+                        rel="noreferrer"
+                        data-stagger
+                    >
+                        <span class="tal-info-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </span>
+                        <div>
+                            <h3>Lugar</h3>
+                            <p>Auditorio UNPHU</p>
+                        </div>
+                    </a>
+                    <a
+                        class="tal-info-card"
+                        href="https://calget.com/jvkozcii"
+                        target="_blank"
+                        rel="noreferrer"
+                        data-stagger
+                    >
+                        <span class="tal-info-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                        </span>
+                        <div>
+                            <h3>Fecha</h3>
+                            <p>24 de julio de 2026</p>
+                        </div>
+                    </a>
+                    <div class="tal-info-card" data-stagger>
+                        <span class="tal-info-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">schedule</span>
+                        </span>
+                        <div>
+                            <h3>Horario</h3>
+                            <p>9:00 a.m. – 7:00 p.m.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: TalResults -->
+    <section class="tal-stats" id="resultados" data-component="TalResults" data-animate="fade">
+        <div class="tal-wrap">
+            <div class="tal-stats__header">
+                <p class="type-eyebrow type-eyebrow--light mb-3">Impacto 2025</p>
+                <h2 class="tal-stats__title">Una experiencia que genera resultados reales</h2>
+                <p class="tal-stats__lead">
+                    En 2025 Talento UNPHU consolidó su impacto como uno de los espacios más relevantes de conexión entre talento y empresa dentro del entorno académico dominicano.
+                </p>
+            </div>
+            <div class="tal-stats-grid" data-stagger-container>
+                <article class="tal-stat-card" data-stagger>
+                    <span class="tal-stat__icon material-symbols-outlined" aria-hidden="true">groups</span>
+                    <span class="tal-stat__value"><span data-animate-number data-target="500">0</span>+</span>
+                    <span class="tal-stat__label">Asistentes entre estudiantes y egresados</span>
+                </article>
+                <article class="tal-stat-card" data-stagger>
+                    <span class="tal-stat__icon material-symbols-outlined" aria-hidden="true">apartment</span>
+                    <span class="tal-stat__value"><span data-animate-number data-target="20">0</span>+</span>
+                    <span class="tal-stat__label">Empresas participantes</span>
+                </article>
+                <article class="tal-stat-card" data-stagger>
+                    <span class="tal-stat__icon material-symbols-outlined" aria-hidden="true">description</span>
+                    <span class="tal-stat__value"><span data-animate-number data-target="300">0</span>+</span>
+                    <span class="tal-stat__label">Currículos recibidos</span>
+                </article>
+                <article class="tal-stat-card" data-stagger>
+                    <span class="tal-stat__icon material-symbols-outlined" aria-hidden="true">handshake</span>
+                    <span class="tal-stat__value"><span data-animate-number data-target="10">0</span>+</span>
+                    <span class="tal-stat__label">Decenas de oportunidades laborales y pasantías generadas, con alta interacción directa.</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: TalValue -->
+    <section class="py-section-padding bg-surface-container-low" id="propuesta" data-component="TalValue" data-animate="fade">
+        <div class="tal-wrap">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--secondary mb-3">Propuesta de valor</p>
+                <h2 class="type-section-title type-section-title--blue mb-4">¿Por qué participar?</h2>
+                <p class="type-body-lg type-body--muted">
+                    Participar en Talento UNPHU 2026 es una decisión estratégica para organizaciones que buscan talento, visibilidad y posicionamiento en el entorno académico y vinculación social.
+                </p>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger-container>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">school</span>
+                    </span>
+                    <p>Acceso directo a talento universitario calificado</p>
+                </article>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">campaign</span>
+                    </span>
+                    <p>Posicionamiento de marca frente a futuros profesionales</p>
+                </article>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">forum</span>
+                    </span>
+                    <p>Interacción directa sin intermediarios</p>
+                </article>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">my_location</span>
+                    </span>
+                    <p>Espacio para reclutamiento activo</p>
+                </article>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">hub</span>
+                    </span>
+                    <p>Networking con otras empresas e instituciones</p>
+                </article>
+                <article class="tal-benefit" data-stagger>
+                    <span class="tal-benefit__icon" aria-hidden="true">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                    </span>
+                    <p>Participación en una experiencia alineada a innovación y desarrollo</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: TalRegister -->
+    <section class="py-section-padding bg-background" id="registro" data-component="TalRegister" data-animate="fade">
+        <div class="tal-wrap">
+            <div class="max-w-4xl mx-auto">
+                    <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Inscripción</p>
+                    <h2 class="type-section-title type-section-title--blue mb-5">Confirmar participación</h2>
+                    <p class="type-body-md type-body--muted mb-4">
+                        Para garantizar una experiencia organizada, de alto valor y con impacto real, la participación empresarial en Talento UNPHU 2026 requiere confirmación mediante pago previo.
+                    </p>
+                    <p class="type-body-md type-body--muted mb-8">
+                        La participación en Talento UNPHU 2026 se formaliza mediante un proceso sencillo:
+                    </p>
+
+                    <div class="tal-process" data-stagger-container>
+                        <article class="tal-process__step" data-stagger data-timeline-item>
+                            <span class="tal-process__num">1</span>
+                            <h3 class="tal-process__title">Registro</h3>
+                            <p class="type-body-sm type-body--muted">Confirma tu interés en participar</p>
+                        </article>
+                        <span class="tal-process__arrow" aria-hidden="true">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </span>
+                        <article class="tal-process__step" data-stagger data-timeline-item>
+                            <span class="tal-process__num">2</span>
+                            <h3 class="tal-process__title">Plan</h3>
+                            <p class="type-body-sm type-body--muted">Selecciona el plan de participación</p>
+                        </article>
+                        <span class="tal-process__arrow" aria-hidden="true">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </span>
+                        <article class="tal-process__step" data-stagger data-timeline-item>
+                            <span class="tal-process__num">3</span>
+                            <h3 class="tal-process__title">Pago</h3>
+                            <p class="type-body-sm type-body--muted">Realiza el pago correspondiente</p>
+                        </article>
+                        <span class="tal-process__arrow" aria-hidden="true">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </span>
+                        <article class="tal-process__step" data-stagger data-timeline-item>
+                            <span class="tal-process__num">4</span>
+                            <h3 class="tal-process__title">Confirmación</h3>
+                            <p class="type-body-sm type-body--muted">Recibe confirmación oficial de tu espacio</p>
+                        </article>
+                    </div>
+
+                    <div class="tal-alert">
+                        <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                        <p><strong>Importante:</strong> La reserva del stand solo se considera confirmada una vez realizado el pago.</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: TalClose -->
+    <section class="tal-close py-section-padding" data-component="TalClose" data-animate="fade">
+        <div class="tal-wrap">
+            <h2>Talento UNPHU no es solo una feria.</h2>
+            <p>Es el espacio donde las oportunidades encuentran a las personas correctas.</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="../config.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/common.js"></script>
+</body>
+</html>
