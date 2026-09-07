@@ -1,13 +1,67 @@
 /* ========================================
    TALENTO UNPHU 2026
+   Línea gráfica: Nexa + #78bc20 / #448d39 / #004080
    Prefijo BEM: tal-*
-   Reutiliza tokens de global.css y tailwind-config.js
    ======================================== */
 
 .tal-page {
-    --tal-green: #156b1d;
-    --tal-blue: #0a3859;
-    --tal-grad: linear-gradient(120deg, #0a3858 0%, #2d7934 100%);
+    --tal-lime: #78bc20;
+    --tal-green: #448d39;
+    --tal-navy: #004080;
+    --tal-navy-deep: #002f5e;
+    --tal-ink: #163044;
+    --tal-muted: #4d6170;
+    --tal-bg: #f4f7f1;
+    --tal-font: "Nexa", sans-serif;
+    --tal-grad: linear-gradient(120deg, #004080 0%, #448d39 72%, #78bc20 100%);
+    font-family: var(--tal-font);
+    background: var(--tal-bg);
+    color: var(--tal-ink);
+}
+
+.tal-page,
+.tal-page button,
+.tal-page input,
+.tal-page select,
+.tal-page textarea {
+    font-family: var(--tal-font);
+}
+
+.tal-page .type-display,
+.tal-page .type-lead,
+.tal-page .type-eyebrow,
+.tal-page .type-section-title,
+.tal-page .type-subtitle,
+.tal-page .type-body-lg,
+.tal-page .type-body-md,
+.tal-page .type-body-sm,
+.tal-page .type-card-title,
+.tal-page .type-btn {
+    font-family: var(--tal-font);
+}
+
+.tal-page .type-section-title--blue,
+.tal-page .type-subtitle--blue {
+    color: var(--tal-navy);
+}
+
+.tal-page .type-section-title--primary,
+.tal-page .type-eyebrow--primary {
+    color: var(--tal-green);
+}
+
+.tal-page .type-eyebrow--secondary {
+    color: var(--tal-navy);
+}
+
+.tal-page .type-body--muted {
+    color: var(--tal-muted);
+}
+
+.tal-page .selection\:bg-primary-container::selection,
+.tal-page ::selection {
+    background: var(--tal-lime);
+    color: #ffffff;
 }
 
 .tal-wrap {
@@ -40,6 +94,29 @@
     }
 }
 
+/* --- Logos --- */
+.tal-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.tal-logo--hero {
+    width: min(28rem, 88vw);
+    margin: 0 auto 1.75rem;
+}
+
+.tal-logo--section {
+    width: min(16rem, 70vw);
+    margin: 0 auto 1.5rem;
+}
+
+.tal-logo--close {
+    width: min(18rem, 72vw);
+    margin: 0 auto 1.5rem;
+}
+
 /* --- Hero --- */
 .tal-hero {
     position: relative;
@@ -65,8 +142,8 @@
     inset: 0;
     background: linear-gradient(
         120deg,
-        rgba(10, 56, 88, 0.88) 0%,
-        rgba(45, 121, 52, 0.78) 100%
+        rgba(0, 64, 128, 0.92) 0%,
+        rgba(68, 141, 57, 0.82) 100%
     );
 }
 
@@ -85,17 +162,21 @@
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1.25rem;
-    color: rgba(255, 255, 255, 0.88);
-    font-size: var(--text-eyebrow-size);
-    font-weight: var(--text-eyebrow-weight);
-    letter-spacing: var(--text-eyebrow-tracking);
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(120, 188, 32, 0.55);
+    border-radius: 9999px;
+    background: rgba(120, 188, 32, 0.16);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
 .tal-hero__kicker {
     max-width: 36rem;
     margin: 0 auto 0.85rem;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.94);
     font-size: var(--text-lead-size);
     font-weight: 600;
 }
@@ -104,13 +185,15 @@
     max-width: 18ch;
     margin: 0 auto 1.25rem;
     font-size: clamp(2.25rem, 5vw, 3.5rem);
-    font-weight: 300;
+    font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
     color: #ffffff;
 }
 
 .tal-hero__title strong {
+    color: var(--tal-lime);
     font-weight: 700;
 }
 
@@ -118,7 +201,7 @@
 .tal-hero__highlight {
     max-width: 40rem;
     margin: 0 auto 1rem;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.9);
     font-size: var(--text-lead-size);
     line-height: var(--text-lead-line-height);
 }
@@ -142,17 +225,20 @@
     justify-content: center;
     gap: 0.5rem;
     border-radius: 9999px;
-    background: #156b1d;
+    background: var(--tal-lime);
     padding: 0.875rem 2rem;
     color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-decoration: none;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(0, 64, 128, 0.28);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .tal-hero__btn:hover,
 .tal-hero__btn:focus-visible {
-    background: #0f4f16;
+    background: var(--tal-green);
 }
 
 /* --- About / info --- */
@@ -168,11 +254,11 @@
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    color: #40493d;
+    color: var(--tal-muted);
 }
 
 .tal-feature-list .material-symbols-outlined {
-    color: #156b1d;
+    color: var(--tal-lime);
     font-size: 1.25rem;
 }
 
@@ -182,18 +268,19 @@
     gap: 1rem;
     padding: 1.15rem 1.25rem;
     background: #ffffff;
-    border: 1px solid #e1e3e4;
+    border: 1px solid rgba(0, 64, 128, 0.12);
     border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 64, 128, 0.05);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 a.tal-info-card:hover,
 a.tal-info-card:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(10, 56, 89, 0.08);
+    border-color: var(--tal-lime);
+    box-shadow: 0 12px 28px rgba(0, 64, 128, 0.1);
 }
 
 .tal-info-card__icon {
@@ -203,19 +290,19 @@ a.tal-info-card:focus-visible {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 0.75rem;
-    background: rgba(21, 107, 29, 0.1);
-    color: #156b1d;
+    background: rgba(120, 188, 32, 0.14);
+    color: var(--tal-navy);
 }
 
 .tal-info-card h3 {
     font-size: var(--text-card-title-size);
     font-weight: 700;
-    color: var(--tal-blue);
+    color: var(--tal-navy);
 }
 
 .tal-info-card p {
     font-size: var(--text-body-sm-size);
-    color: #40493d;
+    color: var(--tal-muted);
 }
 
 /* --- Stats --- */
@@ -241,7 +328,7 @@ a.tal-info-card:focus-visible {
 
 .tal-stats__lead {
     margin-top: 0.85rem;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.9);
     font-size: var(--text-body-md-size);
     line-height: 1.65;
 }
@@ -273,17 +360,17 @@ a.tal-info-card:focus-visible {
     min-height: 10.5rem;
     padding: 1.5rem 1.15rem;
     border-radius: 1rem;
-    background: #145a28;
+    background: var(--tal-navy-deep);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
     text-align: center;
 }
 
 .tal-stat-card:hover {
-    background: #0f4a20;
+    background: #00264d;
 }
 
 .tal-stat__icon {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--tal-lime);
 }
 
 .tal-stat__value {
@@ -307,15 +394,16 @@ a.tal-info-card:focus-visible {
     height: 100%;
     padding: 1.5rem;
     background: #ffffff;
-    border: 1px solid #e1e3e4;
+    border: 1px solid rgba(0, 64, 128, 0.1);
+    border-top: 4px solid var(--tal-lime);
     border-radius: 1.25rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 64, 128, 0.05);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tal-benefit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(10, 56, 89, 0.08);
+    box-shadow: 0 12px 28px rgba(0, 64, 128, 0.1);
 }
 
 .tal-benefit__icon {
@@ -325,12 +413,12 @@ a.tal-info-card:focus-visible {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 0.75rem;
-    background: rgba(21, 107, 29, 0.1);
-    color: #156b1d;
+    background: rgba(0, 64, 128, 0.08);
+    color: var(--tal-navy);
 }
 
 .tal-benefit p {
-    color: #40493d;
+    color: var(--tal-muted);
     font-size: var(--text-body-md-size);
     line-height: 1.55;
 }
@@ -356,9 +444,9 @@ a.tal-info-card:focus-visible {
     gap: 0.75rem;
     padding: 1.35rem 1.15rem;
     background: #ffffff;
-    border: 1px solid #e1e3e4;
+    border: 1px solid rgba(0, 64, 128, 0.1);
     border-radius: 1.25rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 64, 128, 0.05);
 }
 
 @media (min-width: 768px) {
@@ -372,7 +460,7 @@ a.tal-info-card:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #156b1d;
+    color: var(--tal-lime);
     flex-shrink: 0;
 }
 
@@ -393,7 +481,7 @@ a.tal-info-card:focus-visible {
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 9999px;
-    background: #156b1d;
+    background: var(--tal-navy);
     color: #ffffff;
     font-size: var(--text-btn-size);
     font-weight: 700;
@@ -402,7 +490,7 @@ a.tal-info-card:focus-visible {
 .tal-process__title {
     font-size: var(--text-card-title-size);
     font-weight: 700;
-    color: #156b1d;
+    color: var(--tal-green);
 }
 
 .tal-alert {
@@ -411,18 +499,18 @@ a.tal-info-card:focus-visible {
     margin-top: 1.5rem;
     padding: 1rem 1.15rem;
     border-radius: 1rem;
-    background: #fff8e6;
-    border: 1px solid rgba(168, 107, 0, 0.22);
-    color: #5c4300;
+    background: rgba(120, 188, 32, 0.12);
+    border: 1px solid rgba(68, 141, 57, 0.28);
+    color: var(--tal-navy);
 }
 
 .tal-alert .material-symbols-outlined {
-    color: #a86b00;
+    color: var(--tal-green);
 }
 
 /* --- Cierre --- */
 .tal-close {
-    background: var(--tal-grad);
+    background: var(--tal-navy);
     color: #ffffff;
     text-align: center;
 }

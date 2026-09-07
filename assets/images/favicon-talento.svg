@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Talento UNPHU">
+  <rect width="32" height="32" rx="8" fill="#004080"/>
+  <circle cx="16" cy="16" r="8" fill="none" stroke="#78bc20" stroke-width="3"/>
+  <circle cx="16" cy="6.5" r="2" fill="#78bc20"/>
+  <circle cx="24.2" cy="11.2" r="2" fill="#78bc20"/>
+  <circle cx="24.2" cy="20.8" r="2" fill="#448d39"/>
+  <circle cx="16" cy="25.5" r="2" fill="#004080"/>
+  <circle cx="7.8" cy="20.8" r="2" fill="#78bc20"/>
+  <circle cx="7.8" cy="11.2" r="2" fill="#78bc20"/>
+</svg>
