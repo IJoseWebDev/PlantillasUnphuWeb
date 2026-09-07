@@ -20,7 +20,7 @@
 <!--
   PÁGINA: Acreditaciones
   Next.js route sugerida: /acreditacion
-  Componentes: AcrHero, AcrGrid, AcrCommitment, AcrContact, AcrModal
+  Componentes: AcrHero, AcrGrid, AcrCommitment, AcrMedia, AcrFaq, AcrContact, AcrModal
 -->
 
 <main>
@@ -171,6 +171,233 @@
 
             <div id="acr-grid" class="acr-grid" data-component="AcrCardGrid" data-stagger-container aria-live="polite">
                 <!-- Renderizado dinámico via landing-acreditacion.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: AcrMedia -->
+    <section
+        class="acr-media py-section-padding bg-background"
+        id="modulo-informativo"
+        data-component="AcrMedia"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="acr-media__header">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">Recursos</p>
+                <h2 class="type-section-title type-section-title--primary mb-4">
+                    Módulo Informativo / Multimedia
+                </h2>
+                <p class="type-body-md type-body--muted max-w-2xl mx-auto">
+                    Explora materiales adicionales para conocer el proceso de acreditación y su impacto en la calidad académica de la UNPHU.
+                </p>
+            </div>
+
+            <div class="acr-media__grid" data-stagger-container>
+                <article class="acr-media-card" data-stagger>
+                    <div class="acr-media-card__preview acr-media-card__preview--slides">
+                        <iframe
+                            class="acr-media-card__frame"
+                            src="https://docs.google.com/presentation/d/1_Nk4z0_PfCrodmTN_9_Kgn_ZPjlebqiQ/embed?start=false&amp;loop=false&amp;delayms=3000&amp;rm=minimal"
+                            title="Presentación informativa sobre acreditaciones UNPHU"
+                            loading="lazy"
+                            allowfullscreen
+                            allow="fullscreen"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                    <div class="acr-media-card__body">
+                        <div class="acr-media-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">slideshow</span>
+                        </div>
+                        <h3 class="acr-media-card__title">Presentación informativa</h3>
+                        <p class="acr-media-card__desc">
+                            Conoce información clave sobre las acreditaciones y su importancia.
+                        </p>
+                        <a
+                            class="acr-media-card__btn"
+                            href="https://docs.google.com/presentation/d/1_Nk4z0_PfCrodmTN_9_Kgn_ZPjlebqiQ/present"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                            Ver presentación
+                        </a>
+                    </div>
+                </article>
+
+                <article class="acr-media-card" data-stagger>
+                    <div class="acr-media-card__preview acr-media-card__preview--video">
+                        <iframe
+                            class="acr-media-card__frame"
+                            src="https://drive.google.com/file/d/1D4uBGoHNwTOanW1FUQDOUgE53KkNd2I-/preview"
+                            title="Video informativo sobre acreditaciones UNPHU"
+                            loading="lazy"
+                            allowfullscreen
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                    <div class="acr-media-card__body">
+                        <div class="acr-media-card__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">play_circle</span>
+                        </div>
+                        <h3 class="acr-media-card__title">Video informativo</h3>
+                        <p class="acr-media-card__desc">
+                            Conoce más sobre las acreditaciones a través de este contenido audiovisual.
+                        </p>
+                        <a
+                            class="acr-media-card__btn"
+                            href="https://drive.google.com/file/d/1D4uBGoHNwTOanW1FUQDOUgE53KkNd2I-/view"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
+                            Ver video
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: AcrFaq -->
+    <section
+        class="acr-faq py-section-padding bg-surface-container-lowest"
+        id="preguntas-frecuentes"
+        data-component="AcrFaq"
+        data-animate="fade"
+    >
+        <div class="max-w-container-max mx-auto px-gutter md:px-stack-lg">
+            <div class="acr-faq__header">
+                <p class="type-eyebrow type-eyebrow--dot type-eyebrow--primary mb-3">FAQ</p>
+                <h2 class="type-section-title type-section-title--primary mb-4">
+                    Preguntas frecuentes sobre Acreditación
+                </h2>
+                <p class="type-body-md type-body--muted max-w-2xl mx-auto">
+                    Encuentra respuestas a las preguntas más comunes sobre el proceso de acreditación y su importancia para nuestra comunidad universitaria.
+                </p>
+            </div>
+
+            <div class="acr-faq__list" data-component="AcrFaqList">
+                <div class="acr-faq-item">
+                    <button
+                        type="button"
+                        class="acr-faq-item__trigger"
+                        id="acr-faq-trigger-1"
+                        aria-expanded="false"
+                        aria-controls="acr-faq-panel-1"
+                    >
+                        <span class="acr-faq-item__question">¿Qué es la acreditación académica y qué beneficio tiene para mi carrera?</span>
+                        <span class="acr-faq-item__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                    </button>
+                    <div class="acr-faq-item__panel" id="acr-faq-panel-1" role="region" aria-labelledby="acr-faq-trigger-1" aria-hidden="true">
+                        <div class="acr-faq-item__content">
+                            <p>
+                                La acreditación es la certificación oficial otorgada por agencias evaluadoras externas (nacionales e internacionales) que valida que nuestro programa o institución cumple con rigurosos estándares de calidad educativa. Para ti como estudiante, significa recibir una formación actualizada, con respaldo institucional y mayor competitividad en el mercado laboral y académico nacional e internacional.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acr-faq-item">
+                    <button
+                        type="button"
+                        class="acr-faq-item__trigger"
+                        id="acr-faq-trigger-2"
+                        aria-expanded="false"
+                        aria-controls="acr-faq-panel-2"
+                    >
+                        <span class="acr-faq-item__question">¿Estar acreditados significa que mi título se homologa automáticamente en el extranjero?</span>
+                        <span class="acr-faq-item__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                    </button>
+                    <div class="acr-faq-item__panel" id="acr-faq-panel-2" role="region" aria-labelledby="acr-faq-trigger-2" aria-hidden="true">
+                        <div class="acr-faq-item__content">
+                            <p>
+                                No. Es importante diferenciar ambos conceptos: la <strong>acreditación</strong> evalúa la calidad del programa académico de la universidad; la <strong>homologación</strong> (o reválida) es el trámite individual y legal que cada egresado realiza ante el ministerio de educación o colegio profesional del país donde desea ejercer. No obstante, haber egresado de una carrera acreditada por agencias internacionales (como CAAM-HP o ACBSP) es un requisito clave que facilita y agiliza los procesos de homologación fuera de República Dominicana.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acr-faq-item">
+                    <button
+                        type="button"
+                        class="acr-faq-item__trigger"
+                        id="acr-faq-trigger-3"
+                        aria-expanded="false"
+                        aria-controls="acr-faq-panel-3"
+                    >
+                        <span class="acr-faq-item__question">¿Qué sucede cuando se cumple el periodo de vigencia de una acreditación?</span>
+                        <span class="acr-faq-item__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                    </button>
+                    <div class="acr-faq-item__panel" id="acr-faq-panel-3" role="region" aria-labelledby="acr-faq-trigger-3" aria-hidden="true">
+                        <div class="acr-faq-item__content">
+                            <p>
+                                La acreditación no es un estado permanente, sino un compromiso de mejora continua. Antes de que concluya el periodo otorgado por la agencia (usualmente entre 3 y 10 años), la UNPHU inicia un proceso de <strong>reacreditación</strong>, sometiéndose a nuevas autoevaluaciones y auditorías externas para renovar la certificación. Los títulos expedidos durante el periodo acreditado conservan su respaldo institucional y validez histórica de forma permanente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acr-faq-item">
+                    <button
+                        type="button"
+                        class="acr-faq-item__trigger"
+                        id="acr-faq-trigger-4"
+                        aria-expanded="false"
+                        aria-controls="acr-faq-panel-4"
+                    >
+                        <span class="acr-faq-item__question">¿Cuál es la diferencia entre la acreditación de una carrera y certificación ISO 21001?</span>
+                        <span class="acr-faq-item__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                    </button>
+                    <div class="acr-faq-item__panel" id="acr-faq-panel-4" role="region" aria-labelledby="acr-faq-trigger-4" aria-hidden="true">
+                        <div class="acr-faq-item__content">
+                            <p>
+                                La certificación ISO 21001 se enfoca en la calidad de los procesos de gestión administrativa y educativa de la institución, asegurando una operación eficiente. La acreditación académica evalúa específicamente los contenidos de la carrera, el perfil docente, los laboratorios y el nivel de los egresados según los estándares propios de esa profesión.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acr-faq-item">
+                    <button
+                        type="button"
+                        class="acr-faq-item__trigger"
+                        id="acr-faq-trigger-5"
+                        aria-expanded="false"
+                        aria-controls="acr-faq-panel-5"
+                    >
+                        <span class="acr-faq-item__question">¿Dónde puedo consultar las acreditaciones vigentes de mi facultad?</span>
+                        <span class="acr-faq-item__icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                    </button>
+                    <div class="acr-faq-item__panel" id="acr-faq-panel-5" role="region" aria-labelledby="acr-faq-trigger-5" aria-hidden="true">
+                        <div class="acr-faq-item__content">
+                            <p>
+                                Puedes verificar las resoluciones y sellos de calidad vigentes de cada programa académico en las plataformas oficiales de las agencias acreditadoras correspondientes, o a través del siguiente enlace:
+                            </p>
+                            <a
+                                class="acr-faq-item__cta"
+                                href="https://drive.google.com/drive/folders/1Ov0yhY4fjCvcNVcRYk-lxzodZZPQ_2HP?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span class="material-symbols-outlined" aria-hidden="true">folder_open</span>
+                                Consultar acreditaciones vigentes
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

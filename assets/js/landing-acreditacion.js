@@ -283,9 +283,42 @@
         });
     }
 
+    function bindFaq() {
+        var list = document.querySelector('.acr-faq__list');
+        if (!list) return;
+
+        list.querySelectorAll('.acr-faq-item__trigger').forEach(function (trigger) {
+            trigger.addEventListener('click', function () {
+                var item = trigger.closest('.acr-faq-item');
+                var icon = trigger.querySelector('.material-symbols-outlined');
+                if (!item) return;
+
+                var willOpen = !item.classList.contains('is-open');
+
+                list.querySelectorAll('.acr-faq-item.is-open').forEach(function (openItem) {
+                    if (openItem === item) return;
+                    openItem.classList.remove('is-open');
+                    var openTrigger = openItem.querySelector('.acr-faq-item__trigger');
+                    var openPanel = openItem.querySelector('.acr-faq-item__panel');
+                    var openIcon = openItem.querySelector('.acr-faq-item__icon .material-symbols-outlined');
+                    if (openTrigger) openTrigger.setAttribute('aria-expanded', 'false');
+                    if (openPanel) openPanel.setAttribute('aria-hidden', 'true');
+                    if (openIcon) openIcon.textContent = 'add';
+                });
+
+                item.classList.toggle('is-open', willOpen);
+                trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                var panel = item.querySelector('.acr-faq-item__panel');
+                if (panel) panel.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+                if (icon) icon.textContent = willOpen ? 'remove' : 'add';
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         bindFilters();
         bindModal();
+        bindFaq();
         renderGrid();
     });
 })();
