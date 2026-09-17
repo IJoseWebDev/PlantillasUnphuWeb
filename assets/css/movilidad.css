@@ -769,7 +769,7 @@
     font-weight: 700;
 }
 
-/* --- 11, 12 y 13. Docentes, investigadores y personal administrativo --- */
+/* --- Docentes --- */
 .mov-audience {
     display: flex;
     flex-direction: column;

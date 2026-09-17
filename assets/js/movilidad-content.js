@@ -11,8 +11,7 @@
  *   benefits → <Benefits />    testimonials → <Testimonials />
  *   about → <About />          mobility → <MobilityTypes />
  *   moveni → <Moveni />        modalities → <Modalities /> + <MobilityKinds />
- *   students → <Students />    faculty → <Faculty /> + <Researchers />
- *   administrativeStaff → <AdministrativeStaff />
+ *   students → <Students />    faculty → <Faculty />
  *   destinations → <Destinations />
  *   partnerUniversities → <PartnerUniversities />
  *   kpis → <KPIs />            apply → <Apply />
@@ -55,8 +54,6 @@
             { id: 'modalidades', label: 'Modalidades' },
             { id: 'estudiantes', label: 'Estudiantes' },
             { id: 'docentes', label: 'Docentes' },
-            { id: 'investigadores', label: 'Investigadores' },
-            { id: 'personal-administrativo', label: 'Personal administrativo' },
             { id: 'destinos', label: 'Destinos' },
             { id: 'universidades-socias', label: 'Universidades socias' },
             { id: 'kpis', label: 'KPIs' },
@@ -391,24 +388,10 @@
                 title: 'Docentes',
                 icon: 'school',
                 description: null
-            },
-            researchers: {
-                id: 'investigadores',
-                title: 'Investigadores',
-                icon: 'biotech',
-                description: null
             }
         },
 
-        /* ---------- 13. Personal administrativo ---------- */
-        administrativeStaff: {
-            title: 'Personal Administrativo',
-            icon: 'badge',
-            description: null,
-            note: 'Estructura lista para incorporar el contenido de movilidad del personal administrativo.'
-        },
-
-        /* ---------- 14. Destinos / países ---------- */
+        /* ---------- Destinos / países ---------- */
         /* Estructura: País → Universidad → Tipo de convenio.
            `items` se llenará desde el dashboard; el listado y el mapa se
            generan automáticamente a partir de este arreglo.

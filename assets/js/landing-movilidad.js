@@ -442,11 +442,10 @@
     }
 
     /* ===========================================================
-       11, 12 y 13. DOCENTES, INVESTIGADORES, PERSONAL ADMINISTRATIVO
-       → <Faculty /> · <Researchers /> · <AdministrativeStaff />
+       DOCENTES  → <Faculty />
        =========================================================== */
     /**
-     * Tarjeta de público (docentes, investigadores, personal administrativo).
+     * Tarjeta de público (docentes).
      * El título de la sección ya identifica al público, por eso la tarjeta solo
      * rotula el bloque de contenido ampliable.
      */
@@ -473,12 +472,6 @@
         }).join(''));
 
         paint('faculty-teachers', renderAudienceCard(faculty.teachers));
-        paint('faculty-researchers', renderAudienceCard(faculty.researchers));
-    }
-
-    function renderAdministrativeStaff() {
-        var staff = content.administrativeStaff;
-        paint('administrative-staff', renderAudienceCard(staff, staff.note));
     }
 
     /* ===========================================================
@@ -800,7 +793,6 @@
         renderModalities();
         renderStudents();
         renderFaculty();
-        renderAdministrativeStaff();
         renderDestinations();
         renderPartners();
         renderKpis();
