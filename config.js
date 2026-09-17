@@ -37,7 +37,7 @@ const CONFIG = {
 
     // APIs y endpoints (configurar según entorno)
     api: {
-        baseUrl: process.env.API_URL || 'https://api.unphu.edu.do',
+        baseUrl: (typeof process !== 'undefined' && process.env && process.env.API_URL) || 'https://api.unphu.edu.do',
         endpoints: {
             contact: '/api/contacto',
             subscribe: '/api/suscribirse',

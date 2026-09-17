@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Programa de movilidad de la UNPHU: movilidad nacional e internacional para estudiantes, docentes e investigadores, requisitos, documentos y contacto." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Movilidad | UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-internacionalizacion.css" />
+    <link rel="stylesheet" href="../../assets/css/movilidad.css" />
+</head>
+<body class="intl-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  MICROSITIO: Internacionalización
+  LANDING: Movilidad
+  Next.js route sugerida: /internacionalizacion/movilidad
+  Contenido editable: assets/js/movilidad-content.js  (preparado para CMS/Firebase)
+  Render e interacciones: assets/js/landing-movilidad.js
+  Shell compartido (nav + footer): assets/js/micrositio-internacionalizacion.js
+  Orden de secciones acordado con el equipo — NO reordenar ni fusionar.
+-->
+
+<a class="intl-skip" href="#contenido">Saltar al contenido</a>
+
+<!-- Component: MicrositeNav -->
+<header class="intl-nav" data-component="MicrositeNav">
+    <div class="intl-wrap intl-nav__inner relative">
+        <a class="intl-nav__brand" href="index.html">
+            <span class="intl-nav__brand-mark"><span class="material-symbols-outlined" aria-hidden="true">public</span></span>
+            <span class="intl-nav__brand-text">
+                <span class="intl-nav__brand-kicker">Internacionalización</span>
+                <span class="intl-nav__brand-title">Movilidad</span>
+            </span>
+        </a>
+
+        <button type="button" class="intl-nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="intl-nav-menu">
+            <span class="material-symbols-outlined" data-nav-toggle-icon aria-hidden="true">menu</span>
+            <span>Menú</span>
+        </button>
+
+        <nav class="intl-nav__menu" id="intl-nav-menu" aria-label="Secciones de Movilidad" hidden>
+            <ul class="intl-nav__list" data-render="nav">
+                <!-- Renderizado desde movilidad-content.js → content.nav -->
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="contenido">
+
+    <!-- ===== 1. BANNER / HERO — Component: Hero ===== -->
+    <section class="mov-hero" id="inicio" data-component="Hero">
+        <div class="mov-hero__fallback" aria-hidden="true"></div>
+        <!-- El <video> se inyecta aquí solo cuando content.hero.video.src existe -->
+        <div class="absolute inset-0" data-render="hero-video" aria-hidden="true"></div>
+        <div class="mov-hero__overlay" aria-hidden="true"></div>
+
+        <div class="intl-wrap mov-hero__inner">
+            <p class="intl-eyebrow intl-eyebrow--light" data-render="hero-eyebrow"></p>
+            <h1 class="mov-hero__title" data-render="hero-title">Movilidad</h1>
+            <p class="mov-hero__lead" data-render="hero-lead"></p>
+
+            <div class="mov-hero__actions" data-render="hero-actions"></div>
+
+            <div class="mov-hero__tools">
+                <!-- Control accesible del video de fondo (se muestra solo si hay video) -->
+                <button type="button" class="mov-hero__video-btn" data-hero-video-toggle aria-pressed="false">
+                    <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
+                    <span>Reproducir video de fondo</span>
+                </button>
+                <p data-render="hero-video-note"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. ¿POR QUÉ REALIZAR MOVILIDAD? — Component: WhyMobility ===== -->
+    <section class="mov-section" id="por-que" data-component="WhyMobility" data-animate="fade">
+        <div class="intl-wrap grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+                <p class="intl-eyebrow">Movilidad UNPHU</p>
+                <h2 class="intl-section-title mt-3">¿Por qué realizar movilidad?</h2>
+                <div class="mt-5" data-render="why-lead"></div>
+                <div class="mt-5 space-y-4" data-render="why-paragraphs"></div>
+                <div class="mov-why__markers" data-render="why-markers"></div>
+            </div>
+            <figure class="mov-why__media" data-render="why-media">
+                <!-- Imagen editorial pendiente de asset oficial -->
+            </figure>
+        </div>
+    </section>
+
+    <!-- ===== 3. BENEFICIOS DEL PROGRAMA — Component: Benefits ===== -->
+    <section class="mov-section mov-section--soft" id="beneficios" data-component="Benefits" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head mov-section__head--center">
+                <p class="intl-eyebrow justify-center">Beneficios</p>
+                <h2 class="intl-section-title">Beneficios del programa</h2>
+            </div>
+            <div class="mov-grid mov-grid--3" data-render="benefits" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 4. TESTIMONIO INTERNACIONAL — Component: Testimonials ===== -->
+    <section class="mov-section mov-section--blue" id="testimonios" data-component="Testimonials" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow intl-eyebrow--light">Testimonio internacional</p>
+                <h2 class="intl-section-title intl-section-title--light">Videos de estudiantes de movilidad</h2>
+                <p class="intl-section-lead text-white/80 mt-4" data-render="testimonials-note"></p>
+            </div>
+            <div class="mov-grid mov-grid--3" data-render="testimonials" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 5. ¿QUIÉNES SOMOS? — Component: About ===== -->
+    <section class="mov-section" id="quienes-somos" data-component="About" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Internacionalización UNPHU</p>
+                <h2 class="intl-section-title">¿Quiénes somos?</h2>
+            </div>
+            <div data-render="about-lead"></div>
+            <div class="mov-about__columns" data-render="about-body"></div>
+            <div data-render="about-quote"></div>
+        </div>
+    </section>
+
+    <!-- ===== 6. MOVILIDAD NACIONAL E INTERNACIONAL — Component: MobilityTypes ===== -->
+    <section class="mov-section mov-section--soft" id="movilidad" data-component="MobilityTypes" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head mov-section__head--center">
+                <p class="intl-eyebrow justify-center">Programas</p>
+                <h2 class="intl-section-title">Movilidad nacional e internacional</h2>
+            </div>
+            <div class="mov-split">
+                <article class="mov-panel mov-panel--national" id="movilidad-nacional" data-render="mobility-national"></article>
+                <article class="mov-panel mov-panel--international" id="movilidad-internacional" data-render="mobility-international"></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. MOVENI — Component: Moveni ===== -->
+    <section class="mov-section" id="moveni" data-component="Moveni" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Programa nacional</p>
+                <h2 class="intl-section-title">MOVENI</h2>
+            </div>
+            <div class="mov-moveni">
+                <div class="mov-moveni__card" data-render="moveni-card"></div>
+                <div>
+                    <ul class="mov-moveni__list" data-render="moveni-highlights" data-stagger-container></ul>
+                    <p class="mt-6" data-render="moveni-note"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 8. MODALIDADES — Component: Modalities ===== -->
+    <section class="mov-section mov-section--soft" id="modalidades" data-component="Modalities" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head mov-section__head--center">
+                <p class="intl-eyebrow justify-center">Modalidades</p>
+                <h2 class="intl-section-title">Modalidades de movilidad</h2>
+            </div>
+            <div class="mov-grid mov-grid--3" data-render="modalities" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 9. TIPOS DE MOVILIDAD — Component: MobilityKinds ===== -->
+    <section class="mov-section" id="tipos" data-component="MobilityKinds" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Tipos</p>
+                <h2 class="intl-section-title">Saliente, entrante, extracurricular y curricular</h2>
+            </div>
+            <div class="mov-grid mov-grid--4" data-render="mobility-kinds" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 10. ESTUDIANTES — Component: Students ===== -->
+    <section class="mov-section mov-section--soft" id="estudiantes" data-component="Students" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Estudiantes</p>
+                <h2 class="intl-section-title">Movilidad estudiantil: requisitos, documentación y aplicación</h2>
+            </div>
+
+            <!-- Requisitos generales -->
+            <div class="mb-12">
+                <h3 class="intl-section-title text-2xl md:text-3xl" data-render="students-requirements-title"></h3>
+                <p class="intl-section-lead mt-4 mb-6" data-render="students-requirements-intro"></p>
+                <ul class="mov-requirements list-none p-0 m-0" data-render="students-requirements" data-stagger-container></ul>
+            </div>
+
+            <!-- Documentación por tipo de movilidad -->
+            <h3 class="intl-section-title text-2xl md:text-3xl mb-5">Documentación por tipo de movilidad</h3>
+            <div class="mov-tabs" role="tablist" aria-label="Tipos de movilidad estudiantil" data-render="students-tabs"></div>
+            <div data-render="students-panels"></div>
+
+            <div class="mt-8">
+                <a class="intl-btn intl-btn--primary" href="#aplica">
+                    Ir a la sección Aplica
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 11. DOCENTES — Component: Faculty ===== -->
+    <section class="mov-section" id="docentes" data-component="Faculty" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Movilidad académica</p>
+                <h2 class="intl-section-title">Docentes</h2>
+            </div>
+
+            <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+                <div class="space-y-5" data-render="faculty-paragraphs"></div>
+                <div class="mov-section--blue rounded-3xl p-8">
+                    <p class="intl-eyebrow intl-eyebrow--light mb-5">Oportunidades del programa</p>
+                    <div class="mov-chip-grid" data-render="faculty-opportunities" data-stagger-container></div>
+                </div>
+            </div>
+
+            <div class="mov-audience mt-10" data-render="faculty-teachers"></div>
+        </div>
+    </section>
+
+    <!-- ===== 12. INVESTIGADORES — Component: Researchers ===== -->
+    <section class="mov-section mov-section--soft" id="investigadores" data-component="Researchers" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Movilidad académica</p>
+                <h2 class="intl-section-title">Investigadores</h2>
+            </div>
+
+            <div class="mov-audience" data-render="faculty-researchers"></div>
+
+            <a class="mov-modality__link mt-6" href="#docentes">
+                Ver el marco general de la movilidad para docentes e investigadores
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== 13. PERSONAL ADMINISTRATIVO — Component: AdministrativeStaff ===== -->
+    <section class="mov-section" id="personal-administrativo" data-component="AdministrativeStaff" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Comunidad UNPHU</p>
+                <h2 class="intl-section-title">Personal administrativo</h2>
+            </div>
+            <div class="mov-audience" data-render="administrative-staff"></div>
+        </div>
+    </section>
+
+    <!-- ===== 14. DESTINOS / PAÍSES — Component: Destinations ===== -->
+    <section class="mov-section mov-section--soft" id="destinos" data-component="Destinations" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Destinos</p>
+                <h2 class="intl-section-title">Destinos y países</h2>
+                <p class="intl-section-lead mt-4">Listado interactivo por país, universidad y tipo de convenio.</p>
+            </div>
+
+            <!-- ¿Dónde realizar movilidad? (estudiantes / docentes / investigadores) -->
+            <h3 class="intl-section-title text-2xl mb-4">¿Dónde realizar movilidad?</h3>
+            <div class="mov-tabs" data-render="destinations-audiences" role="group" aria-label="Filtrar destinos por público"></div>
+
+            <div class="mov-filters">
+                <div class="mov-field">
+                    <label class="mov-field__label" for="mov-filter-country">País</label>
+                    <select id="mov-filter-country"></select>
+                </div>
+                <div class="mov-field">
+                    <label class="mov-field__label" for="mov-filter-agreement">Tipo de convenio</label>
+                    <select id="mov-filter-agreement"></select>
+                </div>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <!-- Mapa interactivo preparado para datos dinámicos -->
+                <!-- role="group": el mapa contiene marcadores accionables, no es una imagen -->
+                <div class="mov-map" data-render="destinations-map" role="group" aria-label="Mapa de destinos de movilidad"></div>
+                <div data-render="destinations-list" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 15. UNIVERSIDADES SOCIAS — Component: PartnerUniversities ===== -->
+    <section class="mov-section" id="universidades-socias" data-component="PartnerUniversities" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Red global</p>
+                <h2 class="intl-section-title">Universidades socias</h2>
+                <p class="mt-4" data-render="partners-note"></p>
+            </div>
+            <div class="mov-grid mov-grid--3" data-render="partners" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 16. KPIs — Component: KPIs ===== -->
+    <section class="mov-section mov-section--blue" id="kpis" data-component="KPIs" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow intl-eyebrow--light">Indicadores</p>
+                <h2 class="intl-section-title intl-section-title--light">Movilidad en cifras</h2>
+            </div>
+            <div class="mov-grid mov-grid--2" data-render="kpis" data-stagger-container></div>
+            <p class="mt-6 text-sm text-white/70">
+                El indicador de países se conecta con el mapa interactivo de la sección
+                <a class="underline" href="#destinos">Destinos</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== 17. APLICA — Component: Apply ===== -->
+    <section class="mov-section mov-section--tight" id="aplica" data-component="Apply" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-apply">
+                <div class="mov-apply__pattern" aria-hidden="true"></div>
+                <div class="mov-apply__inner">
+                    <p class="intl-eyebrow intl-eyebrow--light">Movilidad UNPHU</p>
+                    <h2 class="intl-section-title intl-section-title--light">Aplica</h2>
+                    <div data-render="apply-cta"></div>
+                    <p data-render="apply-note"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 18. DOCUMENTOS — Component: Documents ===== -->
+    <section class="mov-section mov-section--soft" id="documentos" data-component="Documents" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Descargas</p>
+                <h2 class="intl-section-title">Documentos</h2>
+            </div>
+            <div class="mov-grid mov-grid--3" data-render="documents" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 19. CONTACTO — Component: Contact ===== -->
+    <section class="mov-section" id="contacto" data-component="Contact" data-animate="fade">
+        <div class="intl-wrap">
+            <div class="mov-section__head">
+                <p class="intl-eyebrow">Contacto</p>
+                <h2 class="intl-section-title">Movilidad e Internacionalización</h2>
+            </div>
+
+            <div class="mov-grid mov-grid--2">
+                <article class="mov-contact-card">
+                    <span class="mov-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">call</span></span>
+                    <h3 class="mov-contact-card__label">Extensión</h3>
+                    <p class="mov-contact-card__value" data-render="contact-extension"></p>
+                </article>
+
+                <article class="mov-contact-card">
+                    <span class="mov-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span></span>
+                    <h3 class="mov-contact-card__label">Correos</h3>
+                    <ul class="mov-mail-list" data-render="contact-emails"></ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===== 20. FOOTER — Component: Footer (compartido por el micrositio) ===== -->
+<footer class="intl-footer" data-intl-footer data-assets-base="../../assets" data-component="Footer"></footer>
+
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-internacionalizacion.js"></script>
+<script src="../../assets/js/movilidad-content.js"></script>
+<script src="../../assets/js/landing-movilidad.js"></script>
+</body>
+</html>

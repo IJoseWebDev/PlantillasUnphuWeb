@@ -7,6 +7,9 @@ Sistema modular y escalable para crear landings individuales que serán integrad
 ```
 PlantillasUnphuWeb/
 ├── 📂 landings/                          # Todos los HTML de landings
+│   ├── internacionalizacion/            # 🌐 Micrositio (varios landings)
+│   │   ├── index.html                   # ✅ Página de entrada del micrositio
+│   │   └── movilidad.html               # ✅ Movilidad nacional e internacional
 │   ├── template.html                     # 🔖 Catálogo de componentes (punto de partida)
 │   ├── acreditacion.html                # ✅ Acreditaciones
 │   ├── bolsa-de-empleo.html             # ✅ Listado de vacantes
@@ -20,6 +23,7 @@ PlantillasUnphuWeb/
 │   ├── css/
 │   │   ├── global.css                   # Estilos, variables, animaciones
 │   │   ├── template.css                 # Componentes base tpl-* + chrome del catálogo
+│   │   ├── micrositio-internacionalizacion.css # Shell intl-* (nav + footer del micrositio)
 │   │   └── [nombre].css                 # Un archivo por landing (prefijo BEM propio)
 │   ├── js/
 │   │   ├── common.js                    # Scroll suave, CTAs globales
@@ -28,6 +32,8 @@ PlantillasUnphuWeb/
 │   │   ├── forms.js                     # Gestión completa de formularios
 │   │   ├── tailwind-config.js           # Tokens de color, spacing y tipografía
 │   │   ├── landing-template.js          # Scaffold + demos del catálogo
+│   │   ├── micrositio-internacionalizacion.js # Shell del micrositio (nav + footer)
+│   │   ├── movilidad-content.js         # Contenido de Movilidad (preparado para CMS)
 │   │   └── landing-[nombre].js          # Lógica de cada landing
 │   ├── images/                          # Imágenes (iconos, backgrounds, etc)
 │   └── fonts/                           # Fuentes locales (si aplica)
@@ -100,6 +106,32 @@ Luego:
 | G | Contacto y CTA (tarjetas, panel glass, panel blanco, banner, franja, newsletter) |
 | H | Overlays y feedback (modal completo, modal simple, toast, estado 404) |
 | I | Tokens (escala tipográfica y variantes de botón) |
+
+## 🌐 Micrositios
+
+Un micrositio es una carpeta dentro de `landings/` que agrupa varios landings y comparte
+navegación, footer y estilos. El primero es **Internacionalización**:
+
+```
+landings/internacionalizacion/
+├── index.html      # Página de entrada → enlaza a los landings del micrositio
+└── movilidad.html  # Landing de Movilidad
+```
+
+Archivos compartidos por el micrositio:
+
+| Archivo | Rol |
+|---------|-----|
+| `assets/css/micrositio-internacionalizacion.css` | Shell `intl-*`: nav, botones, footer, `prefers-reduced-motion` |
+| `assets/js/micrositio-internacionalizacion.js` | Footer institucional, menú móvil y scroll spy |
+| `assets/css/movilidad.css` | Componentes `mov-*` del landing de Movilidad |
+| `assets/js/movilidad-content.js` | **Todo el contenido editable** de Movilidad (preparado para CMS/Firebase) |
+| `assets/js/landing-movilidad.js` | Render de cada componente + interacciones |
+
+El contenido vive separado de la presentación: `movilidad-content.js` es la única fuente de
+textos, listados, KPIs, documentos y enlaces. Cuando el dashboard esté conectado, basta con
+sustituir ese objeto por la respuesta del CMS. Los datos aún no suministrados usan
+placeholders visibles (`[Contenido pendiente de proporcionar]`), nunca contenido inventado.
 
 ## 📊 Estructura de un Landing
 

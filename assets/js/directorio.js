@@ -6,6 +6,24 @@
 
     var LANDINGS = [
         {
+            title: 'Internacionalización (micrositio)',
+            tag: 'Internacionalización',
+            description: 'Micrositio de Internacionalización: página de entrada con acceso al landing de Movilidad.',
+            href: 'landings/internacionalizacion/index.html',
+            added: '2026-09-17',
+            badge: 'blue',
+            cta: 'Abrir micrositio'
+        },
+        {
+            title: 'Movilidad',
+            tag: 'Movilidad',
+            description: 'Landing de movilidad nacional e internacional para estudiantes, docentes e investigadores: modalidades, requisitos, destinos y documentos.',
+            href: 'landings/internacionalizacion/movilidad.html',
+            added: '2026-09-17',
+            badge: 'green',
+            cta: 'Abrir landing'
+        },
+        {
             title: 'Talento UNPHU 2026',
             tag: 'Talento UNPHU',
             description: 'Feria de empleo y vinculación para empresas, estudiantes y egresados de la Facultad de Ciencias y Tecnología.',

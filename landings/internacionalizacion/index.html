@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Micrositio de Internacionalización de la UNPHU. Punto de entrada al landing de Movilidad." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Internacionalización | UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-internacionalizacion.css" />
+</head>
+<body class="intl-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!--
+  MICROSITIO: Internacionalización (página de entrada)
+  Next.js route sugerida: /internacionalizacion
+  Componentes: InternationalizationLanding, Footer
+  Alcance intencionalmente reducido: esta página solo presenta el micrositio y
+  conduce al landing de Movilidad. No añadir contenido institucional que no
+  haya sido proporcionado; los nuevos landings se listan en `Landings del micrositio`.
+-->
+
+<a class="intl-skip" href="#landings">Saltar al contenido</a>
+
+<main>
+
+    <!-- Component: InternationalizationHero -->
+    <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-gradient-to-br from-[#06263d] via-[#0a3859] to-[#156b1d] text-white">
+        <div class="absolute inset-0 opacity-25 bg-[url('../../assets/images/unphu-biblioteca.avif')] bg-cover bg-center" aria-hidden="true"></div>
+        <!-- Capa de contraste para garantizar legibilidad del texto sobre la imagen -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#06263d]/85 via-[#0a3859]/75 to-[#156b1d]/75" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.16),_transparent_45%)]" aria-hidden="true"></div>
+
+        <div class="intl-wrap relative py-24 md:py-32">
+            <p class="intl-eyebrow intl-eyebrow--light">Micrositio UNPHU</p>
+            <h1 class="mt-4 text-[clamp(2.75rem,8vw,5rem)] font-bold leading-[1.05] tracking-tight">Internacionalización</h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+                Punto de entrada a los landings de internacionalización de la Universidad Nacional Pedro Henríquez Ureña.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+                <a class="intl-btn intl-btn--light" href="movilidad.html">
+                    Ir a Movilidad
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: MicrositeLandingsGrid -->
+    <section class="py-20 md:py-24" id="landings" data-animate="fade">
+        <div class="intl-wrap">
+            <p class="intl-eyebrow">Landings del micrositio</p>
+            <h2 class="intl-section-title mt-3">Explora el micrositio</h2>
+
+            <div class="mt-10 grid gap-6 md:grid-cols-2">
+                <!-- Landing publicado -->
+                <article class="flex h-full flex-col gap-4 rounded-3xl border border-[rgba(10,56,89,0.1)] bg-white p-8 shadow-[0_12px_30px_rgba(10,56,89,0.06)] transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(10,56,89,0.12)]">
+                    <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(21,107,29,0.1)] text-[#156b1d]">
+                        <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
+                    </span>
+                    <h3 class="text-2xl font-bold text-[#0a3859]">Movilidad</h3>
+                    <p class="text-[#40493d] leading-relaxed">
+                        Movilidad nacional e internacional para estudiantes, docentes e investigadores: modalidades,
+                        requisitos, documentos, destinos y contacto.
+                    </p>
+                    <a class="intl-btn intl-btn--primary mt-auto self-start" href="movilidad.html">
+                        Ver landing de Movilidad
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </article>
+
+                <!-- Espacio reservado para futuros landings del micrositio -->
+                <article class="flex h-full flex-col gap-4 rounded-3xl border border-dashed border-[rgba(10,56,89,0.25)] bg-[rgba(10,56,89,0.02)] p-8">
+                    <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(10,56,89,0.08)] text-[#0a3859]">
+                        <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                    </span>
+                    <h3 class="text-2xl font-bold text-[#0a3859]">Próximos landings</h3>
+                    <p class="text-[#40493d] leading-relaxed">
+                        <span class="intl-placeholder">
+                            <span class="material-symbols-outlined" aria-hidden="true">pending</span>
+                            [Contenido pendiente de proporcionar]
+                        </span>
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Component: Footer (compartido por el micrositio) -->
+<footer class="intl-footer" data-intl-footer data-assets-base="../../assets" data-component="Footer"></footer>
+
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-internacionalizacion.js"></script>
+</body>
+</html>
