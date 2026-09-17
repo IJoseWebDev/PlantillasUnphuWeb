@@ -294,8 +294,10 @@
         var moveni = content.moveni;
 
         paint('moveni-card',
-            '<p class="mov-moveni__acronym">' + escapeHtml(moveni.acronym) + '</p>' +
-            '<p class="mov-moveni__fullname">' + escapeHtml(moveni.fullName) + '</p>');
+            moveni.logo && moveni.logo.src
+                ? '<img class="mov-moveni__logo" src="' + escapeHtml(moveni.logo.src) + '" alt="' + escapeHtml(moveni.logo.alt || moveni.fullName || moveni.acronym) + '" />'
+                : '<p class="mov-moveni__acronym">' + escapeHtml(moveni.acronym) + '</p>' +
+                  '<p class="mov-moveni__fullname">' + escapeHtml(moveni.fullName) + '</p>');
 
         paint('moveni-highlights', moveni.highlights.map(function (item) {
             return '<li class="mov-moveni__item" data-stagger>' + icon(item.icon) + '<span>' + escapeHtml(item.text) + '</span></li>';

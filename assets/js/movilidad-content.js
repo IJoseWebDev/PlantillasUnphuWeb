@@ -207,6 +207,10 @@
         moveni: {
             acronym: 'MOVENI',
             fullName: 'Programa de Movilidad Estudiantil Nacional Interuniversitario',
+            logo: {
+                src: '../../assets/images/logo-moveni.jpg',
+                alt: 'MOVENI — Movilidad Estudiantil Nacional Interuniversitaria'
+            },
             highlights: [
                 { icon: 'groups', text: 'Dirigido a estudiantes de grado y posgrado de las universidades participantes.' },
                 { icon: 'calendar_month', text: 'Permite cursar un semestre en una de las universidades adscritas al programa.' },
