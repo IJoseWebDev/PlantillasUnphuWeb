@@ -313,14 +313,6 @@
     color: var(--intl-green);
 }
 
-.intl-eyebrow::before {
-    content: "";
-    width: 1.75rem;
-    height: 2px;
-    border-radius: 9999px;
-    background: currentColor;
-}
-
 .intl-eyebrow--light {
     color: rgba(255, 255, 255, 0.82);
 }
