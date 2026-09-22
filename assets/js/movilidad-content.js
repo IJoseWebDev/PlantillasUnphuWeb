@@ -424,13 +424,35 @@
             }
         },
 
-        /* ---------- 15. Universidades socias ---------- */
-        /* Formato esperado: { id, name, country, agreementType, url, logo } */
+        /* ---------- Universidades socias ---------- */
+        /* Formato: { id, name, url, logo }. País y tipo de convenio se descartaron. */
         partnerUniversities: {
-            items: [],
-            placeholderCount: 3,
-            emptyMessage: 'Listado de universidades socias ' + PENDING.data.toLowerCase(),
-            fields: ['Nombre', 'País', 'Tipo de convenio', 'Enlace', 'Logo']
+            items: [
+                {
+                    id: 'unibe',
+                    name: 'UNIBE',
+                    url: 'https://www.unibe.edu.do/',
+                    logo: '../../assets/images/universidades-socias/unibe.svg'
+                },
+                {
+                    id: 'intec',
+                    name: 'INTEC',
+                    url: 'https://www.intec.edu.do/',
+                    logo: '../../assets/images/universidades-socias/intec.png'
+                },
+                {
+                    id: 'pucmm',
+                    name: 'PUCMM',
+                    url: 'https://www.pucmm.edu.do/',
+                    logo: '../../assets/images/universidades-socias/pucmm.png'
+                },
+                {
+                    id: 'unapec',
+                    name: 'UNAPEC',
+                    url: 'https://www.unapec.edu.do/',
+                    logo: '../../assets/images/universidades-socias/unapec.png'
+                }
+            ]
         },
 
         /* ---------- 16. KPIs ---------- */

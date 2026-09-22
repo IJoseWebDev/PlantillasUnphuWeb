@@ -634,47 +634,29 @@
         var host = mount('partners');
         if (!host) return;
 
-        if (!partners.items.length) {
-            var cards = [];
-            for (var i = 0; i < partners.placeholderCount; i += 1) {
-                cards.push(
-                    '<article class="mov-partner mov-partner--placeholder" data-stagger>' +
-                        '<div class="mov-partner__logo">' + icon('account_balance') + '</div>' +
-                        '<h3 class="mov-partner__name">' + placeholder('Universidad socia pendiente') + '</h3>' +
-                        '<div class="mov-partner__meta">' +
-                            partners.fields.map(function (field) {
-                                return '<span class="mov-tag mov-tag--blue">' + escapeHtml(field) + '</span>';
-                            }).join('') +
-                        '</div>' +
-                    '</article>'
-                );
-            }
-            host.innerHTML = cards.join('');
-            paint('partners-note', '<span class="intl-placeholder">' + icon('pending') + escapeHtml(partners.emptyMessage) + '</span>');
+        if (!partners.items || !partners.items.length) {
+            host.innerHTML = '<div class="mov-empty">' + icon('account_balance') +
+                '<p>' + placeholder(content.pending.data) + '</p></div>';
             return;
         }
 
         host.innerHTML = partners.items.map(function (partner) {
             var logo = partner.logo
-                ? '<img src="' + escapeHtml(partner.logo) + '" alt="Logo de ' + escapeHtml(partner.name) + '" loading="lazy" />'
+                ? '<img src="' + escapeHtml(partner.logo) + '" alt="" loading="lazy" />'
                 : icon('account_balance');
 
-            var link = partner.url
-                ? '<a class="mov-modality__link" href="' + escapeHtml(partner.url) + '" target="_blank" rel="noreferrer">Visitar sitio' + icon('open_in_new') + '</a>'
-                : '';
+            var inner =
+                '<span class="mov-partner__logo">' + logo + '</span>' +
+                '<span class="mov-partner__name">' + escapeHtml(partner.name) + '</span>';
 
-            return '<article class="mov-partner" data-stagger>' +
-                '<div class="mov-partner__logo">' + logo + '</div>' +
-                '<h3 class="mov-partner__name">' + escapeHtml(partner.name) + '</h3>' +
-                '<div class="mov-partner__meta">' +
-                    (partner.country ? '<span class="mov-tag mov-tag--blue">' + escapeHtml(partner.country) + '</span>' : '') +
-                    (partner.agreementType ? '<span class="mov-tag">' + escapeHtml(partner.agreementType) + '</span>' : '') +
-                '</div>' +
-                link +
-            '</article>';
+            if (partner.url) {
+                return '<a class="mov-partner" data-stagger href="' + escapeHtml(partner.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(partner.name) + '">' +
+                    inner +
+                '</a>';
+            }
+
+            return '<article class="mov-partner" data-stagger>' + inner + '</article>';
         }).join('');
-
-        paint('partners-note', '');
     }
 
     /* ===========================================================
