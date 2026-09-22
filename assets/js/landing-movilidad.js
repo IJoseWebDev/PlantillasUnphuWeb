@@ -641,21 +641,17 @@
         }
 
         host.innerHTML = partners.items.map(function (partner) {
-            var logo = partner.logo
-                ? '<img src="' + escapeHtml(partner.logo) + '" alt="" loading="lazy" />'
-                : icon('account_balance');
-
-            var inner =
-                '<span class="mov-partner__logo">' + logo + '</span>' +
-                '<span class="mov-partner__name">' + escapeHtml(partner.name) + '</span>';
+            var img = partner.logo
+                ? '<img class="mov-partner__img" src="' + escapeHtml(partner.logo) + '" alt="' + escapeHtml(partner.name) + '" loading="lazy" />'
+                : escapeHtml(partner.name);
 
             if (partner.url) {
-                return '<a class="mov-partner" data-stagger href="' + escapeHtml(partner.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(partner.name) + '">' +
-                    inner +
+                return '<a class="mov-partner" data-stagger href="' + escapeHtml(partner.url) + '" target="_blank" rel="noopener noreferrer">' +
+                    img +
                 '</a>';
             }
 
-            return '<article class="mov-partner" data-stagger>' + inner + '</article>';
+            return '<div class="mov-partner" data-stagger>' + img + '</div>';
         }).join('');
     }
 
