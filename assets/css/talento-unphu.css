@@ -508,6 +508,13 @@ a.tal-info-card:focus-visible {
     color: var(--tal-green);
 }
 
+.tal-register-actions,
+.tal-close__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.75rem;
+}
+
 /* --- Cierre --- */
 .tal-close {
     background: var(--tal-navy);
