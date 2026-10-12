@@ -357,9 +357,10 @@
         renderWhatWeDo();
         renderUnits();
         renderAuthorities();
-        renderDocuments();
-        renderRights();
-        renderGroups();
+        /* Secciones ocultas hasta nuevo aviso: sus <section> están comentadas en index.html. */
+        /* renderDocuments(); */
+        /* renderRights(); */
+        /* renderGroups(); */
         renderFaq();
         renderContact();
 

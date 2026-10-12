@@ -102,7 +102,15 @@
         </div>
     </section>
 
-    <!-- ===== 6. PROCEDIMIENTOS Y PROGRAMAS — Component: Documents ===== -->
+    <!--
+        ===== SECCIONES OCULTAS =====
+        Las secciones 6, 7 y 8 quedan comentadas hasta nuevo aviso. Su contenido sigue
+        completo en bienestar-estudiantil-content.js (`documents`, `rights`, `groups`) y sus
+        funciones de render siguen en landing-bienestar-estudiantil.js, también comentadas en
+        `init()`. Al reactivarlas hay que devolver el tono `bst-section--soft` a la sección 9
+        y quitárselo a la 10, para recuperar la alternancia de fondos.
+
+    ===== 6. PROCEDIMIENTOS Y PROGRAMAS — Component: Documents =====
     <section class="bst-section" id="normativas" data-component="Documents" data-animate="fade">
         <div class="bie-wrap">
             <div class="bst-section__head">
@@ -115,7 +123,7 @@
         </div>
     </section>
 
-    <!-- ===== 7. DERECHOS Y DEBERES — Component: Rights ===== -->
+    ===== 7. DERECHOS Y DEBERES — Component: Rights =====
     <section class="bst-section bst-section--soft" id="derechos-y-deberes" data-component="Rights" data-animate="fade">
         <div class="bie-wrap">
             <div class="bst-section__head">
@@ -128,7 +136,7 @@
         </div>
     </section>
 
-    <!-- ===== 8. AGRUPACIONES ESTUDIANTILES — Component: StudentGroups ===== -->
+    ===== 8. AGRUPACIONES ESTUDIANTILES — Component: StudentGroups =====
     <section class="bst-section" id="agrupaciones" data-component="StudentGroups" data-animate="fade">
         <div class="bie-wrap">
             <div class="bst-section__head">
@@ -140,9 +148,10 @@
             <div data-render="groups-list"></div>
         </div>
     </section>
+    -->
 
     <!-- ===== 9. PREGUNTAS FRECUENTES — Component: Faq ===== -->
-    <section class="bst-section bst-section--soft" id="preguntas-frecuentes" data-component="Faq" data-animate="fade">
+    <section class="bst-section" id="preguntas-frecuentes" data-component="Faq" data-animate="fade">
         <div class="bie-wrap">
             <div class="bst-section__head">
                 <p class="bie-eyebrow" data-render="faq-eyebrow"></p>
@@ -157,7 +166,7 @@
     </section>
 
     <!-- ===== 10. CONTACTO — Component: Contact + ContactCta ===== -->
-    <section class="bst-section" id="contacto" data-component="Contact" data-animate="fade">
+    <section class="bst-section bst-section--soft" id="contacto" data-component="Contact" data-animate="fade">
         <div class="bie-wrap">
             <div class="bst-section__head">
                 <p class="bie-eyebrow" data-render="contact-eyebrow"></p>

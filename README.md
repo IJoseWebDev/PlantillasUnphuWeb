@@ -160,7 +160,8 @@ placeholders visibles (`[Contenido pendiente de proporcionar]`), nunca contenido
 ```
 landings/bienestarEstudiantil/
 ├── index.html                  # Portada: quiénes somos, qué hacemos, servicios, autoridades,
-│                               #          normativas, derechos, agrupaciones, FAQ, contacto
+│                               #          FAQ, contacto (normativas, derechos y agrupaciones
+│                               #          están comentadas, ver nota más abajo)
 ├── unidad-orientacion-vida-estudiantil.html # UOVE: sus 5 servicios, referimiento y principios
 ├── orientacion-vocacional.html # Servicio de la UOVE
 ├── cambio-de-carrera.html      # Servicio de la UOVE
@@ -206,6 +207,12 @@ Particularidades:
 - Los formularios tienen el markup en el HTML (usables sin JS) y aún no tienen endpoint:
   al enviar muestran `[ENVÍO PENDIENTE DE CONEXIÓN]` con la vía de contacto alternativa.
   El punto de integración es `submitRequest` en `bienestar-estudiantil-formularios.js`.
+- Tres secciones de la portada están **ocultas** por decisión del decanato: *Procedimientos y
+  programas*, *Normativas que te amparan* y *Agrupaciones estudiantiles*. Sus `<section>` están
+  comentadas en `index.html` y sus llamadas comentadas en el `init()` de
+  `landing-bienestar-estudiantil.js`; el contenido y los renders se conservan intactos para
+  poder reactivarlas. Al hacerlo hay que recolocar el tono `bst-section--soft` en las secciones
+  9 y 10 para mantener la alternancia de fondos.
 - Los datos que el decanato aún no ha confirmado se muestran como `[DATO PENDIENTE DE
   CONFIRMAR]` o `[Contenido pendiente de proporcionar]`, nunca como contenido inventado.
   Pendientes actuales: fotografías del equipo, enlaces vigentes a los formularios de

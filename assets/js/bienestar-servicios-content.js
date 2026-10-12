@@ -531,7 +531,7 @@
                                 {
                                     id: 'cc-03',
                                     question: '¿Es posible cambiar de carrera más de una vez?',
-                                    answer: 'El Reglamento Académico Estudiantil establece las condiciones y los límites aplicables. Puede consultarse en la sección de normativas del micrositio.'
+                                    answer: 'El Reglamento Académico Estudiantil establece las condiciones y los límites aplicables. Puedes consultarlo en la Unidad o escribir a orientacion@unphu.edu.do para que te orienten sobre tu caso.'
                                 }
                             ]
                         }
