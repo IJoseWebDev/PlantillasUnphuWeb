@@ -321,6 +321,21 @@
     color: var(--bie-green);
 }
 
+/* Variante numerada: pasos de un procedimiento en lugar de un protocolo */
+.bie-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    background: rgba(21, 107, 29, 0.1);
+    color: var(--bie-green);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
 .bie-step__action {
     display: inline-flex;
     align-items: center;

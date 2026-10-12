@@ -6,11 +6,11 @@
 
    Índice:
    1. Ritmo vertical y encabezados de sección
-   2. Hero de portada y tarjeta "Cómo hacer un reporte"
+   2. Hero de portada (centrado, a ancho completo)
    3. ¿Qué hacemos? y fichas de autoridades
    4. Servicios
    5. Preguntas frecuentes (acordeón)
-   6. Contacto y franja CTA
+   6. Contacto (tarjetas y fichas de oficina) y franja CTA
    7. Páginas internas: hero compacto, formularios, acceso del personal
    7b. Bloques de las páginas de unidades y servicios
    8. Rejillas y animación de entrada
@@ -98,21 +98,18 @@
     background: radial-gradient(circle at top right, rgba(158, 246, 182, 0.22), transparent 48%);
 }
 
+/* Una sola columna centrada: el hero ocupa todo el ancho del envoltorio */
 .bst-hero__inner {
     position: relative;
     z-index: 1;
-    display: grid;
-    gap: 2.5rem;
     width: 100%;
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
-    align-items: center;
+    text-align: center;
 }
 
 @media (min-width: 1024px) {
     .bst-hero__inner {
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 3.5rem;
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
@@ -127,7 +124,8 @@
 }
 
 .bst-hero__lead {
-    max-width: 34rem;
+    max-width: 44rem;
+    margin-inline: auto;
     font-size: clamp(1rem, 2vw, 1.1875rem);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
@@ -136,67 +134,9 @@
 .bst-hero__actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.875rem;
     margin-top: 2.25rem;
-}
-
-/* --- Tarjeta "Cómo hacer un reporte" --- */
-.bst-report {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 1.75rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.75rem;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 18px 44px rgba(6, 38, 61, 0.28);
-}
-
-@media (min-width: 768px) {
-    .bst-report {
-        padding: 2.25rem;
-    }
-}
-
-.bst-report__title {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.bst-report__steps {
-    display: grid;
-    gap: 0.875rem;
-    margin: 1.5rem 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.bst-report__step {
-    display: flex;
-    gap: 0.875rem;
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.bst-report__num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 1.875rem;
-    height: 1.875rem;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.18);
-    color: #ffffff;
-    font-size: 0.8125rem;
-    font-weight: 700;
-}
-
-.bst-report__step a {
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: underline;
-    word-break: break-word;
 }
 
 /* ========================================
@@ -437,6 +377,12 @@
     max-width: 56rem;
 }
 
+/* En la portada, donde los encabezados van centrados */
+.bst-faq--center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bst-faq__item {
     border: 1px solid rgba(10, 56, 89, 0.1);
     border-radius: 1.125rem;
@@ -543,6 +489,50 @@ a.bst-contact-card__value {
 }
 
 a.bst-contact-card__value:hover {
+    color: #156b1d;
+    text-decoration: underline;
+}
+
+/* --- Ficha de oficina: datos en filas «etiqueta: valor» --- */
+.bst-office {
+    height: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(10, 56, 89, 0.06);
+}
+
+.bst-office__title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #0a3859;
+}
+
+.bst-office__row {
+    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #40493d;
+    word-break: break-word;
+}
+
+.bst-office__title + .bst-office__row {
+    margin-top: 1rem;
+}
+
+.bst-office__label {
+    color: #6b7280;
+}
+
+.bst-office__row a {
+    color: #0a3859;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.bst-office__row a:hover {
     color: #156b1d;
     text-decoration: underline;
 }
@@ -718,6 +708,13 @@ a.bst-contact-card__value:hover {
 
 .bst-prose p + p {
     margin-top: 1rem;
+}
+
+/* Variante de la portada, donde las secciones van centradas */
+.bst-prose--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .bst-subtitle {

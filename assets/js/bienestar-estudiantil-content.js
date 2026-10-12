@@ -8,7 +8,8 @@
  * ARQUITECTURA PARA NEXT.JS / DASHBOARD:
  * - `window.BIENESTAR_CONTENT` → respuesta del CMS (colección `bienestar`).
  * - Cada clave de primer nivel corresponde a un componente de la portada:
- *   hero → <Hero /> + <ReportCard />      about → <About />
+ *   hero → <Hero />                       report → <ReportModal />
+ *   about → <About />
  *   whatWeDo → <WhatWeDo />               units → <Units />
  *   authorities → <Authorities />         documents → <Documents />
  *   rights → <Rights />                   groups → <StudentGroups />
@@ -49,10 +50,9 @@
             description: 'Decanato de Bienestar Estudiantil de la UNPHU: orientación, apoyo emocional, progreso académico, participación estudiantil, citas, referimientos y emergencias psicológicas.'
         },
 
-        /* ---------- 1. Hero y tarjeta de reporte ---------- */
+        /* ---------- 1. Hero y modal de reporte ---------- */
         hero: {
-            eyebrow: 'Decanato de Bienestar Estudiantil',
-            title: 'Tu aliado en cada paso del camino universitario',
+            title: 'Decanato de Bienestar Estudiantil',
             /* El texto de «¿Quiénes somos?» se reserva para esa sección, para
                no repetirlo en el hero. */
             lead: 'Orientación académica y vocacional, apoyo emocional, progreso académico y participación estudiantil. Todos los servicios son confidenciales y no tienen costo.',
@@ -61,6 +61,14 @@
             ctas: [
                 { id: 'cita', label: 'Solicitar una cita', href: 'solicitar-cita.html', variant: 'light' },
                 { id: 'referir', label: 'Referir a un estudiante', href: 'referir-estudiante.html', variant: 'ghost' },
+                {
+                    id: 'reporte',
+                    label: 'Cómo hacer un reporte',
+                    variant: 'ghost',
+                    icon: 'contact_support',
+                    /* Sin `href`: se pinta como botón y abre el modal de `report`. */
+                    opensReport: true
+                },
                 { id: 'contacto', label: 'Contacto', href: '#contacto', variant: 'ghost', icon: 'alternate_email' },
                 {
                     id: 'emergencia',
@@ -81,6 +89,7 @@
             }
         },
 
+        /* Contenido del modal que abre el CTA «Cómo hacer un reporte». */
         report: {
             title: 'Cómo hacer un reporte',
             /* `link` se pinta como enlace al final del texto del paso. */
@@ -104,8 +113,7 @@
 
         /* ---------- 2. ¿Quiénes somos? ---------- */
         about: {
-            eyebrow: 'Quiénes somos',
-            title: 'Decanato de Bienestar Estudiantil',
+            title: '¿Quiénes somos?',
             paragraphs: [
                 'Somos mucho más que un sistema de apoyo: somos tu aliado estratégico para transformar tu experiencia universitaria en un viaje de crecimiento integral.',
                 'Nuestro compromiso es velar para que cada estudiante parte de la UNPHU avance en su formación y se desarrolle personal y profesionalmente, egresando como un profesional competente, humanista y con espíritu emprendedor.'
@@ -114,7 +122,6 @@
 
         /* ---------- 3. ¿Qué hacemos? ---------- */
         whatWeDo: {
-            eyebrow: 'Nuestro trabajo',
             title: '¿Qué hacemos?',
             lead: 'A través de un enfoque holístico e innovador, diseñamos y ejecutamos programas y servicios que acompañan tu trayectoria desde el primer día hasta tu graduación y más allá. Nuestro trabajo se centra en:',
             items: [
@@ -383,7 +390,6 @@
 
         /* ---------- 9. Preguntas frecuentes ---------- */
         faq: {
-            eyebrow: 'Dudas frecuentes',
             title: 'Preguntas frecuentes',
             items: [
                 {
@@ -412,55 +418,37 @@
         contact: {
             eyebrow: 'Contacto',
             title: 'Decanato de Bienestar Estudiantil',
-            items: [
+            /* Una ficha por oficina, con sus datos en filas «etiqueta: valor».
+               La dirección del campus la aporta el sitio principal. */
+            cards: [
                 {
-                    id: 'ubicacion',
-                    icon: 'location_on',
-                    label: 'Ubicación',
-                    value: 'Edificio 8, primera planta, contiguo a Registro',
-                    href: null
-                },
-                {
-                    id: 'horario',
-                    icon: 'schedule',
-                    label: 'Horario',
-                    value: 'Lunes a viernes, 8:00 a. m. a 5:00 p. m.',
-                    href: null
-                },
-                {
-                    id: 'telefono',
-                    icon: 'call',
-                    label: 'Teléfono',
-                    value: PHONE + ', ext. 1122 y 1123',
-                    href: PHONE_HREF
-                },
-                {
-                    id: 'correo',
-                    icon: 'mail',
-                    label: 'Correo',
-                    value: EMAIL,
-                    href: 'mailto:' + EMAIL
+                    id: 'general',
+                    title: 'Atención general',
+                    rows: [
+                        { label: 'Tel.', value: PHONE, href: PHONE_HREF },
+                        { label: 'Exts.', value: '1122, 1123' },
+                        { label: 'Correo', value: EMAIL, href: 'mailto:' + EMAIL },
+                        { label: 'Ubicación', value: 'Edificio 8, primera planta, contiguo a Registro' },
+                        { label: 'Horario', value: 'Lunes a viernes, 8:00 a. m. a 5:00 p. m.' }
+                    ]
                 },
                 {
                     id: 'orientacion',
-                    icon: 'psychology',
-                    label: 'Unidad de Orientación y Vida Estudiantil',
-                    value: 'orientacion@unphu.edu.do · ext. 1119',
-                    href: 'mailto:orientacion@unphu.edu.do'
+                    title: 'Unidad de Orientación y Vida Estudiantil',
+                    rows: [
+                        { label: 'Tel.', value: PHONE, href: PHONE_HREF },
+                        { label: 'Ext.', value: '1119' },
+                        { label: 'Correo', value: 'orientacion@unphu.edu.do', href: 'mailto:orientacion@unphu.edu.do' }
+                    ]
                 },
                 {
                     id: 'upa',
-                    icon: 'school',
-                    label: 'Unidad de Progreso Académico',
-                    value: 'upa@unphu.edu.do · ext. 2820',
-                    href: 'mailto:upa@unphu.edu.do'
-                },
-                {
-                    id: 'direccion',
-                    icon: 'map',
-                    label: 'Dirección',
-                    value: 'Av. John F. Kennedy Km 7 ½, Santo Domingo, República Dominicana',
-                    href: null
+                    title: 'Unidad de Progreso Académico',
+                    rows: [
+                        { label: 'Tel.', value: PHONE, href: PHONE_HREF },
+                        { label: 'Ext.', value: '2820' },
+                        { label: 'Correo', value: 'upa@unphu.edu.do', href: 'mailto:upa@unphu.edu.do' }
+                    ]
                 }
             ],
             cta: {

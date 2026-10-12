@@ -202,33 +202,36 @@
             '<p class="bie-modal__note">' + escapeHtml(EMERGENCY.followUp) + '</p>';
     }
 
+    /* ===================
+       MODAL GENÉRICO
+       =================== */
+
     /**
-     * Modal accesible: se crea la primera vez que se abre y queda disponible
-     * para el resto de la página.
+     * Modal accesible reutilizable: se crea la primera vez que se abre y queda
+     * disponible para el resto de la página. `body` y `footer` son HTML ya
+     * escapado por quien llama.
+     *
+     * En Next.js equivale a un <Modal title={...}>{children}</Modal>.
      */
-    function buildEmergencyModal() {
+    function buildModal(options) {
+        var titleId = options.id + '-title';
+
         var modal = document.createElement('div');
         modal.className = 'bie-modal';
         modal.setAttribute('role', 'dialog');
         modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('aria-labelledby', 'bie-emergency-title');
+        modal.setAttribute('aria-labelledby', titleId);
         modal.hidden = true;
         modal.innerHTML =
             '<div class="bie-modal__panel">' +
                 '<div class="bie-modal__head">' +
-                    '<h2 class="bie-modal__title" id="bie-emergency-title">' + escapeHtml(EMERGENCY.title) + '</h2>' +
+                    '<h2 class="bie-modal__title" id="' + titleId + '">' + escapeHtml(options.title) + '</h2>' +
                     '<button type="button" class="bie-modal__close" data-bie-modal-close aria-label="Cerrar">' +
                         icon('close') +
                     '</button>' +
                 '</div>' +
-                '<p class="bie-modal__lead">' + escapeHtml(EMERGENCY.lead) + '</p>' +
-                '<ul class="bie-steps">' + emergencySteps() + '</ul>' +
-                '<p class="bie-modal__note">' + escapeHtml(EMERGENCY.note) + '</p>' +
-                '<div class="bie-modal__footer">' +
-                    '<a class="bie-btn bie-btn--sm bie-btn--outline" href="' + escapeHtml(EMERGENCY.pageHref) + '">' +
-                        escapeHtml(EMERGENCY.pageLabel) + icon('arrow_forward') +
-                    '</a>' +
-                '</div>' +
+                options.body +
+                (options.footer ? '<div class="bie-modal__footer">' + options.footer + '</div>' : '') +
             '</div>';
 
         document.body.appendChild(modal);
@@ -292,7 +295,22 @@
             }
         });
 
-        window.bienestarEmergency = { open: open, close: close };
+        return { open: open, close: close, element: modal };
+    }
+
+    /** Modal del protocolo de emergencia, construido sobre el modal genérico. */
+    function buildEmergencyModal() {
+        window.bienestarEmergency = buildModal({
+            id: 'bie-emergency',
+            title: EMERGENCY.title,
+            body: '<p class="bie-modal__lead">' + escapeHtml(EMERGENCY.lead) + '</p>' +
+                '<ul class="bie-steps">' + emergencySteps() + '</ul>' +
+                '<p class="bie-modal__note">' + escapeHtml(EMERGENCY.note) + '</p>',
+            footer: '<a class="bie-btn bie-btn--sm bie-btn--outline" href="' + escapeHtml(EMERGENCY.pageHref) + '">' +
+                escapeHtml(EMERGENCY.pageLabel) + icon('arrow_forward') +
+            '</a>'
+        });
+
         return window.bienestarEmergency;
     }
 
@@ -335,6 +353,7 @@
         anchorHref: anchorHref,
         faqMarkup: faqMarkup,
         initFaqAccordion: initFaqAccordion,
+        buildModal: buildModal,
         renderEmergencyPanel: renderEmergencyPanel,
         init: init
     };

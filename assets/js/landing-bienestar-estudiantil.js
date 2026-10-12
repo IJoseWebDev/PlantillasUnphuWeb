@@ -60,15 +60,22 @@
      * Botones de llamada a la acción con las variantes del shell bie-*.
      * Con `icon` el glifo va delante y sustituye a la flecha; con
      * `opensEmergency` el enlace también abre el modal del protocolo.
+     * Los que solo abren un modal (`opensReport`) no tienen destino propio:
+     * se pintan como <button>.
      */
     function ctaMarkup(cta) {
-        var hook = cta.opensEmergency ? ' data-bie-emergency-open' : '';
-
-        return '<a class="bie-btn bie-btn--' + escapeHtml(cta.variant) + '"' +
-            ' href="' + escapeHtml(cta.href) + '"' + hook + '>' +
-            (cta.icon ? icon(cta.icon) : '') +
+        var classes = 'bie-btn bie-btn--' + escapeHtml(cta.variant);
+        var label = (cta.icon ? icon(cta.icon) : '') +
             escapeHtml(cta.label) +
-            (cta.icon ? '' : icon('arrow_forward')) +
+            (cta.icon ? '' : icon('arrow_forward'));
+
+        if (cta.opensReport) {
+            return '<button type="button" class="' + classes + '" data-bst-report-open>' + label + '</button>';
+        }
+
+        return '<a class="' + classes + '" href="' + escapeHtml(cta.href) + '"' +
+            (cta.opensEmergency ? ' data-bie-emergency-open' : '') + '>' +
+            label +
         '</a>';
     }
 
@@ -85,23 +92,42 @@
     }
 
     /* ===========================================================
-       Tarjeta "Cómo hacer un reporte"  → <ReportCard />
+       Modal "Cómo hacer un reporte"  → <ReportModal />
        =========================================================== */
-    function renderReport() {
+
+    /** Se construye en el primer clic y queda disponible para el resto. */
+    function buildReportModal() {
         var report = content.report;
 
-        paint('report-title', escapeHtml(report.title));
-
-        paint('report-steps', report.steps.map(function (step, index) {
+        var steps = report.steps.map(function (step, index) {
             var link = step.link
-                ? ' <a href="' + escapeHtml(step.link.href) + '">' + escapeHtml(step.link.label) + '</a>'
+                ? '<a class="bie-step__action" href="' + escapeHtml(step.link.href) + '">' +
+                    escapeHtml(step.link.label) + icon('arrow_forward') + '</a>'
                 : '';
 
-            return '<li class="bst-report__step">' +
-                '<span class="bst-report__num">' + (index + 1) + '</span>' +
-                '<p>' + escapeHtml(step.text) + link + '</p>' +
+            return '<li class="bie-step">' +
+                '<span class="bie-step__num">' + (index + 1) + '</span>' +
+                '<div><p>' + escapeHtml(step.text) + '</p>' + link + '</div>' +
             '</li>';
-        }).join(''));
+        }).join('');
+
+        window.bienestarReport = shell.buildModal({
+            id: 'bst-report',
+            title: report.title,
+            body: '<ul class="bie-steps">' + steps + '</ul>'
+        });
+
+        return window.bienestarReport;
+    }
+
+    /** El disparador se pinta en el hero, así que el clic se delega. */
+    function initReportModal() {
+        if (!shell.buildModal) return;
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('[data-bst-report-open]')) return;
+            (window.bienestarReport || buildReportModal()).open();
+        });
     }
 
     /* ===========================================================
@@ -110,7 +136,6 @@
     function renderAbout() {
         var section = content.about;
 
-        paint('about-eyebrow', escapeHtml(section.eyebrow));
         paint('about-title', escapeHtml(section.title));
         paint('about-text', paragraphs(section.paragraphs));
     }
@@ -121,7 +146,6 @@
     function renderWhatWeDo() {
         var section = content.whatWeDo;
 
-        paint('whatwedo-eyebrow', escapeHtml(section.eyebrow));
         paint('whatwedo-title', escapeHtml(section.title));
         paint('whatwedo-lead', escapeHtml(section.lead));
 
@@ -298,17 +322,20 @@
         paint('contact-eyebrow', escapeHtml(section.eyebrow));
         paint('contact-title', escapeHtml(section.title));
 
-        paint('contact-items', section.items.map(function (item) {
-            var value = item.href
-                ? '<a class="bst-contact-card__value" href="' + escapeHtml(item.href) + '">' + escapeHtml(item.value) + '</a>'
-                : '<p class="bst-contact-card__value">' + escapeHtml(item.value) + '</p>';
+        paint('contact-items', section.cards.map(function (card) {
+            var rows = card.rows.map(function (row) {
+                var value = row.href
+                    ? '<a href="' + escapeHtml(row.href) + '">' + escapeHtml(row.value) + '</a>'
+                    : escapeHtml(row.value);
 
-            return '<article class="bst-contact-card" data-stagger>' +
-                '<span class="bst-contact-card__icon">' + icon(item.icon) + '</span>' +
-                '<div>' +
-                    '<h3 class="bst-contact-card__label">' + escapeHtml(item.label) + '</h3>' +
-                    value +
-                '</div>' +
+                return '<p class="bst-office__row">' +
+                    '<span class="bst-office__label">' + escapeHtml(row.label) + ':</span> ' + value +
+                '</p>';
+            }).join('');
+
+            return '<article class="bst-office" data-stagger>' +
+                '<h3 class="bst-office__title">' + escapeHtml(card.title) + '</h3>' +
+                rows +
             '</article>';
         }).join(''));
 
@@ -352,7 +379,7 @@
 
         applyMeta();
         renderHero();
-        renderReport();
+        initReportModal();
         renderAbout();
         renderWhatWeDo();
         renderUnits();

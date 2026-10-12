@@ -20,6 +20,7 @@
 
 <!--
   MICROSITIO: Bienestar Estudiantil (portada)
+  Hero centrado a ancho completo; el reporte vive en un modal, no en una tarjeta.
   Next.js route sugerida: /bienestar-estudiantil
   Contenido editable: assets/js/bienestar-estudiantil-content.js  (preparado para CMS/Firebase)
   Render e interacciones: assets/js/landing-bienestar-estudiantil.js
@@ -30,43 +31,35 @@
 
 <main id="contenido">
 
-    <!-- ===== 1. HERO + CÓMO HACER UN REPORTE — Component: Hero + ReportCard ===== -->
+    <!-- ===== 1. HERO — Component: Hero ===== -->
+    <!-- "Cómo hacer un reporte" es uno de los CTA: abre el modal del contenido `report` -->
     <section class="bst-hero" id="inicio" data-component="Hero">
         <div class="bst-hero__pattern" aria-hidden="true"></div>
         <div class="bst-hero__glow" aria-hidden="true"></div>
 
         <div class="bie-wrap bst-hero__inner">
-            <div>
-                <p class="bie-eyebrow bie-eyebrow--light" data-render="hero-eyebrow"></p>
-                <h1 class="bst-hero__title" data-render="hero-title">Bienestar Estudiantil</h1>
-                <p class="bst-hero__lead" data-render="hero-lead"></p>
-                <div class="bst-hero__actions" data-render="hero-actions"></div>
-            </div>
-
-            <aside class="bst-report" data-component="ReportCard">
-                <h2 class="bst-report__title" data-render="report-title"></h2>
-                <ol class="bst-report__steps" data-render="report-steps"></ol>
-            </aside>
+            <p class="bie-eyebrow bie-eyebrow--light" data-render="hero-eyebrow"></p>
+            <h1 class="bst-hero__title" data-render="hero-title">Bienestar Estudiantil</h1>
+            <p class="bst-hero__lead" data-render="hero-lead"></p>
+            <div class="bst-hero__actions" data-render="hero-actions"></div>
         </div>
     </section>
 
     <!-- ===== 2. ¿QUIÉNES SOMOS? — Component: About ===== -->
     <section class="bst-section" id="quienes-somos" data-component="About" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
-                <p class="bie-eyebrow" data-render="about-eyebrow"></p>
+            <div class="bst-section__head bst-section__head--center">
                 <h2 class="bie-section-title" data-render="about-title"></h2>
             </div>
 
-            <div class="bst-prose" data-render="about-text"></div>
+            <div class="bst-prose bst-prose--center" data-render="about-text"></div>
         </div>
     </section>
 
     <!-- ===== 3. ¿QUÉ HACEMOS? — Component: WhatWeDo ===== -->
     <section class="bst-section bst-section--soft" id="que-hacemos" data-component="WhatWeDo" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
-                <p class="bie-eyebrow" data-render="whatwedo-eyebrow"></p>
+            <div class="bst-section__head bst-section__head--center">
                 <h2 class="bie-section-title" data-render="whatwedo-title"></h2>
                 <p class="bie-section-lead" data-render="whatwedo-lead"></p>
             </div>
@@ -78,7 +71,7 @@
     <!-- ===== 4. UNIDADES Y PROGRAMAS — Component: Units ===== -->
     <section class="bst-section" id="servicios" data-component="Units" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="units-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="units-title"></h2>
                 <p class="bie-section-lead" data-render="units-lead"></p>
@@ -91,7 +84,7 @@
     <!-- ===== 5. AUTORIDADES — Component: Authorities ===== -->
     <section class="bst-section bst-section--soft" id="autoridades" data-component="Authorities" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="authorities-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="authorities-title"></h2>
                 <p class="bie-section-lead" data-render="authorities-lead"></p>
@@ -113,7 +106,7 @@
     ===== 6. PROCEDIMIENTOS Y PROGRAMAS — Component: Documents =====
     <section class="bst-section" id="normativas" data-component="Documents" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="documents-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="documents-title"></h2>
                 <p class="bie-section-lead" data-render="documents-lead"></p>
@@ -126,12 +119,12 @@
     ===== 7. DERECHOS Y DEBERES — Component: Rights =====
     <section class="bst-section bst-section--soft" id="derechos-y-deberes" data-component="Rights" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="rights-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="rights-title"></h2>
             </div>
 
-            <div class="bst-prose" data-render="rights-text"></div>
+            <div class="bst-prose bst-prose--center" data-render="rights-text"></div>
             <div class="bst-grid bst-grid--2 mt-8" data-render="rights-items" data-stagger-container></div>
         </div>
     </section>
@@ -139,12 +132,12 @@
     ===== 8. AGRUPACIONES ESTUDIANTILES — Component: StudentGroups =====
     <section class="bst-section" id="agrupaciones" data-component="StudentGroups" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="groups-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="groups-title"></h2>
             </div>
 
-            <div class="bst-prose" data-render="groups-text"></div>
+            <div class="bst-prose bst-prose--center" data-render="groups-text"></div>
             <div data-render="groups-list"></div>
         </div>
     </section>
@@ -153,27 +146,28 @@
     <!-- ===== 9. PREGUNTAS FRECUENTES — Component: Faq ===== -->
     <section class="bst-section" id="preguntas-frecuentes" data-component="Faq" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="faq-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="faq-title"></h2>
             </div>
 
             <!-- Acordeón: una respuesta abierta a la vez -->
-            <div class="bst-faq" data-render="faq-items"></div>
+            <div class="bst-faq bst-faq--center" data-render="faq-items"></div>
 
-            <p class="bie-section-lead mt-8" data-render="faq-note"></p>
+            <p class="bie-section-lead mt-8 text-center" data-render="faq-note"></p>
         </div>
     </section>
 
     <!-- ===== 10. CONTACTO — Component: Contact + ContactCta ===== -->
     <section class="bst-section bst-section--soft" id="contacto" data-component="Contact" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head">
+            <div class="bst-section__head bst-section__head--center">
                 <p class="bie-eyebrow" data-render="contact-eyebrow"></p>
                 <h2 class="bie-section-title" data-render="contact-title"></h2>
             </div>
 
-            <div class="bst-grid bst-grid--2" data-render="contact-items" data-stagger-container></div>
+            <!-- Una ficha por oficina del decanato -->
+            <div class="bst-grid bst-grid--3" data-render="contact-items" data-stagger-container></div>
 
             <div class="bst-cta mt-12">
                 <div class="bst-cta__pattern" aria-hidden="true"></div>
@@ -181,7 +175,7 @@
             </div>
 
             <!-- Acceso al panel interno del decanato -->
-            <p data-render="contact-staff"></p>
+            <p class="text-center" data-render="contact-staff"></p>
         </div>
     </section>
 
