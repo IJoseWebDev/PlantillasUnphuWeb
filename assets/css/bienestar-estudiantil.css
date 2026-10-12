@@ -1,0 +1,1292 @@
+﻿/* ========================================
+   PÁGINAS DEL MICROSITIO BIENESTAR ESTUDIANTIL
+   Prefijo BEM: bst-*
+   Depende de: global.css, micrositio-bienestar-estudiantil.css (shell bie-*)
+   y de los tokens de tailwind-config.js
+
+   Índice:
+   1. Ritmo vertical y encabezados de sección
+   2. Hero de portada y tarjeta "Cómo hacer un reporte"
+   3. ¿Qué hacemos? y fichas de autoridades
+   4. Servicios
+   5. Preguntas frecuentes (acordeón)
+   6. Contacto y franja CTA
+   7. Páginas internas: hero compacto, formularios, acceso del personal
+   7b. Bloques de las páginas de unidades y servicios
+   8. Rejillas y animación de entrada
+   ======================================== */
+
+/* ========================================
+   1. RITMO VERTICAL Y ENCABEZADOS
+   ======================================== */
+
+.bst-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+
+@media (min-width: 768px) {
+    .bst-section {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.bst-section--tight {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.bst-section--soft {
+    background: #f3f6f2;
+}
+
+.bst-section--blue {
+    background: linear-gradient(140deg, #0a3859 0%, #0e4f6b 55%, #156b1d 100%);
+    color: #ffffff;
+}
+
+.bst-section__head {
+    max-width: 48rem;
+    margin-bottom: 2.5rem;
+}
+
+.bst-section__head--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.bst-section__head .bie-section-title {
+    margin-top: 0.75rem;
+}
+
+.bst-section__head .bie-section-lead {
+    margin-top: 1rem;
+}
+
+/* El primer bloque ya tiene el aire del encabezado */
+.bst-section > .bie-wrap > .bst-section__head + * {
+    margin-top: 0;
+}
+
+/* ========================================
+   2. HERO DE PORTADA
+   ======================================== */
+
+.bst-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 32rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #06263d 0%, #0a3859 45%, #156b1d 100%);
+    color: #ffffff;
+}
+
+.bst-hero__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity: 0.55;
+}
+
+.bst-hero__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(158, 246, 182, 0.22), transparent 48%);
+}
+
+.bst-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2.5rem;
+    width: 100%;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .bst-hero__inner {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 3.5rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.bst-hero__title {
+    margin: 1rem 0;
+    font-size: clamp(2.5rem, 6.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.bst-hero__lead {
+    max-width: 34rem;
+    font-size: clamp(1rem, 2vw, 1.1875rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bst-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 2.25rem;
+}
+
+/* --- Tarjeta "Cómo hacer un reporte" --- */
+.bst-report {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.75rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 18px 44px rgba(6, 38, 61, 0.28);
+}
+
+@media (min-width: 768px) {
+    .bst-report {
+        padding: 2.25rem;
+    }
+}
+
+.bst-report__title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.bst-report__steps {
+    display: grid;
+    gap: 0.875rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bst-report__step {
+    display: flex;
+    gap: 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bst-report__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+.bst-report__step a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+/* ========================================
+   3. ¿QUÉ HACEMOS? Y RESPONSABLE
+   ======================================== */
+
+.bst-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    height: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(10, 56, 89, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.bst-feature:hover {
+    transform: translateY(-4px);
+    border-color: rgba(21, 107, 29, 0.35);
+    box-shadow: 0 18px 38px rgba(10, 56, 89, 0.12);
+}
+
+.bst-feature__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background: rgba(21, 107, 29, 0.1);
+    color: #156b1d;
+}
+
+.bst-feature__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-feature__text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+/* --- Ficha de autoridad del decanato --- */
+.bst-lead-card {
+    display: grid;
+    gap: 1.75rem;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.75rem;
+    background: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 16px 40px rgba(10, 56, 89, 0.07);
+}
+
+@media (min-width: 900px) {
+    .bst-lead-card {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        padding: 2.5rem;
+    }
+}
+
+/* Monograma: se usa mientras no exista la fotografía oficial */
+.bst-lead-card__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(140deg, #0a3859 0%, #156b1d 100%);
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.bst-lead-card__name {
+    margin-top: 0.75rem;
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0a3859;
+}
+
+.bst-lead-card__role {
+    margin-top: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #156b1d;
+}
+
+.bst-lead-card__bio {
+    margin-top: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #40493d;
+}
+
+.bst-lead-card__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bst-lead-card__contact a,
+.bst-lead-card__contact span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: #f5f8f4;
+    padding: 0.5rem 1rem;
+    color: #0a3859;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.bst-lead-card__contact a:hover {
+    background: rgba(21, 107, 29, 0.12);
+    color: #156b1d;
+}
+
+.bst-lead-card__contact .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    color: #156b1d;
+}
+
+/* ========================================
+   4. SERVICIOS
+   ======================================== */
+
+.bst-service {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    height: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.5rem;
+    background: #ffffff;
+    padding: 1.875rem;
+    box-shadow: 0 12px 30px rgba(10, 56, 89, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.bst-service:hover {
+    transform: translateY(-4px);
+    border-color: rgba(21, 107, 29, 0.3);
+    box-shadow: 0 18px 38px rgba(10, 56, 89, 0.12);
+}
+
+.bst-service__head {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.bst-service__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    background: rgba(10, 56, 89, 0.08);
+    color: #0a3859;
+}
+
+.bst-service__name {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0a3859;
+}
+
+.bst-service__text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+.bst-service__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bst-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 9999px;
+    background: rgba(21, 107, 29, 0.1);
+    padding: 0.3125rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #156b1d;
+}
+
+.bst-service__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: #156b1d;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.bst-service__link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   5. PREGUNTAS FRECUENTES
+   ======================================== */
+
+.bst-faq {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 56rem;
+}
+
+.bst-faq__item {
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.125rem;
+    background: #ffffff;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bst-faq__item:hover {
+    border-color: rgba(21, 107, 29, 0.3);
+}
+
+.bst-faq__item.is-open {
+    border-color: rgba(21, 107, 29, 0.35);
+    box-shadow: 0 14px 32px rgba(10, 56, 89, 0.08);
+}
+
+.bst-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 1.125rem 1.375rem;
+    color: #0a3859;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.bst-faq__chevron {
+    flex-shrink: 0;
+    color: #156b1d;
+    transition: transform 0.2s ease;
+}
+
+.bst-faq__question[aria-expanded="true"] .bst-faq__chevron {
+    transform: rotate(180deg);
+}
+
+.bst-faq__answer {
+    padding: 0 1.375rem 1.375rem;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: #40493d;
+}
+
+.bst-faq__answer[hidden] {
+    display: none;
+}
+
+/* ========================================
+   6. CONTACTO Y FRANJA CTA
+   ======================================== */
+
+.bst-contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    height: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(10, 56, 89, 0.06);
+}
+
+.bst-contact-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    background: rgba(21, 107, 29, 0.1);
+    color: #156b1d;
+}
+
+.bst-contact-card__label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #40493d;
+}
+
+.bst-contact-card__value {
+    margin-top: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #0a3859;
+    word-break: break-word;
+}
+
+a.bst-contact-card__value {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a.bst-contact-card__value:hover {
+    color: #156b1d;
+    text-decoration: underline;
+}
+
+.bst-cta {
+    position: relative;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, #156b1d 0%, #0a3859 100%);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 22px 50px rgba(10, 56, 89, 0.2);
+}
+
+@media (min-width: 768px) {
+    .bst-cta {
+        padding: 3.5rem 3rem;
+    }
+}
+
+.bst-cta__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.5;
+}
+
+.bst-cta__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.bst-cta__text {
+    max-width: 42rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.bst-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.875rem;
+}
+
+/* Enlace discreto al panel interno del decanato */
+.bst-staff-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    color: #40493d;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.bst-staff-link:hover {
+    color: #156b1d;
+    text-decoration: underline;
+}
+
+.bst-staff-link .material-symbols-outlined {
+    font-size: 1.125rem;
+    color: #156b1d;
+}
+
+/* ========================================
+   7. PÁGINAS INTERNAS
+   ======================================== */
+
+/* --- Hero compacto: formularios, emergencia y acceso --- */
+.bst-page-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #06263d 0%, #0a3859 55%, #156b1d 100%);
+    color: #ffffff;
+}
+
+.bst-page-hero--urgent {
+    background: linear-gradient(135deg, #5c0a0a 0%, #8f0f0f 55%, #ba1a1a 100%);
+}
+
+.bst-page-hero__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.5;
+}
+
+.bst-page-hero__inner {
+    position: relative;
+    z-index: 1;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+    .bst-page-hero__inner {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+}
+
+.bst-page-hero__title {
+    margin: 0.875rem 0 1rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.bst-page-hero__lead {
+    max-width: 44rem;
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bst-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.bst-back:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.bst-back .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+/* El enlace de volver ocupa su propia línea: lo sigue el eyebrow, que también
+   es inline-flex y de lo contrario quedaría a su lado */
+.bst-page-hero__inner .bst-back {
+    display: flex;
+    width: fit-content;
+    margin-bottom: 0.875rem;
+}
+
+/* El hero de las páginas de servicio puede llevar su propia botonera */
+.bst-page-hero .bst-actions {
+    margin-top: 2rem;
+}
+
+/* ========================================
+   7b. BLOQUES DE LAS PÁGINAS DE UNIDADES Y SERVICIOS
+   Los pinta landing-bienestar-servicios.js a partir del
+   array `blocks` de cada sección.
+   ======================================== */
+
+.bst-prose {
+    max-width: 52rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #40493d;
+}
+
+.bst-prose p + p {
+    margin-top: 1rem;
+}
+
+.bst-subtitle {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-subtitle:first-child {
+    margin-top: 0;
+}
+
+/* --- Listas con viñeta de icono --- */
+.bst-bullets {
+    display: grid;
+    gap: 0.875rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 58rem;
+}
+
+.bst-bullets__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1rem;
+    background: #ffffff;
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+.bst-bullets__item strong {
+    color: #0a3859;
+}
+
+.bst-bullets__icon {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    font-size: 1.25rem;
+    color: #156b1d;
+}
+
+/* --- Pasos numerados --- */
+.bst-steps {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: bst-step;
+    max-width: 58rem;
+}
+
+.bst-steps__item {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 10px 28px rgba(10, 56, 89, 0.05);
+}
+
+.bst-steps__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background: linear-gradient(140deg, #0a3859 0%, #156b1d 100%);
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+
+.bst-steps__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-steps__text {
+    margin-top: 0.375rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+/* --- Tabla (ejes de Vida Integral) --- */
+.bst-table-wrap {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+}
+
+.bst-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.bst-table th,
+.bst-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+}
+
+.bst-table thead th {
+    background: #f3f6f2;
+    color: #0a3859;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.bst-table tbody tr + tr th,
+.bst-table tbody tr + tr td {
+    border-top: 1px solid rgba(10, 56, 89, 0.1);
+}
+
+.bst-table tbody th {
+    width: 32%;
+    color: #0a3859;
+    font-weight: 700;
+}
+
+.bst-table tbody td {
+    color: #40493d;
+}
+
+/* --- Avisos destacados --- */
+.bst-note {
+    margin-top: 1.5rem;
+    border: 1px solid rgba(10, 56, 89, 0.15);
+    border-left-width: 4px;
+    border-radius: 1rem;
+    background: #f3f6f2;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+    max-width: 58rem;
+}
+
+.bst-note__title {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-note p + p {
+    margin-top: 0.75rem;
+}
+
+.bst-note__list {
+    display: grid;
+    gap: 0.625rem;
+    margin: 0.875rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bst-note__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.bst-note__list .material-symbols-outlined {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    font-size: 1.125rem;
+    color: #156b1d;
+}
+
+.bst-note .bie-btn {
+    margin-top: 1.25rem;
+}
+
+/* Único uso del rojo del sistema fuera de la emergencia: avisos de riesgo */
+.bst-note--urgent {
+    border-color: rgba(186, 26, 26, 0.3);
+    background: #fff5f4;
+}
+
+.bst-note--urgent .bst-note__title {
+    color: #8f0f0f;
+}
+
+.bst-note--urgent .bst-note__list .material-symbols-outlined {
+    color: #ba1a1a;
+}
+
+/* --- Botoneras dentro de una sección --- */
+.bst-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 2rem;
+}
+
+/* --- Fichas de documentos normativos --- */
+.bst-doc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    height: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+}
+
+.bst-doc__code {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #156b1d;
+}
+
+.bst-doc__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #0a3859;
+    text-decoration: none;
+}
+
+a.bst-doc__name:hover {
+    color: #156b1d;
+    text-decoration: underline;
+}
+
+.bst-doc__name .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.bst-doc__text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+.bst-doc__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: #8f0f0f;
+}
+
+.bst-doc__note .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+/* --- Formularios --- */
+.bst-form-layout {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .bst-form-layout {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2.5rem;
+    }
+}
+
+.bst-form {
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.75rem;
+    background: #ffffff;
+    padding: 1.75rem;
+    box-shadow: 0 16px 40px rgba(10, 56, 89, 0.07);
+}
+
+@media (min-width: 768px) {
+    .bst-form {
+        padding: 2.5rem;
+    }
+}
+
+.bst-form__group {
+    border: 0;
+    margin: 0 0 2rem;
+    padding: 0;
+}
+
+.bst-form__group:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.bst-form__legend {
+    padding: 0;
+    margin-bottom: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #156b1d;
+}
+
+.bst-form__grid {
+    display: grid;
+    gap: 1.125rem;
+}
+
+@media (min-width: 768px) {
+    .bst-form__grid--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.bst-field {
+    display: grid;
+    gap: 0.375rem;
+}
+
+.bst-field--full {
+    grid-column: 1 / -1;
+}
+
+.bst-field__label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-field__required {
+    color: #ba1a1a;
+}
+
+.bst-field__hint {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #40493d;
+}
+
+.bst-field input,
+.bst-field select,
+.bst-field textarea {
+    width: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.16);
+    border-radius: 0.875rem;
+    background: #ffffff;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    color: #191c1d;
+}
+
+.bst-field textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.bst-field input:focus,
+.bst-field select:focus,
+.bst-field textarea:focus {
+    border-color: #156b1d;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 107, 29, 0.15);
+}
+
+.bst-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid rgba(10, 56, 89, 0.12);
+    border-radius: 1rem;
+    background: #f5f8f4;
+    padding: 1rem 1.125rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #40493d;
+}
+
+.bst-check input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.1875rem;
+    accent-color: #156b1d;
+}
+
+.bst-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: 1.5rem;
+}
+
+/* Estado de envío: lo gestiona bienestar-estudiantil-formularios.js */
+.bst-form__status {
+    display: none;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    padding: 1rem 1.125rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.bst-form__status.is-visible {
+    display: flex;
+}
+
+.bst-form__status--info {
+    border: 1px dashed rgba(10, 56, 89, 0.3);
+    background: rgba(10, 56, 89, 0.04);
+    color: #40493d;
+}
+
+.bst-form__status--success {
+    border: 1px solid rgba(21, 107, 29, 0.3);
+    background: rgba(21, 107, 29, 0.08);
+    color: #11571a;
+}
+
+.bst-form__status .material-symbols-outlined {
+    flex-shrink: 0;
+}
+
+/* --- Panel lateral de apoyo --- */
+.bst-aside {
+    display: grid;
+    gap: 1rem;
+}
+
+.bst-aside__card {
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.5rem;
+    background: #ffffff;
+    padding: 1.75rem;
+    box-shadow: 0 12px 30px rgba(10, 56, 89, 0.06);
+}
+
+.bst-aside__card--urgent {
+    border-color: rgba(186, 26, 26, 0.25);
+    background: rgba(186, 26, 26, 0.04);
+}
+
+.bst-aside__title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #0a3859;
+}
+
+.bst-aside__text {
+    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #40493d;
+}
+
+.bst-aside__list {
+    display: grid;
+    gap: 0.625rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #40493d;
+}
+
+.bst-aside__list li {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.bst-aside__list .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    color: #156b1d;
+}
+
+.bst-aside__card--urgent .bst-aside__title,
+.bst-aside__card--urgent .bst-aside__list .material-symbols-outlined {
+    color: #ba1a1a;
+}
+
+/* --- Acceso del personal --- */
+.bst-access {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+.bst-access__card {
+    border: 1px solid rgba(10, 56, 89, 0.1);
+    border-radius: 1.75rem;
+    background: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 16px 40px rgba(10, 56, 89, 0.07);
+}
+
+.bst-access__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 1rem;
+    background: linear-gradient(140deg, #0a3859 0%, #156b1d 100%);
+    color: #ffffff;
+}
+
+/* ========================================
+   8. REJILLAS Y ANIMACIÓN DE ENTRADA
+   ======================================== */
+
+.bst-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .bst-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bst-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bst-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+    .bst-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bst-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Respeta prefers-reduced-motion desde el shell bie-* */
+[data-stagger] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-stagger].fade-in-up {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-stagger] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

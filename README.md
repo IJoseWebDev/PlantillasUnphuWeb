@@ -10,6 +10,19 @@ PlantillasUnphuWeb/
 │   ├── internacionalizacion/            # 🌐 Micrositio (varios landings)
 │   │   ├── index.html                   # ✅ Página de entrada del micrositio
 │   │   └── movilidad.html               # ✅ Movilidad nacional e internacional
+│   ├── bienestarEstudiantil/            # 💚 Micrositio (12 páginas)
+│   │   ├── index.html                   # ✅ Portada del decanato
+│   │   ├── unidad-orientacion-vida-estudiantil.html # ✅ UOVE
+│   │   ├── orientacion-vocacional.html  # ✅ Servicio de la UOVE
+│   │   ├── cambio-de-carrera.html       # ✅ Servicio de la UOVE
+│   │   ├── reingreso.html               # ✅ Servicio de la UOVE
+│   │   ├── apoyo-emocional.html         # ✅ Servicio de la UOVE
+│   │   ├── vida-integral.html           # ✅ Programa de formación
+│   │   ├── unidad-progreso-academico.html # ✅ UPA
+│   │   ├── solicitar-cita.html          # ✅ Formulario de cita
+│   │   ├── referir-estudiante.html      # ✅ Formulario de referimiento
+│   │   ├── emergencia-psicologica.html  # ✅ Protocolo de emergencia
+│   │   └── acceso-personal.html         # ✅ Acceso del personal
 │   ├── template.html                     # 🔖 Catálogo de componentes (punto de partida)
 │   ├── acreditacion.html                # ✅ Acreditaciones
 │   ├── bolsa-de-empleo.html             # ✅ Listado de vacantes
@@ -24,6 +37,8 @@ PlantillasUnphuWeb/
 │   │   ├── global.css                   # Estilos, variables, animaciones
 │   │   ├── template.css                 # Componentes base tpl-* + chrome del catálogo
 │   │   ├── micrositio-internacionalizacion.css # Shell intl-* (nav + footer del micrositio)
+│   │   ├── micrositio-bienestar-estudiantil.css # Shell bie-* (botones + modal de emergencia)
+│   │   ├── bienestar-estudiantil.css    # Componentes bst-* del micrositio Bienestar
 │   │   └── [nombre].css                 # Un archivo por landing (prefijo BEM propio)
 │   ├── js/
 │   │   ├── common.js                    # Scroll suave, CTAs globales
@@ -34,6 +49,11 @@ PlantillasUnphuWeb/
 │   │   ├── landing-template.js          # Scaffold + demos del catálogo
 │   │   ├── micrositio-internacionalizacion.js # Shell del micrositio (nav + footer)
 │   │   ├── movilidad-content.js         # Contenido de Movilidad (preparado para CMS)
+│   │   ├── micrositio-bienestar-estudiantil.js # Shell Bienestar (modal de emergencia)
+│   │   ├── bienestar-estudiantil-content.js # Contenido de la portada (preparado para CMS)
+│   │   ├── bienestar-servicios-content.js # Contenido de las 7 páginas de unidad/servicio
+│   │   ├── landing-bienestar-servicios.js # Renderizador genérico por bloques
+│   │   ├── bienestar-estudiantil-formularios.js # Validación y envío de sus formularios
 │   │   └── landing-[nombre].js          # Lógica de cada landing
 │   ├── images/                          # Imágenes (iconos, backgrounds, etc)
 │   └── fonts/                           # Fuentes locales (si aplica)
@@ -109,8 +129,10 @@ Luego:
 
 ## 🌐 Micrositios
 
-Un micrositio es una carpeta dentro de `landings/` que agrupa varios landings y comparte
-navegación, footer y estilos. El primero es **Internacionalización**:
+Un micrositio es una carpeta dentro de `landings/` que agrupa varias páginas y comparte
+estilos y comportamiento. Hay dos: **Internacionalización** y **Bienestar Estudiantil**.
+
+### Internacionalización
 
 ```
 landings/internacionalizacion/
@@ -132,6 +154,65 @@ El contenido vive separado de la presentación: `movilidad-content.js` es la ún
 textos, listados, KPIs, documentos y enlaces. Cuando el dashboard esté conectado, basta con
 sustituir ese objeto por la respuesta del CMS. Los datos aún no suministrados usan
 placeholders visibles (`[Contenido pendiente de proporcionar]`), nunca contenido inventado.
+
+### Bienestar Estudiantil
+
+```
+landings/bienestarEstudiantil/
+├── index.html                  # Portada: quiénes somos, qué hacemos, servicios, autoridades,
+│                               #          normativas, derechos, agrupaciones, FAQ, contacto
+├── unidad-orientacion-vida-estudiantil.html # UOVE: sus 5 servicios, referimiento y principios
+├── orientacion-vocacional.html # Servicio de la UOVE
+├── cambio-de-carrera.html      # Servicio de la UOVE
+├── reingreso.html              # Servicio de la UOVE
+├── apoyo-emocional.html        # Servicio de la UOVE (incluye la emergencia psicológica)
+├── vida-integral.html          # Programa de Formación Estudiantil Vida Integral
+├── unidad-progreso-academico.html # UPA: alertas, intervención psicoeducativa y tutorías
+├── solicitar-cita.html         # Formulario de cita (estudiantes)
+├── referir-estudiante.html     # Formulario de referimiento (docentes, personal, familiares, compañeros)
+├── emergencia-psicologica.html # Protocolo de emergencia (versión de página del modal)
+└── acceso-personal.html        # Destino del enlace "Acceso del personal" de la sección de contacto
+```
+
+Archivos compartidos por el micrositio:
+
+| Archivo | Rol |
+|---------|-----|
+| `assets/css/micrositio-bienestar-estudiantil.css` | Shell `bie-*`: botones, encabezados, modal, `prefers-reduced-motion` |
+| `assets/js/micrositio-bienestar-estudiantil.js` | `EMERGENCY`: protocolo y modal de emergencia de todas las páginas |
+| `assets/css/bienestar-estudiantil.css` | Componentes `bst-*` de las páginas (hero, tarjetas, acordeón, formularios) |
+| `assets/js/bienestar-estudiantil-content.js` | **Todo el contenido editable** de la portada (preparado para CMS/Firebase) |
+| `assets/js/landing-bienestar-estudiantil.js` | Render de la portada |
+| `assets/js/bienestar-servicios-content.js` | **Contenido** de las 7 páginas de unidad y servicio, por bloques |
+| `assets/js/landing-bienestar-servicios.js` | Renderizador genérico: pinta cualquiera de esas 7 páginas |
+| `assets/js/bienestar-estudiantil-formularios.js` | Validación y estado de envío de los dos formularios |
+
+Particularidades:
+
+- Las páginas no llevan header ni footer: al no haber navegación propia, el hero de la
+  portada concentra las acciones (cita, referimiento, contacto y emergencia) y cada página
+  interna vuelve con su enlace `.bst-back`.
+- Cada página declara su identidad en `<body data-page="...">`. Además de resolver los
+  anclajes (`#servicios` en la portada, `index.html#servicios` en el resto), ese valor es la
+  clave con la que las 7 páginas de unidad y servicio localizan su contenido en
+  `window.BIENESTAR_SERVICIOS`.
+- Esas 7 páginas son HTML mínimo (`[data-render="page-hero"]` y `[data-render="page-sections"]`):
+  `landing-bienestar-servicios.js` las pinta a partir de bloques tipados (`prose`, `list`,
+  `steps`, `cards`, `table`, `note`, `faq`, `contact`, `people`, `actions`, `pending`). Añadir
+  una página nueva es añadir una entrada de contenido y un HTML de 60 líneas; en Next.js
+  equivale a un único `<ServicePage content={...} />`.
+- El botón **Emergencia psicológica** abre el modal cuando hay JavaScript y navega a
+  `emergencia-psicologica.html` cuando no lo hay. Ambos leen los mismos datos de `EMERGENCY`.
+- Los formularios tienen el markup en el HTML (usables sin JS) y aún no tienen endpoint:
+  al enviar muestran `[ENVÍO PENDIENTE DE CONEXIÓN]` con la vía de contacto alternativa.
+  El punto de integración es `submitRequest` en `bienestar-estudiantil-formularios.js`.
+- Los datos que el decanato aún no ha confirmado se muestran como `[DATO PENDIENTE DE
+  CONFIRMAR]` o `[Contenido pendiente de proporcionar]`, nunca como contenido inventado.
+  Pendientes actuales: fotografías del equipo, enlaces vigentes a los formularios de
+  solicitud (UOVE y UPA), instancia que formaliza el cambio de carrera y el reingreso,
+  contacto de seguridad universitaria, medio de publicación de la programación de Vida
+  Integral, plataforma de cocurriculares, listado de agrupaciones estudiantiles activas y
+  enlaces a los documentos normativos.
 
 ## 📊 Estructura de un Landing
 

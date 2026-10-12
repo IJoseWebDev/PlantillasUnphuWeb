@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Protocolo de emergencia psicológica del Decanato de Bienestar Estudiantil de la UNPHU. No se requiere cita previa: las emergencias se atienden de inmediato." />
+    <meta name="theme-color" content="#ba1a1a" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Emergencia psicológica | Bienestar Estudiantil UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-bienestar-estudiantil.css" />
+    <link rel="stylesheet" href="../../assets/css/bienestar-estudiantil.css" />
+</head>
+<body class="bie-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-page="emergencia">
+
+<!--
+  MICROSITIO: Bienestar Estudiantil
+  PÁGINA: Emergencia psicológica
+  Next.js route sugerida: /bienestar-estudiantil/emergencia-psicologica
+
+  Versión de página completa del modal de emergencia: sirve como destino sin
+  JavaScript, como enlace directo y como contenido indexable. El protocolo se
+  pinta desde `EMERGENCY` en assets/js/micrositio-bienestar-estudiantil.js,
+  única fuente de estos datos en todo el micrositio.
+  Sin header ni footer: los añade el sitio principal.
+-->
+
+<main id="contenido">
+
+    <!-- ===== HERO COMPACTO — Component: PageHero ===== -->
+    <section class="bst-page-hero bst-page-hero--urgent" data-component="PageHero">
+        <div class="bst-page-hero__pattern" aria-hidden="true"></div>
+        <div class="bie-wrap bst-page-hero__inner">
+            <a class="bst-back" href="index.html">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                Bienestar Estudiantil
+            </a>
+            <h1 class="bst-page-hero__title">Emergencia psicológica</h1>
+            <p class="bst-page-hero__lead">
+                Si tú o un compañero están en riesgo, pide ayuda ahora. La atención es inmediata y no necesitas
+                ningún trámite previo.
+            </p>
+            <p class="mt-6">
+                <a class="bie-btn bie-btn--light" href="tel:911">
+                    <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                    Llamar al 9-1-1
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== PROTOCOLO — Component: EmergencyProtocol ===== -->
+    <section class="bst-section bst-section--tight" data-component="EmergencyProtocol" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow">Qué hacer ahora</p>
+                <h2 class="bie-section-title">Protocolo de atención inmediata</h2>
+            </div>
+
+            <!-- El shell del micrositio pinta aquí los pasos de `EMERGENCY` -->
+            <div class="bst-aside__card" data-bie-emergency-panel></div>
+        </div>
+    </section>
+
+    <!-- ===== DESPUÉS DE LA EMERGENCIA — Component: FollowUp ===== -->
+    <section class="bst-section bst-section--soft bst-section--tight" data-component="FollowUp" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow">Después de la emergencia</p>
+                <h2 class="bie-section-title">Continúa con acompañamiento</h2>
+                <p class="bie-section-lead">
+                    El seguimiento lo coordina la Unidad de Orientación y Vida Estudiantil, que acompaña
+                    tu reincorporación académica. La solicitud la haces tú; no requiere autorización de
+                    tu escuela ni de ninguna otra instancia.
+                </p>
+            </div>
+
+            <div class="bst-grid bst-grid--2" data-stagger-container>
+                <article class="bst-contact-card" data-stagger>
+                    <span class="bst-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">location_on</span></span>
+                    <div>
+                        <h3 class="bst-contact-card__label">Ubicación</h3>
+                        <p class="bst-contact-card__value">Edificio 8, primera planta, contiguo a Registro</p>
+                    </div>
+                </article>
+
+                <article class="bst-contact-card" data-stagger>
+                    <span class="bst-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">schedule</span></span>
+                    <div>
+                        <h3 class="bst-contact-card__label">Horario</h3>
+                        <p class="bst-contact-card__value">Lunes a viernes, 8:00 a. m. a 5:00 p. m.</p>
+                    </div>
+                </article>
+
+                <article class="bst-contact-card" data-stagger>
+                    <span class="bst-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">call</span></span>
+                    <div>
+                        <h3 class="bst-contact-card__label">Unidad de Orientación y Vida Estudiantil</h3>
+                        <a class="bst-contact-card__value" href="tel:+18095626601">809-562-6601, ext. 1119</a>
+                    </div>
+                </article>
+
+                <article class="bst-contact-card" data-stagger>
+                    <span class="bst-contact-card__icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span></span>
+                    <div>
+                        <h3 class="bst-contact-card__label">Correo</h3>
+                        <a class="bst-contact-card__value" href="mailto:orientacion@unphu.edu.do">orientacion@unphu.edu.do</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="bst-form__actions">
+                <a class="bie-btn bie-btn--primary" href="solicitar-cita.html">
+                    Solicitar una cita
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+                <a class="bie-btn bie-btn--outline" href="apoyo-emocional.html">Conocer Apoyo Emocional</a>
+                <a class="bie-btn bie-btn--outline" href="referir-estudiante.html">Referir a un estudiante</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+</body>
+</html>

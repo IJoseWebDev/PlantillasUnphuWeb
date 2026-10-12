@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Decanato de Bienestar Estudiantil de la UNPHU: orientación, apoyo emocional, progreso académico, participación estudiantil, citas, referimientos y emergencias psicológicas." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Bienestar Estudiantil | UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-bienestar-estudiantil.css" />
+    <link rel="stylesheet" href="../../assets/css/bienestar-estudiantil.css" />
+</head>
+<body class="bie-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-page="inicio">
+
+<!--
+  MICROSITIO: Bienestar Estudiantil (portada)
+  Next.js route sugerida: /bienestar-estudiantil
+  Contenido editable: assets/js/bienestar-estudiantil-content.js  (preparado para CMS/Firebase)
+  Render e interacciones: assets/js/landing-bienestar-estudiantil.js
+  Shell compartido (emergencia): assets/js/micrositio-bienestar-estudiantil.js
+  Sin header ni footer: los añade el sitio principal.
+  Orden de secciones acordado con el equipo — NO reordenar ni fusionar.
+-->
+
+<main id="contenido">
+
+    <!-- ===== 1. HERO + CÓMO HACER UN REPORTE — Component: Hero + ReportCard ===== -->
+    <section class="bst-hero" id="inicio" data-component="Hero">
+        <div class="bst-hero__pattern" aria-hidden="true"></div>
+        <div class="bst-hero__glow" aria-hidden="true"></div>
+
+        <div class="bie-wrap bst-hero__inner">
+            <div>
+                <p class="bie-eyebrow bie-eyebrow--light" data-render="hero-eyebrow"></p>
+                <h1 class="bst-hero__title" data-render="hero-title">Bienestar Estudiantil</h1>
+                <p class="bst-hero__lead" data-render="hero-lead"></p>
+                <div class="bst-hero__actions" data-render="hero-actions"></div>
+            </div>
+
+            <aside class="bst-report" data-component="ReportCard">
+                <h2 class="bst-report__title" data-render="report-title"></h2>
+                <ol class="bst-report__steps" data-render="report-steps"></ol>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ===== 2. ¿QUIÉNES SOMOS? — Component: About ===== -->
+    <section class="bst-section" id="quienes-somos" data-component="About" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="about-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="about-title"></h2>
+            </div>
+
+            <div class="bst-prose" data-render="about-text"></div>
+        </div>
+    </section>
+
+    <!-- ===== 3. ¿QUÉ HACEMOS? — Component: WhatWeDo ===== -->
+    <section class="bst-section bst-section--soft" id="que-hacemos" data-component="WhatWeDo" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="whatwedo-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="whatwedo-title"></h2>
+                <p class="bie-section-lead" data-render="whatwedo-lead"></p>
+            </div>
+
+            <div class="bst-grid bst-grid--3" data-render="whatwedo-items" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 4. UNIDADES Y PROGRAMAS — Component: Units ===== -->
+    <section class="bst-section" id="servicios" data-component="Units" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="units-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="units-title"></h2>
+                <p class="bie-section-lead" data-render="units-lead"></p>
+            </div>
+
+            <div class="bst-grid bst-grid--2" data-render="units-items" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 5. AUTORIDADES — Component: Authorities ===== -->
+    <section class="bst-section bst-section--soft" id="autoridades" data-component="Authorities" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="authorities-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="authorities-title"></h2>
+                <p class="bie-section-lead" data-render="authorities-lead"></p>
+            </div>
+
+            <!-- Una ficha por autoridad del decanato -->
+            <div class="bst-grid" data-render="authorities-items" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 6. PROCEDIMIENTOS Y PROGRAMAS — Component: Documents ===== -->
+    <section class="bst-section" id="normativas" data-component="Documents" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="documents-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="documents-title"></h2>
+                <p class="bie-section-lead" data-render="documents-lead"></p>
+            </div>
+
+            <div class="bst-grid bst-grid--3" data-render="documents-items" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 7. DERECHOS Y DEBERES — Component: Rights ===== -->
+    <section class="bst-section bst-section--soft" id="derechos-y-deberes" data-component="Rights" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="rights-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="rights-title"></h2>
+            </div>
+
+            <div class="bst-prose" data-render="rights-text"></div>
+            <div class="bst-grid bst-grid--2 mt-8" data-render="rights-items" data-stagger-container></div>
+        </div>
+    </section>
+
+    <!-- ===== 8. AGRUPACIONES ESTUDIANTILES — Component: StudentGroups ===== -->
+    <section class="bst-section" id="agrupaciones" data-component="StudentGroups" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="groups-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="groups-title"></h2>
+            </div>
+
+            <div class="bst-prose" data-render="groups-text"></div>
+            <div data-render="groups-list"></div>
+        </div>
+    </section>
+
+    <!-- ===== 9. PREGUNTAS FRECUENTES — Component: Faq ===== -->
+    <section class="bst-section bst-section--soft" id="preguntas-frecuentes" data-component="Faq" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="faq-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="faq-title"></h2>
+            </div>
+
+            <!-- Acordeón: una respuesta abierta a la vez -->
+            <div class="bst-faq" data-render="faq-items"></div>
+
+            <p class="bie-section-lead mt-8" data-render="faq-note"></p>
+        </div>
+    </section>
+
+    <!-- ===== 10. CONTACTO — Component: Contact + ContactCta ===== -->
+    <section class="bst-section" id="contacto" data-component="Contact" data-animate="fade">
+        <div class="bie-wrap">
+            <div class="bst-section__head">
+                <p class="bie-eyebrow" data-render="contact-eyebrow"></p>
+                <h2 class="bie-section-title" data-render="contact-title"></h2>
+            </div>
+
+            <div class="bst-grid bst-grid--2" data-render="contact-items" data-stagger-container></div>
+
+            <div class="bst-cta mt-12">
+                <div class="bst-cta__pattern" aria-hidden="true"></div>
+                <div class="bst-cta__inner" data-render="contact-cta"></div>
+            </div>
+
+            <!-- Acceso al panel interno del decanato -->
+            <p data-render="contact-staff"></p>
+        </div>
+    </section>
+
+</main>
+
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+<script src="../../assets/js/bienestar-estudiantil-content.js"></script>
+<script src="../../assets/js/landing-bienestar-estudiantil.js"></script>
+</body>
+</html>

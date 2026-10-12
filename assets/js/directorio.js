@@ -6,6 +6,15 @@
 
     var LANDINGS = [
         {
+            title: 'Bienestar Estudiantil (micrositio)',
+            tag: 'Bienestar Estudiantil',
+            description: 'Micrositio del Decanato de Bienestar Estudiantil: unidades y servicios (orientación, apoyo emocional, progreso académico, Vida Integral), solicitud de cita, referimiento de estudiantes y protocolo de emergencia psicológica.',
+            href: 'landings/bienestarEstudiantil/index.html',
+            added: '2026-10-12',
+            badge: 'green',
+            cta: 'Abrir micrositio'
+        },
+        {
             title: 'Internacionalización (micrositio)',
             tag: 'Internacionalización',
             description: 'Micrositio de Internacionalización: página de entrada con acceso al landing de Movilidad.',

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Acceso del personal del Decanato de Bienestar Estudiantil de la UNPHU al panel de gestión de citas, referimientos y contenidos del micrositio." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Acceso del personal | Bienestar Estudiantil UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-bienestar-estudiantil.css" />
+    <link rel="stylesheet" href="../../assets/css/bienestar-estudiantil.css" />
+</head>
+<body class="bie-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-page="acceso">
+
+<!--
+  MICROSITIO: Bienestar Estudiantil
+  PÁGINA: Acceso del personal
+  Next.js route sugerida: /bienestar-estudiantil/acceso-personal
+
+  Destino del enlace "Acceso del personal" de la sección de contacto. El panel
+  de gestión y su método de autenticación aún no existen: la página NO simula
+  un inicio de sesión, deja el acceso deshabilitado con su placeholder y ofrece
+  la vía de contacto del decanato.
+  Sin header ni footer: los añade el sitio principal.
+-->
+
+<main id="contenido">
+
+    <!-- ===== HERO COMPACTO — Component: PageHero ===== -->
+    <section class="bst-page-hero" data-component="PageHero">
+        <div class="bst-page-hero__pattern" aria-hidden="true"></div>
+        <div class="bie-wrap bst-page-hero__inner">
+            <a class="bst-back" href="index.html">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                Bienestar Estudiantil
+            </a>
+            <h1 class="bst-page-hero__title">Acceso del personal</h1>
+            <p class="bst-page-hero__lead">
+                Área reservada al personal del Decanato de Bienestar Estudiantil para gestionar citas,
+                referimientos y los contenidos del micrositio.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== ACCESO — Component: StaffAccess ===== -->
+    <section class="bst-section bst-section--tight" data-component="StaffAccess" data-animate="fade">
+        <div class="bie-wrap bst-access">
+
+            <div class="bst-access__card">
+                <span class="bst-access__icon">
+                    <span class="material-symbols-outlined" aria-hidden="true">admin_panel_settings</span>
+                </span>
+                <h2 class="bst-aside__title mt-5">Panel de gestión</h2>
+                <p class="bst-aside__text">
+                    Desde aquí el personal autorizado entrará al panel donde se administran las solicitudes de
+                    cita, los referimientos y el contenido editable del micrositio.
+                </p>
+
+                <p class="mt-6">
+                    <!-- Mientras no exista la URL del panel el botón permanece deshabilitado -->
+                    <button type="button" class="bie-btn bie-btn--primary" aria-disabled="true" disabled>
+                        Entrar al panel
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </button>
+                </p>
+
+                <p class="mt-4">
+                    <span class="bie-placeholder">
+                        <span class="material-symbols-outlined" aria-hidden="true">pending</span>
+                        [ENLACE PENDIENTE DE PROPORCIONAR]
+                    </span>
+                </p>
+
+                <p class="bst-aside__text">
+                    El método de autenticación institucional queda pendiente de definición con Tecnología de la
+                    Información.
+                </p>
+            </div>
+
+            <div class="bst-access__card">
+                <h2 class="bst-aside__title">¿Necesitas acceso?</h2>
+                <p class="bst-aside__text">
+                    Solicítalo al Decanato de Bienestar Estudiantil indicando tu nombre, cargo y dependencia.
+                </p>
+                <ul class="bst-aside__list">
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                        <span>809-562-6601, ext. 1122 y 1123.</span>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        <a class="bst-service__link" href="mailto:bienestarestudiantil@unphu.edu.do">bienestarestudiantil@unphu.edu.do</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+                        <span>Edificio 8, primera planta, contiguo a Registro.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+</body>
+</html>

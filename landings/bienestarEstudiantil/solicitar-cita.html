@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solicita una cita con el Decanato de Bienestar Estudiantil de la UNPHU: orientación, apoyo emocional, acompañamiento psicopedagógico y tutorías." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Solicitar una cita | Bienestar Estudiantil UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-bienestar-estudiantil.css" />
+    <link rel="stylesheet" href="../../assets/css/bienestar-estudiantil.css" />
+</head>
+<body class="bie-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-page="cita">
+
+<!--
+  MICROSITIO: Bienestar Estudiantil
+  PÁGINA: Solicitar una cita
+  Next.js route sugerida: /bienestar-estudiantil/solicitar-cita
+  Comportamiento: assets/js/bienestar-estudiantil-formularios.js
+  Shell compartido (emergencia): assets/js/micrositio-bienestar-estudiantil.js
+  Sin header ni footer: los añade el sitio principal.
+
+  Los campos viven en el HTML para que la página sea usable sin JavaScript.
+  El envío todavía no tiene sistema receptor: el formulario muestra un
+  placeholder con la vía de contacto alternativa (ver `ENDPOINT` en el JS).
+-->
+
+<main id="contenido">
+
+    <!-- ===== HERO COMPACTO — Component: PageHero ===== -->
+    <section class="bst-page-hero" data-component="PageHero">
+        <div class="bst-page-hero__pattern" aria-hidden="true"></div>
+        <div class="bie-wrap bst-page-hero__inner">
+            <a class="bst-back" href="index.html">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                Bienestar Estudiantil
+            </a>
+            <h1 class="bst-page-hero__title">Solicitar una cita</h1>
+            <p class="bst-page-hero__lead">
+                La solicitud la haces tú; no requiere autorización de tu escuela. Completa el formulario y el
+                decanato te contactará por tu correo institucional.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FORMULARIO — Component: AppointmentForm ===== -->
+    <section class="bst-section bst-section--tight" data-component="AppointmentForm" data-animate="fade">
+        <div class="bie-wrap bst-form-layout">
+
+            <form class="bst-form" id="form-cita" data-bie-form="solicitud-cita" novalidate>
+                <!-- Estado del envío: lo pinta bienestar-estudiantil-formularios.js -->
+                <div class="bst-form__status" data-form-status role="status" aria-live="polite"></div>
+
+                <fieldset class="bst-form__group">
+                    <legend class="bst-form__legend">Tus datos</legend>
+
+                    <div class="bst-form__grid bst-form__grid--2">
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="cita-nombre">
+                                Nombre completo <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="cita-nombre" name="nombre" autocomplete="name" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-matricula">
+                                Matrícula <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="cita-matricula" name="matricula" inputmode="numeric" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-escuela">
+                                Escuela o carrera <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="cita-escuela" name="escuela" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-correo">
+                                Correo institucional <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="email" id="cita-correo" name="correo" autocomplete="email" required />
+                            <p class="bst-field__hint">Usamos tu correo institucional para confirmar la cita.</p>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-telefono">Teléfono</label>
+                            <input type="tel" id="cita-telefono" name="telefono" autocomplete="tel" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bst-form__group">
+                    <legend class="bst-form__legend">Sobre la cita</legend>
+
+                    <div class="bst-form__grid bst-form__grid--2">
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="cita-motivo">
+                                Motivo <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <!-- Un motivo por servicio de atención individual del decanato -->
+                            <select id="cita-motivo" name="motivo" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="orientacion-vocacional">Orientación vocacional</option>
+                                <option value="cambio-carrera">Cambio de carrera</option>
+                                <option value="reingreso">Reingreso</option>
+                                <option value="apoyo-emocional">Apoyo emocional</option>
+                                <option value="psicopedagogico">Acompañamiento psicopedagógico o tutorías (UPA)</option>
+                                <option value="vida-integral">Programa de Formación Vida Integral</option>
+                                <option value="participacion">Participación estudiantil y liderazgo</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-modalidad">
+                                Modalidad <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <select id="cita-modalidad" name="modalidad" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="presencial">Presencial</option>
+                                <option value="virtual">Virtual</option>
+                            </select>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="cita-horario">
+                                Horario preferido <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <!-- Franjas dentro del horario del decanato: 8:00 a. m. a 5:00 p. m. -->
+                            <select id="cita-horario" name="horario" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="manana">Mañana, 8:00 a. m. a 12:00 m.</option>
+                                <option value="tarde">Tarde, 1:00 p. m. a 5:00 p. m.</option>
+                            </select>
+                        </div>
+
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="cita-mensaje">Cuéntanos brevemente</label>
+                            <textarea id="cita-mensaje" name="mensaje" rows="5"></textarea>
+                            <p class="bst-field__hint">
+                                Comparte solo lo que consideres necesario. Lo que escribas se maneja de forma confidencial.
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="bst-field bst-field--full">
+                    <label class="bst-check">
+                        <input type="checkbox" id="cita-consentimiento" name="consentimiento" required />
+                        <span>
+                            Autorizo al Decanato de Bienestar Estudiantil a contactarme mediante los datos
+                            suministrados.
+                        </span>
+                    </label>
+                </div>
+
+                <div class="bst-form__actions">
+                    <button type="submit" class="bie-btn bie-btn--primary">
+                        Enviar solicitud
+                        <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                    </button>
+                    <a class="bie-btn bie-btn--outline" href="index.html">Volver al inicio</a>
+                </div>
+            </form>
+
+            <!-- Component: FormAside -->
+            <aside class="bst-aside" data-component="FormAside">
+                <div class="bst-aside__card">
+                    <h2 class="bst-aside__title">Antes de solicitar</h2>
+                    <ul class="bst-aside__list">
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">how_to_reg</span>
+                            <span>La solicitud la haces tú; no requiere autorización de tu escuela.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+                            <span>Edificio 8, primera planta, contiguo a Registro.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                            <span>Lunes a viernes, 8:00 a. m. a 5:00 p. m.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                            <span>Decanato: 809-562-6601, ext. 1122 y 1123.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">psychology</span>
+                            <span>Unidad de Orientación y Vida Estudiantil: ext. 1119.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                            <a class="bst-service__link" href="mailto:orientacion@unphu.edu.do">orientacion@unphu.edu.do</a>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">event_available</span>
+                            <span>Cambio de carrera y reingreso dependen del calendario académico: verifica las fechas antes de solicitar.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bst-aside__card bst-aside__card--urgent">
+                    <h2 class="bst-aside__title">¿Es una emergencia?</h2>
+                    <p class="bst-aside__text">
+                        No se requiere cita previa ni formulario. Las emergencias se atienden de inmediato.
+                    </p>
+                    <p class="mt-4">
+                        <a class="bie-btn bie-btn--sm bie-btn--urgent" href="emergencia-psicologica.html" data-bie-emergency-open>
+                            <span class="material-symbols-outlined" aria-hidden="true">emergency_home</span>
+                            Ver qué hacer ahora
+                        </a>
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+</main>
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/forms.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+<script src="../../assets/js/bienestar-estudiantil-formularios.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Refiere a un estudiante al Decanato de Bienestar Estudiantil de la UNPHU: alertas académicas, acompañamiento psicopedagógico y apoyo emocional." />
+    <meta name="theme-color" content="#156b1d" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Referir a un estudiante | Bienestar Estudiantil UNPHU</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-bienestar-estudiantil.css" />
+    <link rel="stylesheet" href="../../assets/css/bienestar-estudiantil.css" />
+</head>
+<body class="bie-page bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-page="referir">
+
+<!--
+  MICROSITIO: Bienestar Estudiantil
+  PÁGINA: Referir a un estudiante
+  Next.js route sugerida: /bienestar-estudiantil/referir-estudiante
+  Comportamiento: assets/js/bienestar-estudiantil-formularios.js
+  Shell compartido (emergencia): assets/js/micrositio-bienestar-estudiantil.js
+  Sin header ni footer: los añade el sitio principal.
+
+  Dirigido a docentes, personal y compañeros. El envío todavía no tiene sistema
+  receptor: el formulario muestra un placeholder con la vía de contacto
+  alternativa (ver `ENDPOINT` en el JS).
+-->
+
+<main id="contenido">
+
+    <!-- ===== HERO COMPACTO — Component: PageHero ===== -->
+    <section class="bst-page-hero" data-component="PageHero">
+        <div class="bst-page-hero__pattern" aria-hidden="true"></div>
+        <div class="bie-wrap bst-page-hero__inner">
+            <a class="bst-back" href="index.html">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                Bienestar Estudiantil
+            </a>
+            <h1 class="bst-page-hero__title">Referir a un estudiante</h1>
+            <p class="bst-page-hero__lead">
+                Si notas que un estudiante necesita acompañamiento académico, psicopedagógico o apoyo emocional,
+                comunícalo al decanato para que reciba atención.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FORMULARIO — Component: ReferralForm ===== -->
+    <section class="bst-section bst-section--tight" data-component="ReferralForm" data-animate="fade">
+        <div class="bie-wrap bst-form-layout">
+
+            <form class="bst-form" id="form-referimiento" data-bie-form="referimiento" novalidate>
+                <!-- Estado del envío: lo pinta bienestar-estudiantil-formularios.js -->
+                <div class="bst-form__status" data-form-status role="status" aria-live="polite"></div>
+
+                <fieldset class="bst-form__group">
+                    <legend class="bst-form__legend">Quién refiere</legend>
+
+                    <div class="bst-form__grid bst-form__grid--2">
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="ref-nombre">
+                                Nombre completo <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="ref-nombre" name="referenteNombre" autocomplete="name" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-rol">
+                                Relación con el estudiante <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <select id="ref-rol" name="referenteRol" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="docente">Docente</option>
+                                <option value="direccion">Dirección o coordinación de escuela</option>
+                                <option value="administrativo">Personal administrativo</option>
+                                <option value="estudiante">Compañero de estudios</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-dependencia">Escuela o dependencia</label>
+                            <input type="text" id="ref-dependencia" name="referenteDependencia" />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-correo">
+                                Correo institucional <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="email" id="ref-correo" name="referenteCorreo" autocomplete="email" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-telefono">Teléfono o extensión</label>
+                            <input type="tel" id="ref-telefono" name="referenteTelefono" autocomplete="tel" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bst-form__group">
+                    <legend class="bst-form__legend">Estudiante referido</legend>
+
+                    <div class="bst-form__grid bst-form__grid--2">
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="ref-estudiante">
+                                Nombre completo <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="ref-estudiante" name="estudianteNombre" required />
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-matricula">Matrícula</label>
+                            <input type="text" id="ref-matricula" name="estudianteMatricula" inputmode="numeric" />
+                            <p class="bst-field__hint">Si no la conoces, déjala en blanco.</p>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-carrera">Escuela o carrera</label>
+                            <input type="text" id="ref-carrera" name="estudianteCarrera" />
+                        </div>
+
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="ref-correo-estudiante">Correo institucional del estudiante</label>
+                            <input type="email" id="ref-correo-estudiante" name="estudianteCorreo" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bst-form__group">
+                    <legend class="bst-form__legend">Motivo del referimiento</legend>
+
+                    <div class="bst-form__grid bst-form__grid--2">
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-motivo">
+                                Motivo <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <!-- Los motivos corresponden a las unidades y programas del decanato -->
+                            <select id="ref-motivo" name="motivo" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="alerta-academica">Alerta académica</option>
+                                <option value="aprendizaje">Dificultades de aprendizaje</option>
+                                <option value="emocional">Situación emocional</option>
+                                <option value="inasistencia">Inasistencia o riesgo de abandono</option>
+                                <option value="adaptacion">Adaptación de nuevo ingreso</option>
+                                <option value="inclusion">Inclusión y atención a la diversidad</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="bst-field">
+                            <label class="bst-field__label" for="ref-prioridad">
+                                Nivel de atención <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <select id="ref-prioridad" name="prioridad" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="seguimiento">Requiere seguimiento</option>
+                                <option value="pronta">Requiere atención pronta</option>
+                            </select>
+                            <p class="bst-field__hint">
+                                Si hay riesgo inmediato, no uses este formulario:
+                                <a class="bst-service__link" href="emergencia-psicologica.html" data-bie-emergency-open>sigue el protocolo de emergencia</a>.
+                            </p>
+                        </div>
+
+                        <div class="bst-field bst-field--full">
+                            <label class="bst-field__label" for="ref-descripcion">
+                                Descripción de la situación <span class="bst-field__required" aria-hidden="true">*</span>
+                            </label>
+                            <textarea id="ref-descripcion" name="descripcion" rows="6" minlength="20" required></textarea>
+                            <p class="bst-field__hint">Describe lo observado con hechos concretos: lo que compartas se maneja de forma confidencial.</p>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="bst-field bst-field--full">
+                    <label class="bst-check">
+                        <input type="checkbox" id="ref-confidencialidad" name="confidencialidad" required />
+                        <span>
+                            Confirmo que la información suministrada es veraz y entiendo que será tratada de forma
+                            confidencial por el Decanato de Bienestar Estudiantil.
+                        </span>
+                    </label>
+                </div>
+
+                <div class="bst-form__actions">
+                    <button type="submit" class="bie-btn bie-btn--primary">
+                        Enviar referimiento
+                        <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                    </button>
+                    <a class="bie-btn bie-btn--outline" href="index.html">Volver al inicio</a>
+                </div>
+            </form>
+
+            <!-- Component: FormAside -->
+            <aside class="bst-aside" data-component="FormAside">
+                <div class="bst-aside__card">
+                    <h2 class="bst-aside__title">Qué atiende el decanato</h2>
+                    <ul class="bst-aside__list">
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">school</span>
+                            <span>Alertas académicas, acompañamiento psicopedagógico y tutorías (UPA).</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">support_agent</span>
+                            <span>Orientación vocacional, cambio de carrera, reingreso y apoyo emocional.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">accessibility_new</span>
+                            <span>Igualdad de oportunidades y atención a la diversidad (Programa Incluyo).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bst-aside__card">
+                    <h2 class="bst-aside__title">Seguimiento del referimiento</h2>
+                    <p class="bst-aside__text">
+                        Recibido el referimiento, la Unidad de Orientación y Vida Estudiantil se pone en
+                        contacto con el estudiante para ofrecerle los servicios disponibles. El referimiento
+                        no obliga al estudiante a iniciar un proceso: la participación es siempre voluntaria,
+                        y la identidad de quien refiere se maneja con discreción.
+                    </p>
+                    <ul class="bst-aside__list">
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                            <span>809-562-6601, ext. 1119.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                            <a class="bst-service__link" href="mailto:orientacion@unphu.edu.do">orientacion@unphu.edu.do</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bst-aside__card bst-aside__card--urgent">
+                    <h2 class="bst-aside__title">Riesgo inmediato</h2>
+                    <p class="bst-aside__text">
+                        Si la persona en riesgo es un compañero, no lo dejes solo y solicita ayuda de inmediato.
+                    </p>
+                    <p class="mt-4">
+                        <a class="bie-btn bie-btn--sm bie-btn--urgent" href="emergencia-psicologica.html" data-bie-emergency-open>
+                            <span class="material-symbols-outlined" aria-hidden="true">emergency_home</span>
+                            Ver qué hacer ahora
+                        </a>
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+</main>
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/forms.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+<script src="../../assets/js/bienestar-estudiantil-formularios.js"></script>
+</body>
+</html>
