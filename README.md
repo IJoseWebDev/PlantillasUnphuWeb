@@ -417,6 +417,17 @@ Estructura final:
 | Los estilos se ven raros | Limpia caché o abre en incógnito |
 | Rutas de archivos rotas | Verifica que estés en `landings/` |
 | Formularios no validan | Asegúrate que `forms.js` esté cargado |
+| En Vercel los enlaces de un micrositio dan 404 | `cleanUrls` debe seguir en `false` (ver abajo) |
+
+### Despliegue en Vercel
+
+`vercel.json` mantiene **`"cleanUrls": false`** a propósito. Con `cleanUrls` activo, Vercel
+redirige `/landings/bienestarEstudiantil/index.html` a `/landings/bienestarEstudiantil`, una
+URL sin barra final: el navegador deja de considerarla una carpeta y resuelve los enlaces
+relativos un nivel por encima (`apoyo-emocional.html` termina en `/landings/apoyo-emocional.html`,
+que no existe). Como todas las páginas enlazan con rutas relativas —requisito para abrirlas
+en local y para integrarlas luego en el sitio principal—, la extensión `.html` debe conservarse
+en la URL. `trailingSlash: true` tampoco sirve: arregla las portadas y rompe las páginas internas.
 
 ## 📚 Documentación Completa
 
