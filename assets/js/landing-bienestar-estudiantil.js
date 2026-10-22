@@ -18,7 +18,9 @@
     'use strict';
 
     var shell = window.MicrositioBienestarEstudiantil || {};
+    var visual = window.BienestarVisual;
     var content = window.BIENESTAR_CONTENT;
+    var photos = (visual && visual.photos) || {};
 
     var escapeHtml = shell.escapeHtml || function (text) {
         return String(text === null || typeof text === 'undefined' ? '' : text);
@@ -89,6 +91,19 @@
         paint('hero-title', escapeHtml(hero.title));
         paint('hero-lead', escapeHtml(hero.lead));
         paint('hero-actions', hero.ctas.map(ctaMarkup).join(''));
+
+        if (!visual) return;
+
+        /* El collage usa las fotos del campus. Si el CMS carga una imagen
+           propia del hero, ocupa el lugar principal. */
+        var main = (hero.image && hero.image.src)
+            ? { src: hero.image.src, alt: hero.image.alt || 'Decanato de Bienestar Estudiantil', position: 'center center' }
+            : photos.grupo;
+
+        paint('hero-media',
+            visual.figure(main, 'bst-hero__photo bst-hero__photo--main', false) +
+            visual.figure(photos.equipo, 'bst-hero__photo', false) +
+            visual.figure(photos.picnic, 'bst-hero__photo', false));
     }
 
     /* ===========================================================
@@ -137,7 +152,24 @@
         var section = content.about;
 
         paint('about-title', escapeHtml(section.title));
-        paint('about-text', paragraphs(section.paragraphs));
+
+        if (!visual) {
+            paint('about-text', paragraphs(section.paragraphs));
+            return;
+        }
+
+        visual.figure && paint('about-media', visual.imgTag(photos.amigas, true));
+
+        visual.registerDetail(
+            'bst-home-about',
+            section.title,
+            paragraphs(section.paragraphs),
+            photos.amigas
+        );
+
+        paint('about-text',
+            '<p class="bst-spotlight__excerpt">' + escapeHtml(visual.excerpt(section.paragraphs[0], 180)) + '</p>' +
+            visual.moreButton('bst-home-about', 'Leer quiénes somos'));
     }
 
     /* ===========================================================
@@ -149,11 +181,37 @@
         paint('whatwedo-title', escapeHtml(section.title));
         paint('whatwedo-lead', escapeHtml(section.lead));
 
+        var featurePhotos = {
+            escuchamos: photos.charla,
+            acompanamiento: photos.lectura,
+            'formacion-integral': photos.bienestar,
+            participacion: photos.equipo,
+            merito: photos.sonrisa
+        };
+
         paint('whatwedo-items', section.items.map(function (item) {
-            return '<article class="bst-feature" data-stagger>' +
-                '<span class="bst-feature__icon">' + icon(item.icon) + '</span>' +
-                '<h3 class="bst-feature__title">' + escapeHtml(item.title) + '</h3>' +
-                '<p class="bst-feature__text">' + escapeHtml(item.text) + '</p>' +
+            var photo = featurePhotos[item.id] || photos.grupo;
+            var detailId = 'bst-home-que-' + item.id;
+
+            if (visual) {
+                visual.registerDetail(detailId, item.title, '<p>' + escapeHtml(item.text) + '</p>', photo);
+            }
+
+            if (!visual) {
+                return '<article class="bst-feature" data-stagger>' +
+                    '<span class="bst-feature__icon">' + icon(item.icon) + '</span>' +
+                    '<h3 class="bst-feature__title">' + escapeHtml(item.title) + '</h3>' +
+                    '<p class="bst-feature__text">' + escapeHtml(item.text) + '</p>' +
+                '</article>';
+            }
+
+            return '<article class="bst-feature bst-feature--media" data-stagger>' +
+                visual.figure(photo, 'bst-feature__media') +
+                '<div class="bst-feature__body">' +
+                    '<span class="bst-feature__icon">' + icon(item.icon) + '</span>' +
+                    '<h3 class="bst-feature__title">' + escapeHtml(item.title) + '</h3>' +
+                    visual.moreButton(detailId, 'Leer más') +
+                '</div>' +
             '</article>';
         }).join(''));
     }
@@ -168,10 +226,30 @@
         paint('units-title', escapeHtml(section.title));
         paint('units-lead', escapeHtml(section.lead));
 
+        var unitPhotos = {
+            uove: photos.charla,
+            upa: photos.tutoria,
+            acogida: photos.grupo,
+            'vida-integral': photos.bienestar,
+            merito: photos.sonrisa,
+            incluyo: photos.grupoAire
+        };
+
         paint('units-items', section.items.map(function (unit) {
             var tags = (unit.tags || []).map(function (tag) {
                 return '<li class="bst-tag">' + escapeHtml(tag) + '</li>';
             }).join('');
+
+            var photo = unitPhotos[unit.id] || photos.picnic;
+            var detailId = 'bst-home-unit-' + unit.id;
+            var description = unit.description
+                ? '<p>' + escapeHtml(unit.description) + '</p>'
+                : '<p>' + placeholder(content.pending.content) + '</p>';
+
+            if (visual) {
+                visual.registerDetail(detailId, unit.name, description +
+                    (tags ? '<ul class="bst-service__tags">' + tags + '</ul>' : ''), photo);
+            }
 
             /* Sin página propia, la tarjeta ofrece la vía general de contacto. */
             var link = unit.href
@@ -180,16 +258,33 @@
                 : '<a class="bst-service__link" href="solicitar-cita.html">' +
                     'Solicitar una cita' + icon('arrow_forward') + '</a>';
 
-            return '<article class="bst-service" data-stagger>' +
-                '<div class="bst-service__head">' +
-                    '<span class="bst-service__icon">' + icon(unit.icon) + '</span>' +
-                    '<h3 class="bst-service__name">' + escapeHtml(unit.name) + '</h3>' +
+            if (!visual) {
+                return '<article class="bst-service" data-stagger>' +
+                    '<div class="bst-service__head">' +
+                        '<span class="bst-service__icon">' + icon(unit.icon) + '</span>' +
+                        '<h3 class="bst-service__name">' + escapeHtml(unit.name) + '</h3>' +
+                    '</div>' +
+                    '<p class="bst-service__text">' +
+                        (unit.description ? escapeHtml(unit.description) : placeholder(content.pending.content)) +
+                    '</p>' +
+                    (tags ? '<ul class="bst-service__tags">' + tags + '</ul>' : '') +
+                    link +
+                '</article>';
+            }
+
+            return '<article class="bst-service bst-service--media" data-stagger>' +
+                visual.figure(photo, 'bst-service__media') +
+                '<div class="bst-service__body">' +
+                    '<div class="bst-service__head">' +
+                        '<span class="bst-service__icon">' + icon(unit.icon) + '</span>' +
+                        '<h3 class="bst-service__name">' + escapeHtml(unit.name) + '</h3>' +
+                    '</div>' +
+                    (tags ? '<ul class="bst-service__tags">' + tags + '</ul>' : '') +
+                    '<div class="bst-service__actions">' +
+                        visual.moreButton(detailId, 'Leer descripción') +
+                        link +
+                    '</div>' +
                 '</div>' +
-                '<p class="bst-service__text">' +
-                    (unit.description ? escapeHtml(unit.description) : placeholder(content.pending.content)) +
-                '</p>' +
-                (tags ? '<ul class="bst-service__tags">' + tags + '</ul>' : '') +
-                link +
             '</article>';
         }).join(''));
     }
@@ -204,24 +299,40 @@
         paint('authorities-title', escapeHtml(section.title));
         paint('authorities-lead', escapeHtml(section.lead));
 
-        paint('authorities-items', section.items.map(function (person) {
+        var host = paint('authorities-items', section.items.map(function (person) {
             var contacts = person.contacts.map(function (item) {
                 return '<li><a href="' + escapeHtml(item.href) + '">' +
                     icon(item.icon) + escapeHtml(item.label) +
                 '</a></li>';
             }).join('');
 
+            var detailId = 'bst-home-person-' + person.id;
+            if (visual) {
+                visual.registerDetail(
+                    detailId,
+                    person.name,
+                    '<p class="bst-lead-card__role">' + escapeHtml(person.role) + '</p>' +
+                    '<p>' + escapeHtml(person.bio) + '</p>'
+                );
+            }
+
             return '<article class="bst-lead-card" data-stagger>' +
-                /* Monograma decorativo: se reemplaza por la foto oficial cuando exista. */
+                /* Monograma: las fotos del campus no son retratos del equipo. */
                 '<span class="bst-lead-card__avatar" aria-hidden="true">' + escapeHtml(person.initials) + '</span>' +
                 '<div>' +
                     '<h3 class="bst-lead-card__name">' + escapeHtml(person.name) + '</h3>' +
                     '<p class="bst-lead-card__role">' + escapeHtml(person.role) + '</p>' +
-                    '<p class="bst-lead-card__bio">' + escapeHtml(person.bio) + '</p>' +
+                    (visual
+                        ? visual.moreButton(detailId, 'Ver trayectoria')
+                        : '<p class="bst-lead-card__bio">' + escapeHtml(person.bio) + '</p>') +
                     '<ul class="bst-lead-card__contact">' + contacts + '</ul>' +
                 '</div>' +
             '</article>';
         }).join(''));
+
+        if (host) {
+            host.classList.add('bst-grid--3');
+        }
     }
 
     /* ===========================================================
@@ -300,7 +411,28 @@
         paint('faq-eyebrow', escapeHtml(section.eyebrow));
         paint('faq-title', escapeHtml(section.title));
 
-        var host = paint('faq-items', shell.faqMarkup(section.items, content.pending.answer));
+        var markup;
+
+        if (!visual) {
+            markup = shell.faqMarkup(section.items, content.pending.answer);
+        } else {
+            markup = '<div class="bst-faq-picks">' + section.items.map(function (item) {
+                var detailId = 'bst-home-' + item.id;
+                var answer = item.answer
+                    ? '<p>' + escapeHtml(item.answer) + '</p>'
+                    : '<p>' + placeholder(content.pending.answer) + '</p>';
+
+                visual.registerDetail(detailId, item.question, answer);
+
+                return '<button type="button" class="bst-faq-pick" data-bst-detail="' + escapeHtml(detailId) + '" aria-haspopup="dialog">' +
+                    icon('quiz') +
+                    '<span class="bst-faq-pick__label">' + escapeHtml(item.question) + '</span>' +
+                    icon('arrow_forward') +
+                '</button>';
+            }).join('') + '</div>';
+        }
+
+        var host = paint('faq-items', markup);
 
         if (section.note) {
             var link = section.note.link
@@ -310,7 +442,9 @@
             paint('faq-note', escapeHtml(section.note.text) + link);
         }
 
-        shell.initFaqAccordion(host);
+        if (!visual && shell.initFaqAccordion) {
+            shell.initFaqAccordion(host);
+        }
     }
 
     /* ===========================================================
@@ -321,6 +455,12 @@
 
         paint('contact-eyebrow', escapeHtml(section.eyebrow));
         paint('contact-title', escapeHtml(section.title));
+
+        if (visual) {
+            paint('contact-gallery', [photos.picnic, photos.equipo, photos.grupo, photos.estudio].map(function (item) {
+                return '<figure class="bst-gallery__item">' + visual.imgTag(item, true) + '</figure>';
+            }).join(''));
+        }
 
         paint('contact-items', section.cards.map(function (card) {
             var rows = card.rows.map(function (row) {

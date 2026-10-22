@@ -20,7 +20,7 @@
 
 <!--
   MICROSITIO: Bienestar Estudiantil (portada)
-  Hero centrado a ancho completo; el reporte vive en un modal, no en una tarjeta.
+  Hero con fotografía del campus; el texto largo vive en modales.
   Next.js route sugerida: /bienestar-estudiantil
   Contenido editable: assets/js/bienestar-estudiantil-content.js  (preparado para CMS/Firebase)
   Render e interacciones: assets/js/landing-bienestar-estudiantil.js
@@ -33,26 +33,33 @@
 
     <!-- ===== 1. HERO — Component: Hero ===== -->
     <!-- "Cómo hacer un reporte" es uno de los CTA: abre el modal del contenido `report` -->
-    <section class="bst-hero" id="inicio" data-component="Hero">
+    <section class="bst-hero bst-hero--visual" id="inicio" data-component="Hero">
         <div class="bst-hero__pattern" aria-hidden="true"></div>
         <div class="bst-hero__glow" aria-hidden="true"></div>
 
-        <div class="bie-wrap bst-hero__inner">
-            <p class="bie-eyebrow bie-eyebrow--light" data-render="hero-eyebrow"></p>
-            <h1 class="bst-hero__title" data-render="hero-title">Bienestar Estudiantil</h1>
-            <p class="bst-hero__lead" data-render="hero-lead"></p>
-            <div class="bst-hero__actions" data-render="hero-actions"></div>
+        <div class="bie-wrap bst-hero__layout">
+            <div class="bst-hero__copy">
+                <p class="bie-eyebrow bie-eyebrow--light" data-render="hero-eyebrow"></p>
+                <h1 class="bst-hero__title" data-render="hero-title">Bienestar Estudiantil</h1>
+                <p class="bst-hero__lead" data-render="hero-lead"></p>
+                <div class="bst-hero__actions" data-render="hero-actions"></div>
+            </div>
+            <div class="bst-hero__collage" data-render="hero-media"></div>
         </div>
     </section>
 
     <!-- ===== 2. ¿QUIÉNES SOMOS? — Component: About ===== -->
     <section class="bst-section" id="quienes-somos" data-component="About" data-animate="fade">
         <div class="bie-wrap">
-            <div class="bst-section__head bst-section__head--center">
-                <h2 class="bie-section-title" data-render="about-title"></h2>
+            <div class="bst-about">
+                <figure class="bst-frame" data-render="about-media"></figure>
+                <div>
+                    <div class="bst-section__head">
+                        <h2 class="bie-section-title" data-render="about-title"></h2>
+                    </div>
+                    <div data-render="about-text"></div>
+                </div>
             </div>
-
-            <div class="bst-prose bst-prose--center" data-render="about-text"></div>
         </div>
     </section>
 
@@ -77,7 +84,7 @@
                 <p class="bie-section-lead" data-render="units-lead"></p>
             </div>
 
-            <div class="bst-grid bst-grid--2" data-render="units-items" data-stagger-container></div>
+            <div class="bst-grid bst-grid--3" data-render="units-items" data-stagger-container></div>
         </div>
     </section>
 
@@ -166,6 +173,8 @@
                 <h2 class="bie-section-title" data-render="contact-title"></h2>
             </div>
 
+            <div class="bst-gallery" data-render="contact-gallery"></div>
+
             <!-- Una ficha por oficina del decanato -->
             <div class="bst-grid bst-grid--3" data-render="contact-items" data-stagger-container></div>
 
@@ -186,6 +195,7 @@
 <script src="../../assets/js/animations.js"></script>
 <script src="../../assets/js/common.js"></script>
 <script src="../../assets/js/micrositio-bienestar-estudiantil.js"></script>
+<script src="../../assets/js/bienestar-estudiantil-visual.js"></script>
 <script src="../../assets/js/bienestar-estudiantil-content.js"></script>
 <script src="../../assets/js/landing-bienestar-estudiantil.js"></script>
 </body>
