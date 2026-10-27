@@ -6,7 +6,7 @@
 
 .une-hero {
     display: grid;
-    min-height: calc(100vh - var(--une-nav-height));
+    min-height: 100vh;
     background: var(--une-blue-deep);
     color: #ffffff;
 }
@@ -663,7 +663,7 @@
     border-radius: 1.75rem;
     padding: 1.4rem;
     position: sticky;
-    top: calc(var(--une-nav-height) + 1rem);
+    top: 1rem;
 }
 
 .une-apply-card h2 {
