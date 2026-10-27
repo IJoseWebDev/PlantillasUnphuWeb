@@ -6,6 +6,15 @@
 
     var LANDINGS = [
         {
+            title: 'Únete a UNPHU (micrositio)',
+            tag: 'Gestión Humana',
+            description: 'Reclutamiento de la Dirección de Gestión Humana: vacantes activas, postulación a un puesto y Banco de Talento. El envío de formularios es una demostración.',
+            href: 'landings/uneteUnphu/index.html',
+            added: '2026-10-27',
+            badge: 'green',
+            cta: 'Abrir micrositio'
+        },
+        {
             title: 'Bienestar Estudiantil (micrositio)',
             tag: 'Bienestar Estudiantil',
             description: 'Micrositio del Decanato de Bienestar Estudiantil: unidades y servicios (orientación, apoyo emocional, progreso académico, Vida Integral), solicitud de cita, referimiento de estudiantes y protocolo de emergencia psicológica.',

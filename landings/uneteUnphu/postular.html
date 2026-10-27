@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Postulación a una vacante de la UNPHU. Formulario de demostración de la Dirección de Gestión Humana." />
+    <meta name="theme-color" content="#0A3859" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Postular a un puesto | Únete a UNPHU</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-unete-unphu.css" />
+    <link rel="stylesheet" href="../../assets/css/unete-unphu.css" />
+</head>
+<body class="une-page font-body-md antialiased" data-page="postular">
+
+<a class="une-skip" href="#contenido">Saltar al contenido</a>
+
+<header class="une-nav" data-une-nav>
+    <div class="une-wrap une-nav__bar">
+        <a class="une-nav__brand" href="index.html">
+            <img src="../../assets/images/favicon.svg" alt="" width="36" height="36" />
+            <span>
+                <span class="une-nav__kicker">Gestión Humana</span>
+                <span class="une-nav__name">Únete a UNPHU</span>
+            </span>
+        </a>
+        <button class="une-nav__toggle" type="button" data-une-toggle aria-expanded="false" aria-controls="une-menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+            Menú
+        </button>
+        <nav id="une-menu" class="une-nav__menu" aria-label="Micrositio">
+            <a href="index.html">Inicio</a>
+            <a href="vacantes.html" aria-current="page">Vacantes</a>
+            <a href="banco-de-talento.html">Banco de talento</a>
+            <a href="index.html#como-postularte">Cómo postularte</a>
+            <a href="privacidad.html">Privacidad</a>
+        </nav>
+    </div>
+</header>
+
+<main id="contenido">
+    <section class="une-page-hero">
+        <img src="../../assets/images/unete-unphu/conversacion.jpg" alt="Conversación entre dos personas en una oficina" />
+        <div class="une-page-hero__shade"></div>
+        <div class="une-wrap une-page-hero__inner">
+            <a class="une-back" href="vacantes.html"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> Vacantes</a>
+            <h1>Postular a un puesto</h1>
+        </div>
+    </section>
+
+    <section class="une-section">
+        <div class="une-wrap une-form-layout">
+            <form class="une-form" id="form-postular" data-une-form="vacante" novalidate onsubmit="return false;">
+                <div class="une-status" data-une-status role="status" aria-live="polite"></div>
+
+                <div class="une-note">
+                    <span class="material-symbols-outlined" aria-hidden="true">science</span>
+                    <p>Demostración. Al enviar no se manda ningún correo y tu currículum no se guarda. Gestión Humana todavía no recibe postulaciones desde aquí.</p>
+                </div>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">El puesto</legend>
+                    <div class="une-field">
+                        <label class="une-field__label" for="postular-vacante">Puesto al que aplicas <span class="une-field__required">*</span></label>
+                        <select id="postular-vacante" name="vacanteId" data-une-puestos required>
+                            <option value="">Selecciona una vacante</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">Datos personales</legend>
+                    <div class="une-form__grid une-form__grid--2">
+                        <div class="une-field une-field--full">
+                            <label class="une-field__label" for="postular-nombre">Nombre completo <span class="une-field__required">*</span></label>
+                            <input id="postular-nombre" name="nombre" type="text" autocomplete="name" required minlength="3" />
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-cedula">Cédula o documento <span class="une-field__required">*</span></label>
+                            <input id="postular-cedula" name="cedula" type="text" inputmode="numeric" placeholder="000-0000000-0" required pattern="\d{3}-\d{7}-\d{1}" />
+                            <p class="une-field__hint">Formato 000-0000000-0.</p>
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-telefono">Teléfono <span class="une-field__required">*</span></label>
+                            <input id="postular-telefono" name="telefono" type="tel" autocomplete="tel" required />
+                        </div>
+                        <div class="une-field une-field--full">
+                            <label class="une-field__label" for="postular-correo">Correo electrónico <span class="une-field__required">*</span></label>
+                            <input id="postular-correo" name="correo" type="email" autocomplete="email" required />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">Interés profesional</legend>
+                    <div class="une-form__grid une-form__grid--2">
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-area">Área de interés <span class="une-field__required">*</span></label>
+                            <select id="postular-area" name="area" data-une-options="areas" required>
+                                <option value="">Selecciona un área</option>
+                            </select>
+                        </div>
+                        <div class="une-field" data-une-area-otra hidden>
+                            <label class="une-field__label" for="postular-area-otra">¿Cuál área? <span class="une-field__required">*</span></label>
+                            <input id="postular-area-otra" name="areaOtra" type="text" data-une-require="true" />
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-tipo">Tipo de vacante <span class="une-field__required">*</span></label>
+                            <select id="postular-tipo" name="tipoVacante" data-une-options="tiposVacante" required>
+                                <option value="">Selecciona un tipo</option>
+                            </select>
+                        </div>
+                        <div class="une-field" data-une-tipo-otra hidden>
+                            <label class="une-field__label" for="postular-tipo-otra">¿Cuál tipo? <span class="une-field__required">*</span></label>
+                            <input id="postular-tipo-otra" name="tipoOtra" type="text" data-une-require="true" />
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-nivel">Nivel de posición <span class="une-field__required">*</span></label>
+                            <select id="postular-nivel" name="nivelPosicion" data-une-options="nivelesPosicion" required>
+                                <option value="">Selecciona un nivel</option>
+                            </select>
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-academico">Nivel académico actual <span class="une-field__required">*</span></label>
+                            <select id="postular-academico" name="nivelAcademico" data-une-options="nivelesAcademicos" required>
+                                <option value="">Selecciona un nivel</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">Experiencia y disponibilidad</legend>
+                    <div class="une-field" data-une-group="tieneExperiencia">
+                        <p class="une-field__label">¿Cuenta con experiencia laboral? <span class="une-field__required">*</span></p>
+                        <div class="une-choices">
+                            <label><input type="radio" name="tieneExperiencia" value="si" /> Sí</label>
+                            <label><input type="radio" name="tieneExperiencia" value="no" /> No</label>
+                        </div>
+                        <p class="une-group-error" data-une-error></p>
+                    </div>
+                    <div class="une-form__grid une-form__grid--2" style="margin-top:1rem">
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-tiempo">Tiempo de experiencia</label>
+                            <select id="postular-tiempo" name="tiempoExperiencia" data-une-options="tiemposExperiencia">
+                                <option value="">Selecciona un rango</option>
+                            </select>
+                        </div>
+                        <div class="une-field" data-une-group="disponibilidad">
+                            <p class="une-field__label">Disponibilidad para incorporarse <span class="une-field__required">*</span></p>
+                            <div class="une-choices">
+                                <label><input type="radio" name="disponibilidad" value="inmediata" /> Inmediata</label>
+                                <label><input type="radio" name="disponibilidad" value="entrevista" /> A determinar en entrevista</label>
+                            </div>
+                            <p class="une-group-error" data-une-error></p>
+                        </div>
+                        <div class="une-field une-field--full">
+                            <label class="une-field__label" for="postular-experiencia">Experiencia laboral más relevante</label>
+                            <textarea id="postular-experiencia" name="experiencia" maxlength="800"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">Familiares y aspiración</legend>
+                    <div class="une-field" data-une-group="familiares">
+                        <p class="une-field__label">¿Tiene familiares laborando en la UNPHU? <span class="une-field__required">*</span></p>
+                        <div class="une-choices">
+                            <label><input type="radio" name="familiares" value="no" /> No</label>
+                            <label><input type="radio" name="familiares" value="si" /> Sí</label>
+                        </div>
+                        <p class="une-field__hint">Un «sí» solo queda registrado. No impide postular.</p>
+                        <p class="une-group-error" data-une-error></p>
+                    </div>
+                    <div class="une-form__grid une-form__grid--2" data-une-family hidden style="margin-top:1rem">
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-parentesco">Parentesco <span class="une-field__required">*</span></label>
+                            <input id="postular-parentesco" name="parentesco" type="text" data-une-require="true" />
+                        </div>
+                        <div class="une-field">
+                            <label class="une-field__label" for="postular-familiar">Nombre del familiar <span class="une-field__required">*</span></label>
+                            <input id="postular-familiar" name="nombreFamiliar" type="text" data-une-require="true" />
+                        </div>
+                    </div>
+                    <div class="une-field" style="margin-top:1rem">
+                        <label class="une-field__label" for="postular-salario">Aspiración salarial mensual <span class="une-field__required">*</span></label>
+                        <select id="postular-salario" name="aspiracionSalarial" data-une-options="salarios" required>
+                            <option value="">Selecciona un rango</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset class="une-form__group">
+                    <legend class="une-form__legend">Currículum</legend>
+                    <div class="une-field">
+                        <label class="une-file" for="postular-cv">
+                            <strong>Adjunta tu CV en PDF <span class="une-field__required">*</span></strong>
+                            <span class="une-field__hint">Máximo 10 MB. Obligatorio.</span>
+                            <input id="postular-cv" name="cv" type="file" accept=".pdf,application/pdf" required />
+                        </label>
+                    </div>
+                    <div class="une-field" style="margin-top:1rem">
+                        <label class="une-field__label" for="postular-linkedin">LinkedIn, portafolio o perfil profesional</label>
+                        <input id="postular-linkedin" name="linkedin" type="url" placeholder="https://" />
+                        <p class="une-field__hint">Opcional.</p>
+                    </div>
+                </fieldset>
+
+                <div class="une-field" data-une-group="consentimiento">
+                    <div class="une-consent">
+                        <input id="postular-consent" name="consentimiento" type="checkbox" value="acepto" required />
+                        <label for="postular-consent">He leído y acepto la Política de Privacidad y autorizo a la Universidad Nacional Pedro Henríquez Ureña (UNPHU) a tratar mis datos personales para fines de reclutamiento, selección y consideración en futuras oportunidades laborales.</label>
+                    </div>
+                    <p class="une-field__hint"><a href="privacidad.html">Leer la política completa</a></p>
+                    <p class="une-group-error" data-une-error></p>
+                </div>
+
+                <div class="une-form__actions">
+                    <button class="une-btn une-btn--primary" type="submit">Simular postulación</button>
+                    <a class="une-btn une-btn--line" href="banco-de-talento.html">Prefiero el Banco de Talento</a>
+                </div>
+            </form>
+
+            <aside class="une-aside">
+                <div class="une-receipt">
+                    <p class="une-receipt__label">Así se clasificaría</p>
+                    <p class="une-receipt__subject" data-une-subject>[Vacante] Puesto — Nombre</p>
+                </div>
+                <img src="../../assets/images/unete-unphu/taller.jpg" alt="Equipo trabajando en conjunto" style="width:100%;height:14rem;object-fit:cover;border-radius:1.5rem" />
+            </aside>
+        </div>
+    </section>
+</main>
+
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/forms.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/unete-unphu-content.js"></script>
+<script src="../../assets/js/micrositio-unete-unphu.js"></script>
+<script src="../../assets/js/unete-unphu-formularios.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ PlantillasUnphuWeb/
 │   ├── internacionalizacion/            # 🌐 Micrositio (varios landings)
 │   │   ├── index.html                   # ✅ Página de entrada del micrositio
 │   │   └── movilidad.html               # ✅ Movilidad nacional e internacional
+│   ├── uneteUnphu/                      # 👥 Micrositio Gestión Humana (6 páginas)
 │   ├── bienestarEstudiantil/            # 💚 Micrositio (12 páginas)
 │   │   ├── index.html                   # ✅ Portada del decanato
 │   │   ├── unidad-orientacion-vida-estudiantil.html # ✅ UOVE
@@ -37,6 +38,8 @@ PlantillasUnphuWeb/
 │   │   ├── global.css                   # Estilos, variables, animaciones
 │   │   ├── template.css                 # Componentes base tpl-* + chrome del catálogo
 │   │   ├── micrositio-internacionalizacion.css # Shell intl-* (nav + footer del micrositio)
+│   │   ├── micrositio-unete-unphu.css   # Shell une-* (nav + formularios de Únete a UNPHU)
+│   │   ├── unete-unphu.css              # Páginas del micrositio Únete a UNPHU
 │   │   ├── micrositio-bienestar-estudiantil.css # Shell bie-* (botones + modal de emergencia)
 │   │   ├── bienestar-estudiantil.css    # Componentes bst-* del micrositio Bienestar
 │   │   └── [nombre].css                 # Un archivo por landing (prefijo BEM propio)
@@ -54,6 +57,10 @@ PlantillasUnphuWeb/
 │   │   ├── bienestar-servicios-content.js # Contenido de las 7 páginas de unidad/servicio
 │   │   ├── landing-bienestar-servicios.js # Renderizador genérico por bloques
 │   │   ├── bienestar-estudiantil-formularios.js # Validación y envío de sus formularios
+│   │   ├── unete-unphu-content.js       # Contenido de Únete a UNPHU (vacantes y listas)
+│   │   ├── micrositio-unete-unphu.js    # Shell del micrositio Únete a UNPHU
+│   │   ├── landing-unete-unphu.js       # Render de vacantes
+│   │   ├── unete-unphu-formularios.js   # Validación y simulación de envío
 │   │   └── landing-[nombre].js          # Lógica de cada landing
 │   ├── images/                          # Imágenes (iconos, backgrounds, etc)
 │   └── fonts/                           # Fuentes locales (si aplica)
@@ -154,6 +161,23 @@ El contenido vive separado de la presentación: `movilidad-content.js` es la ún
 textos, listados, KPIs, documentos y enlaces. Cuando el dashboard esté conectado, basta con
 sustituir ese objeto por la respuesta del CMS. Los datos aún no suministrados usan
 placeholders visibles (`[Contenido pendiente de proporcionar]`), nunca contenido inventado.
+
+### Únete a UNPHU
+
+Micrositio de reclutamiento de la Dirección de Gestión Humana. Las vacantes viven en
+`assets/js/unete-unphu-content.js`. Los campos que Gestión Humana aún no envió se muestran
+como «Contenido pendiente de proporcionar». Los formularios simulan la clasificación y no
+envían correo.
+
+```
+landings/uneteUnphu/
+├── index.html
+├── vacantes.html
+├── vacante.html
+├── postular.html
+├── banco-de-talento.html
+└── privacidad.html
+```
 
 ### Bienestar Estudiantil
 

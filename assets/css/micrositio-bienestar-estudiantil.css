@@ -1,4 +1,6 @@
-﻿/* ========================================
+﻿@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700&display=swap");
+
+/* ========================================
    MICROSITIO BIENESTAR ESTUDIANTIL — SHELL COMPARTIDO
    Prefijo BEM: bie-*
    Usado por: landings/bienestarEstudiantil/index.html
@@ -14,41 +16,54 @@
    ======================================== */
 
 .bie-page {
-    --bie-blue: #0a3859;
-    --bie-blue-deep: #06263d;
-    --bie-green: #156b1d;
+    --bie-blue: #0f385a;
+    --bie-blue-deep: #0a2c48;
+    --bie-green: #439441;
     --bie-green-light: #439441;
-    --bie-ink: #191c1d;
-    --bie-muted: #40493d;
-    --bie-line: rgba(10, 56, 89, 0.12);
+    --bie-ink: #222222;
+    --bie-muted: #3d3d3d;
+    --bie-line: rgba(15, 56, 90, 0.12);
     --bie-surface: #ffffff;
-    --bie-surface-soft: #f3f6f2;
+    --bie-surface-soft: #f4f6f5;
     --bie-urgent: #ba1a1a;
     --bie-urgent-soft: #ffdad6;
-    --bie-grad: linear-gradient(120deg, #0a3859 0%, #156b1d 100%);
+    --bie-grad: linear-gradient(120deg, #0f385a 0%, #439441 100%);
+    --text-lead-size: 1.125rem;
+    --text-lead-line-height: 1.6;
+    --text-eyebrow-size: 0.875rem;
+    --text-eyebrow-weight: 500;
+    --text-eyebrow-tracking: 0.14em;
+    --text-btn-size: 1rem;
+    --text-btn-weight: 500;
+    --text-btn-tracking: 0;
+    --text-body-md-size: 1rem;
+    --text-body-sm-size: 0.875rem;
+    --text-card-title-size: 1.125rem;
+    font-family: "Geist", "Lato", sans-serif;
+    color: var(--bie-ink);
 }
 
 /* --- Contenedor --- */
 .bie-wrap {
     width: 100%;
-    max-width: 82rem;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 @media (min-width: 768px) {
     .bie-wrap {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     .bie-wrap {
-        padding-left: 3.5rem;
-        padding-right: 3.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 
@@ -81,11 +96,12 @@
 .bie-btn--primary {
     background: var(--bie-green);
     color: #ffffff;
-    box-shadow: 0 12px 28px rgba(21, 107, 29, 0.25);
+    box-shadow: 0 10px 24px rgba(67, 148, 65, 0.28);
 }
 
 .bie-btn--primary:hover {
-    background: #11571a;
+    background: #367a35;
+    transform: scale(1.04);
 }
 
 .bie-btn--light {
@@ -104,13 +120,14 @@
 }
 
 .bie-btn--outline {
-    border-color: var(--bie-line);
-    background: #ffffff;
-    color: var(--bie-blue);
+    border-color: rgba(67, 148, 65, 0.45);
+    background: transparent;
+    color: var(--bie-green);
 }
 
 .bie-btn--outline:hover {
     border-color: var(--bie-green);
+    background: rgba(67, 148, 65, 0.08);
     color: var(--bie-green);
 }
 
@@ -152,10 +169,10 @@
 }
 
 .bie-section-title {
-    font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: var(--bie-blue);
 }
 
@@ -164,9 +181,11 @@
 }
 
 .bie-section-lead {
-    font-size: var(--text-lead-size);
-    line-height: 1.7;
-    color: var(--bie-muted);
+    max-width: 46rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--bie-ink);
 }
 
 /* --- Placeholders de contenido pendiente --- */
@@ -242,9 +261,10 @@
 }
 
 .bie-modal__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.25;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: var(--bie-blue);
 }
 

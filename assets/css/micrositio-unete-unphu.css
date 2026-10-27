@@ -1,0 +1,552 @@
+/* ========================================
+   MICROSITIO ÚNETE A UNPHU — SHELL
+   Prefijo BEM: une-*
+   Usado por: landings/uneteUnphu/*.html
+   Contiene: tokens, navegación, botones, formularios,
+             cierre del micrositio y reduced-motion.
+   Sin header ni footer del sitio principal (ARCHITECTURE.md).
+   Reutiliza tokens de global.css y tailwind-config.js.
+   ======================================== */
+
+.une-page {
+    --une-blue: #0a3859;
+    --une-blue-deep: #06263d;
+    --une-green: #156b1d;
+    --une-green-bright: #439441;
+    --une-mint: #e5f6e4;
+    --une-ink: #191c1d;
+    --une-muted: #40493d;
+    --une-paper: #f3f6f2;
+    --une-line: rgba(10, 56, 89, 0.14);
+    --une-nav-height: 4.5rem;
+    --une-grad: linear-gradient(135deg, #06263d 0%, #0a3859 48%, #156b1d 100%);
+    color: var(--une-ink);
+    background: #f7f8f6;
+    overflow-x: hidden;
+}
+
+.une-page h1,
+.une-page h2,
+.une-page h3,
+.une-display {
+    font-family: "Montserrat", "Lato", sans-serif;
+}
+
+.une-wrap {
+    width: 100%;
+    max-width: 82rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .une-wrap {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.une-skip {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 80;
+    border-radius: 9999px;
+    background: var(--une-green);
+    padding: 0.75rem 1.25rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.une-skip:focus {
+    top: 1rem;
+}
+
+/* --- Navegación del micrositio --- */
+.une-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(247, 248, 246, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--une-line);
+}
+
+.une-nav__bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: var(--une-nav-height);
+}
+
+.une-nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--une-blue);
+    text-decoration: none;
+    min-width: 0;
+}
+
+.une-nav__brand img {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+}
+
+.une-nav__kicker {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--une-green);
+}
+
+.une-nav__name {
+    display: block;
+    font-family: "Montserrat", "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+.une-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: auto;
+    border: 1px solid var(--une-line);
+    border-radius: 9999px;
+    background: #ffffff;
+    padding: 0.45rem 0.9rem;
+    color: var(--une-blue);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.une-nav__menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: #ffffff;
+    border-bottom: 1px solid var(--une-line);
+    padding: 0.75rem 1.25rem 1rem;
+}
+
+.une-nav.is-open .une-nav__menu {
+    display: flex;
+}
+
+.une-nav__menu a {
+    border-radius: 9999px;
+    padding: 0.7rem 1rem;
+    color: var(--une-blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.une-nav__menu a[aria-current="page"] {
+    background: var(--une-blue);
+    color: #ffffff;
+}
+
+.une-nav__menu a:hover {
+    background: var(--une-mint);
+}
+
+.une-nav__menu a[aria-current="page"]:hover {
+    background: var(--une-blue-deep);
+    color: #ffffff;
+}
+
+@media (min-width: 960px) {
+    .une-nav__toggle {
+        display: none;
+    }
+
+    .une-nav__menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25rem;
+        margin-left: auto;
+        border: 0;
+        background: transparent;
+        padding: 0;
+    }
+}
+
+/* --- Botones --- */
+.une-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 0.75rem 1.35rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.une-btn:hover {
+    transform: translateY(-2px);
+}
+
+.une-btn--primary {
+    background: var(--une-green);
+    color: #ffffff;
+}
+
+.une-btn--primary:hover {
+    background: #0f5518;
+}
+
+.une-btn--light {
+    background: #ffffff;
+    color: var(--une-blue);
+}
+
+.une-btn--ghost {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+}
+
+.une-btn--line {
+    background: transparent;
+    border-color: var(--une-blue);
+    color: var(--une-blue);
+}
+
+.une-btn--line:hover {
+    background: var(--une-blue);
+    color: #ffffff;
+}
+
+/* --- Formularios --- */
+.une-form-layout {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (min-width: 980px) {
+    .une-form-layout {
+        grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.7fr);
+    }
+}
+
+.une-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #ffffff;
+    border: 1px solid var(--une-line);
+    border-radius: 1.75rem;
+    padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .une-form {
+        padding: 2rem;
+    }
+}
+
+.une-form__legend {
+    font-family: "Montserrat", "Lato", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--une-blue);
+    margin-bottom: 1rem;
+}
+
+.une-form__group {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.une-form__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 720px) {
+    .une-form__grid--2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.une-field--full {
+    grid-column: 1 / -1;
+}
+
+.une-field__label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--une-blue);
+}
+
+.une-field__required {
+    color: #9b1c1c;
+}
+
+.une-field__hint {
+    margin-top: 0.35rem;
+    color: var(--une-muted);
+    font-size: 0.82rem;
+}
+
+.une-form input[type="text"],
+.une-form input[type="email"],
+.une-form input[type="tel"],
+.une-form input[type="url"],
+.une-form select,
+.une-form textarea {
+    width: 100%;
+    border: 1px solid rgba(10, 56, 89, 0.22);
+    border-radius: 0.9rem;
+    background: #fbfcfb;
+    padding: 0.8rem 0.9rem;
+    color: var(--une-ink);
+    font: inherit;
+}
+
+.une-form textarea {
+    min-height: 7.5rem;
+    resize: vertical;
+}
+
+.une-form input:focus,
+.une-form select:focus,
+.une-form textarea:focus {
+    outline: 2px solid var(--une-green);
+    outline-offset: 1px;
+    border-color: var(--une-green);
+    background: #ffffff;
+}
+
+.une-form input[aria-invalid="true"],
+.une-form select[aria-invalid="true"],
+.une-form textarea[aria-invalid="true"] {
+    border-color: #9b1c1c;
+}
+
+.une-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.une-choices label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid var(--une-line);
+    border-radius: 9999px;
+    background: #ffffff;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+}
+
+.une-choices input {
+    accent-color: var(--une-green);
+}
+
+.une-file {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border: 1.5px dashed rgba(10, 56, 89, 0.35);
+    border-radius: 1.25rem;
+    background: var(--une-paper);
+    padding: 1.1rem;
+    cursor: pointer;
+}
+
+.une-file input {
+    font: inherit;
+}
+
+.une-file strong {
+    color: var(--une-blue);
+}
+
+.une-consent {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-radius: 1rem;
+    background: var(--une-mint);
+    padding: 1rem;
+}
+
+.une-consent input {
+    margin-top: 0.25rem;
+    accent-color: var(--une-green);
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
+.une-consent label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.une-consent a {
+    color: var(--une-blue);
+    font-weight: 700;
+}
+
+.field-error,
+.une-group-error {
+    display: none;
+    margin-top: 0.35rem;
+    color: #9b1c1c;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.field-error[style*="block"],
+.une-group-error.is-visible {
+    display: block;
+}
+
+.une-note {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-radius: 1.25rem;
+    background: #fff8e8;
+    border: 1px solid rgba(146, 100, 14, 0.25);
+    padding: 1rem 1.1rem;
+    color: #5c4310;
+}
+
+.une-note .material-symbols-outlined {
+    flex-shrink: 0;
+}
+
+.une-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: calc(var(--une-nav-height) + 1rem);
+}
+
+.une-receipt {
+    border-radius: 1.5rem;
+    background: var(--une-blue);
+    color: #ffffff;
+    padding: 1.25rem;
+}
+
+.une-receipt p {
+    margin: 0;
+}
+
+.une-receipt__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #b7e0b4;
+}
+
+.une-receipt__subject {
+    margin-top: 0.65rem;
+    font-family: "Montserrat", "Lato", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.une-status {
+    display: none;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.une-status.is-visible {
+    display: flex;
+}
+
+.une-status--success {
+    background: var(--une-mint);
+    color: #0d3d16;
+}
+
+.une-status--info {
+    background: #e8f1fb;
+    color: var(--une-blue);
+}
+
+.une-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* --- Cierre del micrositio (el sitio principal aporta el footer) --- */
+.une-close {
+    background: var(--une-blue-deep);
+    color: rgba(255, 255, 255, 0.82);
+    padding: 2.5rem 0;
+}
+
+.une-close a {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.une-close__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.une-close__credit {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.une-page :focus-visible {
+    outline: 2px solid var(--une-green-bright);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .une-page *,
+    .une-page *::before,
+    .une-page *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .une-btn:hover {
+        transform: none;
+    }
+}

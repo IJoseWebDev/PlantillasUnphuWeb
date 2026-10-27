@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ficha de vacante de la UNPHU. Dirección de Gestión Humana." />
+    <meta name="theme-color" content="#0A3859" />
+    <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>Vacante | Únete a UNPHU</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
+    <script id="tailwind-config" src="../../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/micrositio-unete-unphu.css" />
+    <link rel="stylesheet" href="../../assets/css/unete-unphu.css" />
+</head>
+<body class="une-page font-body-md antialiased" data-page="vacante">
+
+<a class="une-skip" href="#contenido">Saltar al contenido</a>
+
+<header class="une-nav" data-une-nav>
+    <div class="une-wrap une-nav__bar">
+        <a class="une-nav__brand" href="index.html">
+            <img src="../../assets/images/favicon.svg" alt="" width="36" height="36" />
+            <span>
+                <span class="une-nav__kicker">Gestión Humana</span>
+                <span class="une-nav__name">Únete a UNPHU</span>
+            </span>
+        </a>
+        <button class="une-nav__toggle" type="button" data-une-toggle aria-expanded="false" aria-controls="une-menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+            Menú
+        </button>
+        <nav id="une-menu" class="une-nav__menu" aria-label="Micrositio">
+            <a href="index.html">Inicio</a>
+            <a href="vacantes.html" aria-current="page">Vacantes</a>
+            <a href="banco-de-talento.html">Banco de talento</a>
+            <a href="index.html#como-postularte">Cómo postularte</a>
+            <a href="privacidad.html">Privacidad</a>
+        </nav>
+    </div>
+</header>
+
+<main id="contenido">
+    <section class="une-page-hero">
+        <img src="../../assets/images/bienestar-estudiantil-img/web/aula.jpg" alt="Aula de la UNPHU" />
+        <div class="une-page-hero__shade"></div>
+        <div class="une-wrap une-page-hero__inner">
+            <a class="une-back" href="vacantes.html"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> Vacantes</a>
+            <h1 data-une-vacante-title>Ficha del puesto</h1>
+        </div>
+    </section>
+
+    <section class="une-section">
+        <div class="une-wrap une-detail" data-une-vacante-detail>
+            <p class="une-empty">Cargando la vacante…</p>
+        </div>
+    </section>
+</main>
+
+<script src="../../config.js"></script>
+<script src="../../assets/js/utils.js"></script>
+<script src="../../assets/js/animations.js"></script>
+<script src="../../assets/js/forms.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/unete-unphu-content.js"></script>
+<script src="../../assets/js/micrositio-unete-unphu.js"></script>
+<script src="../../assets/js/landing-unete-unphu.js"></script>
+</body>
+</html>
