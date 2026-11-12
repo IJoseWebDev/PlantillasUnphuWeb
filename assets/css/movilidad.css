@@ -5,6 +5,11 @@
    y de los tokens de tailwind-config.js
    ======================================== */
 
+/* Sin navbar fijo: los anclas no reservan la altura de la barra. */
+.intl-page section[id] {
+    scroll-margin-top: 1rem;
+}
+
 /* --- Ritmo vertical de las secciones --- */
 .mov-section {
     padding-top: 4.5rem;
